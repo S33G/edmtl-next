@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Important pages
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://edmtl.ca/sitemap.xml
+
+# Block potential sensitive areas
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /private/

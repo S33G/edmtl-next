@@ -1,0 +1,185 @@
+{
+  "siteTitle": "EDMTL - Entretien Domestique Montreal",
+  "defaultLocale": "en",
+  "supportedLocales": ["en", "fr"],
+  "contact": {
+    "email": "info@edmtl.com",
+    "phone": "438-500-3099",
+    "googleMapsUrl": "PLACEHOLDER_FOR_GOOGLE_MAPS_URL",
+    "googlePlaceId": "PLACEHOLDER_FOR_PLACE_ID"
+  },
+  "theme": {
+    "primary": "#007AFF",
+    "primaryDark": "#005BB5",
+    "primaryLight": "#4DA3FF",
+    "background": "#F8F9FA",
+    "backgroundSecondary": "#FFFFFF",
+    "backgroundDark": "#1C1C1E",
+    "text": "#1D1D1F",
+    "textMuted": "#6E6E73",
+    "textLight": "#86868B",
+    "border": "#E5E5E7",
+    "accent": "#FFB800"
+  },
+  "google": {
+    "mapsApiKey": "PLACEHOLDER_FOR_GOOGLE_MAPS_API_KEY",
+    "placeId": "PLACEHOLDER_FOR_PLACE_ID",
+    "reviewsEnabled": true,
+    "maxReviews": 5
+  },
+  "hero": {
+    "en": {
+      "title": "ENTRETIEN DOMESTIQUE MONTREAL",
+      "description": "Entretien Domestique Montreal is a maintenance service company owned and operated by individuals with professional knowledge and skills. With over 10 years of combined experience, we are proud to be able to offer a range of services executed to a high standard."
+    },
+    "fr": {
+      "title": "ENTRETIEN DOMESTIQUE MONTRÉAL",
+      "description": "Entretien Domestique Montréal est une entreprise de services d'entretien gérée par des professionnels avec des connaissances et compétences professionnelles. Avec plus de 10 ans d'expérience combinée, nous sommes fiers de pouvoir offrir une gamme de services exécutés selon des normes élevées."
+    }
+  },
+  "faq": {
+    "en": {
+      "title": "FREQUENT QUESTIONS",
+      "items": [
+        {
+          "question": "ARE QUOTES FREE?",
+          "answer": "Yes, 100% free and they come with no obligation to book a service."
+        },
+        {
+          "question": "ARE THERE ANY OTHER SERVICES EDM PROVIDES?",
+          "answer": "We very regularly perform miscellaneous tasks and attend to hard to reach spaces. Elevated light bulb replacement, crawl spaces, roof debris clearance, overhanging branches for example. Please by all means just ask."
+        },
+        {
+          "question": "WHAT AREAS DO YOU COVER?",
+          "answer": "Montreal and a radius including Saint Lazare, Laval, North/South Shore, Vaudreuil-Dorion. We are prepared to travel further at a quoted rate."
+        },
+        {
+          "question": "WHAT PAYMENT METHODS DO YOU ACCEPT?",
+          "answer": "We are able to process payments by major credit card and e-transfer."
+        },
+        {
+          "question": "DO YOU HAVE INSURANCE?",
+          "answer": "Both your home and all of our staff are insured during our time on your property. All EDM associated personnel are professionally trained."
+        }
+      ]
+    },
+    "fr": {
+      "title": "QUESTIONS FRÉQUENTES",
+      "items": [
+        {
+          "question": "LES DEVIS SONT-ILS GRATUITS?",
+          "answer": "Oui, 100% gratuits et sans obligation de réserver un service."
+        },
+        {
+          "question": "Y A-T-IL D'AUTRES SERVICES OFFERTS PAR EDM?",
+          "answer": "Nous effectuons régulièrement des tâches diverses et intervenons dans des espaces difficiles d'accès. Remplacement d'ampoules en hauteur, espaces confinés, nettoyage de débris sur le toit, branches en surplomb par exemple. N'hésitez pas à demander."
+        },
+        {
+          "question": "QUELLES ZONES COUVREZ-VOUS?",
+          "answer": "Montréal et un rayon incluant Saint-Lazare, Laval, Rive-Nord/Sud, Vaudreuil-Dorion. Nous sommes préparés à voyager plus loin selon un tarif établi."
+        },
+        {
+          "question": "QUELS MODES DE PAIEMENT ACCEPTEZ-VOUS?",
+          "answer": "Nous pouvons traiter les paiements par carte de crédit majeure et virement Interac."
+        },
+        {
+          "question": "AVEZ-VOUS UNE ASSURANCE?",
+          "answer": "Votre domicile et tout notre personnel sont assurés pendant notre temps sur votre propriété. Tout le personnel associé à EDM est formé professionnellement."
+        }
+      ]
+    }
+  },
+  "services": {
+    "en": [
+      {
+        "name": "Window Cleaning",
+        "image": "/images/window-cleaning.jpg"
+      },
+      {
+        "name": "Gutter Services",
+        "image": "/images/gutter-cleaning-before-1.jpg"
+      },
+      {
+        "name": "Pressure Washing",
+        "image": "/images/moss-removal-after.jpg"
+      },
+      {
+        "name": "Deck Refinishing",
+        "image": "/images/deck-refinishing.jpg"
+      },
+      {
+        "name": "Gutter Guard Installation",
+        "image": "/images/gutter-guard-installation-1.jpg"
+      }
+    ],
+    "fr": [
+      {
+        "name": "Nettoyage de vitres",
+        "image": "/images/window-cleaning.jpg"
+      },
+      {
+        "name": "Services de gouttières",
+        "image": "/images/gutter-cleaning-before-1.jpg"
+      },
+      {
+        "name": "Lavage à pression",
+        "image": "/images/moss-removal-after.jpg"
+      },
+      {
+        "name": "Rénovation de terrasses",
+        "image": "/images/deck-refinishing.jpg"
+      },
+      {
+        "name": "Installation de protège-gouttières",
+        "image": "/images/gutter-guard-installation-1.jpg"
+      }
+    ]
+  },
+  "features": {
+    "en": [
+      {
+        "icon": "⭐",
+        "title": "5 STARS ON GOOGLE REVIEWS",
+        "value": "5"
+      },
+      {
+        "icon": "🤝",
+        "title": "EXPERIENCED PROFESSIONALS",
+        "value": "EXPERIENCED PROFESSIONALS"
+      },
+      {
+        "icon": "✓",
+        "title": "100% SATISFACTION GUARANTEE",
+        "value": "100% SATISFACTION GUARANTEE"
+      },
+      {
+        "icon": "$",
+        "title": "$2 MILLION LIABILITY INSURANCE",
+        "value": "$2 MILLION LIABILITY INSURANCE"
+      }
+    ],
+    "fr": [
+      {
+        "icon": "⭐",
+        "title": "5 ÉTOILES SUR GOOGLE",
+        "value": "5"
+      },
+      {
+        "icon": "🤝",
+        "title": "PROFESSIONNELS EXPÉRIMENTÉS",
+        "value": "PROFESSIONNELS EXPÉRIMENTÉS"
+      },
+      {
+        "icon": "✓",
+        "title": "GARANTIE SATISFACTION 100%",
+        "value": "GARANTIE SATISFACTION 100%"
+      },
+      {
+        "icon": "$",
+        "title": "ASSURANCE RESPONSABILITÉ 2M$",
+        "value": "ASSURANCE RESPONSABILITÉ 2M$"
+      }
+    ]
+  },
+  "copyright": "© COPYRIGHT ENTRETIEN DOMESTIQUE MONTREAL 2025"
+}
