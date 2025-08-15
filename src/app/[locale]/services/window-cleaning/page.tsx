@@ -199,15 +199,15 @@ export default function WindowCleaningPage({ params }: { params: { locale: strin
 
   return (
     <>
-      <SEOHead 
-        metadata={metadata} 
-        locale={locale} 
-        structuredData={structuredData} 
+      <SEOHead
+        metadata={metadata}
+        locale={locale}
+        structuredData={structuredData}
       />
       <div className="min-h-screen hex-pattern bg-[var(--background)] text-[var(--foreground)] transition-colors duration-300">
-        <ServiceHeader 
-          locale={currentLocale} 
-          onLocaleChange={handleLocaleChange} 
+        <ServiceHeader
+          locale={currentLocale}
+          onLocaleChange={handleLocaleChange}
         />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

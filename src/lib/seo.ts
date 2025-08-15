@@ -198,6 +198,6 @@ export function getServiceMetadata(service: string, locale: string): ServiceMeta
   if (!serviceData) {
     throw new Error(`Service metadata not found for: ${service}`);
   }
-  
+
   return serviceData[locale as keyof typeof serviceData] || serviceData.en;
 }

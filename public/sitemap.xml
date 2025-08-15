@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
+
   <!-- Home Pages -->
   <url>
     <loc>https://edmtl.ca/</loc>
@@ -10,7 +10,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://edmtl.ca/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://edmtl.ca/fr" />
   </url>
-  
+
   <url>
     <loc>https://edmtl.ca/fr</loc>
     <lastmod>2025-08-15T00:00:00+00:00</lastmod>

@@ -90,7 +90,7 @@ export default function HamburgerMenu({ currentLocale = 'en' }: { currentLocale?
               </button>
 
               <button
-                onClick={() => navigateTo(currentLocale === 'en' ? '/menu' : `/${currentLocale}/menu`)}
+                onClick={() => navigateTo(currentLocale === 'en' ? '/#services' : `/${currentLocale}#services`)}
                 className="w-full text-left text-white hover:text-yellow-400 py-3 px-4 rounded transition-colors border-b border-gray-600 flex items-center space-x-3"
               >
                 <HiWrenchScrewdriver className="w-5 h-5" />

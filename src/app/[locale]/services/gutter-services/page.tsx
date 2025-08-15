@@ -117,15 +117,15 @@ export default function GutterServicesPage({ params }: { params: { locale: strin
 
   return (
     <>
-      <SEOHead 
-        metadata={metadata} 
-        locale={locale} 
-        structuredData={structuredData} 
+      <SEOHead
+        metadata={metadata}
+        locale={locale}
+        structuredData={structuredData}
       />
       <div className="min-h-screen hex-pattern bg-[var(--background)] text-[var(--foreground)] transition-colors duration-300">
-        <ServiceHeader 
-          locale={currentLocale} 
-          onLocaleChange={handleLocaleChange} 
+        <ServiceHeader
+          locale={currentLocale}
+          onLocaleChange={handleLocaleChange}
         />
 
         <main>

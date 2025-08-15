@@ -93,7 +93,7 @@ export default function LocalizedContent() {
           </section>
 
           {/* Services Section */}
-          <section className="py-20">
+          <section id="services" className="py-20">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-semibold text-[var(--foreground)] dark:text-white mb-4 tracking-tight">
                 {currentLocale === 'fr' ? 'Nos Services' : 'Our Services'}

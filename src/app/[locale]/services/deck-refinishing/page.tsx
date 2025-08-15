@@ -71,15 +71,15 @@ export default function DeckRefinishingPage({ params }: { params: { locale: stri
 
   return (
     <>
-      <SEOHead 
-        metadata={metadata} 
-        locale={locale} 
-        structuredData={structuredData} 
+      <SEOHead
+        metadata={metadata}
+        locale={locale}
+        structuredData={structuredData}
       />
       <div className="min-h-screen hex-pattern bg-[var(--background)] text-[var(--foreground)] transition-colors duration-300">
-        <ServiceHeader 
-          locale={currentLocale} 
-          onLocaleChange={handleLocaleChange} 
+        <ServiceHeader
+          locale={currentLocale}
+          onLocaleChange={handleLocaleChange}
         />
 
         <main>
@@ -104,19 +104,19 @@ export default function DeckRefinishingPage({ params }: { params: { locale: stri
                 {locale === 'fr' ? 'Prêt pour une Terrasse Rénovée?' : 'Ready for a Restored Deck?'}
               </h2>
               <p className="text-blue-100 dark:text-blue-200 mb-6 max-w-2xl mx-auto">
-                {locale === 'fr' 
+                {locale === 'fr'
                   ? 'Obtenez un devis gratuit pour la rénovation de votre terrasse.'
                   : 'Get a free quote for deck refinishing services.'
                 }
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link 
+                <Link
                   href={`${homeUrl}#contact`}
                   className="bg-white text-[var(--primary)] hover:bg-gray-50 dark:hover:bg-gray-100 px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
                 >
                   {locale === 'fr' ? 'Devis Gratuit' : 'Get Free Quote'}
                 </Link>
-                <a 
+                <a
                   href="tel:438-500-3099"
                   className="bg-blue-800 text-white hover:bg-blue-900 dark:bg-blue-700 dark:hover:bg-blue-800 px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
                 >

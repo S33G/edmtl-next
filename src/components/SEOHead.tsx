@@ -47,7 +47,7 @@ export default function SEOHead({ metadata, locale, structuredData }: SEOHeadPro
       <meta name="keywords" content={metadata.keywords.join(', ')} />
       <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       <meta name="author" content="Entretien Domestique Montreal" />
-      
+
       {/* Open Graph */}
       <meta property="og:type" content="website" />
       <meta property="og:title" content={metadata.title} />
@@ -58,27 +58,27 @@ export default function SEOHead({ metadata, locale, structuredData }: SEOHeadPro
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:locale" content={locale === 'fr' ? 'fr_CA' : 'en_CA'} />
-      
+
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={metadata.title} />
       <meta name="twitter:description" content={metadata.description} />
       <meta name="twitter:image" content="/images/edm-main-logo.png" />
-      
+
       {/* Canonical URL */}
       <link rel="canonical" href={`https://edmtl.ca${metadata.canonical}`} />
-      
+
       {/* Alternate language links */}
       <link rel="alternate" hrefLang="en" href={`https://edmtl.ca${metadata.alternateUrls.en}`} />
       <link rel="alternate" hrefLang="fr" href={`https://edmtl.ca${metadata.alternateUrls.fr}`} />
       <link rel="alternate" hrefLang="x-default" href={`https://edmtl.ca${metadata.alternateUrls.en}`} />
-      
+
       {/* Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      
+
       {/* Additional SEO meta tags */}
       <meta name="theme-color" content="#2563eb" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
