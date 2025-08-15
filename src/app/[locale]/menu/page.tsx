@@ -1,19 +1,30 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import { HiHome, HiEnvelope, HiPhone } from 'react-icons/hi2';
 import LanguageSwitcher from '../../../components/LanguageSwitcher';
 import HamburgerMenu from '../../../components/HamburgerMenu';
 import siteConfig from '../../../../config/site.json';
-import type { FC } from 'react';
 
-interface PageProps {
-  params: {
-    locale: string;
-  };
-}
-
-const MenuPage: FC<PageProps> = ({ params }) => {
+export default function MenuPage({ params }: { params: { locale: string } }) {
+  const [mounted, setMounted] = useState(false);
+  const [currentLocale, setCurrentLocale] = useState(params.locale || 'en');
   const locale = params.locale || 'en';
   const servicesData = siteConfig.services[locale as keyof typeof siteConfig.services] || siteConfig.services.en;
   const isEnglish = locale === 'en';
+
+  useEffect(() => {
+    setMounted(true);
+    setCurrentLocale(locale);
+  }, [locale]);
+
+  if (!mounted) {
+    return (
+      <div className="min-h-screen hex-pattern flex items-center justify-center">
+        <div className="animate-pulse text-blue-400">Loading...</div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen hex-pattern">
@@ -25,13 +36,8 @@ const MenuPage: FC<PageProps> = ({ params }) => {
             <img
               src="/images/edm-main-logo.png"
               alt="EDM Logo"
-              className="w-28 h-28 mr-4"
+              className="w-32 h-32"
             />
-            <div>
-              <div className="text-yellow-400 text-sm font-bold">ENTRETIEN</div>
-              <div className="text-yellow-400 text-sm font-bold">DOMESTIQUE</div>
-              <div className="text-yellow-400 text-sm font-bold">MONTREAL</div>
-            </div>
           </div>
 
           {/* Contact Icons */}
@@ -120,6 +126,4 @@ const MenuPage: FC<PageProps> = ({ params }) => {
       </footer>
     </div>
   );
-};
-
-export default MenuPage;
+}

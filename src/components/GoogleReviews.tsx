@@ -104,7 +104,7 @@ export default function GoogleReviews() {
   if (error) {
     return (
       <div className="card text-center">
-        <h3 className="text-2xl font-semibold text-gray-900 mb-4">Google Reviews</h3>
+        <h3 className="text-2xl font-semibold text-[var(--foreground)] dark:text-white mb-4">Google Reviews</h3>
         <div className="flex justify-center items-center mb-4">
           <div className="flex items-center">
             <span className="text-3xl font-bold text-blue-600 mr-2">5.0</span>
@@ -115,7 +115,7 @@ export default function GoogleReviews() {
             </div>
           </div>
         </div>
-        <p className="text-gray-600 mb-6">
+        <p className="text-[var(--text-muted)] dark:text-gray-300 mb-6">
           Check out our excellent reviews on Google Maps!
         </p>
         <a
@@ -134,7 +134,7 @@ export default function GoogleReviews() {
   return (
     <div className="card">
       <div className="text-center mb-6">
-        <h3 className="text-2xl font-semibold text-gray-900 mb-4">Google Reviews</h3>
+        <h3 className="text-2xl font-semibold text-[var(--foreground)] dark:text-white mb-4">Google Reviews</h3>
         {placeData && (
           <div className="flex justify-center items-center mb-4">
             <div className="flex items-center">
@@ -151,7 +151,7 @@ export default function GoogleReviews() {
                   />
                 ))}
               </div>
-              <span className="text-gray-600">
+              <span className="text-[var(--text-muted)] dark:text-gray-400">
                 ({placeData.user_ratings_total} reviews)
               </span>
             </div>
@@ -170,24 +170,24 @@ export default function GoogleReviews() {
               />
               <div className="flex-1">
                 <div className="flex items-center justify-between mb-2">
-                  <h4 className="font-semibold text-gray-900">{review.author_name}</h4>
+                  <h4 className="font-semibold text-black dark:text-white">{review.author_name}</h4>
                   <div className="flex items-center">
                     <div className="flex mr-2">
                       {[1, 2, 3, 4, 5].map((star) => (
                         <HiStar
                           key={star}
                           className={`text-sm ${
-                            star <= review.rating ? 'text-yellow-400' : 'text-gray-300'
+                            star <= review.rating ? 'text-yellow-400' : 'text-gray-300 dark:text-gray-600'
                           }`}
                         />
                       ))}
                     </div>
-                    <span className="text-sm text-gray-500">
+                    <span className="text-sm text-gray-600 dark:text-gray-400">
                       {review.relative_time_description}
                     </span>
                   </div>
                 </div>
-                <p className="text-gray-700 text-sm">{review.text}</p>
+                <p className="text-gray-700 dark:text-gray-300 text-sm">{review.text}</p>
               </div>
             </div>
           </div>

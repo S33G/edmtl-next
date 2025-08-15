@@ -25,13 +25,8 @@ export default function ServiceHeader({ locale, onLocaleChange }: ServiceHeaderP
           <img
             src="/images/edm-main-logo.png"
             alt="EDM Logo"
-            className="w-20 h-20 mr-4"
+            className="w-32 h-32"
           />
-          <div>
-            <div className="text-blue-600 text-sm font-semibold tracking-wide">ENTRETIEN</div>
-            <div className="text-blue-600 text-sm font-semibold tracking-wide">DOMESTIQUE</div>
-            <div className="text-blue-600 text-sm font-semibold tracking-wide">MONTREAL</div>
-          </div>
         </Link>
 
         {/* Contact Icons */}

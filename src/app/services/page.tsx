@@ -66,7 +66,7 @@ export default function ServicesPage() {
   ];
 
   const metadata = {
-    title: currentLocale === 'fr' 
+    title: currentLocale === 'fr'
       ? 'Services d\'Entretien Domestique Montréal | Nettoyage Professionnel | EDM'
       : 'Montreal Home Maintenance Services | Professional Cleaning | EDM',
     description: currentLocale === 'fr'
@@ -115,15 +115,15 @@ export default function ServicesPage() {
 
   return (
     <>
-      <SEOHead 
-        metadata={metadata} 
-        locale={currentLocale} 
-        structuredData={structuredData} 
+      <SEOHead
+        metadata={metadata}
+        locale={currentLocale}
+        structuredData={structuredData}
       />
-      <div className="min-h-screen hex-pattern bg-[var(--background)] text-[var(--foreground)] transition-colors duration-300">
-        <ServiceHeader 
-          locale={currentLocale} 
-          onLocaleChange={handleLocaleChange} 
+      <div className="min-h-screen hex-pattern bg-gray-900 text-[var(--foreground)] transition-colors duration-300">
+        <ServiceHeader
+          locale={currentLocale}
+          onLocaleChange={handleLocaleChange}
         />
 
         <main>
@@ -137,8 +137,8 @@ export default function ServicesPage() {
               <h1 className="text-4xl md:text-5xl font-bold text-yellow-400 dark:text-yellow-300 mb-6">
                 {currentLocale === 'fr' ? 'Nos Services d\'Entretien' : 'Our Home Maintenance Services'}
               </h1>
-              <p className="text-xl text-[var(--text-muted)] dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                {currentLocale === 'fr' 
+              <p className="text-xl text-gray-300 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                {currentLocale === 'fr'
                   ? 'Services professionnels d\'entretien domestique à Montréal et environs. Qualité garantie, équipe expérimentée, résultats exceptionnels.'
                   : 'Professional home maintenance services in Montreal and surrounding areas. Guaranteed quality, experienced team, exceptional results.'
                 }
@@ -150,23 +150,23 @@ export default function ServicesPage() {
               {services.map((service, index) => {
                 const Icon = service.icon;
                 return (
-                  <Link 
+                  <Link
                     key={index}
-                    href={service.href} 
-                    className="bg-[var(--background-tertiary)] dark:bg-gray-800 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 border border-[var(--border-light)] dark:border-gray-700 group"
+                    href={service.href}
+                    className="bg-gray-800 dark:bg-gray-800 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 border border-gray-700 dark:border-gray-700 group"
                   >
                     <div className="flex items-start space-x-4">
                       <div className={`p-3 rounded-xl bg-${service.color}-100 dark:bg-${service.color}-900/30`}>
                         <Icon className={`w-8 h-8 text-${service.color}-600 dark:text-${service.color}-400`} />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-xl font-semibold text-[var(--foreground)] dark:text-white mb-2 group-hover:text-[var(--primary)] transition-colors">
+                        <h3 className="text-xl font-semibold text-white dark:text-white mb-2 group-hover:text-blue-400 transition-colors">
                           {currentLocale === 'fr' ? service.titleFr : service.title}
                         </h3>
-                        <p className="text-[var(--text-muted)] dark:text-gray-300 leading-relaxed">
+                        <p className="text-gray-300 dark:text-gray-300 leading-relaxed">
                           {currentLocale === 'fr' ? service.descriptionFr : service.description}
                         </p>
-                        <div className="mt-4 text-[var(--primary)] dark:text-blue-400 text-sm font-medium group-hover:underline">
+                        <div className="mt-4 text-blue-400 dark:text-blue-400 text-sm font-medium group-hover:underline">
                           {currentLocale === 'fr' ? 'En savoir plus →' : 'Learn more →'}
                         </div>
                       </div>
@@ -190,7 +190,7 @@ export default function ServicesPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/#contact"
-                  className="bg-white text-[var(--primary)] hover:bg-gray-50 dark:hover:bg-gray-100 px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
+                  className="bg-gray-800 text-white hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600 px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
                 >
                   {currentLocale === 'fr' ? 'Devis Gratuit' : 'Get Free Quote'}
                 </Link>

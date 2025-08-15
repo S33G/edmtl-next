@@ -16,13 +16,8 @@ export default function GalleryPage() {
             <img
               src="/images/edm-main-logo.png"
               alt="EDM Logo"
-              className="w-28 h-28 mr-4"
+              className="w-32 h-32"
             />
-            <div>
-              <div className="text-yellow-400 text-sm font-bold">ENTRETIEN</div>
-              <div className="text-yellow-400 text-sm font-bold">DOMESTIQUE</div>
-              <div className="text-yellow-400 text-sm font-bold">MONTREAL</div>
-            </div>
           </div>
 
           {/* Contact Icons */}

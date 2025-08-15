@@ -72,11 +72,8 @@ export default function HamburgerMenu({ currentLocale = 'en' }: { currentLocale?
               <img
                 src="/images/edm-main-logo.png"
                 alt="EDM Logo"
-                className="w-16 h-16 mx-auto mb-4"
+                className="w-24 h-24 mx-auto"
               />
-              <div className="text-yellow-400 text-sm font-bold">
-                ENTRETIEN DOMESTIQUE MONTREAL
-              </div>
             </div>
 
             {/* Navigation Links */}

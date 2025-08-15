@@ -122,7 +122,7 @@ export default function GutterServicesPage({ params }: { params: { locale: strin
         locale={locale}
         structuredData={structuredData}
       />
-      <div className="min-h-screen hex-pattern bg-[var(--background)] text-[var(--foreground)] transition-colors duration-300">
+      <div className="min-h-screen hex-pattern bg-gray-900 text-[var(--foreground)] transition-colors duration-300">
         <ServiceHeader
           locale={currentLocale}
           onLocaleChange={handleLocaleChange}
@@ -136,10 +136,10 @@ export default function GutterServicesPage({ params }: { params: { locale: strin
             <HiHomeModern className="w-4 h-4" />
             <span>Professional Gutter Services</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-[var(--foreground)] dark:text-white mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-white dark:text-white mb-6">
             {t.title}
           </h1>
-          <p className="text-xl text-[var(--text-muted)] dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-300 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
             {t.description}
           </p>
         </div>
@@ -149,12 +149,12 @@ export default function GutterServicesPage({ params }: { params: { locale: strin
           {t.services.map((service, index) => {
             const IconComponent = service.icon;
             return (
-              <div key={index} className="bg-[var(--background-tertiary)] dark:bg-gray-800 rounded-2xl shadow-sm border border-[var(--border-light)] dark:border-gray-700 p-6 hover:shadow-lg transition-all duration-300">
+              <div key={index} className="bg-gray-800 dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-700 dark:border-gray-700 p-6 hover:shadow-lg transition-all duration-300">
                 <div className="w-12 h-12 bg-[var(--primary)]/10 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mb-4">
                   <IconComponent className="w-6 h-6 text-[var(--primary)] dark:text-blue-400" />
                 </div>
-                <h3 className="text-lg font-semibold text-[var(--foreground)] dark:text-white mb-3">{service.title}</h3>
-                <p className="text-[var(--text-muted)] dark:text-gray-300 text-sm">
+                <h3 className="text-lg font-semibold text-white dark:text-white mb-3">{service.title}</h3>
+                <p className="text-gray-300 dark:text-gray-300 text-sm leading-relaxed">
                   {service.description}
                 </p>
               </div>
@@ -174,10 +174,10 @@ export default function GutterServicesPage({ params }: { params: { locale: strin
             }
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href={`${homeUrl}#contact`}
-              className="bg-white text-[var(--primary)] hover:bg-gray-50 dark:hover:bg-gray-100 px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
-            >
+                          <Link
+                href={homeUrl}
+                className="bg-gray-800 text-white hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600 px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
+              >
               {locale === 'fr' ? 'Devis Gratuit' : 'Get Free Quote'}
             </Link>
             <a

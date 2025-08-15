@@ -76,7 +76,7 @@ export default function PressureWashingPage({ params }: { params: { locale: stri
         locale={locale}
         structuredData={structuredData}
       />
-      <div className="min-h-screen hex-pattern bg-[var(--background)] text-[var(--foreground)] transition-colors duration-300">
+      <div className="min-h-screen hex-pattern bg-gray-900 text-[var(--foreground)] transition-colors duration-300">
         <ServiceHeader
           locale={currentLocale}
           onLocaleChange={handleLocaleChange}
@@ -93,7 +93,7 @@ export default function PressureWashingPage({ params }: { params: { locale: stri
               <h1 className="text-4xl md:text-5xl font-bold text-yellow-400 dark:text-yellow-300 mb-6">
                 {t.title}
               </h1>
-              <p className="text-xl text-[var(--text-muted)] dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl text-gray-300 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
                 {t.description}
               </p>
             </div>
@@ -110,10 +110,10 @@ export default function PressureWashingPage({ params }: { params: { locale: stri
                 }
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href={`${homeUrl}#contact`}
-                  className="bg-white text-[var(--primary)] hover:bg-gray-50 dark:hover:bg-gray-100 px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
-                >
+                                  <Link
+                    href={homeUrl}
+                    className="bg-gray-800 text-white hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600 px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
+                  >
                   {locale === 'fr' ? 'Devis Gratuit' : 'Get Free Quote'}
                 </Link>
                 <a

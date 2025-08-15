@@ -44,13 +44,8 @@ export default function LocalizedContent() {
             <img
               src="/images/edm-main-logo.png"
               alt="EDM Logo"
-              className="w-20 h-20 mr-4"
+              className="w-32 h-32"
             />
-            <div>
-              <div className="text-blue-600 text-sm font-semibold tracking-wide">ENTRETIEN</div>
-              <div className="text-blue-600 text-sm font-semibold tracking-wide">DOMESTIQUE</div>
-              <div className="text-blue-600 text-sm font-semibold tracking-wide">MONTREAL</div>
-            </div>
           </div>
 
           {/* Contact Icons */}
@@ -190,10 +185,10 @@ export default function LocalizedContent() {
           </section>
 
           {/* Reviews Section */}
-          <section className="py-20 bg-gray-50 rounded-3xl mx-4">
+          <section className="py-20 bg-gray-900 dark:bg-gray-800 rounded-3xl mx-4">
             <div className="max-w-6xl mx-auto px-6">
               <div className="text-center mb-12">
-                <h2 className="text-4xl font-semibold text-gray-900 mb-4 tracking-tight">
+                <h2 className="text-4xl font-semibold text-white dark:text-gray-100 mb-4 tracking-tight">
                   {currentLocale === 'fr' ? 'Avis Clients' : 'Customer Reviews'}
                 </h2>
               </div>
