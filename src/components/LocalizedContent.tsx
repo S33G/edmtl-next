@@ -1,13 +1,14 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import LanguageSwitcher from './LanguageSwitcher';
 import HamburgerMenu from './HamburgerMenu';
 import ThemeToggle from './ThemeToggle';
 import GoogleReviews from './GoogleReviews';
 import GoogleMapEmbed from './GoogleMapEmbed';
-import { HiStar, HiUserGroup, HiShieldCheck, HiCurrencyDollar } from 'react-icons/hi2';
+import { HiUserGroup, HiShieldCheck, HiCurrencyDollar } from 'react-icons/hi2';
 import siteConfig from '../../config/site.json';
 
 export default function LocalizedContent() {
@@ -41,9 +42,11 @@ export default function LocalizedContent() {
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center">
-            <img
+            <Image
               src="/images/edm-main-logo.png"
               alt="EDM Logo"
+              width={128}
+              height={128}
               className="w-32 h-32"
             />
           </div>

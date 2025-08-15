@@ -1,9 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
-import { HiArrowLeft, HiCheckCircle, HiPaintBrush, HiSparkles, HiBeaker, HiWrenchScrewdriver } from 'react-icons/hi2';
+import { HiArrowLeft, HiCheckCircle, HiPaintBrush, HiBeaker, HiWrenchScrewdriver } from 'react-icons/hi2';
 
 export default function DeckRefinishingPage() {
   const [mounted, setMounted] = useState(false);
@@ -211,7 +210,7 @@ export default function DeckRefinishingPage() {
                 <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
                   <h3 className="font-semibold text-blue-900 mb-4">Key Advantages:</h3>
                   <ul className="space-y-2 text-sm text-[var(--primary)] dark:text-blue-400">
-                    <li>• Only option that doesn't change wood color</li>
+                    <li>• Only option that doesn&apos;t change wood color</li>
                     <li>• Requires only one coat application</li>
                     <li>• Faster application than stain</li>
                     <li>• Maintains natural wood grain visibility</li>
@@ -273,7 +272,7 @@ export default function DeckRefinishingPage() {
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
                   <p className="text-gray-300 dark:text-gray-300 mb-6">
-                    Whether it's to protect the wood from rotting, revitalize faded color, or just looking for a change -
+                    Whether it&apos;s to protect the wood from rotting, revitalize faded color, or just looking for a change -
                     refinishing a deck with stain or timber oil is key to a fresh, vibrant living space. At EDM, we work
                     closely with our clients to help find the ideal method and products for every project.
                   </p>
@@ -356,7 +355,7 @@ export default function DeckRefinishingPage() {
         <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-8 text-center text-white">
           <h2 className="text-2xl font-bold mb-4">Ready to Restore Your Deck?</h2>
           <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-            Don't replace when you can restore! Get a free assessment and quote for professional deck refinishing services.
+            Don&apos;t replace when you can restore! Get a free assessment and quote for professional deck refinishing services.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

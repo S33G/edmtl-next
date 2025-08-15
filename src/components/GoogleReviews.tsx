@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { HiStar, HiMapPin } from 'react-icons/hi2';
 import siteConfig from '../../config/site.json';
 
@@ -47,21 +48,36 @@ export default function GoogleReviews() {
           fields: ['name', 'rating', 'user_ratings_total', 'reviews']
         };
 
-        service.getDetails(request, (place: any, status: any) => {
+        service.getDetails(request, (place: unknown, status: unknown) => {
           setLoading(false);
           if (status === window.google.maps.places.PlacesServiceStatus.OK && place) {
+            const placeResult = place as { 
+              name?: string;
+              rating?: number;
+              user_ratings_total?: number;
+              reviews?: Array<{
+                author_name: string;
+                author_url?: string;
+                language: string;
+                rating: number;
+                text: string;
+                time: number;
+                relative_time_description: string;
+                profile_photo_url: string;
+              }>;
+            };
             setPlaceData({
-              name: place.name || '',
-              rating: place.rating || 0,
-              user_ratings_total: place.user_ratings_total || 0,
-              reviews: place.reviews || []
+              name: placeResult.name || '',
+              rating: placeResult.rating || 0,
+              user_ratings_total: placeResult.user_ratings_total || 0,
+              reviews: placeResult.reviews || []
             });
-            setReviews(place.reviews?.slice(0, siteConfig.google.maxReviews) || []);
+            setReviews(placeResult.reviews?.slice(0, siteConfig.google.maxReviews) || []);
           } else {
             setError(`Failed to fetch reviews: ${status}`);
           }
         });
-      } catch (err) {
+      } catch {
         setError('Error loading Google Reviews');
         setLoading(false);
       }
@@ -163,9 +179,11 @@ export default function GoogleReviews() {
         {reviews.map((review, index) => (
           <div key={index} className="bg-gray-50 rounded-2xl p-4 border border-gray-100">
             <div className="flex items-start space-x-3">
-              <img
+              <Image
                 src={review.profile_photo_url}
                 alt={review.author_name}
+                width={40}
+                height={40}
                 className="w-10 h-10 rounded-full"
               />
               <div className="flex-1">
@@ -212,6 +230,17 @@ export default function GoogleReviews() {
 // Extend the Window interface to include google
 declare global {
   interface Window {
-    google: any;
+    google: {
+      maps: {
+        places: {
+          PlacesService: new (map: HTMLElement) => {
+            getDetails: (request: unknown, callback: (place: unknown, status: unknown) => void) => void;
+          };
+          PlacesServiceStatus: {
+            OK: unknown;
+          };
+        };
+      };
+    };
   }
 }

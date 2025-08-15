@@ -1,6 +1,8 @@
 'use client';
 
+import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import LanguageSwitcher from './LanguageSwitcher';
 import HamburgerMenu from './HamburgerMenu';
 import ThemeToggle from './ThemeToggle';
@@ -22,9 +24,11 @@ export default function ServiceHeader({ locale, onLocaleChange }: ServiceHeaderP
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
         <Link href={locale === 'en' ? '/' : `/${locale}`} className="flex items-center">
-          <img
+          <Image
             src="/images/edm-main-logo.png"
             alt="EDM Logo"
+            width={128}
+            height={128}
             className="w-32 h-32"
           />
         </Link>

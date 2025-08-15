@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { HiHome, HiEnvelope, HiPhone } from 'react-icons/hi2';
 import LanguageSwitcher from '../../../components/LanguageSwitcher';
 import HamburgerMenu from '../../../components/HamburgerMenu';
@@ -8,14 +9,12 @@ import siteConfig from '../../../../config/site.json';
 
 export default function MenuPage({ params }: { params: { locale: string } }) {
   const [mounted, setMounted] = useState(false);
-  const [currentLocale, setCurrentLocale] = useState(params.locale || 'en');
   const locale = params.locale || 'en';
   const servicesData = siteConfig.services[locale as keyof typeof siteConfig.services] || siteConfig.services.en;
   const isEnglish = locale === 'en';
 
   useEffect(() => {
     setMounted(true);
-    setCurrentLocale(locale);
   }, [locale]);
 
   if (!mounted) {
@@ -33,9 +32,11 @@ export default function MenuPage({ params }: { params: { locale: string } }) {
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center">
-            <img
+            <Image
               src="/images/edm-main-logo.png"
               alt="EDM Logo"
+              width={128}
+              height={128}
               className="w-32 h-32"
             />
           </div>
@@ -69,9 +70,11 @@ export default function MenuPage({ params }: { params: { locale: string } }) {
         <div className="services-grid">
           {servicesData.map((service, index) => (
             <div key={index} className="service-card group">
-              <img
+              <Image
                 src={service.image || `/api/placeholder/400/300?text=${service.name}`}
                 alt={service.name}
+                width={400}
+                height={300}
                 className="w-full h-full object-cover"
               />
               <div className="service-overlay">

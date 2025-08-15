@@ -59,7 +59,6 @@ export default function GoogleMapEmbed({
       }
 
       // Extract place ID or coordinates from various Google Maps URL formats
-      let embedUrl = 'https://www.google.com/maps/embed?pb=';
 
       // Try to extract place ID
       const placeIdMatch = mapsUrl.match(/place_id:([^&\s]+)/);
@@ -82,7 +81,7 @@ export default function GoogleMapEmbed({
 
       // Fallback: search for EDMTL
       return `https://www.google.com/maps/embed/v1/search?key=${siteConfig.google.mapsApiKey}&q=EDMTL+Montreal`;
-    } catch (error) {
+    } catch {
       // Fallback embed URL
       return `https://www.google.com/maps/embed/v1/search?key=${siteConfig.google.mapsApiKey}&q=EDMTL+Montreal`;
     }

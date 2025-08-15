@@ -102,7 +102,7 @@ export default function ServicesPage() {
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": currentLocale === 'fr' ? 'Catalogue de Services' : 'Service Catalog',
-      "itemListElement": services.map((service, index) => ({
+      "itemListElement": services.map((service) => ({
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",

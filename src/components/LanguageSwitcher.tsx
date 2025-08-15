@@ -1,7 +1,7 @@
 'use client';
 
-import { useRouter, usePathname } from 'next/navigation';
-import { HiGlobeAlt, HiOutlineGlobeAlt } from 'react-icons/hi2';
+import { useRouter } from 'next/navigation';
+import { HiOutlineGlobeAlt } from 'react-icons/hi2';
 import siteConfig from '../../config/site.json';
 
 interface LanguageSwitcherProps {
@@ -11,7 +11,6 @@ interface LanguageSwitcherProps {
 
 export default function LanguageSwitcher({ currentLocale = 'en', onLocaleChange }: LanguageSwitcherProps) {
   const router = useRouter();
-  const pathname = usePathname();
 
   const handleLanguageChange = (locale: string) => {
     if (onLocaleChange) {

@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { HiArrowLeft, HiCheckCircle, HiBeaker, HiCog6Tooth, HiSparkles } from 'react-icons/hi2';
 

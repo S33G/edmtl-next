@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { HiArrowLeft, HiCheckCircle, HiWrenchScrewdriver, HiHomeModern, HiShieldCheck } from 'react-icons/hi2';
 
@@ -52,7 +51,7 @@ export default function GutterServicesPage() {
           </h1>
           <p className="text-xl text-gray-300 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Protect your home with professional gutter cleaning, maintenance, and installation services.
-            Prevent water damage and maintain your property's integrity year-round.
+            Prevent water damage and maintain your property&apos;s integrity year-round.
           </p>
         </div>
 
@@ -184,7 +183,7 @@ export default function GutterServicesPage() {
                 <div className="bg-gray-50 rounded-xl p-6">
                   <h3 className="font-semibold text-black dark:text-white mb-4">Benefits of Exterior Cleaning</h3>
                   <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                    <li>• Maintains home's appearance and value</li>
+                    <li>• Maintains home&apos;s appearance and value</li>
                     <li>• Prevents costly replacement due to staining</li>
                     <li>• Removes unsightly moss and algae</li>
                     <li>• Professional results that last longer</li>
@@ -203,7 +202,7 @@ export default function GutterServicesPage() {
                 <div>
                   <p className="text-gray-300 dark:text-gray-300 mb-6">
                     When gutter maintenance is ignored, debris can become impacted and create serious blockages.
-                    We're capable of removing downspouts, clearing impacted blockages, and reinstalling them.
+                    We&apos;re capable of removing downspouts, clearing impacted blockages, and reinstalling them.
                     However, regular maintenance is the only way to prevent this costly problem.
                   </p>
                   <ul className="space-y-3">
@@ -246,7 +245,7 @@ export default function GutterServicesPage() {
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
                   <p className="text-gray-300 dark:text-gray-300 mb-6">
-                    If you've considered installing gutter guards, contact us for a free assessment. Properties
+                    If you&apos;ve considered installing gutter guards, contact us for a free assessment. Properties
                     with lots of tree cover are prone to debris clogging, and proper gutter guards can dramatically
                     reduce maintenance frequency. We recommend EasyOn Gutter Guard® as the best solution for most homes.
                   </p>
@@ -288,7 +287,7 @@ export default function GutterServicesPage() {
         <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-8 text-center text-white">
           <h2 className="text-2xl font-bold mb-4">Protect Your Home with Professional Gutter Services</h2>
           <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-            Don't wait until water damage occurs. Get a free assessment and quote for our comprehensive gutter services.
+            Don&apos;t wait until water damage occurs. Get a free assessment and quote for our comprehensive gutter services.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

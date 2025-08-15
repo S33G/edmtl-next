@@ -1,6 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
 import {
   HiBars3,
@@ -8,8 +10,7 @@ import {
   HiHome,
   HiWrenchScrewdriver,
   HiPhoto,
-  HiPhone,
-  HiEnvelope
+  HiPhone
 } from 'react-icons/hi2';
 import siteConfig from '../../config/site.json';
 
@@ -69,9 +70,11 @@ export default function HamburgerMenu({ currentLocale = 'en' }: { currentLocale?
 
             {/* Logo */}
             <div className="text-center mb-8">
-              <img
+              <Image
                 src="/images/edm-main-logo.png"
                 alt="EDM Logo"
+                width={96}
+                height={96}
                 className="w-24 h-24 mx-auto"
               />
             </div>
