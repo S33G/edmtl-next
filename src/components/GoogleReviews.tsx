@@ -123,7 +123,7 @@ export default function GoogleReviews() {
         <h3 className="text-2xl font-semibold text-[var(--foreground)] dark:text-white mb-4">Google Reviews</h3>
         <div className="flex justify-center items-center mb-4">
           <div className="flex items-center">
-            <span className="text-3xl font-bold text-blue-600 mr-2">5.0</span>
+            <span className="text-3xl font-bold text-teal-600 mr-2">5.0</span>
             <div className="flex">
               {[1, 2, 3, 4, 5].map((star) => (
                 <HiStar key={star} className="w-5 h-5 text-yellow-400" />
@@ -154,7 +154,7 @@ export default function GoogleReviews() {
         {placeData && (
           <div className="flex justify-center items-center mb-4">
             <div className="flex items-center">
-              <span className="text-3xl font-bold text-blue-600 mr-2">
+              <span className="text-3xl font-bold text-teal-600 mr-2">
                 {placeData.rating.toFixed(1)}
               </span>
               <div className="flex mr-2">

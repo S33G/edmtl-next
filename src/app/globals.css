@@ -9,9 +9,9 @@
   --foreground-secondary: #34495E;
   --text-muted: #6B7280;
   --text-light: #95A5A6;
-  --primary: #3498DB;
-  --primary-dark: #2980B9;
-  --primary-light: #5DADE2;
+  --primary: #0D9488;
+  --primary-dark: #0F766E;
+  --primary-light: #14B8A6;
   --border: #E8EAED;
   --border-light: #F1F3F4;
   --accent: #F39C12;
@@ -35,9 +35,9 @@
   --foreground-secondary: #BDC3C7;
   --text-muted: #A0A9B8;
   --text-light: #95A5A6;
-  --primary: #5DADE2;
-  --primary-dark: #3498DB;
-  --primary-light: #85C1E9;
+  --primary: #14B8A6;
+  --primary-dark: #0D9488;
+  --primary-light: #2DD4BF;
   --border: #3C4043;
   --border-light: #495057;
   --accent: #F1C40F;
@@ -198,6 +198,10 @@ body {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card::before {
@@ -444,4 +448,18 @@ body {
 
 .service-card:hover .service-overlay {
   background: linear-gradient(transparent, rgba(0,0,0,0.9));
+}
+
+/* Hero logo breathing animation */
+@keyframes logo-breathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.logo-breathe {
+  animation: logo-breathe 10s ease-in-out infinite;
 }

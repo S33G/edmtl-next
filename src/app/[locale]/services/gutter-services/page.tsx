@@ -11,7 +11,8 @@ import ServiceHeader from '../../../../components/ServiceHeader';
 import SEOHead from '../../../../components/SEOHead';
 import { getServiceMetadata } from '../../../../lib/seo';
 
-export default function GutterServicesPage({ params }: { params: { locale: string } }) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default function GutterServicesPage({ params }: any) {
   const [mounted, setMounted] = useState(false);
   const [currentLocale, setCurrentLocale] = useState(params.locale || 'en');
   const locale = params.locale || 'en';
@@ -25,7 +26,7 @@ export default function GutterServicesPage({ params }: { params: { locale: strin
   if (!mounted) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-[var(--background)] to-[var(--background-secondary)] dark:from-gray-900 dark:to-gray-800 flex items-center justify-center">
-        <div className="animate-pulse text-[var(--primary)] dark:text-blue-400">Loading...</div>
+        <div className="animate-pulse text-[var(--primary)] dark:text-teal-400">Loading...</div>
       </div>
     );
   }
@@ -132,7 +133,7 @@ export default function GutterServicesPage({ params }: { params: { locale: strin
           <div className="max-w-7xl mx-auto px-6 py-12">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 bg-[var(--primary)]/10 dark:bg-blue-900/30 text-[var(--primary)] dark:text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center space-x-2 bg-[var(--primary)]/10 dark:bg-teal-900/30 text-[var(--primary)] dark:text-teal-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
             <HiHomeModern className="w-4 h-4" />
             <span>Professional Gutter Services</span>
           </div>
@@ -150,8 +151,8 @@ export default function GutterServicesPage({ params }: { params: { locale: strin
             const IconComponent = service.icon;
             return (
               <div key={index} className="bg-gray-800 dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-700 dark:border-gray-700 p-6 hover:shadow-lg transition-all duration-300">
-                <div className="w-12 h-12 bg-[var(--primary)]/10 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mb-4">
-                  <IconComponent className="w-6 h-6 text-[var(--primary)] dark:text-blue-400" />
+                <div className="w-12 h-12 bg-[var(--primary)]/10 dark:bg-teal-900/30 rounded-xl flex items-center justify-center mb-4">
+                  <IconComponent className="w-6 h-6 text-[var(--primary)] dark:text-teal-400" />
                 </div>
                 <h3 className="text-lg font-semibold text-white dark:text-white mb-3">{service.title}</h3>
                 <p className="text-gray-300 dark:text-gray-300 text-sm leading-relaxed">

@@ -5,8 +5,10 @@
   "contact": {
     "email": "info@edmtl.com",
     "phone": "438-500-3099",
-    "googleMapsUrl": "PLACEHOLDER_FOR_GOOGLE_MAPS_URL",
-    "googlePlaceId": "PLACEHOLDER_FOR_PLACE_ID"
+    "googleMapsUrl": "https://www.google.com/maps/place/Entretien+Domestique+Montreal/@45.4461434,-73.9241996,15z/data=!3m1!4b1!4m6!3m5!1s0xa660ceffe68af0fb:0x6c39536c383859dc!8m2!3d45.4461434!4d-73.9241996!16s%2Fg%2F11vyxtqvwg",
+    "googlePlaceId": "ChIJ-wCmz_7uYEwR3FmDoWU8OWw",
+    "latitude": 45.4461434,
+    "longitude": -73.9241996
   },
   "theme": {
     "primary": "#007AFF",
@@ -22,7 +24,7 @@
     "accent": "#FFB800"
   },
   "google": {
-    "mapsApiKey": "PLACEHOLDER_FOR_GOOGLE_MAPS_API_KEY",
+    "mapsApiKey": "AIzaSyCebCaTBHwg44o-yXnkJz71_eLx2sdC8dk",
     "placeId": "PLACEHOLDER_FOR_PLACE_ID",
     "reviewsEnabled": true,
     "maxReviews": 5

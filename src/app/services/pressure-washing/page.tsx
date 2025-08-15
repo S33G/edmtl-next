@@ -14,7 +14,7 @@ export default function PressureWashingPage() {
   if (!mounted) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-[var(--background)] to-[var(--background-secondary)] dark:from-gray-900 dark:to-gray-800 flex items-center justify-center">
-        <div className="animate-pulse text-[var(--primary)] dark:text-blue-400">Loading...</div>
+        <div className="animate-pulse text-[var(--primary)] dark:text-teal-400">Loading...</div>
       </div>
     );
   }
@@ -27,7 +27,7 @@ export default function PressureWashingPage() {
           <div className="flex items-center justify-between h-16">
             <Link
               href="/"
-              className="flex items-center space-x-2 text-gray-300 dark:text-gray-400 hover:text-[var(--primary)] dark:hover:text-blue-400 transition-colors duration-200"
+              className="flex items-center space-x-2 text-gray-300 dark:text-gray-400 hover:text-[var(--primary)] dark:hover:text-teal-400 transition-colors duration-200"
             >
               <HiArrowLeft className="w-5 h-5" />
               <span className="font-medium">Back to Home</span>
@@ -42,7 +42,7 @@ export default function PressureWashingPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 bg-[var(--primary)]/10 dark:bg-blue-900/30 text-[var(--primary)] dark:text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center space-x-2 bg-[var(--primary)]/10 dark:bg-teal-900/30 text-[var(--primary)] dark:text-teal-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
             <HiSparkles className="w-4 h-4" />
             <span>Professional Pressure Washing</span>
           </div>
@@ -59,8 +59,8 @@ export default function PressureWashingPage() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {/* General Pressure Washing */}
           <div className="bg-[var(--background-tertiary)] dark:bg-gray-800 rounded-2xl shadow-sm border border-[var(--border-light)] dark:border-gray-700 p-6 hover:shadow-lg transition-shadow duration-300">
-            <div className="w-12 h-12 bg-[var(--primary)]/10 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mb-4">
-              <HiSparkles className="w-6 h-6 text-[var(--primary)] dark:text-blue-400" />
+            <div className="w-12 h-12 bg-[var(--primary)]/10 dark:bg-teal-900/30 rounded-xl flex items-center justify-center mb-4">
+              <HiSparkles className="w-6 h-6 text-[var(--primary)] dark:text-teal-400" />
             </div>
             <h3 className="text-lg font-semibold text-white dark:text-white mb-3">Pressure Washing</h3>
             <p className="text-gray-300 dark:text-gray-300 text-sm">
@@ -70,8 +70,8 @@ export default function PressureWashingPage() {
 
           {/* High-Pressure Surface Washing */}
           <div className="bg-[var(--background-tertiary)] dark:bg-gray-800 rounded-2xl shadow-sm border border-[var(--border-light)] dark:border-gray-700 p-6 hover:shadow-lg transition-shadow duration-300">
-            <div className="w-12 h-12 bg-[var(--primary)]/10 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mb-4">
-              <HiCog6Tooth className="w-6 h-6 text-[var(--primary)] dark:text-blue-400" />
+            <div className="w-12 h-12 bg-[var(--primary)]/10 dark:bg-teal-900/30 rounded-xl flex items-center justify-center mb-4">
+              <HiCog6Tooth className="w-6 h-6 text-[var(--primary)] dark:text-teal-400" />
             </div>
             <h3 className="text-lg font-semibold text-white dark:text-white mb-3">High-Pressure</h3>
             <p className="text-gray-300 dark:text-gray-300 text-sm">
@@ -81,8 +81,8 @@ export default function PressureWashingPage() {
 
           {/* Low-Pressure Surface Washing */}
           <div className="bg-[var(--background-tertiary)] dark:bg-gray-800 rounded-2xl shadow-sm border border-[var(--border-light)] dark:border-gray-700 p-6 hover:shadow-lg transition-shadow duration-300">
-            <div className="w-12 h-12 bg-[var(--primary)]/10 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mb-4">
-              <svg className="w-6 h-6 text-[var(--primary)] dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-12 h-12 bg-[var(--primary)]/10 dark:bg-teal-900/30 rounded-xl flex items-center justify-center mb-4">
+              <svg className="w-6 h-6 text-[var(--primary)] dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707" />
               </svg>
             </div>
@@ -94,8 +94,8 @@ export default function PressureWashingPage() {
 
           {/* Polymeric Sand */}
           <div className="bg-[var(--background-tertiary)] dark:bg-gray-800 rounded-2xl shadow-sm border border-[var(--border-light)] dark:border-gray-700 p-6 hover:shadow-lg transition-shadow duration-300">
-            <div className="w-12 h-12 bg-[var(--primary)]/10 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mb-4">
-              <HiBeaker className="w-6 h-6 text-[var(--primary)] dark:text-blue-400" />
+            <div className="w-12 h-12 bg-[var(--primary)]/10 dark:bg-teal-900/30 rounded-xl flex items-center justify-center mb-4">
+              <HiBeaker className="w-6 h-6 text-[var(--primary)] dark:text-teal-400" />
             </div>
             <h3 className="text-lg font-semibold text-white dark:text-white mb-3">Polymeric Sand</h3>
             <p className="text-gray-300 dark:text-gray-300 text-sm">
@@ -183,7 +183,7 @@ export default function PressureWashingPage() {
                 </div>
                 <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
                   <h3 className="font-semibold text-blue-900 mb-4">Ideal For:</h3>
-                  <ul className="space-y-2 text-sm text-[var(--primary)] dark:text-blue-400">
+                  <ul className="space-y-2 text-sm text-[var(--primary)] dark:text-teal-400">
                     <li>• Large concrete driveways</li>
                     <li>• Parking garages and lots</li>
                     <li>• Commercial concrete surfaces</li>
@@ -292,22 +292,22 @@ export default function PressureWashingPage() {
           <h2 className="text-2xl font-bold text-white dark:text-white mb-8 text-center">Why Choose EDM Pressure Washing?</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-[var(--primary)]/10 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                <HiCog6Tooth className="w-8 h-8 text-[var(--primary)] dark:text-blue-400" />
+              <div className="w-16 h-16 bg-[var(--primary)]/10 dark:bg-teal-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                <HiCog6Tooth className="w-8 h-8 text-[var(--primary)] dark:text-teal-400" />
               </div>
               <h3 className="font-semibold text-white dark:text-white mb-2">Right Equipment</h3>
               <p className="text-sm text-gray-300 dark:text-gray-300">From low pressure (1600 PSI) to high pressure (3000-4000 PSI), we have the right tools for every surface</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-[var(--primary)]/10 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                <HiBeaker className="w-8 h-8 text-[var(--primary)] dark:text-blue-400" />
+              <div className="w-16 h-16 bg-[var(--primary)]/10 dark:bg-teal-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                <HiBeaker className="w-8 h-8 text-[var(--primary)] dark:text-teal-400" />
               </div>
               <h3 className="font-semibold text-white dark:text-white mb-2">Extensive Experience</h3>
               <p className="text-sm text-gray-300 dark:text-gray-300">After many years, we always know the appropriate method to choose for each unique situation</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-[var(--primary)]/10 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                <HiCheckCircle className="w-8 h-8 text-[var(--primary)] dark:text-blue-400" />
+              <div className="w-16 h-16 bg-[var(--primary)]/10 dark:bg-teal-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                <HiCheckCircle className="w-8 h-8 text-[var(--primary)] dark:text-teal-400" />
               </div>
               <h3 className="font-semibold text-white dark:text-white mb-2">Trusted Results</h3>
               <p className="text-sm text-gray-300 dark:text-gray-300">Clear communication, fixed-price quotes, and showing up on time with efficient, thorough work</p>
@@ -324,7 +324,7 @@ export default function PressureWashingPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/#contact"
-              className="bg-gray-800 text-white dark:text-blue-400 hover:bg-gray-700 px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
+              className="bg-gray-800 text-white dark:text-teal-400 hover:bg-gray-700 px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
             >
               Get Free Quote
             </Link>

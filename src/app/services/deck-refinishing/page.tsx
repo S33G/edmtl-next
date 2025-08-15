@@ -14,7 +14,7 @@ export default function DeckRefinishingPage() {
   if (!mounted) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-[var(--background)] to-[var(--background-secondary)] dark:from-gray-900 dark:to-gray-800 flex items-center justify-center">
-        <div className="animate-pulse text-[var(--primary)] dark:text-blue-400">Loading...</div>
+        <div className="animate-pulse text-[var(--primary)] dark:text-teal-400">Loading...</div>
       </div>
     );
   }
@@ -27,7 +27,7 @@ export default function DeckRefinishingPage() {
           <div className="flex items-center justify-between h-16">
             <Link
               href="/"
-              className="flex items-center space-x-2 text-gray-300 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-blue-400 transition-colors duration-200"
+              className="flex items-center space-x-2 text-gray-300 dark:text-gray-300 hover:text-[var(--primary)] dark:hover:text-teal-400 transition-colors duration-200"
             >
               <HiArrowLeft className="w-5 h-5" />
               <span className="font-medium">Back to Home</span>
@@ -42,7 +42,7 @@ export default function DeckRefinishingPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 bg-[var(--primary)]/10 dark:bg-blue-900/30 text-[var(--primary)] dark:text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center space-x-2 bg-[var(--primary)]/10 dark:bg-teal-900/30 text-[var(--primary)] dark:text-teal-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
             <HiPaintBrush className="w-4 h-4" />
             <span>Professional Deck Refinishing</span>
           </div>
@@ -59,8 +59,8 @@ export default function DeckRefinishingPage() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {/* Chemical Brightening */}
           <div className="bg-[var(--background-tertiary)] dark:bg-gray-800 rounded-2xl shadow-sm border border-[var(--border-light)] dark:border-gray-700 p-6 hover:shadow-lg transition-shadow duration-300">
-            <div className="w-12 h-12 bg-[var(--primary)]/10 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mb-4">
-              <HiBeaker className="w-6 h-6 text-[var(--primary)] dark:text-blue-400" />
+            <div className="w-12 h-12 bg-[var(--primary)]/10 dark:bg-teal-900/30 rounded-xl flex items-center justify-center mb-4">
+              <HiBeaker className="w-6 h-6 text-[var(--primary)] dark:text-teal-400" />
             </div>
             <h3 className="text-lg font-semibold text-white dark:text-white mb-3">Chemical Brightening</h3>
             <p className="text-gray-300 dark:text-gray-300 text-sm">
@@ -70,8 +70,8 @@ export default function DeckRefinishingPage() {
 
           {/* Waterproofing */}
           <div className="bg-[var(--background-tertiary)] dark:bg-gray-800 rounded-2xl shadow-sm border border-[var(--border-light)] dark:border-gray-700 p-6 hover:shadow-lg transition-shadow duration-300">
-            <div className="w-12 h-12 bg-[var(--primary)]/10 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mb-4">
-              <svg className="w-6 h-6 text-[var(--primary)] dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-12 h-12 bg-[var(--primary)]/10 dark:bg-teal-900/30 rounded-xl flex items-center justify-center mb-4">
+              <svg className="w-6 h-6 text-[var(--primary)] dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
               </svg>
             </div>
@@ -83,8 +83,8 @@ export default function DeckRefinishingPage() {
 
           {/* Sanding Preparation */}
           <div className="bg-[var(--background-tertiary)] dark:bg-gray-800 rounded-2xl shadow-sm border border-[var(--border-light)] dark:border-gray-700 p-6 hover:shadow-lg transition-shadow duration-300">
-            <div className="w-12 h-12 bg-[var(--primary)]/10 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mb-4">
-              <HiWrenchScrewdriver className="w-6 h-6 text-[var(--primary)] dark:text-blue-400" />
+            <div className="w-12 h-12 bg-[var(--primary)]/10 dark:bg-teal-900/30 rounded-xl flex items-center justify-center mb-4">
+              <HiWrenchScrewdriver className="w-6 h-6 text-[var(--primary)] dark:text-teal-400" />
             </div>
             <h3 className="text-lg font-semibold text-white dark:text-white mb-3">Sanding Prep</h3>
             <p className="text-gray-300 dark:text-gray-300 text-sm">
@@ -94,8 +94,8 @@ export default function DeckRefinishingPage() {
 
           {/* Stain Application */}
           <div className="bg-[var(--background-tertiary)] dark:bg-gray-800 rounded-2xl shadow-sm border border-[var(--border-light)] dark:border-gray-700 p-6 hover:shadow-lg transition-shadow duration-300">
-            <div className="w-12 h-12 bg-[var(--primary)]/10 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mb-4">
-              <HiPaintBrush className="w-6 h-6 text-[var(--primary)] dark:text-blue-400" />
+            <div className="w-12 h-12 bg-[var(--primary)]/10 dark:bg-teal-900/30 rounded-xl flex items-center justify-center mb-4">
+              <HiPaintBrush className="w-6 h-6 text-[var(--primary)] dark:text-teal-400" />
             </div>
             <h3 className="text-lg font-semibold text-white dark:text-white mb-3">Stain Application</h3>
             <p className="text-gray-300 dark:text-gray-300 text-sm">
@@ -209,7 +209,7 @@ export default function DeckRefinishingPage() {
                 </div>
                 <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
                   <h3 className="font-semibold text-blue-900 mb-4">Key Advantages:</h3>
-                  <ul className="space-y-2 text-sm text-[var(--primary)] dark:text-blue-400">
+                  <ul className="space-y-2 text-sm text-[var(--primary)] dark:text-teal-400">
                     <li>• Only option that doesn&apos;t change wood color</li>
                     <li>• Requires only one coat application</li>
                     <li>• Faster application than stain</li>
@@ -314,36 +314,36 @@ export default function DeckRefinishingPage() {
           <h2 className="text-2xl font-bold text-white dark:text-white mb-8 text-center">Our Deck Refinishing Process</h2>
           <div className="grid md:grid-cols-5 gap-6">
             <div className="text-center">
-              <div className="w-16 h-16 bg-[var(--primary)]/10 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-xl font-bold text-[var(--primary)] dark:text-blue-400">1</span>
+              <div className="w-16 h-16 bg-[var(--primary)]/10 dark:bg-teal-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-xl font-bold text-[var(--primary)] dark:text-teal-400">1</span>
               </div>
               <h3 className="font-semibold text-white dark:text-white mb-2">Assessment</h3>
               <p className="text-sm text-gray-300 dark:text-gray-300">Evaluate deck condition and determine best treatment method</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-[var(--primary)]/10 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-xl font-bold text-[var(--primary)] dark:text-blue-400">2</span>
+              <div className="w-16 h-16 bg-[var(--primary)]/10 dark:bg-teal-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-xl font-bold text-[var(--primary)] dark:text-teal-400">2</span>
               </div>
               <h3 className="font-semibold text-white dark:text-white mb-2">Cleaning</h3>
               <p className="text-sm text-gray-300 dark:text-gray-300">Deep clean and prepare surface for treatment</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-[var(--primary)]/10 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-xl font-bold text-[var(--primary)] dark:text-blue-400">3</span>
+              <div className="w-16 h-16 bg-[var(--primary)]/10 dark:bg-teal-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-xl font-bold text-[var(--primary)] dark:text-teal-400">3</span>
               </div>
               <h3 className="font-semibold text-white dark:text-white mb-2">Sanding</h3>
               <p className="text-sm text-gray-300 dark:text-gray-300">Thorough sanding including all detail areas</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-[var(--primary)]/10 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-xl font-bold text-[var(--primary)] dark:text-blue-400">4</span>
+              <div className="w-16 h-16 bg-[var(--primary)]/10 dark:bg-teal-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-xl font-bold text-[var(--primary)] dark:text-teal-400">4</span>
               </div>
               <h3 className="font-semibold text-white dark:text-white mb-2">Treatment</h3>
               <p className="text-sm text-gray-300 dark:text-gray-300">Apply chosen stain, sealant, or waterproofing</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-[var(--primary)]/10 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-xl font-bold text-[var(--primary)] dark:text-blue-400">5</span>
+              <div className="w-16 h-16 bg-[var(--primary)]/10 dark:bg-teal-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-xl font-bold text-[var(--primary)] dark:text-teal-400">5</span>
               </div>
               <h3 className="font-semibold text-white dark:text-white mb-2">Final Inspection</h3>
               <p className="text-sm text-gray-300 dark:text-gray-300">Quality check and cleanup for perfect results</p>
@@ -360,7 +360,7 @@ export default function DeckRefinishingPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/#contact"
-              className="bg-gray-800 text-white dark:text-blue-400 hover:bg-gray-700 px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
+              className="bg-gray-800 text-white dark:text-teal-400 hover:bg-gray-700 px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
             >
               Get Free Assessment
             </Link>

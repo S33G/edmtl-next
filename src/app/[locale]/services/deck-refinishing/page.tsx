@@ -9,7 +9,8 @@ import ServiceHeader from '../../../../components/ServiceHeader';
 import SEOHead from '../../../../components/SEOHead';
 import { getServiceMetadata } from '../../../../lib/seo';
 
-export default function DeckRefinishingPage({ params }: { params: { locale: string } }) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default function DeckRefinishingPage({ params }: any) {
   const [mounted, setMounted] = useState(false);
   const [currentLocale, setCurrentLocale] = useState(params.locale || 'en');
   const locale = params.locale || 'en';
@@ -23,7 +24,7 @@ export default function DeckRefinishingPage({ params }: { params: { locale: stri
   if (!mounted) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-[var(--background)] to-[var(--background-secondary)] dark:from-gray-900 dark:to-gray-800 flex items-center justify-center">
-        <div className="animate-pulse text-[var(--primary)] dark:text-blue-400">Loading...</div>
+        <div className="animate-pulse text-[var(--primary)] dark:text-teal-400">Loading...</div>
       </div>
     );
   }
@@ -86,7 +87,7 @@ export default function DeckRefinishingPage({ params }: { params: { locale: stri
           <div className="max-w-7xl mx-auto px-6 py-12">
             {/* Hero Section */}
             <div className="text-center mb-16">
-              <div className="inline-flex items-center space-x-2 bg-[var(--primary)]/10 dark:bg-blue-900/30 text-[var(--primary)] dark:text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <div className="inline-flex items-center space-x-2 bg-[var(--primary)]/10 dark:bg-teal-900/30 text-[var(--primary)] dark:text-teal-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
                 <HiBeaker className="w-4 h-4" />
                 <span>Professional Deck Refinishing</span>
               </div>

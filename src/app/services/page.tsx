@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import ServiceHeader from '../../components/ServiceHeader';
 import SEOHead from '../../components/SEOHead';
 import Modal from '../../components/Modal';
@@ -19,7 +20,7 @@ export default function ServicesPage() {
   if (!mounted) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-[var(--background)] to-[var(--background-secondary)] dark:from-gray-900 dark:to-gray-800 flex items-center justify-center">
-        <div className="animate-pulse text-[var(--primary)] dark:text-blue-400">Loading...</div>
+        <div className="animate-pulse text-[var(--primary)] dark:text-teal-400">Loading...</div>
       </div>
     );
   }
@@ -154,7 +155,7 @@ export default function ServicesPage() {
           <div className="max-w-7xl mx-auto px-6 py-12">
             {/* Hero Section */}
             <div className="text-center mb-16">
-              <div className="inline-flex items-center space-x-2 bg-[var(--primary)]/10 dark:bg-blue-900/30 text-[var(--primary)] dark:text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <div className="inline-flex items-center space-x-2 bg-[var(--primary)]/10 dark:bg-teal-900/30 text-[var(--primary)] dark:text-teal-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
                 <HiHomeModern className="w-4 h-4" />
                 <span>{currentLocale === 'fr' ? 'Services Professionnels' : 'Professional Services'}</span>
               </div>
@@ -190,7 +191,7 @@ export default function ServicesPage() {
                         <p className="text-gray-300 dark:text-gray-300 leading-relaxed">
                           {currentLocale === 'fr' ? service.descriptionFr : service.description}
                         </p>
-                        <div className="mt-4 text-blue-400 dark:text-blue-400 text-sm font-medium group-hover:underline">
+                        <div className="mt-4 text-blue-400 dark:text-teal-400 text-sm font-medium group-hover:underline">
                           {currentLocale === 'fr' ? 'En savoir plus →' : 'Learn more →'}
                         </div>
                       </div>
@@ -212,12 +213,12 @@ export default function ServicesPage() {
                 }
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
+                <Link
                   href="/#contact"
                   className="bg-gray-800 text-white hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600 px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
                 >
                   {currentLocale === 'fr' ? 'Devis Gratuit' : 'Get Free Quote'}
-                </a>
+                </Link>
                 <a
                   href="tel:438-500-3099"
                   className="bg-blue-800 text-white hover:bg-blue-900 dark:bg-blue-700 dark:hover:bg-blue-800 px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
@@ -239,13 +240,6 @@ export default function ServicesPage() {
           onPrev={goToPrevService}
           hasNext={true}
           hasPrev={true}
-          title={
-            services.find(s => s.serviceKey === selectedService)
-              ? (currentLocale === 'fr'
-                  ? services.find(s => s.serviceKey === selectedService)!.titleFr
-                  : services.find(s => s.serviceKey === selectedService)!.title)
-              : ''
-          }
         >
           <ServiceContent
             serviceKey={selectedService as 'window-cleaning' | 'gutter-services' | 'pressure-washing' | 'deck-refinishing'}

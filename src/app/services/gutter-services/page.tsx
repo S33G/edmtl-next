@@ -14,7 +14,7 @@ export default function GutterServicesPage() {
   if (!mounted) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-[var(--background)] to-[var(--background-secondary)] dark:from-gray-900 dark:to-gray-800 flex items-center justify-center">
-        <div className="animate-pulse text-[var(--primary)] dark:text-blue-400">Loading...</div>
+        <div className="animate-pulse text-[var(--primary)] dark:text-teal-400">Loading...</div>
       </div>
     );
   }
@@ -27,7 +27,7 @@ export default function GutterServicesPage() {
           <div className="flex items-center justify-between h-16">
             <Link
               href="/"
-              className="flex items-center space-x-2 text-gray-300 dark:text-gray-400 hover:text-[var(--primary)] dark:hover:text-blue-400 transition-colors duration-200"
+              className="flex items-center space-x-2 text-gray-300 dark:text-gray-400 hover:text-[var(--primary)] dark:hover:text-teal-400 transition-colors duration-200"
             >
               <HiArrowLeft className="w-5 h-5" />
               <span className="font-medium">Back to Home</span>
@@ -42,7 +42,7 @@ export default function GutterServicesPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 bg-[var(--primary)]/10 dark:bg-blue-900/30 text-[var(--primary)] dark:text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center space-x-2 bg-[var(--primary)]/10 dark:bg-teal-900/30 text-[var(--primary)] dark:text-teal-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
             <HiHomeModern className="w-4 h-4" />
             <span>Professional Gutter Services</span>
           </div>
@@ -59,8 +59,8 @@ export default function GutterServicesPage() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {/* Gutter Cleaning */}
           <div className="bg-[var(--background-tertiary)] dark:bg-gray-800 rounded-2xl shadow-sm border border-[var(--border-light)] dark:border-gray-700 p-6 hover:shadow-lg transition-all duration-300">
-            <div className="w-12 h-12 bg-[var(--primary)]/10 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mb-4">
-              <svg className="w-6 h-6 text-[var(--primary)] dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-12 h-12 bg-[var(--primary)]/10 dark:bg-teal-900/30 rounded-xl flex items-center justify-center mb-4">
+              <svg className="w-6 h-6 text-[var(--primary)] dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
             </div>
@@ -72,8 +72,8 @@ export default function GutterServicesPage() {
 
           {/* Exterior Cleaning */}
           <div className="bg-[var(--background-tertiary)] dark:bg-gray-800 rounded-2xl shadow-sm border border-[var(--border-light)] dark:border-gray-700 p-6 hover:shadow-lg transition-all duration-300">
-            <div className="w-12 h-12 bg-[var(--primary)]/10 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mb-4">
-              <HiHomeModern className="w-6 h-6 text-[var(--primary)] dark:text-blue-400" />
+            <div className="w-12 h-12 bg-[var(--primary)]/10 dark:bg-teal-900/30 rounded-xl flex items-center justify-center mb-4">
+              <HiHomeModern className="w-6 h-6 text-[var(--primary)] dark:text-teal-400" />
             </div>
             <h3 className="text-lg font-semibold text-white dark:text-white mb-3">Exterior Cleaning</h3>
             <p className="text-gray-300 dark:text-gray-300 text-sm">
@@ -83,8 +83,8 @@ export default function GutterServicesPage() {
 
           {/* Repairs & Blockages */}
           <div className="bg-[var(--background-tertiary)] dark:bg-gray-800 rounded-2xl shadow-sm border border-[var(--border-light)] dark:border-gray-700 p-6 hover:shadow-lg transition-shadow duration-300">
-            <div className="w-12 h-12 bg-[var(--primary)]/10 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mb-4">
-              <HiWrenchScrewdriver className="w-6 h-6 text-[var(--primary)] dark:text-blue-400" />
+            <div className="w-12 h-12 bg-[var(--primary)]/10 dark:bg-teal-900/30 rounded-xl flex items-center justify-center mb-4">
+              <HiWrenchScrewdriver className="w-6 h-6 text-[var(--primary)] dark:text-teal-400" />
             </div>
             <h3 className="text-lg font-semibold text-white dark:text-white mb-3">Repairs & Blockages</h3>
             <p className="text-gray-300 dark:text-gray-300 text-sm">
@@ -94,8 +94,8 @@ export default function GutterServicesPage() {
 
           {/* Gutter Guards */}
           <div className="bg-[var(--background-tertiary)] dark:bg-gray-800 rounded-2xl shadow-sm border border-[var(--border-light)] dark:border-gray-700 p-6 hover:shadow-lg transition-shadow duration-300">
-            <div className="w-12 h-12 bg-[var(--primary)]/10 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mb-4">
-              <HiShieldCheck className="w-6 h-6 text-[var(--primary)] dark:text-blue-400" />
+            <div className="w-12 h-12 bg-[var(--primary)]/10 dark:bg-teal-900/30 rounded-xl flex items-center justify-center mb-4">
+              <HiShieldCheck className="w-6 h-6 text-[var(--primary)] dark:text-teal-400" />
             </div>
             <h3 className="text-lg font-semibold text-white dark:text-white mb-3">Gutter Guards</h3>
             <p className="text-gray-300 dark:text-gray-300 text-sm">
@@ -292,7 +292,7 @@ export default function GutterServicesPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/#contact"
-              className="bg-gray-800 text-white dark:text-blue-400 hover:bg-gray-700 px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
+              className="bg-gray-800 text-white dark:text-teal-400 hover:bg-gray-700 px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
             >
               Get Free Assessment
             </Link>

@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { HiOutlineGlobeAlt } from 'react-icons/hi2';
+import ReactCountryFlag from 'react-country-flag';
 import siteConfig from '../../config/site.json';
 
 interface LanguageSwitcherProps {
@@ -37,21 +37,39 @@ export default function LanguageSwitcher({ currentLocale = 'en', onLocaleChange 
     }
   };
 
+  const getCountryCode = (locale: string) => {
+    switch (locale) {
+      case 'en':
+        return 'US';
+      case 'fr':
+        return 'CA';
+      default:
+        return 'US';
+    }
+  };
+
   return (
-    <div className="flex items-center space-x-1">
-      <HiOutlineGlobeAlt className="w-4 h-4 text-gray-400" />
+    <div className="flex items-center space-x-2">
       {siteConfig.supportedLocales.map((locale) => (
         <button
           key={locale}
           onClick={() => handleLanguageChange(locale)}
-          className={`px-2 py-1 rounded text-sm font-medium transition-colors ${
+          className={`flex items-center space-x-1 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
             currentLocale === locale
-              ? 'bg-yellow-400 text-black'
-              : 'text-gray-300 hover:bg-yellow-400 hover:text-black'
+              ? 'bg-yellow-400 text-black shadow-md'
+              : 'text-gray-300 hover:bg-yellow-400 hover:text-black hover:shadow-md'
           }`}
           title={locale === 'en' ? 'English' : 'Français'}
         >
-          {getLanguageLabel(locale)}
+          <ReactCountryFlag
+            countryCode={getCountryCode(locale)}
+            svg
+            style={{
+              width: '1.2em',
+              height: '1.2em',
+            }}
+          />
+          <span>{getLanguageLabel(locale)}</span>
         </button>
       ))}
     </div>
