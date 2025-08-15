@@ -1,14 +1,16 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import ServiceHeader from '../../components/ServiceHeader';
 import SEOHead from '../../components/SEOHead';
+import Modal from '../../components/Modal';
+import ServiceContent from '../../components/ServiceContent';
 import { HiSparkles, HiHomeModern, HiWrenchScrewdriver, HiBeaker } from 'react-icons/hi2';
 
 export default function ServicesPage() {
   const [mounted, setMounted] = useState(false);
   const [currentLocale, setCurrentLocale] = useState('en');
+  const [selectedService, setSelectedService] = useState<string | null>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -26,13 +28,35 @@ export default function ServicesPage() {
     setCurrentLocale(newLocale);
   };
 
+  const openServiceModal = (serviceKey: string) => {
+    setSelectedService(serviceKey);
+  };
+
+  const closeServiceModal = () => {
+    setSelectedService(null);
+  };
+
+  const goToNextService = () => {
+    if (!selectedService) return;
+    const currentIndex = services.findIndex(s => s.serviceKey === selectedService);
+    const nextIndex = (currentIndex + 1) % services.length;
+    setSelectedService(services[nextIndex].serviceKey);
+  };
+
+  const goToPrevService = () => {
+    if (!selectedService) return;
+    const currentIndex = services.findIndex(s => s.serviceKey === selectedService);
+    const prevIndex = currentIndex === 0 ? services.length - 1 : currentIndex - 1;
+    setSelectedService(services[prevIndex].serviceKey);
+  };
+
   const services = [
     {
       title: 'Window Cleaning',
       titleFr: 'Nettoyage de Vitres',
       description: 'Professional interior and exterior window cleaning with streak-free results.',
       descriptionFr: 'Nettoyage professionnel de vitres intérieures et extérieures avec résultats sans traces.',
-      href: '/services/window-cleaning',
+      serviceKey: 'window-cleaning' as const,
       icon: HiSparkles,
       color: 'blue'
     },
@@ -41,25 +65,25 @@ export default function ServicesPage() {
       titleFr: 'Nettoyage de Gouttières',
       description: 'Complete gutter cleaning, maintenance, and repair services.',
       descriptionFr: 'Services complets de nettoyage, entretien et réparation de gouttières.',
-      href: '/services/gutter-services',
+      serviceKey: 'gutter-services' as const,
       icon: HiHomeModern,
       color: 'green'
     },
     {
       title: 'Pressure Washing',
       titleFr: 'Lavage à Pression',
-      description: 'High-pressure cleaning for driveways, patios, decks, and exterior surfaces.',
-      descriptionFr: 'Nettoyage haute pression pour allées, patios, terrasses et surfaces extérieures.',
-      href: '/services/pressure-washing',
+      description: 'Professional pressure washing for driveways, decks, and exterior surfaces.',
+      descriptionFr: 'Lavage à pression professionnel pour allées, terrasses et surfaces extérieures.',
+      serviceKey: 'pressure-washing' as const,
       icon: HiWrenchScrewdriver,
       color: 'purple'
     },
     {
       title: 'Deck Refinishing',
-      titleFr: 'Rénovation de Terrasses',
-      description: 'Professional deck restoration, staining, and sealing services.',
-      descriptionFr: 'Services professionnels de restauration, teinture et scellement de terrasses.',
-      href: '/services/deck-refinishing',
+      titleFr: 'Refinition de Terrasses',
+      description: 'Complete deck restoration including cleaning, staining, and sealing.',
+      descriptionFr: 'Restauration complète de terrasses incluant nettoyage, teinture et scellage.',
+      serviceKey: 'deck-refinishing' as const,
       icon: HiBeaker,
       color: 'orange'
     }
@@ -147,13 +171,13 @@ export default function ServicesPage() {
 
             {/* Services Grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16">
-              {services.map((service, index) => {
+                            {services.map((service, index) => {
                 const Icon = service.icon;
                 return (
-                  <Link
+                  <button
                     key={index}
-                    href={service.href}
-                    className="bg-gray-800 dark:bg-gray-800 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 border border-gray-700 dark:border-gray-700 group"
+                    onClick={() => openServiceModal(service.serviceKey)}
+                    className="bg-gray-800 dark:bg-gray-800 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 border border-gray-700 dark:border-gray-700 group text-left w-full cursor-pointer"
                   >
                     <div className="flex items-start space-x-4">
                       <div className={`p-3 rounded-xl bg-${service.color}-100 dark:bg-${service.color}-900/30`}>
@@ -171,7 +195,7 @@ export default function ServicesPage() {
                         </div>
                       </div>
                     </div>
-                  </Link>
+                  </button>
                 );
               })}
             </div>
@@ -188,12 +212,12 @@ export default function ServicesPage() {
                 }
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
+                <a
                   href="/#contact"
                   className="bg-gray-800 text-white hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600 px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
                 >
                   {currentLocale === 'fr' ? 'Devis Gratuit' : 'Get Free Quote'}
-                </Link>
+                </a>
                 <a
                   href="tel:438-500-3099"
                   className="bg-blue-800 text-white hover:bg-blue-900 dark:bg-blue-700 dark:hover:bg-blue-800 px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
@@ -205,6 +229,30 @@ export default function ServicesPage() {
           </div>
         </main>
       </div>
+
+      {/* Service Modal */}
+      {selectedService && (
+        <Modal
+          isOpen={!!selectedService}
+          onClose={closeServiceModal}
+          onNext={goToNextService}
+          onPrev={goToPrevService}
+          hasNext={true}
+          hasPrev={true}
+          title={
+            services.find(s => s.serviceKey === selectedService)
+              ? (currentLocale === 'fr'
+                  ? services.find(s => s.serviceKey === selectedService)!.titleFr
+                  : services.find(s => s.serviceKey === selectedService)!.title)
+              : ''
+          }
+        >
+          <ServiceContent
+            serviceKey={selectedService as 'window-cleaning' | 'gutter-services' | 'pressure-washing' | 'deck-refinishing'}
+            locale={currentLocale as 'en' | 'fr'}
+          />
+        </Modal>
+      )}
     </>
   );
 }
