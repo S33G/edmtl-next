@@ -7,15 +7,24 @@ import LanguageSwitcher from '../../../components/LanguageSwitcher';
 import HamburgerMenu from '../../../components/HamburgerMenu';
 import siteConfig from '../../../../config/site.json';
 
-export default function MenuPage({ params }: { params: { locale: string } }) {
+export default function MenuPage({ params }: { params: Promise<{ locale: string }> }) {
   const [mounted, setMounted] = useState(false);
-  const locale = params.locale || 'en';
-  const servicesData = siteConfig.services[locale as keyof typeof siteConfig.services] || siteConfig.services.en;
-  const isEnglish = locale === 'en';
+  const [locale, setLocale] = useState('en');
+  const [servicesData, setServicesData] = useState(siteConfig.services.en);
+  const [isEnglish, setIsEnglish] = useState(true);
 
   useEffect(() => {
-    setMounted(true);
-  }, [locale]);
+    const resolveParams = async () => {
+      const resolvedParams = await params;
+      const currentLocale = resolvedParams.locale || 'en';
+      setLocale(currentLocale);
+      setIsEnglish(currentLocale === 'en');
+      setServicesData(siteConfig.services[currentLocale as keyof typeof siteConfig.services] || siteConfig.services.en);
+      setMounted(true);
+    };
+
+    resolveParams();
+  }, [params]);
 
   if (!mounted) {
     return (

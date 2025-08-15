@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -65,6 +65,16 @@ export default function LocalizedContent() {
           {/* Hero Section */}
           <section className="hero-section text-center py-24">
             <div className="max-w-4xl mx-auto">
+              {/* Hero Logo */}
+              <div className="mb-8">
+                <Image
+                  src="/images/edm-box-logo.png"
+                  alt="EDMTL - Entretien Domestique Montreal"
+                  width={200}
+                  height={200}
+                  className="mx-auto w-48 h-48 md:w-56 md:h-56 object-contain"
+                />
+              </div>
               <h1 className="text-5xl md:text-7xl font-bold text-yellow-400 dark:text-yellow-300 mb-6 tracking-tight leading-tight">
                 {heroData.title}
               </h1>

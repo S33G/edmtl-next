@@ -51,7 +51,7 @@ export default function GoogleReviews() {
         service.getDetails(request, (place: unknown, status: unknown) => {
           setLoading(false);
           if (status === window.google.maps.places.PlacesServiceStatus.OK && place) {
-            const placeResult = place as { 
+            const placeResult = place as {
               name?: string;
               rating?: number;
               user_ratings_total?: number;
