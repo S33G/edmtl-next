@@ -21,7 +21,7 @@ export default function LocalizedContent() {
   const scrollToContact = () => {
     const element = document.getElementById('contact');
     if (element) {
-      const headerHeight = 120; // Account for sticky header height
+      const headerHeight = 80; // Account for sticky header height
       const elementPosition = element.offsetTop - headerHeight;
       window.scrollTo({
         top: elementPosition,
@@ -78,16 +78,16 @@ export default function LocalizedContent() {
   return (
     <div className="min-h-screen hex-pattern bg-[var(--background)] text-[var(--foreground)] transition-colors duration-300">
       {/* Header */}
-      <header className="glass sticky top-0 z-50 py-4">
-        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <header className="glass sticky top-0 z-50 py-2">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center">
             <Image
               src="/images/edm-main-logo.png"
               alt="EDM Logo"
-              width={128}
-              height={128}
-              className="w-32 h-32"
+              width={64}
+              height={64}
+              className="w-16 h-16"
             />
           </div>
 
@@ -99,9 +99,9 @@ export default function LocalizedContent() {
       </header>
 
       <main>
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* Hero Section */}
-          <section id="hero-section" className="hero-section text-center py-24">
+          <section id="hero-section" className="hero-section text-center py-16 sm:py-24">
             <div className="max-w-4xl mx-auto">
               {/* Hero Logo */}
               <div className="mb-8 animate-in fade-in slide-in-from-top-4 duration-700">
@@ -139,7 +139,7 @@ export default function LocalizedContent() {
           </section>
 
           {/* Services Section */}
-          <section id="services" className="py-20" ref={servicesRef.ref}>
+          <section id="services" className="py-16 sm:py-20" ref={servicesRef.ref}>
             <div className={`text-center mb-16 transition-all duration-700 ${
               servicesRef.isInView
                 ? 'opacity-100 translate-y-0'
@@ -272,8 +272,8 @@ export default function LocalizedContent() {
           </section>
 
           {/* Reviews Section */}
-          <section id="reviews" className="py-20 bg-gray-900 dark:bg-gray-800 rounded-3xl mx-4" ref={reviewsRef.ref}>
-            <div className="max-w-6xl mx-auto px-6">
+          <section id="reviews" className="py-16 sm:py-20 bg-gray-900 dark:bg-gray-800 rounded-3xl mx-2 sm:mx-4" ref={reviewsRef.ref}>
+            <div className="max-w-6xl mx-auto px-4 sm:px-6">
               <div className={`text-center mb-12 transition-all duration-700 ${
                 reviewsRef.isInView
                   ? 'opacity-100 translate-y-0'
@@ -294,10 +294,10 @@ export default function LocalizedContent() {
           </section>
 
           {/* FAQ Section */}
-          <section className="py-20">
+          <section className="py-16 sm:py-20">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-4xl font-semibold text-gray-900 mb-4 tracking-tight">
+                <h2 className="text-4xl font-semibold text-white mb-4 tracking-tight">
                   {faqData.title}
                 </h2>
               </div>
@@ -336,8 +336,8 @@ export default function LocalizedContent() {
           </section>
 
           {/* Contact Section */}
-          <section id="contact" className="py-20" ref={contactRef.ref}>
-            <div className={`max-w-6xl mx-auto px-6 transition-all duration-700 ${
+          <section id="contact" className="py-16 sm:py-20" ref={contactRef.ref}>
+            <div className={`max-w-6xl mx-auto px-4 sm:px-6 transition-all duration-700 ${
               contactRef.isInView
                 ? 'opacity-100 translate-y-0'
                 : 'opacity-0 translate-y-8'
@@ -505,8 +505,8 @@ export default function LocalizedContent() {
       </main>
 
       {/* Features Footer */}
-      <section className="py-20 bg-gray-900">
-        <div className="max-w-6xl mx-auto px-6">
+      <section className="py-16 sm:py-20 bg-gray-900">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-semibold text-white mb-4 tracking-tight">
               {currentLocale === 'fr' ? 'Pourquoi choisir EDMTL' : 'Why Choose EDMTL'}
@@ -531,7 +531,7 @@ export default function LocalizedContent() {
 
       {/* Footer */}
       <footer className="bg-gray-900 dark:bg-gray-950 border-t border-gray-800 dark:border-gray-700" role="contentinfo">
-        <div className="max-w-7xl mx-auto px-6 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
           {/* Copyright */}
           <div className="text-center text-gray-300 dark:text-gray-400 text-sm">
             © 2024 EDMTL - Entretien Domestique Montreal. {currentLocale === 'fr' ? 'Tous droits réservés.' : 'All rights reserved.'}

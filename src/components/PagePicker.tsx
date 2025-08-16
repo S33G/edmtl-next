@@ -78,7 +78,7 @@ const PagePicker: React.FC<PagePickerProps> = ({ currentLocale, onLocaleChange, 
 
     const element = document.getElementById(sectionId === 'hero' ? 'hero-section' : sectionId);
     if (element) {
-      const headerHeight = 120; // Account for sticky header height
+      const headerHeight = 80; // Account for sticky header height
       const elementPosition = element.offsetTop - headerHeight;
       window.scrollTo({
         top: elementPosition,
@@ -137,8 +137,18 @@ const PagePicker: React.FC<PagePickerProps> = ({ currentLocale, onLocaleChange, 
     };
   }, []);
 
+  const heroData = siteConfig.hero[currentLocale as keyof typeof siteConfig.hero] || siteConfig.hero.en;
+
   return (
     <div className={`z-40 ${isInHeader ? 'relative' : 'fixed right-6 top-1/2 -translate-y-1/2'}`}>
+      {/* Title for desktop header */}
+      {isInHeader && (
+        <div className="text-center mb-2">
+          <h1 className="text-lg font-semibold text-[var(--foreground)] tracking-wide">
+            {heroData.title}
+          </h1>
+        </div>
+      )}
       <div className={`glass rounded-2xl p-3 shadow-lg border border-white/10 ${isInHeader ? 'flex space-x-2' : 'space-y-2'}`}>
         {sections.map((section) => {
           const Icon = section.icon;
