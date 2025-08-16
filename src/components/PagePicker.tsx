@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { HiHome, HiWrenchScrewdriver, HiChatBubbleBottomCenterText, HiPhone, HiLanguage } from 'react-icons/hi2';
 import ReactCountryFlag from 'react-country-flag';
 import siteConfig from '../../config/site.json';
+import { useTranslation } from '../hooks/useTranslation';
 
 interface PagePickerProps {
   currentLocale: string;
@@ -14,31 +15,32 @@ interface PagePickerProps {
 const PagePicker: React.FC<PagePickerProps> = ({ currentLocale, onLocaleChange, isInHeader = false }) => {
   const [activeSection, setActiveSection] = useState<string>('hero');
   const [showLanguagePopup, setShowLanguagePopup] = useState<boolean>(false);
+  const { t } = useTranslation(currentLocale);
 
   const sections = [
     {
       id: 'hero',
-      label: currentLocale === 'fr' ? 'Accueil' : 'Home',
+      label: t('navigation.home'),
       icon: HiHome,
     },
     {
       id: 'services',
-      label: currentLocale === 'fr' ? 'Services' : 'Services',
+      label: t('navigation.services'),
       icon: HiWrenchScrewdriver,
     },
     {
       id: 'reviews',
-      label: currentLocale === 'fr' ? 'Avis' : 'Gallery',
+      label: t('navigation.gallery'),
       icon: HiChatBubbleBottomCenterText,
     },
     {
       id: 'contact',
-      label: currentLocale === 'fr' ? 'Contact' : 'Get in Touch',
+      label: t('navigation.contact'),
       icon: HiPhone,
     },
     {
       id: 'language',
-      label: currentLocale === 'fr' ? 'Langue' : 'Language',
+      label: t('navigation.language'),
       icon: HiLanguage,
     },
   ];

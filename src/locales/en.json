@@ -1,0 +1,102 @@
+{
+  "hero": {
+    "title": "ENTRETIEN DOMESTIQUE MONTREAL",
+    "description": "Entretien Domestique Montreal is a maintenance service company owned and operated by individuals with professional knowledge and skills. With over 10 years of combined experience, we are proud to be able to offer a range of services executed to a high standard.",
+    "callNow": "Call Now",
+    "freeQuote": "Free Quote",
+    "scrollDown": "Scroll down to explore our services"
+  },
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "gallery": "Gallery",
+    "contact": "Get in Touch",
+    "language": "Language"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Professional services for your home",
+    "learnMore": "Learn more →",
+    "windowCleaning": {
+      "title": "Window Cleaning",
+      "description": "Professional interior and exterior window cleaning"
+    },
+    "gutterServices": {
+      "title": "Gutter Services",
+      "description": "Complete gutter cleaning and maintenance"
+    },
+    "pressureWashing": {
+      "title": "Pressure Washing",
+      "description": "High-pressure cleaning for all surfaces"
+    },
+    "deckRefinishing": {
+      "title": "Deck Refinishing",
+      "description": "Wood deck restoration and refinishing"
+    }
+  },
+  "faq": {
+    "title": "FREQUENT QUESTIONS",
+    "items": [
+      {
+        "question": "ARE QUOTES FREE?",
+        "answer": "Yes, 100% free and they come with no obligation to book a service."
+      },
+      {
+        "question": "DO YOU OFFER INSURANCE COVERAGE?",
+        "answer": "Yes, we are fully insured for your peace of mind."
+      },
+      {
+        "question": "WHAT AREAS DO YOU SERVICE?",
+        "answer": "We service Montreal and surrounding areas including Saint-Lazare, Laval, North/South Shore, and Vaudreuil-Dorion."
+      },
+      {
+        "question": "HOW DO I BOOK A SERVICE?",
+        "answer": "Simply call us or fill out our contact form and we'll get back to you promptly."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Get your free quote today - no obligation!",
+    "phone": "Phone",
+    "email": "Email",
+    "serviceArea": "Service Area",
+    "serviceAreaDescription": "Montreal and surrounding areas including Saint-Lazare, Laval, North/South Shore, Vaudreuil-Dorion",
+    "freeQuotesAvailable": "FREE QUOTES AVAILABLE",
+    "callNow": "CALL NOW",
+    "emailUs": "EMAIL US",
+    "requestQuote": "Request a Quote",
+    "mapTitle": "Our Service Area",
+    "mapDescription": "We serve Montreal and surrounding areas including Saint-Lazare, Laval, North/South Shore, and Vaudreuil-Dorion",
+    "form": {
+      "name": "Name *",
+      "namePlaceholder": "Your full name",
+      "email": "Email *",
+      "emailPlaceholder": "your.email@example.com",
+      "phone": "Phone",
+      "phonePlaceholder": "(optional)",
+      "service": "Service Needed",
+      "servicePlaceholder": "Select a service...",
+      "message": "Message",
+      "messagePlaceholder": "Please describe your project...",
+      "sendRequest": "SEND REQUEST"
+    }
+  },
+  "features": {
+    "title": "Why Choose EDMTL",
+    "fiveStars": "5-star rated",
+    "experienced": "10+ years experience",
+    "fullyInsured": "Fully insured",
+    "freeQuotes": "Free quotes"
+  },
+  "footer": {
+    "copyright": "© 2024 EDMTL - Entretien Domestique Montreal. All rights reserved."
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "close": "Close",
+    "next": "Next",
+    "previous": "Previous"
+  }
+}

@@ -9,10 +9,12 @@ import PagePicker from './PagePicker';
 import { HiUserGroup, HiShieldCheck, HiCurrencyDollar } from 'react-icons/hi2';
 import siteConfig from '../../config/site.json';
 import { useInView } from '../hooks/useInView';
+import { useTranslation } from '../hooks/useTranslation';
 
 export default function LocalizedContent() {
   const [currentLocale, setCurrentLocale] = useState('en');
   const [selectedService, setSelectedService] = useState<string | null>(null);
+  const { t, changeLocale } = useTranslation(currentLocale);
 
   const servicesRef = useInView();
   const reviewsRef = useInView();
@@ -73,6 +75,7 @@ export default function LocalizedContent() {
 
   const handleLocaleChange = (locale: string) => {
     setCurrentLocale(locale);
+    changeLocale(locale);
   };
 
   return (
@@ -392,13 +395,10 @@ export default function LocalizedContent() {
             }`}>
               <div className="text-center mb-16">
                 <h2 className="text-4xl font-semibold text-[var(--foreground)] dark:text-white mb-4 tracking-tight">
-                  {currentLocale === 'fr' ? 'Contactez-nous' : 'Get in Touch'}
+                  {t('contact.title')}
                 </h2>
                 <p className="text-[var(--text-muted)] dark:text-gray-300 text-lg">
-                  {currentLocale === 'fr'
-                    ? 'Obtenez votre devis gratuit aujourd\'hui - sans obligation!'
-                    : 'Get your free quote today - no obligation!'
-                  }
+                  {t('contact.subtitle')}
                 </p>
               </div>
 
@@ -558,7 +558,7 @@ export default function LocalizedContent() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-semibold text-white mb-4 tracking-tight">
-              {currentLocale === 'fr' ? 'Pourquoi choisir EDMTL' : 'Why Choose EDMTL'}
+              {t('features.title')}
             </h2>
           </div>
 
@@ -583,7 +583,7 @@ export default function LocalizedContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
           {/* Copyright */}
           <div className="text-center text-gray-300 dark:text-gray-400 text-sm">
-            © 2024 EDMTL - Entretien Domestique Montreal. {currentLocale === 'fr' ? 'Tous droits réservés.' : 'All rights reserved.'}
+            {t('footer.copyright')}
           </div>
         </div>
       </footer>

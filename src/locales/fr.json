@@ -1,0 +1,102 @@
+{
+  "hero": {
+    "title": "ENTRETIEN DOMESTIQUE MONTRÉAL",
+    "description": "Entretien Domestique Montréal est une entreprise de services d'entretien gérée par des professionnels avec des connaissances et compétences professionnelles. Avec plus de 10 ans d'expérience combinée, nous sommes fiers de pouvoir offrir une gamme de services exécutés selon des normes élevées.",
+    "callNow": "Appeler maintenant",
+    "freeQuote": "Devis gratuit",
+    "scrollDown": "Faites défiler vers le bas pour explorer nos services"
+  },
+  "navigation": {
+    "home": "Accueil",
+    "services": "Services",
+    "gallery": "Avis",
+    "contact": "Contactez-nous",
+    "language": "Langue"
+  },
+  "services": {
+    "title": "Nos Services",
+    "subtitle": "Services professionnels pour votre domicile",
+    "learnMore": "En savoir plus →",
+    "windowCleaning": {
+      "title": "Nettoyage de vitres",
+      "description": "Nettoyage professionnel de vitres intérieures et extérieures"
+    },
+    "gutterServices": {
+      "title": "Services de gouttières",
+      "description": "Nettoyage et entretien complet des gouttières"
+    },
+    "pressureWashing": {
+      "title": "Lavage à pression",
+      "description": "Nettoyage haute pression pour toutes surfaces"
+    },
+    "deckRefinishing": {
+      "title": "Rénovation de terrasses",
+      "description": "Restauration et finition de terrasses en bois"
+    }
+  },
+  "faq": {
+    "title": "QUESTIONS FRÉQUENTES",
+    "items": [
+      {
+        "question": "LES DEVIS SONT-ILS GRATUITS ?",
+        "answer": "Oui, 100% gratuits et sans obligation de réserver un service."
+      },
+      {
+        "question": "OFFREZ-VOUS UNE COUVERTURE D'ASSURANCE ?",
+        "answer": "Oui, nous sommes entièrement assurés pour votre tranquillité d'esprit."
+      },
+      {
+        "question": "QUELLES ZONES DESSERVEZ-VOUS ?",
+        "answer": "Nous desservons Montréal et les régions environnantes incluant Saint-Lazare, Laval, Rive-Nord/Sud et Vaudreuil-Dorion."
+      },
+      {
+        "question": "COMMENT RÉSERVER UN SERVICE ?",
+        "answer": "Appelez-nous simplement ou remplissez notre formulaire de contact et nous vous répondrons rapidement."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Obtenez votre devis gratuit aujourd'hui - sans obligation !",
+    "phone": "Téléphone",
+    "email": "Email",
+    "serviceArea": "Zone de service",
+    "serviceAreaDescription": "Montréal et environs incluant Saint-Lazare, Laval, Rive-Nord/Sud, Vaudreuil-Dorion",
+    "freeQuotesAvailable": "DEVIS GRATUITS DISPONIBLES",
+    "callNow": "APPELER",
+    "emailUs": "EMAIL",
+    "requestQuote": "Demander un devis",
+    "mapTitle": "Notre zone de service",
+    "mapDescription": "Nous desservons Montréal et les régions environnantes incluant Saint-Lazare, Laval, Rive-Nord/Sud, et Vaudreuil-Dorion",
+    "form": {
+      "name": "Nom *",
+      "namePlaceholder": "Votre nom complet",
+      "email": "Email *",
+      "emailPlaceholder": "votre.email@exemple.com",
+      "phone": "Téléphone",
+      "phonePlaceholder": "(optionnel)",
+      "service": "Service requis",
+      "servicePlaceholder": "Sélectionner un service...",
+      "message": "Message",
+      "messagePlaceholder": "Veuillez décrire votre projet...",
+      "sendRequest": "ENVOYER LA DEMANDE"
+    }
+  },
+  "features": {
+    "title": "Pourquoi choisir EDMTL",
+    "fiveStars": "Noté 5 étoiles",
+    "experienced": "Plus de 10 ans d'expérience",
+    "fullyInsured": "Entièrement assuré",
+    "freeQuotes": "Devis gratuits"
+  },
+  "footer": {
+    "copyright": "© 2024 EDMTL - Entretien Domestique Montreal. Tous droits réservés."
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "close": "Fermer",
+    "next": "Suivant",
+    "previous": "Précédent"
+  }
+}
