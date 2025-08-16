@@ -162,14 +162,14 @@ export default function Modal({
         <button
           onClick={handlePrev}
           disabled={isTransitioning}
-          className={`absolute left-4 top-1/2 -translate-y-1/2 z-60 hidden md:flex items-center justify-center w-12 h-12 bg-white dark:bg-gray-800 rounded-full shadow-lg transition-all duration-300 ease-out ${
+          className={`absolute left-4 top-1/2 -translate-y-1/2 z-60 hidden md:flex items-center justify-center w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-full shadow-lg transition-all duration-300 ease-out ${
             isOpen
               ? 'opacity-100 scale-100 translate-x-0'
               : 'opacity-0 scale-75 -translate-x-4'
-          } ${isTransitioning ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-xl hover:scale-105'}`}
+          } ${isTransitioning ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-xl hover:scale-105 hover:bg-yellow-500 dark:hover:bg-yellow-600'}`}
           aria-label="Previous service"
         >
-          <HiChevronLeft className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+          <HiChevronLeft className="w-6 h-6 text-gray-700 dark:text-gray-300 hover:text-white" />
         </button>
       )}
 
@@ -178,19 +178,19 @@ export default function Modal({
         <button
           onClick={handleNext}
           disabled={isTransitioning}
-          className={`absolute right-4 top-1/2 -translate-y-1/2 z-60 hidden md:flex items-center justify-center w-12 h-12 bg-white dark:bg-gray-800 rounded-full shadow-lg transition-all duration-300 ease-out ${
+          className={`absolute right-4 top-1/2 -translate-y-1/2 z-60 hidden md:flex items-center justify-center w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-full shadow-lg transition-all duration-300 ease-out ${
             isOpen
               ? 'opacity-100 scale-100 translate-x-0'
               : 'opacity-0 scale-75 translate-x-4'
-          } ${isTransitioning ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-xl hover:scale-105'}`}
+          } ${isTransitioning ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-xl hover:scale-105 hover:bg-yellow-500 dark:hover:bg-yellow-600'}`}
           aria-label="Next service"
         >
-          <HiChevronRight className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+          <HiChevronRight className="w-6 h-6 text-gray-700 dark:text-gray-300 hover:text-white" />
         </button>
       )}
 
       <div
-        className={`relative w-full max-w-4xl max-h-[90vh] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl overflow-hidden transition-all duration-500 ease-in-out ${
+        className={`relative w-full max-w-4xl max-h-[90vh] bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-700 rounded-2xl shadow-2xl overflow-hidden transition-all duration-500 ease-in-out ${
           isOpen
             ? isTransitioning
               ? transitionDirection === 'right'
@@ -207,14 +207,14 @@ export default function Modal({
         {/* Floating Close Button */}
         <button
           onClick={onClose}
-          className={`absolute top-4 right-4 z-20 p-2 rounded-full bg-white dark:bg-gray-800 shadow-lg transition-all duration-300 ease-out ${
+          className={`absolute top-4 right-4 z-20 p-2 rounded-full bg-yellow-500 hover:bg-yellow-600 dark:bg-yellow-600 dark:hover:bg-yellow-700 shadow-lg transition-all duration-300 ease-out ${
             isOpen
               ? 'opacity-100 scale-100 translate-x-0 translate-y-0'
               : 'opacity-0 scale-75 translate-x-2 -translate-y-2'
-          } hover:bg-gray-100 dark:hover:bg-gray-700 hover:scale-110 hover:rotate-90`}
+          } hover:scale-110 hover:rotate-90`}
           aria-label="Close modal"
         >
-          <HiXMark className="w-5 h-5 text-gray-600 dark:text-gray-300 transition-transform duration-200" />
+          <HiXMark className="w-5 h-5 text-white transition-transform duration-200" />
         </button>
 
         {/* Modal Content */}

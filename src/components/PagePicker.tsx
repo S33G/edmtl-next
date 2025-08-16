@@ -78,7 +78,7 @@ const PagePicker: React.FC<PagePickerProps> = ({ currentLocale, onLocaleChange, 
 
     const element = document.getElementById(sectionId === 'hero' ? 'hero-section' : sectionId);
     if (element) {
-      const headerHeight = 120; // Account for sticky header height
+      const headerHeight = 80; // Account for sticky header height
       const elementPosition = element.offsetTop - headerHeight;
       window.scrollTo({
         top: elementPosition,
@@ -137,9 +137,11 @@ const PagePicker: React.FC<PagePickerProps> = ({ currentLocale, onLocaleChange, 
     };
   }, []);
 
+  const heroData = siteConfig.hero[currentLocale as keyof typeof siteConfig.hero] || siteConfig.hero.en;
+
   return (
     <div className={`z-40 ${isInHeader ? 'relative' : 'fixed right-6 top-1/2 -translate-y-1/2'}`}>
-      <div className={`glass rounded-2xl p-3 shadow-lg border border-white/10 ${isInHeader ? 'flex space-x-2' : 'space-y-2'}`}>
+      <div className={`glass bg-gray-50/95 dark:bg-gray-800/95 backdrop-blur-sm rounded-2xl p-3 shadow-lg border border-gray-200/50 dark:border-gray-700/50 ${isInHeader ? 'flex space-x-2' : 'space-y-2'}`}>
         {sections.map((section) => {
           const Icon = section.icon;
           const isActive = activeSection === section.id || (section.id === 'language' && showLanguagePopup);
@@ -151,8 +153,8 @@ const PagePicker: React.FC<PagePickerProps> = ({ currentLocale, onLocaleChange, 
                 className={`
                   group relative flex items-center justify-center w-12 h-12 rounded-xl transition-all duration-300
                   ${isActive
-                    ? 'bg-[#FFB800] text-white shadow-lg scale-110'
-                    : 'hover:bg-white/10 text-[var(--foreground)] hover:scale-105'
+                    ? 'bg-yellow-400 text-black shadow-lg scale-110'
+                    : 'hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300 hover:scale-105'
                   }
                 `}
                 title={section.label}
@@ -174,16 +176,16 @@ const PagePicker: React.FC<PagePickerProps> = ({ currentLocale, onLocaleChange, 
               {/* Language Popup */}
               {section.id === 'language' && showLanguagePopup && (
                 <div className={`absolute z-50 ${isInHeader ? 'bottom-16 left-1/2 -translate-x-1/2' : 'right-16 top-1/2 -translate-y-1/2'}`}>
-                  <div className="glass bg-white/90 dark:bg-gray-900/90 backdrop-blur-md rounded-lg p-3 shadow-xl border border-white/20 dark:border-gray-700/50">
-                    <div className="space-y-2">
+                  <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-3 shadow-xl border border-gray-200 dark:border-gray-600 min-w-[140px]">
+                    <div className="space-y-1">
                       {siteConfig.supportedLocales.map((locale) => (
                         <button
                           key={locale}
                           onClick={() => handleLanguageChange(locale)}
-                          className={`flex items-center space-x-2 w-full px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                          className={`flex items-center space-x-3 w-full px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
                             currentLocale === locale
-                              ? 'bg-[#FFB800] text-white shadow-md'
-                              : 'text-[var(--foreground)] hover:bg-[#FFB800] hover:text-white hover:shadow-md'
+                              ? 'bg-yellow-400 text-black shadow-sm'
+                              : 'text-gray-700 dark:text-gray-200 hover:bg-yellow-400 hover:text-black hover:shadow-sm'
                           }`}
                           title={locale === 'en' ? 'English' : 'Français'}
                         >
@@ -195,14 +197,14 @@ const PagePicker: React.FC<PagePickerProps> = ({ currentLocale, onLocaleChange, 
                               height: '1.2em',
                             }}
                           />
-                          <span>{getLanguageLabel(locale)}</span>
+                          <span className="whitespace-nowrap font-medium">{locale === 'en' ? 'English' : 'Français'}</span>
                         </button>
                       ))}
                     </div>
                     {/* Arrow pointing to the button */}
                     <div className={`absolute ${isInHeader
-                      ? 'top-full left-1/2 -translate-x-1/2 w-0 h-0 border-t-4 border-t-white/90 dark:border-t-gray-900/90 border-l-4 border-l-transparent border-r-4 border-r-transparent'
-                      : 'top-1/2 -translate-y-1/2 left-full w-0 h-0 border-l-4 border-l-white/90 dark:border-l-gray-900/90 border-t-4 border-t-transparent border-b-4 border-b-transparent'
+                      ? 'top-full left-1/2 -translate-x-1/2 w-0 h-0 border-t-8 border-t-gray-50 dark:border-t-gray-800 border-l-8 border-l-transparent border-r-8 border-r-transparent'
+                      : 'top-1/2 -translate-y-1/2 left-full w-0 h-0 border-l-8 border-l-gray-50 dark:border-l-gray-800 border-t-8 border-t-transparent border-b-8 border-b-transparent'
                     }`}></div>
                   </div>
                 </div>

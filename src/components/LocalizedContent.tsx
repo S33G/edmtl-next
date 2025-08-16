@@ -21,7 +21,7 @@ export default function LocalizedContent() {
   const scrollToContact = () => {
     const element = document.getElementById('contact');
     if (element) {
-      const headerHeight = 120; // Account for sticky header height
+      const headerHeight = 80; // Account for sticky header height
       const elementPosition = element.offsetTop - headerHeight;
       window.scrollTo({
         top: elementPosition,
@@ -78,68 +78,116 @@ export default function LocalizedContent() {
   return (
     <div className="min-h-screen hex-pattern bg-[var(--background)] text-[var(--foreground)] transition-colors duration-300">
       {/* Header */}
-      <header className="glass sticky top-0 z-50 py-4">
-        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-          {/* Logo */}
-          <div className="flex items-center">
-            <Image
-              src="/images/edm-main-logo.png"
-              alt="EDM Logo"
-              width={128}
-              height={128}
-              className="w-32 h-32"
-            />
-          </div>
+      <header className="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm">
+        <div className="max-w-6xl mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            {/* Logo - Now bigger */}
+            <div className="flex items-center flex-shrink-0">
+              <Image
+                src="/images/edm-main-logo.png"
+                alt="EDMTL"
+                width={120}
+                height={120}
+                className="w-20 h-20 md:w-28 md:h-28 object-contain"
+                priority
+              />
+            </div>
 
-          {/* Desktop PagePicker */}
-          <div className="hidden lg:block">
-            <PagePicker currentLocale={currentLocale} onLocaleChange={handleLocaleChange} isInHeader={true} />
+            {/* Desktop Navigation */}
+            <div className="hidden md:block">
+              <PagePicker 
+                currentLocale={currentLocale} 
+                onLocaleChange={handleLocaleChange}
+                isInHeader={true}
+              />
+            </div>
+
+            {/* Mobile Menu Button - just show PagePicker for now */}
+            <div className="md:hidden">
+              <PagePicker 
+                currentLocale={currentLocale} 
+                onLocaleChange={handleLocaleChange} 
+                isInHeader={false}
+              />
+            </div>
           </div>
         </div>
       </header>
 
       <main>
-        <div className="max-w-7xl mx-auto px-6">
-          {/* Hero Section */}
-          <section id="hero-section" className="hero-section text-center py-24">
-            <div className="max-w-4xl mx-auto">
-              {/* Hero Logo */}
-              <div className="mb-8 animate-in fade-in slide-in-from-top-4 duration-700">
-                <Image
-                  src="/images/edm-box-logo.png"
-                  alt="EDMTL - Entretien Domestique Montreal"
-                  width={200}
-                  height={200}
-                  className="mx-auto w-48 h-48 md:w-56 md:h-56 object-contain logo-breathe"
-                />
-              </div>
-              <h1 className="text-5xl md:text-7xl font-bold text-yellow-400 dark:text-yellow-300 mb-6 tracking-tight leading-tight animate-in fade-in slide-in-from-top-6 duration-700" style={{ animationDelay: '200ms' }}>
-                {heroData.title}
-              </h1>
-              <p className="text-xl text-gray-500 dark:text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed font-normal animate-in fade-in slide-in-from-top-8 duration-700" style={{ animationDelay: '400ms' }}>
-                {heroData.description}
-              </p>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row justify-center gap-4 animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '600ms' }}>
-                <a
-                  href={`tel:${siteConfig.contact.phone}`}
-                  className="btn-primary inline-flex items-center justify-center transition-all duration-200 hover:scale-105"
-                >
-                  {currentLocale === 'fr' ? 'Appelez maintenant' : 'Call Now'}
-                </a>
-                <button
-                  onClick={scrollToContact}
-                  className="btn-secondary inline-flex items-center justify-center transition-all duration-200 hover:scale-105"
-                >
-                  {currentLocale === 'fr' ? 'Devis gratuit' : 'Free Quote'}
-                </button>
-              </div>
+        {/* Hero Section - Full Width */}
+        <section id="hero-section" className="hero-section text-center py-16 sm:py-24 relative bg-gradient-to-b from-transparent via-transparent to-gray-50/30 dark:to-gray-900/30 w-full">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6">
+            {/* Hero Logo */}
+            <div className="mb-8 animate-in fade-in slide-in-from-top-4 duration-700">
+              <Image
+                src="/images/edm-box-logo.png"
+                alt="EDMTL - Entretien Domestique Montreal"
+                width={200}
+                height={200}
+                className="mx-auto w-48 h-48 md:w-56 md:h-56 object-contain logo-breathe"
+              />
             </div>
-          </section>
+            <h1 className="text-5xl md:text-7xl font-bold text-yellow-400 dark:text-yellow-300 mb-6 tracking-tight leading-tight animate-in fade-in slide-in-from-top-6 duration-700" style={{ animationDelay: '200ms' }}>
+              {heroData.title}
+            </h1>
+            <p className="text-xl text-gray-500 dark:text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed font-normal animate-in fade-in slide-in-from-top-8 duration-700" style={{ animationDelay: '400ms' }}>
+              {heroData.description}
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row justify-center gap-4 animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '600ms' }}>
+              <a
+                href={`tel:${siteConfig.contact.phone}`}
+                className="btn-primary inline-flex items-center justify-center transition-all duration-200 hover:scale-105"
+              >
+                {currentLocale === 'fr' ? 'Appelez maintenant' : 'Call Now'}
+              </a>
+              <button
+                onClick={scrollToContact}
+                className="btn-secondary inline-flex items-center justify-center transition-all duration-200 hover:scale-105"
+              >
+                {currentLocale === 'fr' ? 'Devis gratuit' : 'Free Quote'}
+              </button>
+            </div>
+
+            {/* Animated Scroll Arrow */}
+            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-in fade-in duration-1000" style={{ animationDelay: '1000ms' }}>
+              <button
+                onClick={() => {
+                  const servicesSection = document.getElementById('services');
+                  servicesSection?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="scroll-arrow-btn group flex flex-col items-center text-gray-400 hover:text-yellow-400 transition-colors duration-300"
+                aria-label="Scroll to services section"
+              >
+                <span className="text-sm mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {currentLocale === 'fr' ? 'Découvrir' : 'Explore'}
+                </span>
+                <div className="scroll-arrow">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M7 10l5 5 5-5" />
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* Content Container for remaining sections */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
           {/* Services Section */}
-          <section id="services" className="py-20" ref={servicesRef.ref}>
+          <section id="services" className="py-16 sm:py-20" ref={servicesRef.ref}>
             <div className={`text-center mb-16 transition-all duration-700 ${
               servicesRef.isInView
                 ? 'opacity-100 translate-y-0'
@@ -272,8 +320,8 @@ export default function LocalizedContent() {
           </section>
 
           {/* Reviews Section */}
-          <section id="reviews" className="py-20 bg-gray-900 dark:bg-gray-800 rounded-3xl mx-4" ref={reviewsRef.ref}>
-            <div className="max-w-6xl mx-auto px-6">
+          <section id="reviews" className="py-16 sm:py-20 bg-gray-900 dark:bg-gray-800 rounded-3xl mx-2 sm:mx-4" ref={reviewsRef.ref}>
+            <div className="max-w-6xl mx-auto px-4 sm:px-6">
               <div className={`text-center mb-12 transition-all duration-700 ${
                 reviewsRef.isInView
                   ? 'opacity-100 translate-y-0'
@@ -294,10 +342,10 @@ export default function LocalizedContent() {
           </section>
 
           {/* FAQ Section */}
-          <section className="py-20">
+          <section className="py-16 sm:py-20">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-4xl font-semibold text-gray-900 mb-4 tracking-tight">
+                <h2 className="text-4xl font-semibold text-white mb-4 tracking-tight">
                   {faqData.title}
                 </h2>
               </div>
@@ -336,8 +384,8 @@ export default function LocalizedContent() {
           </section>
 
           {/* Contact Section */}
-          <section id="contact" className="py-20" ref={contactRef.ref}>
-            <div className={`max-w-6xl mx-auto px-6 transition-all duration-700 ${
+          <section id="contact" className="py-16 sm:py-20" ref={contactRef.ref}>
+            <div className={`max-w-6xl mx-auto px-4 sm:px-6 transition-all duration-700 ${
               contactRef.isInView
                 ? 'opacity-100 translate-y-0'
                 : 'opacity-0 translate-y-8'
@@ -501,12 +549,13 @@ export default function LocalizedContent() {
               </div>
             </div>
           </section>
+          {/* Close content container */}
         </div>
       </main>
 
       {/* Features Footer */}
-      <section className="py-20 bg-gray-900">
-        <div className="max-w-6xl mx-auto px-6">
+      <section className="py-16 sm:py-20 bg-gray-900">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-semibold text-white mb-4 tracking-tight">
               {currentLocale === 'fr' ? 'Pourquoi choisir EDMTL' : 'Why Choose EDMTL'}
@@ -531,7 +580,7 @@ export default function LocalizedContent() {
 
       {/* Footer */}
       <footer className="bg-gray-900 dark:bg-gray-950 border-t border-gray-800 dark:border-gray-700" role="contentinfo">
-        <div className="max-w-7xl mx-auto px-6 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
           {/* Copyright */}
           <div className="text-center text-gray-300 dark:text-gray-400 text-sm">
             © 2024 EDMTL - Entretien Domestique Montreal. {currentLocale === 'fr' ? 'Tous droits réservés.' : 'All rights reserved.'}
