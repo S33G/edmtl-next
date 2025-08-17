@@ -48,6 +48,12 @@ export default function LanguageSwitcher({ currentLocale = 'en', onLocaleChange 
     }
   };
 
+  // Hide the language switcher if there's only one supported locale
+  // Keep all logic intact for future multi-language support
+  if (siteConfig.supportedLocales.length <= 1) {
+    return null;
+  }
+
   return (
     <div className="flex items-center space-x-2">
       {siteConfig.supportedLocales.map((locale) => (
