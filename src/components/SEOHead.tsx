@@ -16,7 +16,7 @@ export default function SEOHead({ metadata, locale, structuredData }: SEOHeadPro
     "name": "Entretien Domestique Montreal (EDM)",
     "image": "/images/edm-main-logo.png",
     "telephone": "(438) 500-3099",
-    "email": "info@edmtl.ca",
+    "email": "info@edmtl.com",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Montreal",
@@ -28,7 +28,7 @@ export default function SEOHead({ metadata, locale, structuredData }: SEOHeadPro
       "latitude": 45.5017,
       "longitude": -73.5673
     },
-    "url": "https://edmtl.ca",
+    "url": "https://edmtl.com",
     "sameAs": [
       "https://www.google.com/maps/place/Montreal,+QC",
     ],
@@ -54,7 +54,7 @@ export default function SEOHead({ metadata, locale, structuredData }: SEOHeadPro
       <meta property="og:type" content="website" />
       <meta property="og:title" content={metadata.title} />
       <meta property="og:description" content={metadata.description} />
-      <meta property="og:url" content={`https://edmtl.ca${metadata.canonical}`} />
+      <meta property="og:url" content={`https://edmtl.com${metadata.canonical}`} />
       <meta property="og:site_name" content="Entretien Domestique Montreal" />
       <meta property="og:image" content="/images/edm-main-logo.png" />
       <meta property="og:image:width" content="1200" />
@@ -68,12 +68,12 @@ export default function SEOHead({ metadata, locale, structuredData }: SEOHeadPro
       <meta name="twitter:image" content="/images/edm-main-logo.png" />
 
       {/* Canonical URL */}
-      <link rel="canonical" href={`https://edmtl.ca${metadata.canonical}`} />
+      <link rel="canonical" href={`https://edmtl.com${metadata.canonical}`} />
 
       {/* Alternate language links */}
-      <link rel="alternate" hrefLang="en" href={`https://edmtl.ca${metadata.alternateUrls.en}`} />
-      <link rel="alternate" hrefLang="fr" href={`https://edmtl.ca${metadata.alternateUrls.fr}`} />
-      <link rel="alternate" hrefLang="x-default" href={`https://edmtl.ca${metadata.alternateUrls.en}`} />
+      <link rel="alternate" hrefLang="en" href={`https://edmtl.com${metadata.alternateUrls.en}`} />
+      <link rel="alternate" hrefLang="fr" href={`https://edmtl.com${metadata.alternateUrls.fr}`} />
+      <link rel="alternate" hrefLang="x-default" href={`https://edmtl.com${metadata.alternateUrls.en}`} />
 
       {/* Structured Data */}
       <script

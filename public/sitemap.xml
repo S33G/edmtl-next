@@ -3,95 +3,95 @@
 
   <!-- Home Pages -->
   <url>
-    <loc>https://edmtl.ca/</loc>
+    <loc>https://edmtl.com/</loc>
     <lastmod>2025-08-15T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://edmtl.ca/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://edmtl.ca/fr" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://edmtl.com/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://edmtl.com/fr" />
   </url>
 
   <url>
-    <loc>https://edmtl.ca/fr</loc>
+    <loc>https://edmtl.com/fr</loc>
     <lastmod>2025-08-15T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://edmtl.ca/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://edmtl.ca/fr" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://edmtl.com/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://edmtl.com/fr" />
   </url>
 
   <!-- Service Pages - English -->
   <url>
-    <loc>https://edmtl.ca/services/window-cleaning</loc>
+    <loc>https://edmtl.com/services/window-cleaning</loc>
     <lastmod>2025-08-15T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://edmtl.ca/services/window-cleaning" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://edmtl.ca/fr/services/window-cleaning" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://edmtl.com/services/window-cleaning" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://edmtl.com/fr/services/window-cleaning" />
   </url>
 
   <url>
-    <loc>https://edmtl.ca/services/gutter-services</loc>
+    <loc>https://edmtl.com/services/gutter-services</loc>
     <lastmod>2025-08-15T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://edmtl.ca/services/gutter-services" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://edmtl.ca/fr/services/gutter-services" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://edmtl.com/services/gutter-services" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://edmtl.com/fr/services/gutter-services" />
   </url>
 
   <url>
-    <loc>https://edmtl.ca/services/pressure-washing</loc>
+    <loc>https://edmtl.com/services/pressure-washing</loc>
     <lastmod>2025-08-15T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://edmtl.ca/services/pressure-washing" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://edmtl.ca/fr/services/pressure-washing" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://edmtl.com/services/pressure-washing" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://edmtl.com/fr/services/pressure-washing" />
   </url>
 
   <url>
-    <loc>https://edmtl.ca/services/deck-refinishing</loc>
+    <loc>https://edmtl.com/services/deck-refinishing</loc>
     <lastmod>2025-08-15T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://edmtl.ca/services/deck-refinishing" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://edmtl.ca/fr/services/deck-refinishing" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://edmtl.com/services/deck-refinishing" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://edmtl.com/fr/services/deck-refinishing" />
   </url>
 
   <!-- Service Pages - French -->
   <url>
-    <loc>https://edmtl.ca/fr/services/window-cleaning</loc>
+    <loc>https://edmtl.com/fr/services/window-cleaning</loc>
     <lastmod>2025-08-15T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://edmtl.ca/services/window-cleaning" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://edmtl.ca/fr/services/window-cleaning" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://edmtl.com/services/window-cleaning" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://edmtl.com/fr/services/window-cleaning" />
   </url>
 
   <url>
-    <loc>https://edmtl.ca/fr/services/gutter-services</loc>
+    <loc>https://edmtl.com/fr/services/gutter-services</loc>
     <lastmod>2025-08-15T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://edmtl.ca/services/gutter-services" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://edmtl.ca/fr/services/gutter-services" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://edmtl.com/services/gutter-services" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://edmtl.com/fr/services/gutter-services" />
   </url>
 
   <url>
-    <loc>https://edmtl.ca/fr/services/pressure-washing</loc>
+    <loc>https://edmtl.com/fr/services/pressure-washing</loc>
     <lastmod>2025-08-15T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://edmtl.ca/services/pressure-washing" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://edmtl.ca/fr/services/pressure-washing" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://edmtl.com/services/pressure-washing" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://edmtl.com/fr/services/pressure-washing" />
   </url>
 
   <url>
-    <loc>https://edmtl.ca/fr/services/deck-refinishing</loc>
+    <loc>https://edmtl.com/fr/services/deck-refinishing</loc>
     <lastmod>2025-08-15T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://edmtl.ca/services/deck-refinishing" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://edmtl.ca/fr/services/deck-refinishing" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://edmtl.com/services/deck-refinishing" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://edmtl.com/fr/services/deck-refinishing" />
   </url>
 
 </urlset>

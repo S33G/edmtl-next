@@ -265,7 +265,7 @@ export default function ServiceContent({ serviceKey, locale = 'en' }: ServiceCon
             {locale === 'fr' ? 'Appelez maintenant' : 'Call Now'}
           </a>
           <a
-            href="mailto:info@edmtl.ca"
+            href="mailto:info@edmtl.com"
             className="border border-[var(--primary)] text-[var(--primary)] hover:bg-gradient-to-r hover:from-yellow-500 hover:to-yellow-600 hover:text-[var(--foreground)] px-6 py-2 rounded-lg font-medium transition-all duration-300 hover:shadow-md transform hover:-translate-y-0.5"
           >
             {locale === 'fr' ? 'Devis gratuit' : 'Free Quote'}

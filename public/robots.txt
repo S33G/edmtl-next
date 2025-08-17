@@ -5,7 +5,7 @@ Allow: /
 Crawl-delay: 1
 
 # Sitemap location
-Sitemap: https://edmtl.ca/sitemap.xml
+Sitemap: https://edmtl.com/sitemap.xml
 
 # Block potential sensitive areas
 Disallow: /api/

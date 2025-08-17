@@ -131,10 +131,10 @@ const PagePicker: React.FC<PagePickerProps> = ({ currentLocale, onLocaleChange, 
   return (
     <div className={`z-40 ${isInHeader ? 'relative' : 'fixed inset-x-0 bottom-0 md:right-6 md:top-1/2 md:-translate-y-1/2 md:inset-x-auto md:bottom-auto'}`}>
       <div className={`${isInHeader
-        ? 'glass bg-[var(--background-secondary)]/95 dark:bg-[var(--background-secondary)]/95 backdrop-blur-sm rounded-2xl p-3 shadow-lg border border-[var(--border)]/50 dark:border-[var(--border)]/50 flex space-x-2'
-        : 'md:glass md:bg-[var(--background-secondary)]/95 md:dark:bg-[var(--background-secondary)]/95 md:backdrop-blur-sm md:rounded-2xl md:p-4 md:shadow-lg md:border md:border-[var(--border)]/50 md:dark:border-[var(--border)]/50 md:flex md:flex-col md:space-y-4 bg-[var(--background-secondary)] dark:bg-[var(--background-secondary)] border-t border-[var(--border)] dark:border-[var(--border)] safe-area-inset-bottom'
+        ? 'glass bg-[var(--background-secondary)]/95 dark:bg-[var(--background-secondary)]/95 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-[var(--border)]/50 dark:border-[var(--border)]/50 flex space-x-4'
+        : 'md:glass md:bg-[var(--background-secondary)]/95 md:dark:bg-[var(--background-secondary)]/95 md:backdrop-blur-sm md:rounded-2xl md:p-5 md:shadow-lg md:border md:border-[var(--border)]/50 md:dark:border-[var(--border)]/50 md:flex md:flex-col md:space-y-5 bg-[var(--background-secondary)] dark:bg-[var(--background-secondary)] border-t border-[var(--border)] dark:border-[var(--border)] safe-area-inset-bottom'
       }`}>
-        <div className={`${isInHeader ? 'contents' : 'flex justify-around items-center px-4 py-3 md:flex-col md:space-y-4 md:px-0 md:py-0'}`}>
+        <div className={`${isInHeader ? 'contents' : 'flex justify-around items-center px-4 py-3 md:flex-col md:space-y-5 md:px-0 md:py-0'}`}>
         {sections.map((section) => {
           const Icon = section.icon;
           const isActive = activeSection === section.id || (section.id === 'language' && showLanguagePopup);
