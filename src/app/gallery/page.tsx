@@ -11,7 +11,7 @@ export default function GalleryPage() {
   return (
     <div className="min-h-screen hex-pattern">
       {/* Header */}
-      <header className="bg-black bg-opacity-80 py-4">
+      <header className="bg-[var(--background-secondary)] bg-opacity-80 backdrop-blur-md py-4">
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center">
@@ -38,21 +38,21 @@ export default function GalleryPage() {
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-6 py-12">
         <div className="text-center mb-12">
-          <h1 className="logo-3d text-4xl lg:text-5xl text-yellow-400 mb-6">
+          <h1 className="logo-3d text-4xl lg:text-5xl text-[var(--primary)] mb-6">
             GALLERY
           </h1>
-          <p className="text-gray-300 text-lg">
+          <p className="text-[var(--text-muted)] text-lg">
             See our work in action - before and after photos of our services
           </p>
         </div>
 
         {/* Coming Soon Message */}
         <div className="text-center">
-          <div className="bg-black bg-opacity-50 rounded-lg p-12 max-w-2xl mx-auto">
-            <h2 className="text-yellow-400 text-2xl font-bold mb-4">
+          <div className="bg-[var(--background-secondary)] bg-opacity-50 rounded-lg p-12 max-w-2xl mx-auto">
+            <h2 className="text-[var(--primary)] text-2xl font-bold mb-4">
               GALLERY COMING SOON
             </h2>
-            <p className="text-gray-300 mb-6">
+            <p className="text-[var(--text-muted)] mb-6">
               We&apos;re working on showcasing our best work. Check back soon!
             </p>
             <Link
@@ -66,9 +66,9 @@ export default function GalleryPage() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-black py-12">
+      <footer className="bg-[var(--background-secondary)] py-12">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center text-gray-400 text-sm">
+          <div className="text-center text-[var(--text-muted)] text-sm">
             {siteConfig.copyright}
           </div>
         </div>

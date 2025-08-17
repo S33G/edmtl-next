@@ -24,7 +24,7 @@ export default function DeckRefinishingPage({ params }: any) {
   if (!mounted) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-[var(--background)] to-[var(--background-secondary)] dark:from-gray-900 dark:to-gray-800 flex items-center justify-center">
-        <div className="animate-pulse text-[var(--primary)] dark:text-teal-400">Loading...</div>
+        <div className="animate-pulse text-[var(--primary)] dark:text-[var(--primary)]">Loading...</div>
       </div>
     );
   }
@@ -77,7 +77,7 @@ export default function DeckRefinishingPage({ params }: any) {
         locale={locale}
         structuredData={structuredData}
       />
-      <div className="min-h-screen hex-pattern bg-gray-900 text-[var(--foreground)] transition-colors duration-300">
+      <div className="min-h-screen hex-pattern bg-[var(--background-secondary)] text-[var(--foreground)] transition-colors duration-300">
         <ServiceHeader
           locale={currentLocale}
           onLocaleChange={handleLocaleChange}
@@ -87,24 +87,24 @@ export default function DeckRefinishingPage({ params }: any) {
           <div className="max-w-7xl mx-auto px-6 py-12">
             {/* Hero Section */}
             <div className="text-center mb-16">
-              <div className="inline-flex items-center space-x-2 bg-[var(--primary)]/10 dark:bg-teal-900/30 text-[var(--primary)] dark:text-teal-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <div className="inline-flex items-center space-x-2 bg-[var(--primary)]/10 dark:bg-[var(--primary)]/20 text-[var(--primary)] dark:text-[var(--primary)] px-4 py-2 rounded-full text-sm font-medium mb-6">
                 <HiBeaker className="w-4 h-4" />
                 <span>Professional Deck Refinishing</span>
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-yellow-400 dark:text-yellow-300 mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold text-[var(--primary)] dark:text-[var(--primary)] mb-6">
                 {t.title}
               </h1>
-              <p className="text-xl text-gray-300 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl text-[var(--text-muted)] dark:text-[var(--text-muted)] max-w-3xl mx-auto leading-relaxed">
                 {t.description}
               </p>
             </div>
 
             {/* Contact CTA */}
-            <div className="bg-gradient-to-r from-[var(--primary)] to-blue-700 dark:from-blue-600 dark:to-blue-800 rounded-2xl p-8 text-center text-white">
+            <div className="bg-gradient-to-r from-[var(--primary)] to-blue-700 dark:from-blue-600 dark:to-blue-800 rounded-2xl p-8 text-center text-[var(--foreground)]">
               <h2 className="text-2xl font-bold mb-4">
                 {locale === 'fr' ? 'Prêt pour une Terrasse Rénovée?' : 'Ready for a Restored Deck?'}
               </h2>
-              <p className="text-blue-100 dark:text-blue-200 mb-6 max-w-2xl mx-auto">
+              <p className="text-[var(--primary)] dark:text-[var(--primary)] mb-6 max-w-2xl mx-auto">
                 {locale === 'fr'
                   ? 'Obtenez un devis gratuit pour la rénovation de votre terrasse.'
                   : 'Get a free quote for deck refinishing services.'
@@ -113,13 +113,13 @@ export default function DeckRefinishingPage({ params }: any) {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                   <Link
                     href={homeUrl}
-                    className="bg-gray-800 text-white hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600 px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
+                    className="bg-[var(--background-secondary)] text-[var(--foreground)] hover:bg-[var(--background-secondary)] dark:bg-[var(--background-secondary)] dark:hover:bg-[var(--background-secondary)] px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
                   >
                   {locale === 'fr' ? 'Devis Gratuit' : 'Get Free Quote'}
                 </Link>
                 <a
                   href="tel:438-500-3099"
-                  className="bg-blue-800 text-white hover:bg-blue-900 dark:bg-blue-700 dark:hover:bg-blue-800 px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
+                  className="bg-[var(--background-secondary)] text-[var(--foreground)] hover:bg-[var(--background-secondary)] dark:bg-[var(--background-secondary)] dark:hover:bg-[var(--background-secondary)] px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
                 >
                   {locale === 'fr' ? 'Appelez (438) 500-3099' : 'Call (438) 500-3099'}
                 </a>

@@ -26,7 +26,7 @@ export default function GutterServicesPage({ params }: any) {
   if (!mounted) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-[var(--background)] to-[var(--background-secondary)] dark:from-gray-900 dark:to-gray-800 flex items-center justify-center">
-        <div className="animate-pulse text-[var(--primary)] dark:text-teal-400">Loading...</div>
+        <div className="animate-pulse text-[var(--primary)] dark:text-[var(--primary)]">Loading...</div>
       </div>
     );
   }
@@ -123,7 +123,7 @@ export default function GutterServicesPage({ params }: any) {
         locale={locale}
         structuredData={structuredData}
       />
-      <div className="min-h-screen hex-pattern bg-gray-900 text-[var(--foreground)] transition-colors duration-300">
+      <div className="min-h-screen hex-pattern bg-[var(--background-secondary)] text-[var(--foreground)] transition-colors duration-300">
         <ServiceHeader
           locale={currentLocale}
           onLocaleChange={handleLocaleChange}
@@ -133,14 +133,14 @@ export default function GutterServicesPage({ params }: any) {
           <div className="max-w-7xl mx-auto px-6 py-12">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 bg-[var(--primary)]/10 dark:bg-teal-900/30 text-[var(--primary)] dark:text-teal-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center space-x-2 bg-[var(--primary)]/10 dark:bg-[var(--primary)]/20 text-[var(--primary)] dark:text-[var(--primary)] px-4 py-2 rounded-full text-sm font-medium mb-6">
             <HiHomeModern className="w-4 h-4" />
             <span>Professional Gutter Services</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-white dark:text-white mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-[var(--foreground)] dark:text-[var(--foreground)] mb-6">
             {t.title}
           </h1>
-          <p className="text-xl text-gray-300 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-[var(--text-muted)] dark:text-[var(--text-muted)] max-w-3xl mx-auto leading-relaxed">
             {t.description}
           </p>
         </div>
@@ -150,12 +150,12 @@ export default function GutterServicesPage({ params }: any) {
           {t.services.map((service, index) => {
             const IconComponent = service.icon;
             return (
-              <div key={index} className="bg-gray-800 dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-700 dark:border-gray-700 p-6 hover:shadow-lg transition-all duration-300">
-                <div className="w-12 h-12 bg-[var(--primary)]/10 dark:bg-teal-900/30 rounded-xl flex items-center justify-center mb-4">
-                  <IconComponent className="w-6 h-6 text-[var(--primary)] dark:text-teal-400" />
+              <div key={index} className="bg-[var(--background-secondary)] dark:bg-[var(--background-secondary)] rounded-2xl shadow-sm border border-[var(--border)] dark:border-[var(--border)] p-6 hover:shadow-lg transition-all duration-300">
+                <div className="w-12 h-12 bg-[var(--primary)]/10 dark:bg-[var(--primary)]/20 rounded-xl flex items-center justify-center mb-4">
+                  <IconComponent className="w-6 h-6 text-[var(--primary)] dark:text-[var(--primary)]" />
                 </div>
-                <h3 className="text-lg font-semibold text-white dark:text-white mb-3">{service.title}</h3>
-                <p className="text-gray-300 dark:text-gray-300 text-sm leading-relaxed">
+                <h3 className="text-lg font-semibold text-[var(--foreground)] dark:text-[var(--foreground)] mb-3">{service.title}</h3>
+                <p className="text-[var(--text-muted)] dark:text-[var(--text-muted)] text-sm leading-relaxed">
                   {service.description}
                 </p>
               </div>
@@ -164,11 +164,11 @@ export default function GutterServicesPage({ params }: any) {
         </div>
 
         {/* Contact CTA */}
-        <div className="bg-gradient-to-r from-[var(--primary)] to-blue-700 dark:from-blue-600 dark:to-blue-800 rounded-2xl p-8 text-center text-white">
+        <div className="bg-gradient-to-r from-[var(--primary)] to-blue-700 dark:from-blue-600 dark:to-blue-800 rounded-2xl p-8 text-center text-[var(--foreground)]">
           <h2 className="text-2xl font-bold mb-4">
             {locale === 'fr' ? 'Prêt pour des Gouttières Parfaites?' : 'Ready for Perfect Gutters?'}
           </h2>
-          <p className="text-blue-100 dark:text-blue-200 mb-6 max-w-2xl mx-auto">
+          <p className="text-[var(--primary)] dark:text-[var(--primary)] mb-6 max-w-2xl mx-auto">
             {locale === 'fr'
               ? 'Obtenez un devis gratuit pour nos services professionnels de gouttières.'
               : 'Get a free quote for professional gutter services.'
@@ -177,13 +177,13 @@ export default function GutterServicesPage({ params }: any) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
                           <Link
                 href={homeUrl}
-                className="bg-gray-800 text-white hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600 px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
+                className="bg-[var(--background-secondary)] text-[var(--foreground)] hover:bg-[var(--background-secondary)] dark:bg-[var(--background-secondary)] dark:hover:bg-[var(--background-secondary)] px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
               >
               {locale === 'fr' ? 'Devis Gratuit' : 'Get Free Quote'}
             </Link>
             <a
               href="tel:438-500-3099"
-              className="bg-blue-800 text-white hover:bg-blue-900 dark:bg-blue-700 dark:hover:bg-blue-800 px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
+              className="bg-[var(--background-secondary)] text-[var(--foreground)] hover:bg-[var(--background-secondary)] dark:bg-[var(--background-secondary)] dark:hover:bg-[var(--background-secondary)] px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
             >
               {locale === 'fr' ? 'Appelez (438) 500-3099' : 'Call (438) 500-3099'}
             </a>

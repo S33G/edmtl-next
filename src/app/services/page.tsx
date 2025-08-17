@@ -20,7 +20,7 @@ export default function ServicesPage() {
   if (!mounted) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-[var(--background)] to-[var(--background-secondary)] dark:from-gray-900 dark:to-gray-800 flex items-center justify-center">
-        <div className="animate-pulse text-[var(--primary)] dark:text-teal-400">Loading...</div>
+        <div className="animate-pulse text-[var(--primary)] dark:text-[var(--primary)]">Loading...</div>
       </div>
     );
   }
@@ -145,7 +145,7 @@ export default function ServicesPage() {
         locale={currentLocale}
         structuredData={structuredData}
       />
-      <div className="min-h-screen hex-pattern bg-gray-900 text-[var(--foreground)] transition-colors duration-300">
+      <div className="min-h-screen hex-pattern bg-[var(--background-secondary)] text-[var(--foreground)] transition-colors duration-300">
         <ServiceHeader
           locale={currentLocale}
           onLocaleChange={handleLocaleChange}
@@ -155,14 +155,14 @@ export default function ServicesPage() {
           <div className="max-w-7xl mx-auto px-6 py-12">
             {/* Hero Section */}
             <div className="text-center mb-16">
-              <div className="inline-flex items-center space-x-2 bg-[var(--primary)]/10 dark:bg-teal-900/30 text-[var(--primary)] dark:text-teal-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <div className="inline-flex items-center space-x-2 bg-[var(--primary)]/10 dark:bg-[var(--primary)]/20 text-[var(--primary)] dark:text-[var(--primary)] px-4 py-2 rounded-full text-sm font-medium mb-6">
                 <HiHomeModern className="w-4 h-4" />
                 <span>{currentLocale === 'fr' ? 'Services Professionnels' : 'Professional Services'}</span>
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-yellow-400 dark:text-yellow-300 mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold text-[var(--primary)] dark:text-[var(--primary)] mb-6">
                 {currentLocale === 'fr' ? 'Nos Services d\'Entretien' : 'Our Home Maintenance Services'}
               </h1>
-              <p className="text-xl text-gray-300 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl text-[var(--text-muted)] dark:text-[var(--text-muted)] max-w-3xl mx-auto leading-relaxed">
                 {currentLocale === 'fr'
                   ? 'Services professionnels d\'entretien domestique à Montréal et environs. Qualité garantie, équipe expérimentée, résultats exceptionnels.'
                   : 'Professional home maintenance services in Montreal and surrounding areas. Guaranteed quality, experienced team, exceptional results.'
@@ -178,20 +178,20 @@ export default function ServicesPage() {
                   <button
                     key={index}
                     onClick={() => openServiceModal(service.serviceKey)}
-                    className="bg-gray-800 dark:bg-gray-800 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 border border-gray-700 dark:border-gray-700 group text-left w-full cursor-pointer"
+                    className="bg-[var(--background-secondary)] dark:bg-[var(--background-secondary)] rounded-2xl p-8 hover:shadow-xl transition-all duration-300 border border-[var(--border)] dark:border-[var(--border)] group text-left w-full cursor-pointer"
                   >
                     <div className="flex items-start space-x-4">
                       <div className={`p-3 rounded-xl bg-${service.color}-100 dark:bg-${service.color}-900/30`}>
                         <Icon className={`w-8 h-8 text-${service.color}-600 dark:text-${service.color}-400`} />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-xl font-semibold text-white dark:text-white mb-2 group-hover:text-blue-400 transition-colors">
+                        <h3 className="text-xl font-semibold text-[var(--foreground)] dark:text-[var(--foreground)] mb-2 group-hover:text-[var(--primary)] transition-colors">
                           {currentLocale === 'fr' ? service.titleFr : service.title}
                         </h3>
-                        <p className="text-gray-300 dark:text-gray-300 leading-relaxed">
+                        <p className="text-[var(--text-muted)] dark:text-[var(--text-muted)] leading-relaxed">
                           {currentLocale === 'fr' ? service.descriptionFr : service.description}
                         </p>
-                        <div className="mt-4 text-blue-400 dark:text-teal-400 text-sm font-medium group-hover:underline">
+                        <div className="mt-4 text-[var(--primary)] dark:text-[var(--primary)] text-sm font-medium group-hover:underline">
                           {currentLocale === 'fr' ? 'En savoir plus →' : 'Learn more →'}
                         </div>
                       </div>
@@ -202,11 +202,11 @@ export default function ServicesPage() {
             </div>
 
             {/* Contact CTA */}
-            <div className="bg-gradient-to-r from-[var(--primary)] to-blue-700 dark:from-blue-600 dark:to-blue-800 rounded-2xl p-8 text-center text-white">
+            <div className="bg-gradient-to-r from-[var(--primary)] to-blue-700 dark:from-blue-600 dark:to-blue-800 rounded-2xl p-8 text-center text-[var(--foreground)]">
               <h2 className="text-2xl font-bold mb-4">
                 {currentLocale === 'fr' ? 'Prêt pour Nos Services?' : 'Ready for Our Services?'}
               </h2>
-              <p className="text-blue-100 dark:text-blue-200 mb-6 max-w-2xl mx-auto">
+              <p className="text-[var(--primary)] dark:text-[var(--primary)] mb-6 max-w-2xl mx-auto">
                 {currentLocale === 'fr'
                   ? 'Contactez-nous dès aujourd\'hui pour un devis gratuit et personnalisé.'
                   : 'Contact us today for a free, personalized quote.'
@@ -215,13 +215,13 @@ export default function ServicesPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/#contact"
-                  className="bg-gray-800 text-white hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600 px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
+                  className="bg-[var(--background-secondary)] text-[var(--foreground)] hover:bg-[var(--background-secondary)] dark:bg-[var(--background-secondary)] dark:hover:bg-[var(--background-secondary)] px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
                 >
                   {currentLocale === 'fr' ? 'Devis Gratuit' : 'Get Free Quote'}
                 </Link>
                 <a
                   href="tel:438-500-3099"
-                  className="bg-blue-800 text-white hover:bg-blue-900 dark:bg-blue-700 dark:hover:bg-blue-800 px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
+                  className="bg-[var(--background-secondary)] text-[var(--foreground)] hover:bg-[var(--background-secondary)] dark:bg-[var(--background-secondary)] dark:hover:bg-[var(--background-secondary)] px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
                 >
                   {currentLocale === 'fr' ? 'Appelez (438) 500-3099' : 'Call (438) 500-3099'}
                 </a>

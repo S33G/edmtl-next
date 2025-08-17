@@ -1,4 +1,6 @@
-import { useState, useEffect } from 'react';
+'use client';
+
+import { useState } from 'react';
 import enTranslations from '../locales/en.json';
 import frTranslations from '../locales/fr.json';
 
@@ -14,24 +16,26 @@ export function useTranslation(initialLocale: string = 'en') {
 
   const t = (key: string): string => {
     const keys = key.split('.');
-    let value: any = translations[locale] || translations.en;
-    
+    let value: unknown = translations[locale] || translations.en;
+
     for (const k of keys) {
-      value = value?.[k];
-      if (value === undefined) break;
-    }
-    
-    // Fallback to English if translation not found
-    if (value === undefined) {
-      let fallbackValue: any = translations.en;
-      for (const k of keys) {
-        fallbackValue = fallbackValue?.[k];
-        if (fallbackValue === undefined) break;
+      if (value && typeof value === 'object' && k in value) {
+        value = (value as Record<string, unknown>)[k];
+      } else {
+        // Fallback to English if translation not found in current locale
+        let fallbackValue: unknown = translations.en;
+        for (const fallbackKey of keys) {
+          if (fallbackValue && typeof fallbackValue === 'object' && fallbackKey in fallbackValue) {
+            fallbackValue = (fallbackValue as Record<string, unknown>)[fallbackKey];
+          } else {
+            return key; // Return key if translation not found
+          }
+        }
+        return String(fallbackValue) || key;
       }
-      return fallbackValue || key;
     }
-    
-    return value || key;
+
+    return String(value) || key;
   };
 
   const changeLocale = (newLocale: string) => {
@@ -47,5 +51,3 @@ export function useTranslation(initialLocale: string = 'en') {
     availableLocales: Object.keys(translations),
   };
 }
-
-export default useTranslation;

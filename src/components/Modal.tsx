@@ -152,8 +152,8 @@ export default function Modal({
       ref={modalRef}
       className={`fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-300 ease-out ${
         isOpen
-          ? 'bg-black/50 backdrop-blur-sm'
-          : 'bg-black/0 backdrop-blur-0'
+          ? 'bg-[var(--background-secondary)]/50 backdrop-blur-sm'
+          : 'bg-[var(--background-secondary)]/0 backdrop-blur-0'
       }`}
       onClick={handleBackdropClick}
     >
@@ -162,14 +162,14 @@ export default function Modal({
         <button
           onClick={handlePrev}
           disabled={isTransitioning}
-          className={`absolute left-4 top-1/2 -translate-y-1/2 z-60 hidden md:flex items-center justify-center w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-full shadow-lg transition-all duration-300 ease-out ${
+          className={`absolute left-4 top-1/2 -translate-y-1/2 z-60 hidden md:flex items-center justify-center w-12 h-12 bg-[var(--background-secondary)] dark:bg-[var(--background-secondary)] rounded-full shadow-lg transition-all duration-300 ease-out ${
             isOpen
               ? 'opacity-100 scale-100 translate-x-0'
               : 'opacity-0 scale-75 -translate-x-4'
-          } ${isTransitioning ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-xl hover:scale-105 hover:bg-yellow-500 dark:hover:bg-yellow-600'}`}
+          } ${isTransitioning ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-xl hover:scale-105 hover:bg-[var(--primary)] dark:hover:bg-[var(--primary)]'}`}
           aria-label="Previous service"
         >
-          <HiChevronLeft className="w-6 h-6 text-gray-700 dark:text-gray-300 hover:text-white" />
+          <HiChevronLeft className="w-6 h-6 text-[var(--text-muted)] dark:text-[var(--text-muted)] hover:text-[var(--foreground)]" />
         </button>
       )}
 
@@ -178,14 +178,14 @@ export default function Modal({
         <button
           onClick={handleNext}
           disabled={isTransitioning}
-          className={`absolute right-4 top-1/2 -translate-y-1/2 z-60 hidden md:flex items-center justify-center w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-full shadow-lg transition-all duration-300 ease-out ${
+          className={`absolute right-4 top-1/2 -translate-y-1/2 z-60 hidden md:flex items-center justify-center w-12 h-12 bg-[var(--background-secondary)] dark:bg-[var(--background-secondary)] rounded-full shadow-lg transition-all duration-300 ease-out ${
             isOpen
               ? 'opacity-100 scale-100 translate-x-0'
               : 'opacity-0 scale-75 translate-x-4'
-          } ${isTransitioning ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-xl hover:scale-105 hover:bg-yellow-500 dark:hover:bg-yellow-600'}`}
+          } ${isTransitioning ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-xl hover:scale-105 hover:bg-[var(--primary)] dark:hover:bg-[var(--primary)]'}`}
           aria-label="Next service"
         >
-          <HiChevronRight className="w-6 h-6 text-gray-700 dark:text-gray-300 hover:text-white" />
+          <HiChevronRight className="w-6 h-6 text-[var(--text-muted)] dark:text-[var(--text-muted)] hover:text-[var(--foreground)]" />
         </button>
       )}
 
@@ -207,14 +207,14 @@ export default function Modal({
         {/* Floating Close Button */}
         <button
           onClick={onClose}
-          className={`absolute top-4 right-4 z-20 p-2 rounded-full bg-yellow-500 hover:bg-yellow-600 dark:bg-yellow-600 dark:hover:bg-yellow-700 shadow-lg transition-all duration-300 ease-out ${
+          className={`absolute top-4 right-4 z-20 p-2 rounded-full bg-[var(--primary)] hover:bg-[var(--primary)] dark:bg-[var(--primary)] dark:hover:bg-[var(--primary)] shadow-lg transition-all duration-300 ease-out ${
             isOpen
               ? 'opacity-100 scale-100 translate-x-0 translate-y-0'
               : 'opacity-0 scale-75 translate-x-2 -translate-y-2'
           } hover:scale-110 hover:rotate-90`}
           aria-label="Close modal"
         >
-          <HiXMark className="w-5 h-5 text-white transition-transform duration-200" />
+          <HiXMark className="w-5 h-5 text-[var(--foreground)] transition-transform duration-200" />
         </button>
 
         {/* Modal Content */}

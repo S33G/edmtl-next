@@ -29,7 +29,7 @@ export default function MenuPage({ params }: { params: Promise<{ locale: string 
   if (!mounted) {
     return (
       <div className="min-h-screen hex-pattern flex items-center justify-center">
-        <div className="animate-pulse text-blue-400">Loading...</div>
+        <div className="animate-pulse text-[var(--primary)]">Loading...</div>
       </div>
     );
   }
@@ -37,7 +37,7 @@ export default function MenuPage({ params }: { params: Promise<{ locale: string 
   return (
     <div className="min-h-screen hex-pattern">
       {/* Header */}
-      <header className="bg-black bg-opacity-80 py-4">
+      <header className="bg-[var(--background-secondary)] bg-opacity-80 backdrop-blur-md py-4">
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center">
@@ -64,10 +64,10 @@ export default function MenuPage({ params }: { params: Promise<{ locale: string 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-6 py-12">
         <div className="text-center mb-12">
-          <h1 className="logo-3d text-4xl lg:text-5xl text-yellow-400 mb-6">
+          <h1 className="logo-3d text-4xl lg:text-5xl text-[var(--primary)] mb-6">
             {isEnglish ? 'OUR SERVICES' : 'NOS SERVICES'}
           </h1>
-          <p className="text-gray-300 text-lg">
+          <p className="text-[var(--text-muted)] text-lg">
             {isEnglish
               ? 'Professional home maintenance services in Montreal and surrounding areas'
               : 'Services professionnels d\'entretien résidentiel à Montréal et environs'
@@ -87,7 +87,7 @@ export default function MenuPage({ params }: { params: Promise<{ locale: string 
                 className="w-full h-full object-cover"
               />
               <div className="service-overlay">
-                <div className="text-yellow-400 font-bold text-lg mb-2">
+                <div className="text-[var(--primary)] font-bold text-lg mb-2">
                   {service.name.toUpperCase()}
                 </div>
                 <button className="btn-primary mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -100,11 +100,11 @@ export default function MenuPage({ params }: { params: Promise<{ locale: string 
 
         {/* Call to Action */}
         <div className="text-center mt-16">
-          <div className="bg-black bg-opacity-50 rounded-lg p-8 max-w-2xl mx-auto">
-            <h2 className="text-yellow-400 text-2xl font-bold mb-4">
+          <div className="bg-[var(--background-secondary)] bg-opacity-50 rounded-lg p-8 max-w-2xl mx-auto">
+            <h2 className="text-[var(--primary)] text-2xl font-bold mb-4">
               {isEnglish ? 'READY TO GET STARTED?' : 'PRÊT À COMMENCER?'}
             </h2>
-            <p className="text-gray-300 mb-6">
+            <p className="text-[var(--text-muted)] mb-6">
               {isEnglish
                 ? 'Contact us today for a free, no-obligation quote on any of our services.'
                 : 'Contactez-nous dès aujourd\'hui pour un devis gratuit et sans engagement sur tous nos services.'
@@ -129,9 +129,9 @@ export default function MenuPage({ params }: { params: Promise<{ locale: string 
       </main>
 
       {/* Footer */}
-      <footer className="bg-black py-12">
+      <footer className="bg-[var(--background-secondary)] py-12">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center text-gray-400 text-sm">
+          <div className="text-center text-[var(--text-muted)] text-sm">
             {siteConfig.copyright}
           </div>
         </div>

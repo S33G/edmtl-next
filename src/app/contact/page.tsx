@@ -11,7 +11,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen hex-pattern">
       {/* Header */}
-      <header className="bg-black bg-opacity-80 py-4">
+      <header className="bg-[var(--background-secondary)] bg-opacity-80 backdrop-blur-md py-4">
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center">
@@ -38,10 +38,10 @@ export default function ContactPage() {
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-6 py-12">
         <div className="text-center mb-12">
-          <h1 className="logo-3d text-4xl lg:text-5xl text-yellow-400 mb-6">
+          <h1 className="logo-3d text-4xl lg:text-5xl text-[var(--primary)] mb-6">
             CONTACT US
           </h1>
-          <p className="text-gray-300 text-lg">
+          <p className="text-[var(--text-muted)] text-lg">
             Get your free quote today - no obligation!
           </p>
         </div>
@@ -49,15 +49,15 @@ export default function ContactPage() {
         <div className="max-w-4xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Info */}
-            <div className="bg-black bg-opacity-50 rounded-lg p-8">
-              <h2 className="text-yellow-400 text-2xl font-bold mb-6">GET IN TOUCH</h2>
+            <div className="bg-[var(--background-secondary)] bg-opacity-50 rounded-lg p-8">
+              <h2 className="text-[var(--primary)] text-2xl font-bold mb-6">GET IN TOUCH</h2>
 
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
                   <div className="contact-icon"><HiPhone className="w-8 h-8" /></div>
                   <div>
-                    <div className="text-yellow-400 font-bold">Phone</div>
-                    <a href={`tel:${siteConfig.contact.phone}`} className="text-white text-xl hover:text-yellow-400">
+                    <div className="text-[var(--primary)] font-bold">Phone</div>
+                    <a href={`tel:${siteConfig.contact.phone}`} className="text-[var(--foreground)] text-xl hover:text-[var(--primary)]">
                       {siteConfig.contact.phone}
                     </a>
                   </div>
@@ -66,8 +66,8 @@ export default function ContactPage() {
                 <div className="flex items-center gap-4">
                   <div className="contact-icon"><HiEnvelope className="w-8 h-8" /></div>
                   <div>
-                    <div className="text-yellow-400 font-bold">Email</div>
-                    <a href={`mailto:${siteConfig.contact.email}`} className="text-white hover:text-yellow-400">
+                    <div className="text-[var(--primary)] font-bold">Email</div>
+                    <a href={`mailto:${siteConfig.contact.email}`} className="text-[var(--foreground)] hover:text-[var(--primary)]">
                       {siteConfig.contact.email}
                     </a>
                   </div>
@@ -76,16 +76,16 @@ export default function ContactPage() {
                 <div className="flex items-start gap-4">
                   <div className="contact-icon"><HiMapPin className="w-8 h-8" /></div>
                   <div>
-                    <div className="text-yellow-400 font-bold">Service Area</div>
-                    <div className="text-gray-300">
+                    <div className="text-[var(--primary)] font-bold">Service Area</div>
+                    <div className="text-[var(--text-muted)]">
                       Montreal and surrounding areas including Saint-Lazare, Laval, North/South Shore, Vaudreuil-Dorion
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-gray-600">
-                <div className="text-yellow-400 font-bold mb-4">FREE QUOTES AVAILABLE</div>
+              <div className="mt-8 pt-6 border-t border-[var(--border)]">
+                <div className="text-[var(--primary)] font-bold mb-4">FREE QUOTES AVAILABLE</div>
                 <div className="flex gap-4">
                   <a href={`tel:${siteConfig.contact.phone}`} className="btn-primary flex-1 text-center">
                     CALL NOW
@@ -98,40 +98,40 @@ export default function ContactPage() {
             </div>
 
             {/* Contact Form Placeholder */}
-            <div className="bg-black bg-opacity-50 rounded-lg p-8">
-              <h2 className="text-yellow-400 text-2xl font-bold mb-6">REQUEST A QUOTE</h2>
+            <div className="bg-[var(--background-secondary)] bg-opacity-50 rounded-lg p-8">
+              <h2 className="text-[var(--primary)] text-2xl font-bold mb-6">REQUEST A QUOTE</h2>
 
               <form className="space-y-4">
                 <div>
-                  <label className="block text-yellow-400 font-bold mb-2">Name *</label>
+                  <label className="block text-[var(--primary)] font-bold mb-2">Name *</label>
                   <input
                     type="text"
-                    className="w-full p-3 bg-gray-700 text-white rounded border border-gray-600 focus:border-yellow-400 focus:outline-none"
+                    className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none"
                     placeholder="Your full name"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-yellow-400 font-bold mb-2">Email *</label>
+                  <label className="block text-[var(--primary)] font-bold mb-2">Email *</label>
                   <input
                     type="email"
-                    className="w-full p-3 bg-gray-700 text-white rounded border border-gray-600 focus:border-yellow-400 focus:outline-none"
+                    className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none"
                     placeholder="your.email@example.com"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-yellow-400 font-bold mb-2">Phone</label>
+                  <label className="block text-[var(--primary)] font-bold mb-2">Phone</label>
                   <input
                     type="tel"
-                    className="w-full p-3 bg-gray-700 text-white rounded border border-gray-600 focus:border-yellow-400 focus:outline-none"
+                    className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none"
                     placeholder="(optional)"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-yellow-400 font-bold mb-2">Service Needed</label>
-                  <select className="w-full p-3 bg-gray-700 text-white rounded border border-gray-600 focus:border-yellow-400 focus:outline-none">
+                  <label className="block text-[var(--primary)] font-bold mb-2">Service Needed</label>
+                  <select className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none">
                     <option>Select a service...</option>
                     <option>Window Cleaning</option>
                     <option>Gutter Services</option>
@@ -142,10 +142,10 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-yellow-400 font-bold mb-2">Message</label>
+                  <label className="block text-[var(--primary)] font-bold mb-2">Message</label>
                   <textarea
                     rows={4}
-                    className="w-full p-3 bg-gray-700 text-white rounded border border-gray-600 focus:border-yellow-400 focus:outline-none"
+                    className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none"
                     placeholder="Please describe your project..."
                   />
                 </div>
@@ -160,9 +160,9 @@ export default function ContactPage() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-black py-12">
+      <footer className="bg-[var(--background-secondary)] py-12">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center text-gray-400 text-sm">
+          <div className="text-center text-[var(--text-muted)] text-sm">
             {siteConfig.copyright}
           </div>
         </div>

@@ -109,9 +109,9 @@ export default function GoogleReviews() {
     return (
       <div className="card">
         <div className="animate-pulse">
-          <div className="h-4 bg-gray-200 rounded mb-4"></div>
-          <div className="h-4 bg-gray-200 rounded w-3/4 mb-4"></div>
-          <div className="h-4 bg-gray-200 rounded w-1/2"></div>
+          <div className="h-4 bg-[var(--background-secondary)] rounded mb-4"></div>
+          <div className="h-4 bg-[var(--background-secondary)] rounded w-3/4 mb-4"></div>
+          <div className="h-4 bg-[var(--background-secondary)] rounded w-1/2"></div>
         </div>
       </div>
     );
@@ -120,18 +120,18 @@ export default function GoogleReviews() {
   if (error) {
     return (
       <div className="card text-center">
-        <h3 className="text-2xl font-semibold text-[var(--foreground)] dark:text-white mb-4">Google Reviews</h3>
+        <h3 className="text-2xl font-semibold text-[var(--foreground)] dark:text-[var(--foreground)] mb-4">Google Reviews</h3>
         <div className="flex justify-center items-center mb-4">
           <div className="flex items-center">
-            <span className="text-3xl font-bold text-teal-600 mr-2">5.0</span>
+            <span className="text-3xl font-bold text-[var(--primary)] mr-2">5.0</span>
             <div className="flex">
               {[1, 2, 3, 4, 5].map((star) => (
-                <HiStar key={star} className="w-5 h-5 text-yellow-400" />
+                <HiStar key={star} className="w-5 h-5 text-[var(--primary)]" />
               ))}
             </div>
           </div>
         </div>
-        <p className="text-[var(--text-muted)] dark:text-gray-300 mb-6">
+        <p className="text-[var(--text-muted)] dark:text-[var(--text-muted)] mb-6">
           Check out our excellent reviews on Google Maps!
         </p>
         <a
@@ -150,11 +150,11 @@ export default function GoogleReviews() {
   return (
     <div className="card">
       <div className="text-center mb-6">
-        <h3 className="text-2xl font-semibold text-[var(--foreground)] dark:text-white mb-4">Google Reviews</h3>
+        <h3 className="text-2xl font-semibold text-[var(--foreground)] dark:text-[var(--foreground)] mb-4">Google Reviews</h3>
         {placeData && (
           <div className="flex justify-center items-center mb-4">
             <div className="flex items-center">
-              <span className="text-3xl font-bold text-teal-600 mr-2">
+              <span className="text-3xl font-bold text-[var(--primary)] mr-2">
                 {placeData.rating.toFixed(1)}
               </span>
               <div className="flex mr-2">
@@ -162,12 +162,12 @@ export default function GoogleReviews() {
                   <HiStar
                     key={star}
                     className={`text-xl ${
-                      star <= placeData.rating ? 'text-yellow-400' : 'text-gray-300'
+                      star <= placeData.rating ? 'text-[var(--primary)]' : 'text-[var(--text-muted)]'
                     }`}
                   />
                 ))}
               </div>
-              <span className="text-[var(--text-muted)] dark:text-gray-400">
+              <span className="text-[var(--text-muted)] dark:text-[var(--text-muted)]">
                 ({placeData.user_ratings_total} reviews)
               </span>
             </div>
@@ -177,7 +177,7 @@ export default function GoogleReviews() {
 
       <div className="space-y-4 mb-6">
         {reviews.map((review, index) => (
-          <div key={index} className="bg-gray-50 rounded-2xl p-4 border border-gray-100">
+          <div key={index} className="bg-[var(--background-secondary)] rounded-2xl p-4 border border-[var(--border)]">
             <div className="flex items-start space-x-3">
               <Image
                 src={review.profile_photo_url}
@@ -188,24 +188,24 @@ export default function GoogleReviews() {
               />
               <div className="flex-1">
                 <div className="flex items-center justify-between mb-2">
-                  <h4 className="font-semibold text-black dark:text-white">{review.author_name}</h4>
+                  <h4 className="font-semibold text-[var(--foreground)] dark:text-[var(--foreground)]">{review.author_name}</h4>
                   <div className="flex items-center">
                     <div className="flex mr-2">
                       {[1, 2, 3, 4, 5].map((star) => (
                         <HiStar
                           key={star}
                           className={`text-sm ${
-                            star <= review.rating ? 'text-yellow-400' : 'text-gray-300 dark:text-gray-600'
+                            star <= review.rating ? 'text-[var(--primary)]' : 'text-[var(--text-muted)] dark:text-[var(--text-muted)]'
                           }`}
                         />
                       ))}
                     </div>
-                    <span className="text-sm text-gray-600 dark:text-gray-400">
+                    <span className="text-sm text-[var(--text-muted)] dark:text-[var(--text-muted)]">
                       {review.relative_time_description}
                     </span>
                   </div>
                 </div>
-                <p className="text-gray-700 dark:text-gray-300 text-sm">{review.text}</p>
+                <p className="text-[var(--text-muted)] dark:text-[var(--text-muted)] text-sm">{review.text}</p>
               </div>
             </div>
           </div>

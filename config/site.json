@@ -10,19 +10,6 @@
     "latitude": 45.4461434,
     "longitude": -73.9241996
   },
-  "theme": {
-    "primary": "#007AFF",
-    "primaryDark": "#005BB5",
-    "primaryLight": "#4DA3FF",
-    "background": "#F8F9FA",
-    "backgroundSecondary": "#FFFFFF",
-    "backgroundDark": "#1C1C1E",
-    "text": "#1D1D1F",
-    "textMuted": "#6E6E73",
-    "textLight": "#86868B",
-    "border": "#E5E5E7",
-    "accent": "#FFB800"
-  },
   "google": {
     "mapsApiKey": "AIzaSyCebCaTBHwg44o-yXnkJz71_eLx2sdC8dk",
     "placeId": "PLACEHOLDER_FOR_PLACE_ID",

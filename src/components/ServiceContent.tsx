@@ -201,14 +201,14 @@ export default function ServiceContent({ serviceKey, locale = 'en' }: ServiceCon
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
           </div>
         )}
-        <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-yellow-50 to-yellow-100 dark:from-yellow-900/20 dark:to-yellow-800/30 text-yellow-700 dark:text-yellow-400 px-4 py-2 rounded-full text-sm font-medium mb-4 shadow-sm border border-yellow-200 dark:border-yellow-800/30">
+        <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-yellow-50 to-yellow-100 dark:from-yellow-900/20 dark:to-yellow-800/30 text-[var(--primary)] dark:text-[var(--primary)] px-4 py-2 rounded-full text-sm font-medium mb-4 shadow-sm border border-[var(--primary)] dark:border-[var(--primary)]/30">
           <HiSparkles className="w-4 h-4" />
           <span>{service.subtitle}</span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+        <h1 className="text-3xl md:text-4xl font-bold text-[var(--text-muted)] dark:text-[var(--foreground)] mb-4">
           {service.title}
         </h1>
-        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-lg text-[var(--text-muted)] dark:text-[var(--text-muted)] max-w-3xl mx-auto leading-relaxed">
           {service.description}
         </p>
       </div>
@@ -230,16 +230,16 @@ export default function ServiceContent({ serviceKey, locale = 'en' }: ServiceCon
                 </div>
               )}
               <div className="w-12 h-12 bg-gradient-to-br from-yellow-100 to-yellow-200 dark:from-yellow-900/30 dark:to-yellow-800/40 rounded-xl flex items-center justify-center mb-4 shadow-sm">
-                <Icon className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
+                <Icon className="w-6 h-6 text-[var(--primary)] dark:text-[var(--primary)]" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">{item.title}</h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">
+              <h3 className="text-xl font-semibold text-[var(--text-muted)] dark:text-[var(--foreground)] mb-3">{item.title}</h3>
+              <p className="text-[var(--text-muted)] dark:text-[var(--text-muted)] mb-4">
                 {item.description}
               </p>
               <ul className="space-y-2">
                 {item.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-center text-sm text-gray-600 dark:text-gray-300">
-                    <HiCheckCircle className="w-4 h-4 text-yellow-600 dark:text-yellow-400 mr-2 flex-shrink-0" />
+                  <li key={featureIndex} className="flex items-center text-sm text-[var(--text-muted)] dark:text-[var(--text-muted)]">
+                    <HiCheckCircle className="w-4 h-4 text-[var(--primary)] dark:text-[var(--primary)] mr-2 flex-shrink-0" />
                     {feature}
                   </li>
                 ))}
@@ -250,23 +250,23 @@ export default function ServiceContent({ serviceKey, locale = 'en' }: ServiceCon
       </div>
 
       {/* Contact CTA */}
-      <div className="bg-gradient-to-r from-gray-700 via-gray-800 to-gray-700 dark:from-gray-600 dark:via-gray-700 dark:to-gray-600 rounded-xl p-6 text-center text-white mt-8 shadow-lg">
+      <div className="bg-gradient-to-r from-gray-700 via-gray-800 to-gray-700 dark:from-gray-600 dark:via-gray-700 dark:to-gray-600 rounded-xl p-6 text-center text-[var(--foreground)] mt-8 shadow-lg">
         <h3 className="text-xl font-semibold mb-2">
           {locale === 'fr' ? 'Prêt à commencer?' : 'Ready to get started?'}
         </h3>
-        <p className="text-gray-200 mb-4">
+        <p className="text-[var(--text-muted)] mb-4">
           {locale === 'fr' ? 'Contactez-nous pour un devis gratuit' : 'Contact us for a free quote'}
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-3">
           <a
             href="tel:+15145551234"
-            className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+            className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-[var(--foreground)] px-6 py-2 rounded-lg font-medium transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
           >
             {locale === 'fr' ? 'Appelez maintenant' : 'Call Now'}
           </a>
           <a
             href="mailto:info@edmtl.ca"
-            className="border border-yellow-500 text-yellow-500 hover:bg-gradient-to-r hover:from-yellow-500 hover:to-yellow-600 hover:text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 hover:shadow-md transform hover:-translate-y-0.5"
+            className="border border-[var(--primary)] text-[var(--primary)] hover:bg-gradient-to-r hover:from-yellow-500 hover:to-yellow-600 hover:text-[var(--foreground)] px-6 py-2 rounded-lg font-medium transition-all duration-300 hover:shadow-md transform hover:-translate-y-0.5"
           >
             {locale === 'fr' ? 'Devis gratuit' : 'Free Quote'}
           </a>
