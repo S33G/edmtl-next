@@ -1,10 +1,22 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { HiHome, HiWrenchScrewdriver, HiPhone, HiLanguage } from 'react-icons/hi2';
 import ReactCountryFlag from 'react-country-flag';
 import siteConfig from '../../config/site.json';
 import { useTranslation } from '../hooks/useTranslation';
+
+// Custom EDM Logo component
+const EDMLogo: React.FC<{ className?: string }> = ({ className }) => (
+  <Image
+    src="/images/edm-box-logo.png"
+    alt="EDM"
+    width={24}
+    height={24}
+    className={className}
+  />
+);
 
 interface PagePickerProps {
   currentLocale: string;
@@ -21,7 +33,8 @@ const PagePicker: React.FC<PagePickerProps> = ({ currentLocale, onLocaleChange, 
     {
       id: 'hero',
       label: t('navigation.home'),
-      icon: HiHome,
+      icon: EDMLogo,
+      isLogo: true,
     },
     {
       id: 'services',
@@ -146,19 +159,18 @@ const PagePicker: React.FC<PagePickerProps> = ({ currentLocale, onLocaleChange, 
                 className={`
                   group relative flex items-center justify-center rounded-xl transition-all duration-300 ${isInHeader ? 'w-12 h-12' : 'w-14 h-14 md:w-12 md:h-12 flex-col'}
                   ${isActive
-                    ? 'bg-[var(--primary)] text-[var(--foreground)] shadow-lg scale-105'
+                    ? 'bg-[var(--primary)] text-black shadow-lg scale-105'
                     : 'hover:bg-[var(--background-secondary)] dark:hover:bg-[var(--background-secondary)] text-[var(--text-muted)] dark:text-[var(--text-muted)] hover:scale-105'
                   }
                 `}
                 title={section.label}
               >
-                <Icon className={`${isInHeader ? 'w-5 h-5' : 'w-5 h-5 md:w-5 md:h-5'}`} />
+                <Icon className={`${isInHeader ? 'w-5 h-5' : 'w-5 h-5 md:w-5 md:h-5'} ${section.isLogo ? 'object-contain' : ''}`} />
 
-                {/* Mobile title - only show when not in header */}
-                {!isInHeader && (
+                {/* Mobile title - only show when not in header and not for logo */}
+                {!isInHeader && !section.isLogo && (
                   <span className={`text-xs mt-1 font-medium leading-tight md:hidden ${isActive ? 'text-[var(--foreground)]' : 'text-[var(--text-muted)] dark:text-[var(--text-muted)]'}`}>
-                    {section.id === 'hero' ? (currentLocale === 'fr' ? 'Accueil' : 'Home') :
-                     section.id === 'services' ? (currentLocale === 'fr' ? 'Services' : 'Services') :
+                    {section.id === 'services' ? (currentLocale === 'fr' ? 'Services' : 'Services') :
                      section.id === 'reviews' ? (currentLocale === 'fr' ? 'Avis' : 'Reviews') :
                      section.id === 'contact' ? (currentLocale === 'fr' ? 'Contact' : 'Contact') :
                      section.id === 'language' ? (currentLocale === 'fr' ? 'Langue' : 'Language') : section.label}
@@ -188,8 +200,8 @@ const PagePicker: React.FC<PagePickerProps> = ({ currentLocale, onLocaleChange, 
                           onClick={() => handleLanguageChange(locale)}
                           className={`flex items-center space-x-3 w-full px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
                             currentLocale === locale
-                              ? 'bg-[var(--primary)] text-[var(--foreground)] shadow-sm'
-                              : 'text-[var(--text-muted)] dark:text-[var(--text-muted)] hover:bg-[var(--primary)] hover:text-[var(--foreground)] hover:shadow-sm'
+                              ? 'bg-[var(--primary)] text-black shadow-sm'
+                              : 'text-[var(--text-muted)] dark:text-[var(--text-muted)] hover:bg-[var(--primary)] hover:text-black hover:shadow-sm'
                           }`}
                           title={locale === 'en' ? 'English' : 'Français'}
                         >

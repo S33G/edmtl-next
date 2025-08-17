@@ -214,7 +214,7 @@ export default function Modal({
           } hover:scale-110 hover:rotate-90`}
           aria-label="Close modal"
         >
-          <HiXMark className="w-5 h-5 text-[var(--foreground)] transition-transform duration-200" />
+          <HiXMark className="w-5 h-5 text-black transition-transform duration-200" />
         </button>
 
         {/* Modal Content */}

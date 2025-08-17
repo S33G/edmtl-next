@@ -78,7 +78,7 @@ export default function LocalizedContent() {
 
   return (
     <div className="min-h-screen hex-pattern bg-[var(--background)] text-[var(--foreground)] transition-colors duration-300">
-      <header className="sticky top-0 z-50 w-full border-b border-[var(--border)]/20 dark:border-[var(--border)]/20 bg-[var(--background-secondary)]/80 backdrop-blur-md">
+      <header className="hidden md:block sticky top-0 z-50 w-full border-b border-[var(--border)]/20 dark:border-[var(--border)]/20 bg-[var(--background-secondary)]/80 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-6 py-3">
           <div className="flex items-center justify-between md:justify-between">
             <div className="flex items-center flex-shrink-0 md:flex-shrink-0 flex-1 md:flex-initial justify-center md:justify-start">
@@ -121,7 +121,7 @@ export default function LocalizedContent() {
       </div>
 
       <main>
-        <section id="hero-section" className="hero-section text-center py-40 relative bg-gradient-to-b from-transparent via-transparent to-gray-50/30 dark:to-gray-900/30 w-full">
+        <section id="hero-section" className="hero-section text-center pt-20 pb-40 md:py-40 relative bg-gradient-to-b from-transparent via-transparent to-gray-50/30 dark:to-gray-900/30 w-full">
           <div className="max-w-4xl mx-auto px-4 sm:px-6">
             <div className="mb-8 animate-in fade-in slide-in-from-top-4 duration-700">
               <Image
@@ -403,7 +403,7 @@ export default function LocalizedContent() {
                   <div className="space-y-6">
                     <div className="flex items-center gap-4">
                       <div className="flex-shrink-0 w-12 h-12 bg-[var(--primary)] rounded-full flex items-center justify-center">
-                        <svg className="w-6 h-6 text-[var(--foreground)]" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1.5 1.5 0 011.465 1.175l.716 3.223a1.5 1.5 0 01-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 006.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 011.767-1.052l3.223.716A1.5 1.5 0 0118 15.352V16.5a1.5 1.5 0 01-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 012 8.5v-.5z" clipRule="evenodd" />
                         </svg>
                       </div>
@@ -419,7 +419,7 @@ export default function LocalizedContent() {
 
                     <div className="flex items-center gap-4">
                       <div className="flex-shrink-0 w-12 h-12 bg-[var(--primary)] rounded-full flex items-center justify-center">
-                        <svg className="w-6 h-6 text-[var(--foreground)]" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 20 20">
                           <path d="M3 4a2 2 0 012-2h10a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V4zm12 0H5v12h10V4z"/>
                           <path d="M5 6h10v2H5V6zm0 4h10v2H5v-2z"/>
                         </svg>
@@ -434,7 +434,7 @@ export default function LocalizedContent() {
 
                     <div className="flex items-start gap-4">
                       <div className="flex-shrink-0 w-12 h-12 bg-[var(--primary)] rounded-full flex items-center justify-center">
-                        <svg className="w-6 h-6 text-[var(--foreground)]" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                         </svg>
                       </div>
@@ -457,10 +457,10 @@ export default function LocalizedContent() {
                       {currentLocale === 'fr' ? 'DEVIS GRATUITS DISPONIBLES' : 'FREE QUOTES AVAILABLE'}
                     </div>
                     <div className="flex gap-4">
-                      <a href="tel:438-500-3099" className="flex-1 text-center bg-[var(--primary)] hover:bg-[var(--primary)] text-[var(--foreground)] px-6 py-3 rounded-xl font-semibold transition-colors duration-200">
+                      <a href="tel:438-500-3099" className="flex-1 text-center bg-[var(--primary)] hover:bg-[var(--primary)] text-black px-6 py-3 rounded-xl font-semibold transition-colors duration-200">
                         {currentLocale === 'fr' ? 'APPELER' : 'CALL NOW'}
                       </a>
-                      <a href="mailto:info@edmtl.com" className="flex-1 text-center bg-[var(--primary)] hover:bg-[var(--primary)] text-[var(--foreground)] px-6 py-3 rounded-xl font-semibold transition-colors duration-200">
+                      <a href="mailto:info@edmtl.com" className="flex-1 text-center bg-[var(--primary)] hover:bg-[var(--primary)] text-black px-6 py-3 rounded-xl font-semibold transition-colors duration-200">
                         {currentLocale === 'fr' ? 'EMAIL' : 'EMAIL US'}
                       </a>
                     </div>
@@ -531,7 +531,7 @@ export default function LocalizedContent() {
                       />
                     </div>
 
-                    <button type="submit" className="w-full bg-[var(--primary)] hover:bg-[var(--primary)] text-[var(--foreground)] px-6 py-3 rounded-xl font-semibold transition-colors duration-200">
+                    <button type="submit" className="w-full bg-[var(--primary)] hover:bg-[var(--primary)] text-black px-6 py-3 rounded-xl font-semibold transition-colors duration-200">
                       {currentLocale === 'fr' ? 'ENVOYER LA DEMANDE' : 'SEND REQUEST'}
                     </button>
                   </form>
@@ -554,10 +554,10 @@ export default function LocalizedContent() {
             {featuresData.map((feature, index) => (
               <div key={index} className="text-center">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-[var(--primary)] rounded-2xl mb-6">
-                  {index === 0 && <span className="text-2xl font-bold text-[var(--foreground)]">5⭐</span>}
-                  {index === 1 && <HiUserGroup className="w-8 h-8 text-[var(--foreground)]" />}
-                  {index === 2 && <HiShieldCheck className="w-8 h-8 text-[var(--foreground)]" />}
-                  {index === 3 && <HiCurrencyDollar className="w-8 h-8 text-[var(--foreground)]" />}
+                  {index === 0 && <span className="text-2xl font-bold text-black">5⭐</span>}
+                  {index === 1 && <HiUserGroup className="w-8 h-8 text-black" />}
+                  {index === 2 && <HiShieldCheck className="w-8 h-8 text-black" />}
+                  {index === 3 && <HiCurrencyDollar className="w-8 h-8 text-black" />}
                 </div>
                 <h3 className="text-xl font-semibold text-[var(--foreground)] mb-2">{feature.title}</h3>
               </div>

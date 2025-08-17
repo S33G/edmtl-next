@@ -133,7 +133,7 @@ body {
 /* Apple-inspired button styles */
 .btn-primary {
   background: var(--primary);
-  color: white;
+  color: #000;
   font-weight: 500;
   padding: 14px 28px;
   border: none;
@@ -169,7 +169,7 @@ body {
 
 .btn-secondary:hover {
   background: var(--primary);
-  color: white;
+  color: #000;
   border-color: var(--primary);
   transform: translateY(-1px);
   box-shadow: var(--shadow-lg);

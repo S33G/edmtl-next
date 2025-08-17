@@ -56,8 +56,8 @@ export default function LanguageSwitcher({ currentLocale = 'en', onLocaleChange 
           onClick={() => handleLanguageChange(locale)}
           className={`flex items-center space-x-1 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
             currentLocale === locale
-              ? 'bg-[var(--primary)] text-[var(--foreground)] shadow-md'
-              : 'text-[var(--text-muted)] hover:bg-[var(--primary)] hover:text-[var(--foreground)] hover:shadow-md'
+              ? 'bg-[var(--primary)] text-black shadow-md'
+              : 'text-[var(--text-muted)] hover:bg-[var(--primary)] hover:text-black hover:shadow-md'
           }`}
           title={locale === 'en' ? 'English' : 'Français'}
         >
