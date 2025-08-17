@@ -29,7 +29,7 @@ const PagePicker: React.FC<PagePickerProps> = ({ currentLocale, onLocaleChange, 
   const [showLanguagePopup, setShowLanguagePopup] = useState<boolean>(false);
   const { t } = useTranslation(currentLocale);
 
-  const sections = [
+  const allSections = [
     {
       id: 'hero',
       label: t('navigation.home'),
@@ -57,6 +57,11 @@ const PagePicker: React.FC<PagePickerProps> = ({ currentLocale, onLocaleChange, 
       icon: HiLanguage,
     },
   ];
+
+  // Filter out language section if there's only one supported locale
+  const sections = siteConfig.supportedLocales.length > 1 
+    ? allSections 
+    : allSections.filter(section => section.id !== 'language');
 
   const getCountryCode = (locale: string) => {
     switch (locale) {
