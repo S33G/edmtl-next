@@ -170,5 +170,295 @@
       }
     ]
   },
+  "serviceModals": {
+    "en": {
+      "window-cleaning": {
+        "title": "Traditional & Water-Fed Window Cleaning",
+        "subtitle": "Professional Window Cleaning",
+        "description": "Professional window cleaning services for residental and commercial properties in Montreal. Our fully insured and experienced team delivers excellent results using well practiced techniques and high quality equipment.",
+        "services": [
+          {
+            "title": "Interior Cleaning",
+            "description": "Having both inside and outside of your windows cleaned makes a huge difference to your home's natural lighting and air quality.The opening mechanism will rust and deteriorate when not maintained.",
+            "features": [
+              "Frames and Sills",
+              "Window Tracks",
+              "Mosquito Screens"
+            ]
+          },
+          {
+            "title": "Exterior Cleaning",
+            "description": "Professional grade window cleaning. To reach our meticulous standards at EDM, for most residential properties we detail windows by hand with a squeegee and clean microfibre cloth in a safe and effective manner. Our efficiency allows for better pricing and our skill ensures guaranteed results.",
+            "features": [
+              "Traditional & practiced methods",
+              "Safe and secure access approach",
+              "Streak-free results"
+            ]
+          },
+          {
+            "title": "Commercial Services",
+            "description": "Specialized window cleaning services for commercial buildings, offices, and retail properties with flexible scheduling.",
+            "features": [
+              "Flexible scheduling",
+              "Regular servicing available",
+              "Fully insured to operate"
+            ]
+          }
+        ]
+      },
+      "gutter-services": {
+        "title": "Gutter Services",
+        "subtitle": "Gutter Services",
+        "description": "Complete gutter services including cleaning, repairs, and preventive maintenance to protect your property from water damage.",
+        "services": [
+          {
+            "title": "Gutter Cleaning",
+            "description": "No-mess, hand removal of leaves & debris followed by a full system flush including downspouts to ensure efficient water evacuation. Every gutter cleaning includes an overview diagnosis and pictures upon request.",
+            "features": [
+              "Complete hand-cleaning & rinse",
+              "Water flow testing",
+              "Downspout clearance"
+            ]
+          },
+          {
+            "title": "Gutter Guard Installation",
+            "description": "Properties with many overhanging trees may require further protection from falling debris. Custom fitted guard systems to help prevent build up & blockage to reduce future maintenance.",
+            "features": [
+              "Durable protection system",
+              "Professional quality installation",
+              "Product warranty included"
+            ]
+          },
+          {
+            "title": "Maintenance & Repairs",
+            "description": "Blockages, leaks & replacement of most components are all services available from us. We can design and apply the correct solution to your gutter drainage issues.",
+            "features": [
+              "Seasonal service scheduling",
+              "Leak repairs",
+              "Detailed overview diagnosis with picture & video"
+            ]
+          }
+        ]
+      },
+      "pressure-washing": {
+        "title": "Pressure & Soft Washing",
+        "subtitle": "Pressure & Soft Washing Services",
+        "description": "Professional pressure & soft washing services to clean and restore the appearance of the various exterior surfaces of your property. We also remove vines in many cases.",
+        "services": [
+          {
+            "title": "Hard Surface Cleaning",
+            "description": "Safe and professional pressure cleaning of driveways, patios, walkways & other exterior surfaces.",
+            "features": [
+              "High pressure cleaning",
+              "Stain removal",
+              "Restorative results"
+            ]
+          },
+          {
+            "title": "Soft Surface Cleaning",
+            "description": "Safe and professional soft-wash services for more fragile and delicate surfaces such as vinyl siding, fences, entrance doors, garage doors and more.",
+            "features": [
+              "Low pressure, hand cleaning methods",
+              "Safe industry standard products",
+              "Restorative grime free results"
+            ]
+          },
+          {
+            "title": "Moss Removal",
+            "description": "Moss can grow in many environment, thriving in shady and damp areas but also on roof tiles and driveways. We have methods and quality products to remove and prolong the absence of further growth. We can also remove vines in many cases.",
+            "features": [
+              "Hand-scrub removal",
+              "Sodium Hypochlorite (SH) treatment",
+              "Long lasting results"
+            ]
+          }
+        ]
+      },
+      "deck-refinishing": {
+        "title": "Deck Refinishing",
+        "subtitle": "Deck Refinishing Services",
+        "description": "Various service levels custom to your needs. Sanding, staining, sealing, washing & brightening. Available for both wood & composite decking.",
+        "services": [
+          {
+            "title": "Wash & Brighten Service",
+            "description": "Algae, dirt and other contaminants alter the appearance of wood or composite decks. We provide a wash & brighten service to remove grime and restore your investment to a clean finish.",
+            "features": [
+              "Low pressure washing",
+              "Pre-wash application",
+              "High quality industry grade products"
+            ]
+          },
+          {
+            "title": "Surface Cleaning & Preparation",
+            "description": "Deep cleaning & sanding to prepare the wood surfaces for product application. We are able to just clean your decking OR take the service further to apply stain/seal.",
+            "features": [
+              "Complete surface washing",
+              "High quality industry grade products",
+              "Professional sanding and thorough preparation"
+            ]
+          },
+          {
+            "title": "Staining & Sealing",
+            "description": "Full restoration level application of high quality industry grade products to protect your deck from the elements and restore the appearance of the surfaces.",
+            "features": [
+              "Premium stains & seals",
+              "Long-lasting protective finish",
+              "Quality attention to detail"
+            ]
+          }
+        ]
+      },
+      "cta": {
+        "ready": "Ready to get started?",
+        "contact": "Contact us for a free quote",
+        "callNow": "Call Now",
+        "freeQuote": "Free Quote"
+      }
+    },
+    "fr": {
+      "window-cleaning": {
+        "title": "Nettoyage de Vitres",
+        "subtitle": "Nettoyage de Vitres Professionnel",
+        "description": "Services de nettoyage de vitres professionnels pour propriétés résidentielles et commerciales à Montréal. Notre équipe entièrement assurée et expérimentée livre des résultats excellents en utilisant techniques bien pratiquées et équipement de haute qualité.",
+        "services": [
+          {
+            "title": "Nettoyage Intérieur",
+            "description": "Avoir vos vitres nettoyées à l'intérieur et à l'extérieur fait une énorme différence pour l'éclairage naturel et la qualité de l'air de votre maison. Le mécanisme d'ouverture va rouiller et se détériorer s'il n'est pas entretenu.",
+            "features": [
+              "Cadres et Rebords",
+              "Rails de Fenêtres",
+              "Moustiquaires"
+            ]
+          },
+          {
+            "title": "Nettoyage Extérieur",
+            "description": "Nettoyage de vitres de qualité professionnelle. Pour atteindre nos standards méticuleux chez EDM, pour la plupart des propriétés résidentielles nous détaillons les vitres à la main avec une raclette et un tissu microfibre propre de manière sûre et efficace.",
+            "features": [
+              "Méthodes traditionnelles et pratiquées",
+              "Approche d'accès sûre et sécurisée",
+              "Résultats sans traces"
+            ]
+          },
+          {
+            "title": "Services Commerciaux",
+            "description": "Services de nettoyage de vitres spécialisés pour bâtiments commerciaux, bureaux et propriétés de vente au détail avec horaires flexibles.",
+            "features": [
+              "Horaires flexibles",
+              "Service régulier disponible",
+              "Entièrement assuré pour opérer"
+            ]
+          }
+        ]
+      },
+      "gutter-services": {
+        "title": "Services de Gouttières",
+        "subtitle": "Nettoyage et Entretien de Gouttières",
+        "description": "Services complets de gouttières incluant nettoyage, réparations et entretien préventif pour protéger votre propriété des dommages d'eau.",
+        "services": [
+          {
+            "title": "Nettoyage de Gouttières",
+            "description": "Enlèvement à la main sans dégâts des feuilles et débris suivi d'un rinçage complet du système incluant les tuyaux de descente pour assurer une évacuation efficace de l'eau. Chaque nettoyage de gouttières inclut un diagnostic d'aperçu et des photos sur demande.",
+            "features": [
+              "Nettoyage manuel complet et rinçage",
+              "Test de débit d'eau",
+              "Nettoyage des tuyaux de descente"
+            ]
+          },
+          {
+            "title": "Installation de Protège-Gouttières",
+            "description": "Les propriétés avec de nombreux arbres en surplomb peuvent nécessiter une protection supplémentaire contre les débris qui tombent. Systèmes de protection sur mesure pour aider à prévenir l'accumulation et les blocages pour réduire l'entretien futur.",
+            "features": [
+              "Système de protection durable",
+              "Installation de qualité professionnelle",
+              "Garantie produit incluse"
+            ]
+          },
+          {
+            "title": "Entretien et Réparations",
+            "description": "Blocages, fuites et remplacement de la plupart des composants sont tous des services disponibles chez nous. Nous pouvons concevoir et appliquer la solution correcte à vos problèmes de drainage de gouttières.",
+            "features": [
+              "Planification de service saisonnier",
+              "Réparations de fuites",
+              "Diagnostic d'aperçu détaillé avec photo et vidéo"
+            ]
+          }
+        ]
+      },
+      "pressure-washing": {
+        "title": "Lavage à Pression et Doux",
+        "subtitle": "Services de Lavage à Pression",
+        "description": "Services de lavage à pression et doux professionnels pour nettoyer et restaurer l'apparence des diverses surfaces extérieures de votre propriété. Nous enlevons aussi les vignes dans de nombreux cas.",
+        "services": [
+          {
+            "title": "Nettoyage de Surfaces Dures",
+            "description": "Nettoyage à pression sûr et professionnel des allées, terrasses, trottoirs et autres surfaces extérieures.",
+            "features": [
+              "Nettoyage haute pression",
+              "Enlèvement des taches",
+              "Résultats restaurateurs"
+            ]
+          },
+          {
+            "title": "Nettoyage de Surfaces Douces",
+            "description": "Services de lavage doux sûrs et professionnels pour des surfaces plus fragiles et délicates comme le revêtement en vinyle, les clôtures, les portes d'entrée, les portes de garage et plus.",
+            "features": [
+              "Méthodes de nettoyage à basse pression, à la main",
+              "Produits standard de l'industrie sûrs",
+              "Résultats restaurateurs sans saleté"
+            ]
+          },
+          {
+            "title": "Enlèvement de Mousse",
+            "description": "La mousse peut pousser dans de nombreux environnements, prospérant dans les zones ombragées et humides mais aussi sur les tuiles de toit et les allées. Nous avons des méthodes et des produits de qualité pour enlever et prolonger l'absence de croissance future. Nous pouvons aussi enlever les vignes dans de nombreux cas.",
+            "features": [
+              "Enlèvement par frottage à la main",
+              "Traitement à l'hypochlorite de sodium (SH)",
+              "Résultats durables"
+            ]
+          }
+        ]
+      },
+      "deck-refinishing": {
+        "title": "Rénovation de Terrasses",
+        "subtitle": "Services de Rénovation de Terrasses",
+        "description": "Divers niveaux de service personnalisés à vos besoins. Ponçage, teinture, scellage, lavage et éclaircissement. Disponible pour les terrasses en bois et composites.",
+        "services": [
+          {
+            "title": "Service de Lavage et d'Éclaircissement",
+            "description": "Les algues, la saleté et autres contaminants altèrent l'apparence des terrasses en bois ou composites. Nous fournissons un service de lavage et d'éclaircissement pour enlever la saleté et restaurer votre investissement à une finition propre.",
+            "features": [
+              "Lavage à basse pression",
+              "Application de pré-lavage",
+              "Produits de qualité industrielle de haute qualité"
+            ]
+          },
+          {
+            "title": "Nettoyage et Préparation de Surface",
+            "description": "Nettoyage en profondeur et ponçage pour préparer les surfaces en bois pour l'application de produits. Nous sommes capables de seulement nettoyer votre terrasse OU pousser le service plus loin pour appliquer teinture/scellant.",
+            "features": [
+              "Lavage complet de surface",
+              "Produits de qualité industrielle de haute qualité",
+              "Ponçage professionnel et préparation minutieuse"
+            ]
+          },
+          {
+            "title": "Teinture et Scellage",
+            "description": "Application de niveau de restauration complète de produits de qualité industrielle de haute qualité pour protéger votre terrasse des éléments et restaurer l'apparence des surfaces.",
+            "features": [
+              "Teintures et scellants premium",
+              "Finition protectrice durable",
+              "Attention de qualité aux détails"
+            ]
+          }
+        ]
+      },
+      "cta": {
+        "ready": "Prêt à commencer?",
+        "contact": "Contactez-nous pour un devis gratuit",
+        "callNow": "Appelez maintenant",
+        "freeQuote": "Devis gratuit"
+      }
+    }
+  },
   "copyright": "© COPYRIGHT ENTRETIEN DOMESTIQUE MONTREAL 2025"
 }
