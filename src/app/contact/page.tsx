@@ -101,13 +101,21 @@ export default function ContactPage() {
             <div className="bg-[var(--background-secondary)] bg-opacity-50 rounded-lg p-8">
               <h2 className="text-[var(--primary)] text-2xl font-bold mb-6">REQUEST A QUOTE</h2>
 
-              <form className="space-y-4" data-netlify="true">
+              <form 
+                className="space-y-4" 
+                name="contact-form" 
+                method="POST" 
+                data-netlify="true"
+              >
+                <input type="hidden" name="form-name" value="contact-form" />
                 <div>
                   <label className="block text-[var(--primary)] font-bold mb-2">Name *</label>
                   <input
                     type="text"
+                    name="name"
                     className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none"
                     placeholder="Your full name"
+                    required
                   />
                 </div>
 
@@ -115,8 +123,10 @@ export default function ContactPage() {
                   <label className="block text-[var(--primary)] font-bold mb-2">Email *</label>
                   <input
                     type="email"
+                    name="email"
                     className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none"
                     placeholder="your.email@example.com"
+                    required
                   />
                 </div>
 
@@ -124,6 +134,7 @@ export default function ContactPage() {
                   <label className="block text-[var(--primary)] font-bold mb-2">Phone</label>
                   <input
                     type="tel"
+                    name="phone"
                     className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none"
                     placeholder="(optional)"
                   />
@@ -131,7 +142,11 @@ export default function ContactPage() {
 
                 <div>
                   <label className="block text-[var(--primary)] font-bold mb-2">Service Needed</label>
-                  <select className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none">
+                  <select 
+                    name="service"
+                    className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none"
+                    required
+                  >
                     <option>Select a service...</option>
                     <option>Window Cleaning</option>
                     <option>Gutter Services</option>
@@ -144,6 +159,7 @@ export default function ContactPage() {
                 <div>
                   <label className="block text-[var(--primary)] font-bold mb-2">Message</label>
                   <textarea
+                    name="message"
                     rows={4}
                     className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none"
                     placeholder="Please describe your project..."

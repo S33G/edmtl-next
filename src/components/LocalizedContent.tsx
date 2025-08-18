@@ -472,15 +472,23 @@ export default function LocalizedContent() {
                     {currentLocale === 'fr' ? 'Demander un devis' : 'Request a Quote'}
                   </h3>
 
-                  <form className="space-y-4" data-netlify="true">
+                  <form 
+                    className="space-y-4" 
+                    name="quote-request" 
+                    method="POST" 
+                    data-netlify="true"
+                  >
+                    <input type="hidden" name="form-name" value="quote-request" />
                     <div>
                       <label className="block text-[var(--foreground)] dark:text-[var(--foreground)] font-bold mb-2">
                         {currentLocale === 'fr' ? 'Nom *' : 'Name *'}
                       </label>
                       <input
                         type="text"
+                        name="name"
                         className="w-full p-3 bg-[var(--background-tertiary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none transition-colors"
                         placeholder={currentLocale === 'fr' ? 'Votre nom complet' : 'Your full name'}
+                        required
                       />
                     </div>
 
@@ -490,8 +498,10 @@ export default function LocalizedContent() {
                       </label>
                       <input
                         type="email"
+                        name="email"
                         className="w-full p-3 bg-[var(--background-tertiary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none transition-colors"
                         placeholder="your.email@example.com"
+                        required
                       />
                     </div>
 
@@ -501,6 +511,7 @@ export default function LocalizedContent() {
                       </label>
                       <input
                         type="tel"
+                        name="phone"
                         className="w-full p-3 bg-[var(--background-tertiary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none transition-colors"
                         placeholder={currentLocale === 'fr' ? '(optionnel)' : '(optional)'}
                       />
@@ -510,7 +521,11 @@ export default function LocalizedContent() {
                       <label className="block text-[var(--foreground)] dark:text-[var(--foreground)] font-bold mb-2">
                         {currentLocale === 'fr' ? 'Service requis' : 'Service Needed'}
                       </label>
-                      <select className="w-full p-3 bg-[var(--background-tertiary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none transition-colors">
+                      <select 
+                        name="service"
+                        className="w-full p-3 bg-[var(--background-tertiary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none transition-colors"
+                        required
+                      >
                         <option>{currentLocale === 'fr' ? 'Sélectionner un service...' : 'Select a service...'}</option>
                         <option>{currentLocale === 'fr' ? 'Nettoyage de vitres' : 'Window Cleaning'}</option>
                         <option>{currentLocale === 'fr' ? 'Services de gouttières' : 'Gutter Services'}</option>
@@ -525,6 +540,7 @@ export default function LocalizedContent() {
                         {currentLocale === 'fr' ? 'Message' : 'Message'}
                       </label>
                       <textarea
+                        name="message"
                         rows={4}
                         className="w-full p-3 bg-[var(--background-tertiary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none transition-colors"
                         placeholder={currentLocale === 'fr' ? 'Veuillez décrire votre projet...' : 'Please describe your project...'}
