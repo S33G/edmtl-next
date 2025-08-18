@@ -472,7 +472,7 @@ export default function LocalizedContent() {
                     {currentLocale === 'fr' ? 'Demander un devis' : 'Request a Quote'}
                   </h3>
 
-                  <form className="space-y-4" netlify>
+                  <form className="space-y-4" data-netlify="true">
                     <div>
                       <label className="block text-[var(--foreground)] dark:text-[var(--foreground)] font-bold mb-2">
                         {currentLocale === 'fr' ? 'Nom *' : 'Name *'}

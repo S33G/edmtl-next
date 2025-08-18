@@ -101,7 +101,7 @@ export default function ContactPage() {
             <div className="bg-[var(--background-secondary)] bg-opacity-50 rounded-lg p-8">
               <h2 className="text-[var(--primary)] text-2xl font-bold mb-6">REQUEST A QUOTE</h2>
 
-              <form className="space-y-4" netlify>
+              <form className="space-y-4" data-netlify="true">
                 <div>
                   <label className="block text-[var(--primary)] font-bold mb-2">Name *</label>
                   <input
