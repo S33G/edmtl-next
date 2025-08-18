@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { HiHome, HiWrenchScrewdriver, HiPhone, HiLanguage } from 'react-icons/hi2';
+import { HiWrenchScrewdriver, HiPhone, HiLanguage } from 'react-icons/hi2';
 import ReactCountryFlag from 'react-country-flag';
 import siteConfig from '../../config/site.json';
 import { useTranslation } from '../hooks/useTranslation';

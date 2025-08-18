@@ -38,7 +38,7 @@ export default function ServiceContent({ serviceKey, locale = 'en' }: ServiceCon
 
       {/* Services Grid */}
       <div className="grid md:grid-cols-3 gap-6">
-        {serviceData.services.map((item: any, index: number) => {
+        {serviceData.services.map((item: { title: string; description: string; features: string[] }, index: number) => {
           const Icon = icons[index];
           return (
             <div key={index} className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800 rounded-xl p-6 hover:shadow-lg hover:from-gray-100 hover:to-gray-200 dark:hover:from-gray-600 dark:hover:to-gray-700 transition-all duration-300">
