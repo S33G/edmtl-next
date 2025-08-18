@@ -59,8 +59,8 @@ const PagePicker: React.FC<PagePickerProps> = ({ currentLocale, onLocaleChange, 
   ];
 
   // Filter out language section if there's only one supported locale
-  const sections = siteConfig.supportedLocales.length > 1 
-    ? allSections 
+  const sections = siteConfig.supportedLocales.length > 1
+    ? allSections
     : allSections.filter(section => section.id !== 'language');
 
   const getCountryCode = (locale: string) => {

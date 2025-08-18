@@ -472,10 +472,11 @@ export default function LocalizedContent() {
                     {currentLocale === 'fr' ? 'Demander un devis' : 'Request a Quote'}
                   </h3>
 
-                  <form 
-                    className="space-y-4" 
-                    name="quote-request" 
-                    method="POST" 
+                  <form
+                    className="space-y-4"
+                    name="quote-request"
+                    method="POST"
+                    action="/thank-you.html"
                     data-netlify="true"
                   >
                     <input type="hidden" name="form-name" value="quote-request" />
@@ -521,7 +522,7 @@ export default function LocalizedContent() {
                       <label className="block text-[var(--foreground)] dark:text-[var(--foreground)] font-bold mb-2">
                         {currentLocale === 'fr' ? 'Service requis' : 'Service Needed'}
                       </label>
-                      <select 
+                      <select
                         name="service"
                         className="w-full p-3 bg-[var(--background-tertiary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none transition-colors"
                         required

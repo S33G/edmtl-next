@@ -101,10 +101,11 @@ export default function ContactPage() {
             <div className="bg-[var(--background-secondary)] bg-opacity-50 rounded-lg p-8">
               <h2 className="text-[var(--primary)] text-2xl font-bold mb-6">REQUEST A QUOTE</h2>
 
-              <form 
-                className="space-y-4" 
-                name="contact-form" 
-                method="POST" 
+              <form
+                className="space-y-4"
+                name="contact-form"
+                method="POST"
+                action="/thank-you.html"
                 data-netlify="true"
               >
                 <input type="hidden" name="form-name" value="contact-form" />
@@ -142,7 +143,7 @@ export default function ContactPage() {
 
                 <div>
                   <label className="block text-[var(--primary)] font-bold mb-2">Service Needed</label>
-                  <select 
+                  <select
                     name="service"
                     className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none"
                     required
