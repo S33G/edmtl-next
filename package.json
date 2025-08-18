@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@netlify/plugin-nextjs": "^5.12.0",
     "@tailwindcss/typography": "^0.5.16",
     "@types/qrcode": "^1.5.5",
     "gray-matter": "^4.0.3",
