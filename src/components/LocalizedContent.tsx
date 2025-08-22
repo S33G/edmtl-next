@@ -21,7 +21,9 @@ export default function LocalizedContent() {
   const scrollToContact = () => {
     const element = document.getElementById('contact');
     if (element) {
-      const headerHeight = 80; // Account for sticky header height
+      // Apply reduced scroll padding on desktop (40px) and no padding on mobile
+      const isMobile = window.innerWidth < 768;
+      const headerHeight = isMobile ? 0 : 40; // No padding on mobile, reduced to 40px on desktop
       const elementPosition = element.offsetTop - headerHeight;
       window.scrollTo({
         top: elementPosition,
@@ -158,7 +160,16 @@ export default function LocalizedContent() {
               <button
                 onClick={() => {
                   const servicesSection = document.getElementById('services');
-                  servicesSection?.scrollIntoView({ behavior: 'smooth' });
+                  if (servicesSection) {
+                    // Apply reduced scroll padding on desktop (40px) and no padding on mobile
+                    const isMobile = window.innerWidth < 768;
+                    const headerHeight = isMobile ? 0 : 40;
+                    const elementPosition = servicesSection.offsetTop - headerHeight;
+                    window.scrollTo({
+                      top: elementPosition,
+                      behavior: 'smooth'
+                    });
+                  }
                 }}
                 className="scroll-arrow-btn group flex flex-col items-center text-[var(--text-muted)] hover:text-[var(--primary)] transition-colors duration-300"
                 aria-label="Scroll to services section"
@@ -187,7 +198,7 @@ export default function LocalizedContent() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
-          <section id="services" className="py-40" ref={servicesRef.ref}>
+          <section id="services" className="py-20 md:py-32 lg:py-40" ref={servicesRef.ref}>
             <div className={`text-center mb-16 transition-all duration-700 ${
               servicesRef.isInView
                 ? 'opacity-100 translate-y-0'
@@ -340,7 +351,7 @@ export default function LocalizedContent() {
             </div>
           </section> */}
 
-          <section className="py-40">
+          <section id="faq" className="py-20 md:py-32 lg:py-40">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
                 <h2 className="text-4xl font-semibold text-[var(--foreground)] mb-4 tracking-tight">
@@ -379,7 +390,7 @@ export default function LocalizedContent() {
             </div>
           </section>
 
-          <section id="contact" className="py-40" ref={contactRef.ref}>
+          <section id="contact" className="py-20 md:py-32 lg:py-40" ref={contactRef.ref}>
             <div className={`max-w-6xl mx-auto px-4 sm:px-6 transition-all duration-700 ${
               contactRef.isInView
                 ? 'opacity-100 translate-y-0'
@@ -456,12 +467,27 @@ export default function LocalizedContent() {
                     <div className="text-[var(--primary)] font-bold mb-4">
                       {currentLocale === 'fr' ? 'DEVIS GRATUITS DISPONIBLES' : 'FREE QUOTES AVAILABLE'}
                     </div>
-                    <div className="flex gap-4">
+                    <div className="flex gap-4 mb-4">
                       <a href="tel:438-500-3099" className="flex-1 text-center bg-[var(--primary)] hover:bg-[var(--primary)] text-black px-6 py-3 rounded-xl font-semibold transition-colors duration-200">
                         {currentLocale === 'fr' ? 'APPELER' : 'CALL NOW'}
                       </a>
                       <a href="mailto:info@edmtl.com" className="flex-1 text-center bg-[var(--primary)] hover:bg-[var(--primary)] text-black px-6 py-3 rounded-xl font-semibold transition-colors duration-200">
                         {currentLocale === 'fr' ? 'EMAIL' : 'EMAIL US'}
+                      </a>
+                    </div>
+                    <div className="mt-4">
+                      <a
+                        href={siteConfig.contact.vcard.filePath}
+                        download="EDMTL-Contact.vcf"
+                        className="flex items-center justify-center gap-2 text-center p-3 border border-[var(--primary)] rounded-lg text-[var(--primary)] hover:bg-[var(--primary)] hover:text-black transition-all duration-300 w-full"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                          <circle cx="9" cy="7" r="4"></circle>
+                          <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        {t('contact.addToContacts')}
                       </a>
                     </div>
                   </div>
@@ -518,23 +544,7 @@ export default function LocalizedContent() {
                       />
                     </div>
 
-                    <div>
-                      <label className="block text-[var(--foreground)] dark:text-[var(--foreground)] font-bold mb-2">
-                        {currentLocale === 'fr' ? 'Service requis' : 'Service Needed'}
-                      </label>
-                      <select
-                        name="service"
-                        className="w-full p-3 bg-[var(--background-tertiary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none transition-colors"
-                        required
-                      >
-                        <option>{currentLocale === 'fr' ? 'Sélectionner un service...' : 'Select a service...'}</option>
-                        <option>{currentLocale === 'fr' ? 'Nettoyage de vitres' : 'Window Cleaning'}</option>
-                        <option>{currentLocale === 'fr' ? 'Services de gouttières' : 'Gutter Services'}</option>
-                        <option>{currentLocale === 'fr' ? 'Lavage à pression' : 'Pressure Washing'}</option>
-                        <option>{currentLocale === 'fr' ? 'Rénovation de terrasses' : 'Deck Refinishing'}</option>
-                        <option>{currentLocale === 'fr' ? 'Autres services' : 'Other Services'}</option>
-                      </select>
-                    </div>
+
 
                     <div>
                       <label className="block text-[var(--foreground)] dark:text-[var(--foreground)] font-bold mb-2">
@@ -559,7 +569,7 @@ export default function LocalizedContent() {
         </div>
       </main>
 
-      <section className="py-40 bg-[var(--background-secondary)]">
+      <section className="py-20 md:py-32 lg:py-40 bg-[var(--background-secondary)]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-semibold text-[var(--foreground)] mb-4 tracking-tight">
@@ -583,7 +593,7 @@ export default function LocalizedContent() {
         </div>
       </section>
 
-      <footer className="bg-[var(--background-secondary)] dark:bg-[var(--background-secondary)] border-t border-[var(--border)] dark:border-[var(--border)] py-8" role="contentinfo">
+      <footer className="bg-[var(--background-secondary)] dark:bg-[var(--background-secondary)] border-t border-[var(--border)] dark:border-[var(--border)] py-4 sm:py-6 md:py-8" role="contentinfo">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center text-[var(--text-muted)] dark:text-[var(--text-muted)] text-sm">
             {t('footer.copyright')}

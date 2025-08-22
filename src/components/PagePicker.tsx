@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { HiWrenchScrewdriver, HiPhone, HiLanguage } from 'react-icons/hi2';
+import { HiWrenchScrewdriver, HiPhone, HiLanguage, HiQuestionMarkCircle } from 'react-icons/hi2';
 import ReactCountryFlag from 'react-country-flag';
 import siteConfig from '../../config/site.json';
 import { useTranslation } from '../hooks/useTranslation';
@@ -47,6 +47,11 @@ const PagePicker: React.FC<PagePickerProps> = ({ currentLocale, onLocaleChange, 
     //   icon: HiChatBubbleBottomCenterText,
     // },
     {
+      id: 'faq',
+      label: t('navigation.faq'),
+      icon: HiQuestionMarkCircle,
+    },
+    {
       id: 'contact',
       label: t('navigation.contact'),
       icon: HiPhone,
@@ -87,14 +92,16 @@ const PagePicker: React.FC<PagePickerProps> = ({ currentLocale, onLocaleChange, 
 
     const element = document.getElementById(sectionId === 'hero' ? 'hero-section' : sectionId);
     if (element) {
-      const headerHeight = 80; // Account for sticky header height
+      // Apply reduced scroll padding on desktop (40px) and no padding on mobile
+      const isMobile = window.innerWidth < 768;
+      const headerHeight = isMobile ? 0 : 40; // No padding on mobile, reduced to 40px on desktop
       const elementPosition = element.offsetTop - headerHeight;
       window.scrollTo({
         top: elementPosition,
         behavior: 'smooth'
       });
     } else if (sectionId === 'hero') {
-      // If hero-section doesn't exist, scroll to top with header offset
+      // If hero-section doesn't exist, scroll to top with no offset
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     setActiveSection(sectionId);

@@ -1,0 +1,14 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Entretien Domestique Montreal
+ORG:Entretien Domestique Montreal
+TEL;TYPE=work,voice:438-500-3099
+EMAIL:info@edmtl.com
+URL:https://edmtl.com
+ADR;TYPE=work:;;Montreal;QC;;Canada
+GEO:45.4461434;-73.9241996
+NOTE:Professional home maintenance services in Montreal. Window cleaning, gutter services, pressure washing, deck refinishing.
+CATEGORIES:Services,Maintenance,Cleaning
+LOGO:https://edmtl.com/images/edm-main-logo.png
+REV:20250822T000000Z
+END:VCARD

@@ -13,7 +13,7 @@
       "companyName": "Entretien Domestique Montreal",
       "address": "Montreal, QC, Canada",
       "website": "https://edmtl.com",
-      "filePath": "/vcard/edmtl-contact.vcf",
+      "filePath": "/edmtl-contact.vcf",
       "labels": {
         "en": "Add to Contacts",
         "fr": "Ajouter aux Contacts"
@@ -38,51 +38,51 @@
   },
   "faq": {
     "en": {
-      "title": "FREQUENT QUESTIONS",
+      "title": "Frequent Questions",
       "items": [
         {
-          "question": "ARE QUOTES FREE?",
+          "question": "Are quotes free?",
           "answer": "Yes, 100% free and they come with no obligation to book a service."
         },
         {
-          "question": "ARE THERE ANY OTHER SERVICES EDM PROVIDES?",
+          "question": "Are there any other services EDM provides?",
           "answer": "We very regularly perform miscellaneous tasks and attend to hard to reach spaces. Elevated light bulb replacement, crawl spaces, roof debris clearance, overhanging branches for example. Please by all means just ask."
         },
         {
-          "question": "WHAT AREAS DO YOU COVER?",
+          "question": "What areas do you cover?",
           "answer": "Montreal and a radius including Saint Lazare, Laval, North/South Shore, Vaudreuil-Dorion. We are prepared to travel further at a quoted rate."
         },
         {
-          "question": "WHAT PAYMENT METHODS DO YOU ACCEPT?",
+          "question": "What payment methods do you accept?",
           "answer": "We are able to process payments by major credit card and e-transfer."
         },
         {
-          "question": "DO YOU HAVE INSURANCE?",
+          "question": "Do you have insurance?",
           "answer": "Both your home and all of our staff are insured during our time on your property. All EDM associated personnel are professionally trained."
         }
       ]
     },
     "fr": {
-      "title": "QUESTIONS FRÉQUENTES",
+      "title": "Questions Fréquentes",
       "items": [
         {
-          "question": "LES DEVIS SONT-ILS GRATUITS?",
+          "question": "Les devis sont-ils gratuits?",
           "answer": "Oui, 100% gratuits et sans obligation de réserver un service."
         },
         {
-          "question": "Y A-T-IL D'AUTRES SERVICES OFFERTS PAR EDM?",
+          "question": "Y a-t-il d'autres services offerts par EDM?",
           "answer": "Nous effectuons régulièrement des tâches diverses et intervenons dans des espaces difficiles d'accès. Remplacement d'ampoules en hauteur, espaces confinés, nettoyage de débris sur le toit, branches en surplomb par exemple. N'hésitez pas à demander."
         },
         {
-          "question": "QUELLES ZONES COUVREZ-VOUS?",
+          "question": "Quelles zones couvrez-vous?",
           "answer": "Montréal et un rayon incluant Saint-Lazare, Laval, Rive-Nord/Sud, Vaudreuil-Dorion. Nous sommes préparés à voyager plus loin selon un tarif établi."
         },
         {
-          "question": "QUELS MODES DE PAIEMENT ACCEPTEZ-VOUS?",
+          "question": "Quels modes de paiement acceptez-vous?",
           "answer": "Nous pouvons traiter les paiements par carte de crédit majeure et virement Interac."
         },
         {
-          "question": "AVEZ-VOUS UNE ASSURANCE?",
+          "question": "Avez-vous une assurance?",
           "answer": "Votre domicile et tout notre personnel sont assurés pendant notre temps sur votre propriété. Tout le personnel associé à EDM est formé professionnellement."
         }
       ]

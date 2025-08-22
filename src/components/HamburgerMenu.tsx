@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { useRouter, usePathname } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import {
   HiBars3,
   HiXMark,
@@ -16,7 +16,6 @@ import siteConfig from '../../config/site.json';
 export default function HamburgerMenu({ currentLocale = 'en' }: { currentLocale?: string }) {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
-  const pathname = usePathname();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -24,12 +23,6 @@ export default function HamburgerMenu({ currentLocale = 'en' }: { currentLocale?
 
   const closeMenu = () => {
     setIsOpen(false);
-
-    // If we're currently on a /menu page, navigate back to home
-    if (pathname.includes('/menu')) {
-      const homePath = currentLocale === 'en' ? '/' : `/${currentLocale}`;
-      router.push(homePath);
-    }
   };
 
   const navigateTo = (path: string) => {
@@ -40,14 +33,18 @@ export default function HamburgerMenu({ currentLocale = 'en' }: { currentLocale?
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      // Since this is the mobile menu, we don't want any scroll padding
+      const elementPosition = element.offsetTop;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
     }
     closeMenu();
   };
 
   return (
     <>
-      {/* Hamburger Button */}
       <button
         onClick={toggleMenu}
         className="contact-icon flex items-center justify-center transition-transform duration-200 hover:scale-110"
@@ -56,18 +53,14 @@ export default function HamburgerMenu({ currentLocale = 'en' }: { currentLocale?
         <HiBars3 className={`w-5 h-5 transition-transform duration-300 ${isOpen ? 'rotate-90' : ''}`} />
       </button>
 
-      {/* Modal Overlay */}
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
-          {/* Background Overlay */}
           <div
             className="absolute inset-0 bg-[var(--background-secondary)] bg-opacity-70 backdrop-blur-sm transition-opacity duration-300 animate-in fade-in"
             onClick={closeMenu}
           />
 
-          {/* Menu Content */}
           <div className="relative bg-[var(--background-secondary)] bg-opacity-90 backdrop-blur-md rounded-lg p-8 max-w-md w-full mx-4 border border-[var(--primary)] animate-in slide-in-from-top-4 fade-in duration-300">
-            {/* Close Button */}
             <button
               onClick={closeMenu}
               className="absolute top-4 right-4 text-[var(--primary)] hover:text-[var(--primary)] flex items-center justify-center transition-all duration-200 hover:scale-110 hover:rotate-90"
@@ -75,7 +68,6 @@ export default function HamburgerMenu({ currentLocale = 'en' }: { currentLocale?
               <HiXMark className="w-6 h-6" />
             </button>
 
-            {/* Logo */}
             <div className="text-center mb-8">
               <Image
                 src="/images/edm-main-logo.png"
@@ -86,7 +78,6 @@ export default function HamburgerMenu({ currentLocale = 'en' }: { currentLocale?
               />
             </div>
 
-            {/* Navigation Links */}
             <nav className="space-y-4">
               <button
                 onClick={() => navigateTo(currentLocale === 'en' ? '/' : `/${currentLocale}`)}
@@ -125,7 +116,6 @@ export default function HamburgerMenu({ currentLocale = 'en' }: { currentLocale?
               </button>
             </nav>
 
-            {/* Contact Info */}
             <div className="mt-8 pt-6 border-t border-[var(--border)] text-center animate-in slide-in-from-bottom-4 fade-in duration-300" style={{ animationDelay: '500ms' }}>
               <div className="text-[var(--primary)] font-bold text-lg mb-2">
                 {currentLocale === 'en' ? 'Call Us Now!' : 'Appelez-nous!'}
@@ -146,7 +136,6 @@ export default function HamburgerMenu({ currentLocale = 'en' }: { currentLocale?
               </div>
             </div>
 
-            {/* Free Quote CTA */}
             <div className="mt-6">
               <button
                 onClick={() => navigateTo(currentLocale === 'en' ? '/contact' : `/${currentLocale}/contact`)}

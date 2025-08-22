@@ -1,12 +1,55 @@
-import { HiHome, HiEnvelope, HiPhone, HiMapPin } from 'react-icons/hi2';
+import { HiHome, HiEnvelope, HiPhone, HiMapPin, HiUser } from 'react-icons/hi2';
 import Link from 'next/link';
 import Image from 'next/image';
-import LanguageSwitcher from '../../components/LanguageSwitcher';
-import HamburgerMenu from '../../components/HamburgerMenu';
-import siteConfig from '../../../config/site.json';
+import LanguageSwitcher from '../../../components/LanguageSwitcher';
+import HamburgerMenu from '../../../components/HamburgerMenu';
+import siteConfig from '../../../../config/site.json';
 
-export default function ContactPage({ params }: { params?: { locale?: string } }) {
-  const locale = params?.locale || 'en';
+export default function ContactPage({ params }: { params: { locale: string } }) {
+  const locale = params.locale || 'en';
+
+  const translations = {
+    en: {
+      pageTitle: "CONTACT US",
+      pageSubtitle: "Get your free quote today - no obligation!",
+      getInTouch: "GET IN TOUCH",
+      phone: "Phone",
+      email: "Email",
+      serviceArea: "Service Area",
+      serviceAreaDesc: "Montreal and surrounding areas including Saint-Lazare, Laval, North/South Shore, Vaudreuil-Dorion",
+      freeQuotes: "FREE QUOTES AVAILABLE",
+      callNow: "CALL NOW",
+      emailUs: "EMAIL US",
+      requestQuote: "REQUEST A QUOTE",
+      namePlaceholder: "Your full name",
+      emailPlaceholder: "your.email@example.com",
+      phonePlaceholder: "(optional)",
+      servicePlaceholder: "Select a service...",
+      messagePlaceholder: "Please describe your project...",
+      sendRequest: "SEND REQUEST"
+    },
+    fr: {
+      pageTitle: "CONTACTEZ-NOUS",
+      pageSubtitle: "Obtenez votre devis gratuit aujourd'hui - sans obligation!",
+      getInTouch: "ENTRER EN CONTACT",
+      phone: "Téléphone",
+      email: "Courriel",
+      serviceArea: "Zone de service",
+      serviceAreaDesc: "Montréal et les environs, y compris Saint-Lazare, Laval, Rive-Nord/Sud, Vaudreuil-Dorion",
+      freeQuotes: "DEVIS GRATUITS DISPONIBLES",
+      callNow: "APPELEZ MAINTENANT",
+      emailUs: "ENVOYEZ-NOUS UN EMAIL",
+      requestQuote: "DEMANDER UN DEVIS",
+      namePlaceholder: "Votre nom complet",
+      emailPlaceholder: "votre.email@exemple.com",
+      phonePlaceholder: "(optionnel)",
+      servicePlaceholder: "Sélectionnez un service...",
+      messagePlaceholder: "Veuillez décrire votre projet...",
+      sendRequest: "ENVOYER LA DEMANDE"
+    }
+  };
+
+  const t = translations[locale as keyof typeof translations] || translations.en;
 
   return (
     <div className="min-h-screen hex-pattern">
@@ -15,18 +58,20 @@ export default function ContactPage({ params }: { params?: { locale?: string } }
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center">
-            <Image
-              src="/images/edm-main-logo.png"
-              alt="EDM Logo"
-              width={128}
-              height={128}
-              className="w-32 h-32"
-            />
+            <Link href={locale === 'en' ? '/' : `/${locale}`}>
+              <Image
+                src="/images/edm-main-logo.png"
+                alt="EDM Logo"
+                width={128}
+                height={128}
+                className="w-32 h-32"
+              />
+            </Link>
           </div>
 
           {/* Contact Icons */}
           <div className="contact-icons">
-            <Link href="/" className="contact-icon" title="Home"><HiHome className="w-6 h-6" /></Link>
+            <Link href={locale === 'en' ? '/' : `/${locale}`} className="contact-icon" title="Home"><HiHome className="w-6 h-6" /></Link>
             <HamburgerMenu currentLocale={locale} />
             <a href={`mailto:${siteConfig.contact.email}`} className="contact-icon" title="Email"><HiEnvelope className="w-6 h-6" /></a>
             <a href={`tel:${siteConfig.contact.phone}`} className="contact-icon" title="Phone"><HiPhone className="w-6 h-6" /></a>
@@ -36,13 +81,13 @@ export default function ContactPage({ params }: { params?: { locale?: string } }
       </header>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-6 py-12">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
         <div className="text-center mb-12">
           <h1 className="logo-3d text-4xl lg:text-5xl text-[var(--primary)] mb-6">
-            CONTACT US
+            {t.pageTitle}
           </h1>
           <p className="text-[var(--text-muted)] text-lg">
-            Get your free quote today - no obligation!
+            {t.pageSubtitle}
           </p>
         </div>
 
@@ -50,13 +95,13 @@ export default function ContactPage({ params }: { params?: { locale?: string } }
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Info */}
             <div className="bg-[var(--background-secondary)] bg-opacity-50 rounded-lg p-8">
-              <h2 className="text-[var(--primary)] text-2xl font-bold mb-6">GET IN TOUCH</h2>
+              <h2 className="text-[var(--primary)] text-2xl font-bold mb-6">{t.getInTouch}</h2>
 
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
                   <div className="contact-icon"><HiPhone className="w-8 h-8" /></div>
                   <div>
-                    <div className="text-[var(--primary)] font-bold">Phone</div>
+                    <div className="text-[var(--primary)] font-bold">{t.phone}</div>
                     <a href={`tel:${siteConfig.contact.phone}`} className="text-[var(--foreground)] text-xl hover:text-[var(--primary)]">
                       {siteConfig.contact.phone}
                     </a>
@@ -66,7 +111,7 @@ export default function ContactPage({ params }: { params?: { locale?: string } }
                 <div className="flex items-center gap-4">
                   <div className="contact-icon"><HiEnvelope className="w-8 h-8" /></div>
                   <div>
-                    <div className="text-[var(--primary)] font-bold">Email</div>
+                    <div className="text-[var(--primary)] font-bold">{t.email}</div>
                     <a href={`mailto:${siteConfig.contact.email}`} className="text-[var(--foreground)] hover:text-[var(--primary)]">
                       {siteConfig.contact.email}
                     </a>
@@ -76,22 +121,22 @@ export default function ContactPage({ params }: { params?: { locale?: string } }
                 <div className="flex items-start gap-4">
                   <div className="contact-icon"><HiMapPin className="w-8 h-8" /></div>
                   <div>
-                    <div className="text-[var(--primary)] font-bold">Service Area</div>
+                    <div className="text-[var(--primary)] font-bold">{t.serviceArea}</div>
                     <div className="text-[var(--text-muted)]">
-                      Montreal and surrounding areas including Saint-Lazare, Laval, North/South Shore, Vaudreuil-Dorion
+                      {t.serviceAreaDesc}
                     </div>
                   </div>
                 </div>
               </div>
 
               <div className="mt-8 pt-6 border-t border-[var(--border)]">
-                <div className="text-[var(--primary)] font-bold mb-4">FREE QUOTES AVAILABLE</div>
+                <div className="text-[var(--primary)] font-bold mb-4">{t.freeQuotes}</div>
                 <div className="flex gap-4 mb-4">
                   <a href={`tel:${siteConfig.contact.phone}`} className="btn-primary flex-1 text-center">
-                    CALL NOW
+                    {t.callNow}
                   </a>
                   <a href={`mailto:${siteConfig.contact.email}`} className="btn-primary flex-1 text-center">
-                    EMAIL US
+                    {t.emailUs}
                   </a>
                 </div>
                 <div className="mt-4">
@@ -100,21 +145,16 @@ export default function ContactPage({ params }: { params?: { locale?: string } }
                     download="EDMTL-Contact.vcf"
                     className="flex items-center justify-center gap-2 text-center p-3 border border-[var(--primary)] rounded-lg text-[var(--primary)] hover:bg-[var(--primary)] hover:text-[var(--background)] transition-all duration-300"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                      <circle cx="9" cy="7" r="4"></circle>
-                      <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                      <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                    </svg>
+                    <HiUser className="w-5 h-5" />
                     {siteConfig.contact.vcard.labels[locale as 'en' | 'fr'] || siteConfig.contact.vcard.labels.en}
                   </a>
                 </div>
               </div>
             </div>
 
-            {/* Contact Form Placeholder */}
+            {/* Contact Form */}
             <div className="bg-[var(--background-secondary)] bg-opacity-50 rounded-lg p-8">
-              <h2 className="text-[var(--primary)] text-2xl font-bold mb-6">REQUEST A QUOTE</h2>
+              <h2 className="text-[var(--primary)] text-2xl font-bold mb-6">{t.requestQuote}</h2>
 
               <form
                 className="space-y-4"
@@ -130,7 +170,7 @@ export default function ContactPage({ params }: { params?: { locale?: string } }
                     type="text"
                     name="name"
                     className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none"
-                    placeholder="Your full name"
+                    placeholder={t.namePlaceholder}
                     required
                   />
                 </div>
@@ -141,88 +181,19 @@ export default function ContactPage({ params }: { params?: { locale?: string } }
                     type="email"
                     name="email"
                     className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none"
-                    placeholder="your.email@example.com"
+                    placeholder={t.emailPlaceholder}
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[var(--primary)] font-bold mb-2">Phone</label>
+                  <label className="block text-[var(--primary)] font-bold mb-2">{t.phone}</label>
                   <input
                     type="tel"
                     name="phone"
                     className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none"
-                    placeholder="(optional)"
+                    placeholder={t.phonePlaceholder}
                   />
-                </div>
-
-                <div>
-                  <label className="block text-[var(--primary)] font-bold mb-2">Services Needed *</label>
-                  <div className="space-y-2 rounded border border-[var(--border)] p-4 bg-[var(--background-secondary)]">
-                    <div className="flex items-center">
-                      <input
-                        type="checkbox"
-                        id="window-cleaning"
-                        name="services[]"
-                        value="Window Cleaning"
-                        className="w-4 h-4 rounded border-[var(--border)] text-[var(--primary)] focus:ring-[var(--primary)]"
-                      />
-                      <label htmlFor="window-cleaning" className="ml-2 text-[var(--foreground)] cursor-pointer">
-                        Window Cleaning
-                      </label>
-                    </div>
-                    <div className="flex items-center">
-                      <input
-                        type="checkbox"
-                        id="gutter-services"
-                        name="services[]"
-                        value="Gutter Services"
-                        className="w-4 h-4 rounded border-[var(--border)] text-[var(--primary)] focus:ring-[var(--primary)]"
-                      />
-                      <label htmlFor="gutter-services" className="ml-2 text-[var(--foreground)] cursor-pointer">
-                        Gutter Services
-                      </label>
-                    </div>
-                    <div className="flex items-center">
-                      <input
-                        type="checkbox"
-                        id="pressure-washing"
-                        name="services[]"
-                        value="Pressure Washing"
-                        className="w-4 h-4 rounded border-[var(--border)] text-[var(--primary)] focus:ring-[var(--primary)]"
-                      />
-                      <label htmlFor="pressure-washing" className="ml-2 text-[var(--foreground)] cursor-pointer">
-                        Pressure Washing
-                      </label>
-                    </div>
-                    <div className="flex items-center">
-                      <input
-                        type="checkbox"
-                        id="deck-refinishing"
-                        name="services[]"
-                        value="Deck Refinishing"
-                        className="w-4 h-4 rounded border-[var(--border)] text-[var(--primary)] focus:ring-[var(--primary)]"
-                      />
-                      <label htmlFor="deck-refinishing" className="ml-2 text-[var(--foreground)] cursor-pointer">
-                        Deck Refinishing
-                      </label>
-                    </div>
-                    <div className="flex items-center">
-                      <input
-                        type="checkbox"
-                        id="other-services"
-                        name="services[]"
-                        value="Other Services"
-                        className="w-4 h-4 rounded border-[var(--border)] text-[var(--primary)] focus:ring-[var(--primary)]"
-                      />
-                      <label htmlFor="other-services" className="ml-2 text-[var(--foreground)] cursor-pointer">
-                        Other Services
-                      </label>
-                    </div>
-                  </div>
-                  <p className="text-xs text-[var(--text-muted)] mt-2">
-                    Please select all services you are interested in
-                  </p>
                 </div>
 
                 <div>
@@ -231,12 +202,12 @@ export default function ContactPage({ params }: { params?: { locale?: string } }
                     name="message"
                     rows={4}
                     className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none"
-                    placeholder="Please describe your project..."
+                    placeholder={t.messagePlaceholder}
                   />
                 </div>
 
                 <button type="submit" className="btn-primary w-full">
-                  SEND REQUEST
+                  {t.sendRequest}
                 </button>
               </form>
             </div>
@@ -244,9 +215,8 @@ export default function ContactPage({ params }: { params?: { locale?: string } }
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-[var(--background-secondary)] py-12">
-        <div className="max-w-7xl mx-auto px-6">
+      <footer className="bg-[var(--background-secondary)] py-6 sm:py-8 md:py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center text-[var(--text-muted)] text-sm">
             {siteConfig.copyright}
           </div>

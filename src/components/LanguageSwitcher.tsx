@@ -14,10 +14,8 @@ export default function LanguageSwitcher({ currentLocale = 'en', onLocaleChange 
 
   const handleLanguageChange = (locale: string) => {
     if (onLocaleChange) {
-      // Use the callback for instant client-side switching
       onLocaleChange(locale);
     } else {
-      // Fall back to navigation for static pages
       if (locale === 'en') {
         router.push('/');
       } else {
