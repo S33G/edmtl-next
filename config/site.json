@@ -82,45 +82,45 @@
     "en": [
       {
         "name": "Window Cleaning",
-        "image": "/images/window-cleaning.jpg"
+        "image": "/images/services/window-cleaning-header.png"
       },
       {
         "name": "Gutter Services",
-        "image": "/images/gutter-cleaning-before-1.jpg"
+        "image": "/images/services/gutter-services-header.png"
       },
       {
         "name": "Pressure Washing",
-        "image": "/images/moss-removal-after.jpg"
+        "image": "/images/services/pressure-washing.png"
       },
       {
         "name": "Deck Refinishing",
-        "image": "/images/deck-refinishing.jpg"
+        "image": "/images/services/deck-refinishing-header.png"
       },
       {
         "name": "Gutter Guard Installation",
-        "image": "/images/gutter-guard-installation-1.jpg"
+        "image": "/images/services/gutter-guard-installation.png"
       }
     ],
     "fr": [
       {
         "name": "Nettoyage de vitres",
-        "image": "/images/window-cleaning.jpg"
+        "image": "/images/services/window-cleaning-header.png"
       },
       {
         "name": "Services de gouttières",
-        "image": "/images/gutter-cleaning-before-1.jpg"
+        "image": "/images/services/gutter-services-header.png"
       },
       {
         "name": "Lavage à pression",
-        "image": "/images/moss-removal-after.jpg"
+        "image": "/images/services/pressure-washing.png"
       },
       {
         "name": "Rénovation de terrasses",
-        "image": "/images/deck-refinishing.jpg"
+        "image": "/images/services/deck-refinishing-header.png"
       },
       {
         "name": "Installation de protège-gouttières",
-        "image": "/images/gutter-guard-installation-1.jpg"
+        "image": "/images/services/gutter-guard-installation.png"
       }
     ]
   },
@@ -247,7 +247,7 @@
         "services": [
           {
             "title": "Hard Surface Cleaning",
-            "description": "Safe and professional pressure cleaning of driveways, patios, walkways & other exterior surfaces.",
+            "description": "Safe and professional pressure cleaning of driveways, patios, walkways & other exterior surfaces. We also offer a Polymeric Sand installation service to prevent growth of weeds over time.",
             "features": [
               "High pressure cleaning",
               "Stain removal",

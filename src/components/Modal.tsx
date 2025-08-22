@@ -152,7 +152,7 @@ export default function Modal({
       ref={modalRef}
       className={`fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-300 ease-out ${
         isOpen
-          ? 'bg-[var(--background-secondary)]/50 backdrop-blur-sm'
+          ? 'bg-[var(--background-secondary)]/60 backdrop-blur-sm animate-fade-in'
           : 'bg-[var(--background-secondary)]/0 backdrop-blur-0'
       }`}
       onClick={handleBackdropClick}
@@ -190,14 +190,14 @@ export default function Modal({
       )}
 
       <div
-        className={`relative w-full max-w-4xl max-h-[90vh] bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-700 rounded-2xl shadow-2xl overflow-hidden transition-all duration-500 ease-in-out ${
+        className={`relative w-full max-w-4xl max-h-[90vh] bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-700 rounded-2xl shadow-2xl overflow-hidden transition-all duration-500 ease-out ${
           isOpen
             ? isTransitioning
               ? transitionDirection === 'right'
                 ? 'opacity-100 scale-95 translate-x-12'
                 : 'opacity-100 scale-95 -translate-x-12'
-              : 'opacity-100 scale-100 translate-x-0'
-            : 'opacity-0 scale-95 translate-y-4'
+              : 'opacity-100 scale-100 translate-x-0 animate-modal-open'
+            : 'opacity-0 scale-95 -translate-y-8'
         }`}
         onClick={(e) => e.stopPropagation()}
         onTouchStart={onTouchStart}
@@ -207,9 +207,9 @@ export default function Modal({
         {/* Floating Close Button */}
         <button
           onClick={onClose}
-          className={`absolute top-4 right-4 z-20 p-2 rounded-full bg-[var(--primary)] hover:bg-[var(--primary)] dark:bg-[var(--primary)] dark:hover:bg-[var(--primary)] shadow-lg transition-all duration-300 ease-out ${
+          className={`absolute top-4 right-4 z-20 p-2 rounded-full bg-[var(--primary)] hover:bg-[var(--primary-dark)] dark:bg-[var(--primary)] dark:hover:bg-[var(--primary-dark)] shadow-lg transition-all duration-300 ease-out ${
             isOpen
-              ? 'opacity-100 scale-100 translate-x-0 translate-y-0'
+              ? 'opacity-100 scale-100 translate-x-0 translate-y-0 animate-delayed-fade'
               : 'opacity-0 scale-75 translate-x-2 -translate-y-2'
           } hover:scale-110 hover:rotate-90`}
           aria-label="Close modal"
@@ -221,12 +221,12 @@ export default function Modal({
         <div className="relative overflow-y-auto max-h-[90vh]">
           {/* Current Content */}
           <div
-            className={`transition-all duration-500 ease-in-out ${
+            className={`transition-all duration-500 ease-out ${
               isTransitioning
                 ? transitionDirection === 'left'
                   ? 'opacity-0 transform -translate-x-full'
                   : 'opacity-0 transform translate-x-full'
-                : 'opacity-100 transform translate-x-0'
+                : 'opacity-100 transform translate-x-0 animate-fade-in'
             }`}
           >
             {currentContent}

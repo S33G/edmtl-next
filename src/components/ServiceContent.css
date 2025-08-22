@@ -1,0 +1,16 @@
+/* Custom text shadow styles for better legibility over images */
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8),
+               0px 4px 8px rgba(0, 0, 0, 0.6),
+               0px 1px 12px rgba(0, 0, 0, 0.7);
+}
+
+.text-shadow-sm {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7),
+               0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Enhance section titles over images */
+.service-section-title {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
