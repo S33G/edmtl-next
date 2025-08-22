@@ -8,7 +8,17 @@
     "googleMapsUrl": "https://www.google.com/maps/place/Entretien+Domestique+Montreal/@45.4461434,-73.9241996,15z/data=!3m1!4b1!4m6!3m5!1s0xa660ceffe68af0fb:0x6c39536c383859dc!8m2!3d45.4461434!4d-73.9241996!16s%2Fg%2F11vyxtqvwg",
     "googlePlaceId": "ChIJ-wCmz_7uYEwR3FmDoWU8OWw",
     "latitude": 45.4461434,
-    "longitude": -73.9241996
+    "longitude": -73.9241996,
+    "vcard": {
+      "companyName": "Entretien Domestique Montreal",
+      "address": "Montreal, QC, Canada",
+      "website": "https://edmtl.com",
+      "filePath": "/vcard/edmtl-contact.vcf",
+      "labels": {
+        "en": "Add to Contacts",
+        "fr": "Ajouter aux Contacts"
+      }
+    }
   },
   "google": {
     "mapsApiKey": "AIzaSyCebCaTBHwg44o-yXnkJz71_eLx2sdC8dk",
