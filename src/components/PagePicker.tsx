@@ -42,7 +42,7 @@ const PagePicker: React.FC<PagePickerProps> = ({ currentLocale, onLocaleChange, 
       icon: HiWrenchScrewdriver,
     },
     // {
-    //   id: 'reviews',
+    //   id: 'trust',
     //   label: t('navigation.gallery'),
     //   icon: HiChatBubbleBottomCenterText,
     // },
@@ -90,6 +90,11 @@ const PagePicker: React.FC<PagePickerProps> = ({ currentLocale, onLocaleChange, 
       return;
     }
 
+    if (sectionId === 'contact') {
+      window.location.href = '/contact';
+      return;
+    }
+
     const element = document.getElementById(sectionId === 'hero' ? 'hero-section' : sectionId);
     if (element) {
       // Apply reduced scroll padding on desktop (40px) and no padding on mobile
@@ -130,7 +135,7 @@ const PagePicker: React.FC<PagePickerProps> = ({ currentLocale, onLocaleChange, 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
 
     // Observe all sections
-    const sectionsToObserve = ['hero-section', 'services', 'reviews', 'contact'];
+    const sectionsToObserve = ['hero-section', 'services', 'trust', 'faq', 'contact'];
     sectionsToObserve.forEach((sectionId) => {
       const element = document.getElementById(sectionId);
       if (element) {
@@ -183,7 +188,7 @@ const PagePicker: React.FC<PagePickerProps> = ({ currentLocale, onLocaleChange, 
                 {!isInHeader && !section.isLogo && (
                   <span className={`text-xs mt-1 font-medium leading-tight md:hidden ${isActive ? 'text-[var(--foreground)]' : 'text-[var(--text-muted)] dark:text-[var(--text-muted)]'}`}>
                     {section.id === 'services' ? (currentLocale === 'fr' ? 'Services' : 'Services') :
-                     section.id === 'reviews' ? (currentLocale === 'fr' ? 'Avis' : 'Reviews') :
+                     section.id === 'trust' ? (currentLocale === 'fr' ? 'Avis' : 'Reviews') :
                      section.id === 'contact' ? (currentLocale === 'fr' ? 'Contact' : 'Contact') :
                      section.id === 'language' ? (currentLocale === 'fr' ? 'Langue' : 'Language') : section.label}
                   </span>
