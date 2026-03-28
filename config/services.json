@@ -1,0 +1,248 @@
+{
+  "services": [
+    {
+      "slug": "window-cleaning",
+      "title": "Residential Window Cleaning",
+      "pageTitle": "Window Cleaning Montreal",
+      "subtitle": "Streak-free interior and exterior window cleaning for homes, condos and businesses across Montreal",
+      "description": "Streak-free interior and exterior window cleaning that includes the glass, frames, tracks and screens.",
+      "intro": [
+        "Clean windows have a significant impact on the overall look and feel of a property. Allowing more natural light to shine through, and give your home or business a well-maintained appearance.",
+        "At Entretien Domestique Montreal, we provide detailed window cleaning services to both residential and commercial properties. Our focus is not solely on cleaning the glass and frames, but also respecting your space, your landscape and your schedule. We take the time to do the job properly, with attention to the smaller details that are often overlooked.",
+        "If your windows haven't been cleaned in a while, the difference is remarkable. Request a quote or give us a call."
+      ],
+      "sections": [
+        {
+          "heading": "Interior & Exterior Window Cleaning",
+          "content": "A complete window cleaning service includes both sides of the glass. While the exterior is the most noticeable difference at a first glance, the biggest difference is often window tracks - they can hide lots of dirt, insects and even small wasp nests.",
+          "list": {
+            "title": "A full window cleaning includes:",
+            "items": [
+              "Interior and exterior of the glass",
+              "The frames and sills",
+              "The tracks and hidden parts of a window that opens",
+              "The screens"
+            ]
+          }
+        },
+        {
+          "heading": "Residential Window Cleaning",
+          "content": "We work carefully inside your home to not leave drips of water on your floor and when working outside we avoid damaging your plants when placing ladders. Our goal is to leave your windows spotless without creating an inconvenience.",
+          "list": {
+            "title": "We work on all properties:",
+            "items": [
+              "Individual condo units",
+              "Townhomes",
+              "Single-Family homes",
+              "Multi-unit buildings"
+            ]
+          }
+        },
+        {
+          "heading": "Commercial Window Cleaning",
+          "content": "For businesses, clean windows are a simple way to show your employees, clients or tenants that their environment is cared for. We prioritize clear communication, an organized plan, and efficient service to not disrupt your day-to-day."
+        }
+      ]
+    },
+    {
+      "slug": "gutter-cleaning",
+      "title": "Gutter Cleaning",
+      "pageTitle": "Gutter Cleaning Montreal",
+      "subtitle": "Thorough gutter cleaning and downspout maintenance to ensure the rain that falls on your roof is properly directed away from your foundation",
+      "description": "Removal of all debris followed by a full system flush to ensure proper water flow through the gutters and downspouts.",
+      "intro": [
+        "Having a properly functioning gutter and downspout system gives you the peace of mind that your house is well protected from the intense rain events we get in Montreal. We don't just clean your gutters, we check if there are any issues that could become a problem.",
+        "By removing all debris, flushing the gutters with water, observing how fast the system evacuates the water and where it ends up."
+      ],
+      "sections": [
+        {
+          "heading": "Gutter Guards",
+          "content": "In certain situations, covering your gutters with gutter guards can be a great decision. It is important to understand that installing gutter guards does not mean you can forget about cleaning the gutters. Debris can still settle on top of the guards, eventually preventing water from entering the gutter. Over time the debris will break down and make its way beneath the guards.\n\nGutter guards are best installed on houses surrounded by tall trees. They are meant to prevent clogs and reduce the frequency of requiring a cleaning service like us. If your gutters get clogged multiple times per year you should seriously consider installing gutter guards.\n\nUltimately, keeping a well-maintained gutter system is the best way to keep your house safe from heavy rain damaging your foundation."
+        },
+        {
+          "heading": "Downspout Repair",
+          "content": "The purpose of a downspout is to direct the water that flows through the gutters down to the ground and away from the foundation. We often see issues with these on a property such as clogs, leaks, and not bringing the water far enough away from the foundation.\n\nOn all of our gutter cleaning jobs, we check their performance and assess if there are any issues. We inform you on any flaws and offer an effective solution, sometimes as simple as a minor adjustment or replacing broken pieces."
+        },
+        {
+          "heading": "Caulking",
+          "content": "At every corner of your roof, your gutters have a seam that becomes water-tight with a sealant. Being exposed to the elements, this sealant will deteriorate over time. Old sealant is by far the most common cause of leaking gutters (aside from the gutters being clogged with debris of course).\n\nFrom choosing the correct sealant to properly applying it, rest assured that your gutters are fully functioning and are not leaking."
+        }
+      ]
+    },
+    {
+      "slug": "pressure-washing",
+      "title": "Pressure Washing",
+      "pageTitle": "Pressure Washing Montreal",
+      "subtitle": "Professional pressure washing to restore the look of your surfaces like driveways, walkways, patios and siding",
+      "description": "High and low pressure cleaning to restore the look of your surfaces like driveways, walkways, patios and siding.",
+      "intro": [
+        "Over time, exterior surfaces accumulate layers of dirt, algae, mildew and grime. This not only affects appearance but can also create slippery and unsafe conditions.",
+        "Pressure washing is one of the most effective ways to restore these surfaces and maintain the overall look of your property. We provide controlled, professional pressure washing that delivers strong results without damaging the surface."
+      ],
+      "sections": [
+        {
+          "heading": "Surfaces We Clean",
+          "content": "Each surface is inspected beforehand to determine the appropriate cleaning method and amount of pressure.",
+          "list": {
+            "title": "We regularly pressure wash:",
+            "items": [
+              "Driveways and parking garages",
+              "Walkways and entrances",
+              "Patios and outdoor structures",
+              "Certain types of siding"
+            ]
+          }
+        },
+        {
+          "heading": "Using the Right Pressure",
+          "content": "Different surfaces require different amounts of pressure to be cleaned. Too much pressure on a soft surface can cause damage, while too little pressure on a hard surface will not provide results.\n\nOur methods ensure an even cleaning in a safe manner to avoid etching or damaging the surface. When needed, we even suggest other methods than pressure washing, such as soft-washing or simply cleaning a surface manually with soap and water."
+        },
+        {
+          "heading": "Before and After Difference",
+          "content": "Pressure washing can significantly improve the appearance of your property. Furthermore, a thin layer of grime can make a surface incredibly slippery when wet.\n\nIt usually takes years for exterior surfaces to become an eyesore or a slip hazard, so rest assured that a pressure washing service can solve your problem for the foreseeable future."
+        }
+      ]
+    },
+    {
+      "slug": "deck-staining",
+      "title": "Deck Staining",
+      "pageTitle": "Deck Staining Montreal",
+      "subtitle": "Refresh and protect your deck with complete preparation and staining to restore the look and provide longevity to the wood",
+      "description": "Refresh and protect your deck with complete preparation and staining to restore the look and provide longevity to the wood.",
+      "intro": [
+        "Wood decks are constantly exposed to sun, rain, and temperature changes. Without proper maintenance, the wood begins to fade, dry out, and weaken over time.",
+        "Deck staining not only improves the appearance of your deck but also protects it from long-term damage. We provide a complete process that focuses on preparation, proper application, and long-lasting results."
+      ],
+      "sections": [
+        {
+          "heading": "Preparation",
+          "content": "For any staining project, the preparation is the most important part. Before applying stain, we clean the deck thoroughly to remove dirt and mildew. With older decks, the surface should be thoroughly sanded with power sanders to restore a smooth texture. Newer decks still need to be lightly sanded to allow proper absorption of the stain."
+        },
+        {
+          "heading": "Staining",
+          "content": "Once the surface is properly prepared, we apply the stain carefully and evenly across the deck.",
+          "list": {
+            "title": "Wood stain helps to:",
+            "items": [
+              "Reduce the damage from UV exposure",
+              "Protect from moisture penetration and delays rotting",
+              "Enhance the natural look of the wood"
+            ]
+          }
+        },
+        {
+          "heading": "New or Old",
+          "content": "Whether your deck was built last year or last decade, we can protect it from the elements or restore it to its original look. New decks should be stained in the first couple years to ensure its longevity and protect from rot. Old decks can be restored to an almost brand new look as long as the wood is still intact."
+        }
+      ]
+    },
+    {
+      "slug": "commercial-window-cleaning",
+      "title": "Commercial Window Cleaning",
+      "pageTitle": "Commercial Window Cleaning Montreal",
+      "subtitle": "Professional window cleaning for offices, condos, and commercial properties",
+      "description": "Whether it's your office, condo building, or warehouse, we are equipped to handle all types of properties.",
+      "intro": [
+        "For businesses, clean windows are a simple way to show your employees, clients or tenants that their environment is cared for.",
+        "We prioritize clear communication, an organized plan, and efficient service to not disrupt your day-to-day. Whether it's your office, condo building, or warehouse, we are equipped to handle all types of commercial properties across Montreal."
+      ],
+      "sections": [
+        {
+          "heading": "Office Buildings",
+          "content": "Regular window cleaning keeps your workspace looking professional and welcoming. We work around your schedule to minimize disruption to your business operations."
+        },
+        {
+          "heading": "Condo Buildings",
+          "content": "We provide window cleaning services for condo buildings of all sizes. From individual units to full building exterior cleaning, we have the equipment and experience to handle the job safely and efficiently."
+        },
+        {
+          "heading": "Flexible Scheduling",
+          "content": "We understand that commercial properties have different needs than residential ones. We offer flexible scheduling options including early morning, evening, and weekend appointments to work around your business hours."
+        }
+      ]
+    },
+    {
+      "slug": "downspout-repair",
+      "title": "Downspout Repair",
+      "pageTitle": "Downspout Repair Montreal",
+      "subtitle": "Ensuring your downspouts are not leaking and properly evacuating water away from your foundation",
+      "description": "Downspout issues are common. We make sure they are not leaking and properly evacuating water away from your foundation.",
+      "intro": [
+        "The purpose of a downspout is to direct the water that flows through the gutters down to the ground and away from the foundation. We often see issues with these on a property such as clogs, leaks, and not bringing the water far enough away from the foundation.",
+        "On all of our gutter cleaning jobs, we check their performance and assess if there are any issues. We inform you on any flaws and offer an effective solution, sometimes as simple as a minor adjustment or replacing broken pieces."
+      ],
+      "sections": [
+        {
+          "heading": "Common Downspout Issues",
+          "content": "Downspout problems are extremely common and often go unnoticed until water damage has already occurred. Clogs from debris, disconnected sections, and improper water direction are the issues we see most frequently."
+        },
+        {
+          "heading": "Our Approach",
+          "content": "We inspect every downspout during our gutter cleaning services. If we find issues, we provide clear options for repair including clearing clogs, reconnecting sections, adding extensions, and replacing damaged components."
+        },
+        {
+          "heading": "Foundation Protection",
+          "content": "Properly functioning downspouts are critical for protecting your foundation from water damage. Water pooling near your foundation can lead to cracks, leaks, and structural issues over time. We ensure water is directed far enough away from the foundation to prevent these problems."
+        }
+      ]
+    },
+    {
+      "slug": "dryer-vent-cleaning",
+      "title": "Dryer Vent Cleaning",
+      "pageTitle": "Dryer Vent Cleaning Montreal",
+      "subtitle": "Improve your dryer's efficiency and reduce fire risk with professional vent cleaning",
+      "description": "Lint buildup will reduce your dryer's efficiency and can become a dangerous fire hazard.",
+      "intro": [
+        "Dryer vents naturally accumulate lint over time, which leads to longer drying time and can become a fire hazard if not addressed.",
+        "Regular dryer vent cleaning improves efficiency, reduces energy costs, and most importantly keeps your home safe."
+      ],
+      "sections": [
+        {
+          "heading": "Our Service",
+          "content": "Our thorough dryer vent cleaning process ensures your vent line is completely clear and functioning properly.",
+          "list": {
+            "title": "Our service includes:",
+            "items": [
+              "Clearing all the lint from the vent line and the lint trap",
+              "Inspecting the vent with a boroscope (snake camera)",
+              "Testing the air flow with an anemometer"
+            ]
+          }
+        },
+        {
+          "heading": "Fire Prevention",
+          "content": "Lint is highly flammable. When it builds up in your dryer vent, it restricts airflow and causes the dryer to overheat. This is one of the leading causes of house fires. Regular cleaning significantly reduces this risk."
+        },
+        {
+          "heading": "Improved Efficiency",
+          "content": "A clogged dryer vent forces your dryer to work harder and run longer to dry your clothes. After a professional cleaning, most homeowners notice their clothes dry faster and their energy bills decrease."
+        }
+      ]
+    },
+    {
+      "slug": "exterior-maintenance",
+      "title": "General Exterior Maintenance",
+      "pageTitle": "Exterior Maintenance Services Montreal",
+      "subtitle": "Additional services to keep your home clean, functional and well-maintained",
+      "description": "We offer additional services specific to your property, such as moss removal, polymeric sand replacement, and caulking.",
+      "intro": [
+        "Beyond our main services, we offer a range of exterior maintenance solutions to help take care of smaller but important details around your home.",
+        "These services are often overlooked, but they play a key role in keeping your property in good condition. They can be scheduled individually or combined with other services for convenience."
+      ],
+      "sections": [
+        {
+          "heading": "Moss Removal & Soft Washing",
+          "content": "Moss and organic growth retains moisture and gradually damages surfaces if left untreated. Areas that are shaded and get wet repeatedly are prone to growing moss. We use safe and effective methods to remove moss and treat surfaces to slow regrowth."
+        },
+        {
+          "heading": "Polymeric Sand Replacement",
+          "content": "After many years, the material between paver joints will become brittle, dark and can grow moss. The only way to restore the look of your paver driveway, path or patio is to completely remove the old polymeric sand and replace it with new sand."
+        },
+        {
+          "heading": "Gutter Caulking",
+          "content": "At every corner of your roof, your gutters have a seam that becomes water-tight with a sealant. Being exposed to the elements, this sealant will deteriorate over time. We select the correct sealant and apply it properly to ensure your gutters are fully sealed and not leaking."
+        }
+      ]
+    }
+  ]
+}
