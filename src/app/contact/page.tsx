@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { Metadata } from 'next';
 import Footer from '../../components/Footer';
 import ContactFormSection from '../../components/ContactFormSection';
@@ -73,7 +74,9 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form Section */}
-      <ContactFormSection />
+      <Suspense>
+        <ContactFormSection />
+      </Suspense>
 
       {/* Bottom CTA */}
       <section className="py-16 sm:py-20 border-t border-[var(--border)]">
