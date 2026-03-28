@@ -1,84 +1,119 @@
 import { ImageResponse } from 'next/og'
-
-export const runtime = 'edge'
+import { readFileSync } from 'fs'
+import path from 'path'
 
 export const size = {
   width: 1200,
   height: 630,
 }
-
 export const contentType = 'image/png'
 
 export default async function Image() {
+  const logoBuffer = readFileSync(
+    path.join(process.cwd(), 'public', 'images', 'edmtl-logo.png')
+  )
+  const logoSrc = `data:image/png;base64,${logoBuffer.toString('base64')}`
+
   return new ImageResponse(
     (
       <div
         style={{
-          background: 'linear-gradient(135deg, #1f2937 0%, #374151 100%)',
+          background: 'linear-gradient(135deg, #0d1117 0%, #161b22 50%, #0d1117 100%)',
           width: '100%',
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          color: 'white',
-          fontFamily: 'system-ui',
+          position: 'relative',
+          fontFamily: 'system-ui, sans-serif',
+          overflow: 'hidden',
         }}
       >
         <div
           style={{
-            background: '#FFB800',
-            width: 200,
-            height: 200,
+            position: 'absolute',
+            top: -120,
+            left: -120,
+            width: 500,
+            height: 500,
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(255,184,0,0.06) 0%, transparent 70%)',
             display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            borderRadius: 20,
-            marginBottom: 40,
-            fontSize: 48,
-            fontWeight: 'bold',
-            color: '#000',
           }}
-        >
-          EDM
-        </div>
-        <h1
+        />
+        <div
           style={{
-            fontSize: 64,
-            fontWeight: 'bold',
-            margin: 0,
-            textAlign: 'center',
-            marginBottom: 20,
+            position: 'absolute',
+            bottom: -120,
+            right: -120,
+            width: 500,
+            height: 500,
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(255,184,0,0.04) 0%, transparent 70%)',
+            display: 'flex',
           }}
-        >
-          ENTRETIEN DOMESTIQUE
-        </h1>
-        <h2
+        />
+
+        <img
+          src={logoSrc}
+          alt="EDMTL - Entretien Domestique Montreal"
           style={{
-            fontSize: 64,
-            fontWeight: 'bold',
-            margin: 0,
-            textAlign: 'center',
-            color: '#FFB800',
+            width: 580,
+            height: 'auto',
+            objectFit: 'contain',
           }}
-        >
-          MONTREAL
-        </h2>
+        />
+
+        <div
+          style={{
+            width: 60,
+            height: 3,
+            background: '#FFB800',
+            marginTop: 36,
+            marginBottom: 28,
+            display: 'flex',
+            borderRadius: 2,
+          }}
+        />
+
         <p
           style={{
-            fontSize: 28,
+            fontSize: 26,
             margin: 0,
-            marginTop: 30,
-            textAlign: 'center',
-            color: '#d1d5db',
+            color: '#9ca3af',
+            letterSpacing: '0.06em',
+            textTransform: 'uppercase',
           }}
         >
-          Professional Home Maintenance Services
+          Professional Home Maintenance
         </p>
+
+        <p
+          style={{
+            fontSize: 20,
+            margin: '12px 0 0',
+            color: '#FFB800',
+            letterSpacing: '0.12em',
+            textTransform: 'uppercase',
+          }}
+        >
+          Montréal · Laval · West Island
+        </p>
+
+        <div
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: 6,
+            background: 'linear-gradient(90deg, #FFB800 0%, #FFA500 50%, #FFB800 100%)',
+            display: 'flex',
+          }}
+        />
       </div>
     ),
-    {
-      ...size,
-    }
+    { ...size }
   )
 }

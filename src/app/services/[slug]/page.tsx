@@ -85,11 +85,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return { title: 'Service Not Found' };
   }
 
-  const heroImage = serviceHeroImages[slug];
-  const ogImages = heroImage && !heroImage.endsWith('.svg')
-    ? [{ url: heroImage, width: 900, height: 500, alt: service.pageTitle }]
-    : undefined;
-
   return {
     title: service.pageTitle,
     description: service.description,
@@ -99,7 +94,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: service.description,
       url: `https://edmtl.com/services/${service.slug}`,
       type: 'website',
-      images: ogImages,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${service.pageTitle} | EDMTL`,
+      description: service.description,
     },
     alternates: {
       canonical: `https://edmtl.com/services/${service.slug}`,
