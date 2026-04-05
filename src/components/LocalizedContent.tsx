@@ -41,17 +41,22 @@ export default function LocalizedContent() {
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
 
-  const reviews = reviewsData;
-  const reviewsPerPage = 3;
-  const totalPages = Math.ceil(reviews.length / reviewsPerPage);
+   const reviews = reviewsData;
+   const reviewsPerPage = 3;
+   const totalPages = Math.ceil(reviews.length / reviewsPerPage);
+   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  const nextReviews = useCallback(() => {
-    setReviewIndex((prev) => (prev + 1) % totalPages);
-  }, [totalPages]);
+   const nextReviews = useCallback(() => {
+     setIsTransitioning(true);
+     setReviewIndex((prev) => (prev + 1) % totalPages);
+     setTimeout(() => setIsTransitioning(false), 300);
+   }, [totalPages]);
 
-  const prevReviews = useCallback(() => {
-    setReviewIndex((prev) => (prev - 1 + totalPages) % totalPages);
-  }, [totalPages]);
+   const prevReviews = useCallback(() => {
+     setIsTransitioning(true);
+     setReviewIndex((prev) => (prev - 1 + totalPages) % totalPages);
+     setTimeout(() => setIsTransitioning(false), 300);
+   }, [totalPages]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.targetTouches[0].clientX;
@@ -350,7 +355,9 @@ export default function LocalizedContent() {
                 </button>
 
                 <div
-                  className="grid grid-cols-1 md:grid-cols-3 md:auto-rows-fr gap-4 md:gap-6 px-8 md:px-12"
+                  className={`grid grid-cols-1 md:grid-cols-3 md:auto-rows-fr gap-4 md:gap-6 px-8 md:px-12 transition-all duration-300 ${
+                    isTransitioning ? 'opacity-50 scale-95' : 'opacity-100 scale-100'
+                  }`}
                   onTouchStart={handleTouchStart}
                   onTouchMove={handleTouchMove}
                   onTouchEnd={handleTouchEnd}
@@ -358,7 +365,7 @@ export default function LocalizedContent() {
                   {paddedReviews.map((review, i) => (
                     <div
                       key={`${review.author}-${i}`}
-                      className="bg-[var(--background-tertiary)] border border-[var(--border)] rounded-xl p-6 flex flex-col items-center text-center"
+                      className="bg-[var(--background-tertiary)] border border-[var(--border)] rounded-xl p-6 flex flex-col items-center text-center min-h-[240px] md:min-h-0 transition-all duration-300 transform animate-fade-in"
                     >
                       <div className="w-14 h-14 rounded-full bg-[var(--text-muted)]/30 flex items-center justify-center mb-3">
                         <span className="text-lg font-bold text-[var(--foreground)]">
