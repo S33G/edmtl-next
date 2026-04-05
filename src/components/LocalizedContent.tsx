@@ -350,7 +350,7 @@ export default function LocalizedContent() {
                 </button>
 
                 <div
-                  className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 px-8 md:px-12"
+                  className="grid grid-cols-1 md:grid-cols-3 md:auto-rows-fr gap-4 md:gap-6 px-8 md:px-12"
                   onTouchStart={handleTouchStart}
                   onTouchMove={handleTouchMove}
                   onTouchEnd={handleTouchEnd}
@@ -358,7 +358,7 @@ export default function LocalizedContent() {
                   {paddedReviews.map((review, i) => (
                     <div
                       key={`${review.author}-${i}`}
-                      className="bg-[var(--background-tertiary)] border border-[var(--border)] rounded-xl p-6 flex flex-col items-center text-center h-full"
+                      className="bg-[var(--background-tertiary)] border border-[var(--border)] rounded-xl p-6 flex flex-col items-center text-center"
                     >
                       <div className="w-14 h-14 rounded-full bg-[var(--text-muted)]/30 flex items-center justify-center mb-3">
                         <span className="text-lg font-bold text-[var(--foreground)]">
