@@ -10,8 +10,6 @@ const {
   BUILD_ID,
 } = process.env;
 
-const webhookUrl = 'https://discord.com/api/webhooks/1487266613026750577/vyPIMh8o5m5crUc311avrTF3bj5JG-CoKlwGbR_4ITcurSI-C3GvTPZMBHcg1aCA7l3h';
-
 const embed = {
   title: '✅ Deployment Successful',
   color: 0x00ff00,

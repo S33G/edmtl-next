@@ -278,7 +278,7 @@ export default function LocalizedContent() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* ─── SERVICES SECTION (8 cards) ─── */}
-          <section id="services" className="py-20 md:py-32 lg:py-40" ref={servicesRef.ref}>
+          <section id="services" className="py-5 lg:py-40" ref={servicesRef.ref}>
             <div
               className={`text-center mb-16 transition-all duration-700 ${
                 servicesRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -341,7 +341,7 @@ export default function LocalizedContent() {
           </section>
 
           {/* ─── TRUST SECTION (Reviews + Buzzwords) ─── */}
-          <section id="trust" className="py-20 md:py-32 lg:py-40" ref={trustRef.ref}>
+          <section id="trust" className="py-5 lg:py-40" ref={trustRef.ref}>
             <div
               className={`transition-all duration-700 ${
                 trustRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -453,7 +453,7 @@ export default function LocalizedContent() {
           </section>
 
           {/* ─── FAQ SECTION (unchanged) ─── */}
-          <section id="faq" className="py-20 md:py-32 lg:py-40">
+          <section id="faq" className="py-5">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
                 <h2 className="text-4xl font-semibold text-[var(--foreground)] mb-4 tracking-tight">
