@@ -44,18 +44,18 @@ export default function LocalizedContent() {
    const reviews = reviewsData;
    const reviewsPerPage = 3;
    const totalPages = Math.ceil(reviews.length / reviewsPerPage);
-   const [isTransitioning, setIsTransitioning] = useState(false);
+   const [swipeDirection, setSwipeDirection] = useState<'left' | 'right' | null>(null);
 
    const nextReviews = useCallback(() => {
-     setIsTransitioning(true);
+     setSwipeDirection('left');
      setReviewIndex((prev) => (prev + 1) % totalPages);
-     setTimeout(() => setIsTransitioning(false), 300);
+     setTimeout(() => setSwipeDirection(null), 500);
    }, [totalPages]);
 
    const prevReviews = useCallback(() => {
-     setIsTransitioning(true);
+     setSwipeDirection('right');
      setReviewIndex((prev) => (prev - 1 + totalPages) % totalPages);
-     setTimeout(() => setIsTransitioning(false), 300);
+     setTimeout(() => setSwipeDirection(null), 500);
    }, [totalPages]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -355,8 +355,8 @@ export default function LocalizedContent() {
                 </button>
 
                 <div
-                  className={`grid grid-cols-1 md:grid-cols-3 md:auto-rows-fr gap-4 md:gap-6 px-8 md:px-12 transition-all duration-300 ${
-                    isTransitioning ? 'opacity-50 scale-95' : 'opacity-100 scale-100'
+                  className={`grid grid-cols-1 md:grid-cols-3 md:auto-rows-fr gap-4 md:gap-6 px-8 md:px-12 min-h-[300px] md:min-h-0 ${
+                    swipeDirection === 'left' ? 'animate-swipe-left' : swipeDirection === 'right' ? 'animate-swipe-right' : ''
                   }`}
                   onTouchStart={handleTouchStart}
                   onTouchMove={handleTouchMove}
@@ -365,7 +365,7 @@ export default function LocalizedContent() {
                   {paddedReviews.map((review, i) => (
                     <div
                       key={`${review.author}-${i}`}
-                      className="bg-[var(--background-tertiary)] border border-[var(--border)] rounded-xl p-6 flex flex-col items-center text-center min-h-[240px] md:min-h-0 transition-all duration-300 transform animate-fade-in"
+                      className="bg-[var(--background-tertiary)] border border-[var(--border)] rounded-xl p-6 flex flex-col items-center text-center"
                     >
                       <div className="w-14 h-14 rounded-full bg-[var(--text-muted)]/30 flex items-center justify-center mb-3">
                         <span className="text-lg font-bold text-[var(--foreground)]">
