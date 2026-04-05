@@ -31,11 +31,12 @@ const serviceIconSvgMap: Record<string, string> = {
 export default function LocalizedContent() {
   const [currentLocale, setCurrentLocale] = useState('en');
   const [reviewIndex, setReviewIndex] = useState(0);
+  const [carouselHeight, setCarouselHeight] = useState<number | null>(null);
   const { changeLocale } = useTranslation(currentLocale);
 
   const servicesRef = useInView();
   const trustRef = useInView();
-
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   // Touch/swipe state for carousel
   const touchStartX = useRef(0);
@@ -77,11 +78,19 @@ export default function LocalizedContent() {
     }
   };
 
-  // Auto-rotate reviews
-  useEffect(() => {
-    const interval = setInterval(nextReviews, 6000);
-    return () => clearInterval(interval);
-  }, [nextReviews]);
+   // Auto-rotate reviews
+   useEffect(() => {
+     const interval = setInterval(nextReviews, 6000);
+     return () => clearInterval(interval);
+   }, [nextReviews]);
+
+   // Measure carousel height to prevent jumps
+   useEffect(() => {
+     if (carouselRef.current) {
+       const height = carouselRef.current.scrollHeight;
+       setCarouselHeight(height);
+     }
+   }, [reviewIndex]);
 
   const visibleReviews = reviews.slice(
     reviewIndex * reviewsPerPage,
@@ -355,9 +364,11 @@ export default function LocalizedContent() {
                 </button>
 
                 <div
-                  className={`grid grid-cols-1 md:grid-cols-3 md:auto-rows-fr gap-4 md:gap-6 px-8 md:px-12 min-h-[300px] md:min-h-0 ${
+                  ref={carouselRef}
+                  className={`grid grid-cols-1 md:grid-cols-3 md:auto-rows-fr gap-4 md:gap-6 px-8 md:px-12 transition-all duration-0 ${
                     swipeDirection === 'left' ? 'animate-swipe-left' : swipeDirection === 'right' ? 'animate-swipe-right' : ''
                   }`}
+                  style={{ minHeight: carouselHeight ? `${carouselHeight}px` : 'auto' }}
                   onTouchStart={handleTouchStart}
                   onTouchMove={handleTouchMove}
                   onTouchEnd={handleTouchEnd}
