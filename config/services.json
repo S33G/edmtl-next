@@ -220,29 +220,17 @@
       ]
     },
     {
-      "slug": "exterior-maintenance",
-      "title": "General Exterior Maintenance",
-      "pageTitle": "Exterior Maintenance Services Montreal",
-      "subtitle": "Additional services to keep your home clean, functional and well-maintained",
-      "description": "We offer additional services specific to your property, such as moss removal, polymeric sand replacement, and caulking.",
+      "slug": "polymeric-sand-replacement",
+      "title": "Polymeric Sand Replacement",
+      "pageTitle": "Polymeric Sand Replacement Montreal",
+      "subtitle": "Specialised polymeric sand replacement for your driveway, walkway, patio and other paved surfaces.",
+      "description": "Specialised polymeric sand replacement for your driveway, walkway, patio and other paved surfaces.",
       "intro": [
-        "Beyond our main services, we offer a range of exterior maintenance solutions to help take care of smaller but important details around your home.",
-        "These services are often overlooked, but they play a key role in keeping your property in good condition. They can be scheduled individually or combined with other services for convenience."
+        "Polymeric sand plays a critical role in keeping your interlock surfaces in place. Over time, it naturally breaks down due to weather and seasonal freeze-thaw cycles. When this happens, weeds and moss can grow, pavers can shift and water can get beneath the surface.",
+        "Our polymeric sand replacement service is designed to fully restore the integrity and appearance of your driveway, patio or walkway. We remove the old sand, thoroughly clean the surface, and install high-quality polymeric sand that hardens and locks everything back into place. This not only improves the look of your surface, but also helps prevent future movement and weed growth.",
+        "Replacing polymeric sand is one of the most important steps in maintaining interlock. It extends the lifespan of your investment, improves drainage, and gives your outdoor space a clean, finished look. Whether your joints are washed out, uneven, or full of weeds, our team ensures a long-lasting, professional result."
       ],
-      "sections": [
-        {
-          "heading": "Moss Removal & Soft Washing",
-          "content": "Moss and organic growth retains moisture and gradually damages surfaces if left untreated. Areas that are shaded and get wet repeatedly are prone to growing moss. We use safe and effective methods to remove moss and treat surfaces to slow regrowth."
-        },
-        {
-          "heading": "Polymeric Sand Replacement",
-          "content": "After many years, the material between paver joints will become brittle, dark and can grow moss. The only way to restore the look of your paver driveway, path or patio is to completely remove the old polymeric sand and replace it with new sand."
-        },
-        {
-          "heading": "Gutter Caulking",
-          "content": "At every corner of your roof, your gutters have a seam that becomes water-tight with a sealant. Being exposed to the elements, this sealant will deteriorate over time. We select the correct sealant and apply it properly to ensure your gutters are fully sealed and not leaking."
-        }
-      ]
+      "sections": []
     }
   ]
 }

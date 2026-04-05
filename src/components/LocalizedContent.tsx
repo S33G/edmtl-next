@@ -25,7 +25,7 @@ const serviceIconSvgMap: Record<string, string> = {
   'deck-staining': '/images/icons/deck-stain.svg',
   'commercial-window-cleaning': '/images/icons/commercial-window-cleaning.svg',
   'dryer-vent-cleaning': '/images/icons/dryer-vent.svg',
-  'exterior-maintenance': '/images/icons/general-maintenance.svg',
+  'polymeric-sand-replacement': '/images/icons/general-maintenance.svg',
 };
 
 export default function LocalizedContent() {
@@ -181,9 +181,20 @@ export default function LocalizedContent() {
         {/* ─── HERO SECTION ─── */}
         <section
           id="hero-section"
-          className="hero-section text-center pt-20 pb-40 md:py-40 relative bg-gradient-to-b from-transparent via-transparent to-gray-50/30 dark:to-gray-900/30 w-full"
+          className="hero-section text-center pt-20 pb-24 md:pt-28 md:pb-32 relative w-full"
         >
-          <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <div
+            className="absolute inset-0 z-0"
+            style={{
+              backgroundImage: 'url(/images/frontpagesplash.png)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              opacity: 0.15,
+              filter: 'brightness(0.7) contrast(0.8)',
+            }}
+          />
+          <div className="absolute inset-0 z-0 bg-gradient-to-b from-[var(--background)]/60 via-transparent to-[var(--background)]/80" />
+          <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
             <div className="mb-8 animate-in fade-in slide-in-from-top-4 duration-700">
               <Image
                 src="/images/edm-box-logo.png"
@@ -201,15 +212,15 @@ export default function LocalizedContent() {
             </h1>
 
             <div
-              className="text-lg md:text-xl text-[var(--text-muted)] mb-12 max-w-3xl mx-auto leading-relaxed font-normal animate-in fade-in slide-in-from-top-8 duration-700 space-y-2"
+              className="text-lg md:text-xl text-[var(--text-muted)] mb-12 max-w-3xl mx-auto leading-relaxed animate-in fade-in slide-in-from-top-8 duration-700 space-y-2"
               style={{ animationDelay: '400ms' }}
             >
-              <p>
+              <p className="font-bold">
                 {currentLocale === 'fr'
                   ? 'Nettoyage de Vitres / Nettoyage de Gouttières / Lavage à Pression / Teinture de Terrasse'
                   : 'Window Cleaning / Gutter Cleaning / Pressure Washing / Deck Staining'}
               </p>
-              <p>
+              <p className="font-bold">
                 {currentLocale === 'fr'
                   ? 'Montréal / West Island / Laval / Rive-Sud'
                   : 'Montreal / West Island / Laval / South Shore'}
@@ -233,52 +244,12 @@ export default function LocalizedContent() {
                 {currentLocale === 'fr' ? 'Devis gratuit' : 'Free Quote'}
               </button>
             </div>
-
-            <div
-              className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-in fade-in duration-1000"
-              style={{ animationDelay: '1000ms' }}
-            >
-              <button
-                onClick={() => {
-                  const servicesSection = document.getElementById('services');
-                  if (servicesSection) {
-                    const isMobile = window.innerWidth < 768;
-                    const headerHeight = isMobile ? 0 : 40;
-                    const elementPosition = servicesSection.offsetTop - headerHeight;
-                    window.scrollTo({
-                      top: elementPosition,
-                      behavior: 'smooth',
-                    });
-                  }
-                }}
-                className="scroll-arrow-btn group flex flex-col items-center text-[var(--text-muted)] hover:text-[var(--primary)] transition-colors duration-300"
-                aria-label="Scroll to services section"
-              >
-                <span className="text-sm mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  {currentLocale === 'fr' ? 'Découvrir' : 'Explore'}
-                </span>
-                <div className="scroll-arrow">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M7 10l5 5 5-5" />
-                  </svg>
-                </div>
-              </button>
-            </div>
           </div>
         </section>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* ─── SERVICES SECTION (8 cards) ─── */}
-          <section id="services" className="py-5 lg:py-40" ref={servicesRef.ref}>
+          <section id="services" className="py-5 lg:py-16" ref={servicesRef.ref}>
             <div
               className={`text-center mb-16 transition-all duration-700 ${
                 servicesRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -341,7 +312,7 @@ export default function LocalizedContent() {
           </section>
 
           {/* ─── TRUST SECTION (Reviews + Buzzwords) ─── */}
-          <section id="trust" className="py-5 lg:py-40" ref={trustRef.ref}>
+          <section id="trust" className="py-5 lg:py-16" ref={trustRef.ref}>
             <div
               className={`transition-all duration-700 ${
                 trustRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -387,7 +358,7 @@ export default function LocalizedContent() {
                   {paddedReviews.map((review, i) => (
                     <div
                       key={`${review.author}-${i}`}
-                      className="bg-[var(--background-tertiary)] border border-[var(--border)] rounded-xl p-6 flex flex-col items-center text-center"
+                      className="bg-[var(--background-tertiary)] border border-[var(--border)] rounded-xl p-6 flex flex-col items-center text-center h-full"
                     >
                       <div className="w-14 h-14 rounded-full bg-[var(--text-muted)]/30 flex items-center justify-center mb-3">
                         <span className="text-lg font-bold text-[var(--foreground)]">
@@ -461,13 +432,13 @@ export default function LocalizedContent() {
                 </h2>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {faqData.items.map((item, index) => (
-                  <div key={index} className="card relative overflow-hidden group">
+                  <div key={index} className="card relative overflow-hidden group !min-h-0 !p-4 sm:!p-5">
                     <div className="absolute top-0 right-0 opacity-5 group-hover:opacity-20 pointer-events-none transition-all duration-300">
                       <svg
-                        width="120"
-                        height="120"
+                        width="80"
+                        height="80"
                         viewBox="0 0 120 120"
                         className="text-[var(--primary)] group-hover:text-[var(--primary)] transition-colors duration-300"
                         fill="currentColor"
@@ -479,10 +450,10 @@ export default function LocalizedContent() {
                     </div>
 
                     <div className="relative z-10">
-                      <h3 className="text-xl font-semibold text-[var(--foreground)] dark:text-[var(--foreground)] mb-3">
+                      <h3 className="text-lg font-semibold text-[var(--foreground)] dark:text-[var(--foreground)] mb-2">
                         {item.question}
                       </h3>
-                      <p className="text-[var(--text-muted)] dark:text-[var(--text-muted)] leading-relaxed">
+                      <p className="text-sm text-[var(--text-muted)] dark:text-[var(--text-muted)] leading-relaxed">
                         {item.answer}
                       </p>
                     </div>
@@ -493,7 +464,7 @@ export default function LocalizedContent() {
           </section>
 
           {/* ─── WHY CHOOSE US / PROCESS STEPS (just above contact) ─── */}
-          <section className="py-16 md:py-24">
+          {/* <section className="py-10 md:py-16">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
               {[
                 {
@@ -531,7 +502,7 @@ export default function LocalizedContent() {
                 </div>
               ))}
             </div>
-          </section>
+          </section> */}
 
         </div>
       </main>

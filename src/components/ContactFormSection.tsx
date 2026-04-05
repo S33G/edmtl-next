@@ -112,7 +112,110 @@ export default function ContactFormSection() {
         </form>
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-          <div className="bg-[var(--background-tertiary)] border border-[var(--border)] rounded-2xl p-6 sm:p-8">
+          <div className="bg-[var(--background-tertiary)] border border-[var(--border)] rounded-2xl p-6 sm:p-8 lg:order-last">
+            <h2 className="text-2xl font-bold mb-6 text-[var(--foreground)]">Request a Quote</h2>
+
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label className="block text-[var(--foreground)] font-bold mb-2">Name *</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded-lg border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none transition-colors"
+                  placeholder="Your full name"
+                  required
+                  disabled={isSubmitting}
+                />
+              </div>
+
+              <div>
+                <label className="block text-[var(--foreground)] font-bold mb-2">Email *</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded-lg border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none transition-colors"
+                  placeholder="your.email@example.com"
+                  required
+                  disabled={isSubmitting}
+                />
+              </div>
+
+              <div>
+                <label className="block text-[var(--foreground)] font-bold mb-2">Phone</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded-lg border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none transition-colors"
+                  placeholder="(optional)"
+                  disabled={isSubmitting}
+                />
+              </div>
+
+              <div>
+                <label className="block text-[var(--foreground)] font-bold mb-3">Services Interested In</label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {services.map((service) => (
+                    <label
+                      key={service.slug}
+                      className="flex items-center gap-2 cursor-pointer group"
+                    >
+                      <input
+                        type="checkbox"
+                        checked={selectedServices.includes(service.slug)}
+                        onChange={() => handleServiceToggle(service.slug)}
+                        className="w-4 h-4 rounded border-[var(--border)] text-[var(--primary)] focus:ring-[var(--primary)] bg-[var(--background-secondary)]"
+                        disabled={isSubmitting}
+                      />
+                      <span className="text-[var(--foreground-secondary)] text-sm group-hover:text-[var(--foreground)] transition-colors">
+                        {service.title}
+                      </span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-[var(--foreground)] font-bold mb-2">Message</label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows={4}
+                  className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded-lg border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none transition-colors"
+                  placeholder="Please describe your project..."
+                  disabled={isSubmitting}
+                />
+              </div>
+
+              {submitStatus === 'success' && (
+                <div className="p-3 bg-green-900/50 border border-green-600 text-green-400 rounded-lg">
+                  Thank you! Your message has been sent successfully. Redirecting...
+                </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div className="p-3 bg-red-900/50 border border-red-600 text-red-400 rounded-lg">
+                  Sorry, there was an error sending your message. Please try again.
+                </div>
+              )}
+
+              <button
+                type="submit"
+                className="w-full bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-black px-6 py-3 rounded-xl font-semibold transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? 'Sending...' : 'SEND REQUEST'}
+              </button>
+            </form>
+          </div>
+
+          <div className="bg-[var(--background-tertiary)] border border-[var(--border)] rounded-2xl p-6 sm:p-8 lg:order-first">
             <h2 className="text-2xl font-bold mb-6 text-[var(--foreground)]">Get in Touch</h2>
 
             <div className="space-y-6">
@@ -214,109 +317,6 @@ export default function ContactFormSection() {
                 Add to Contacts
               </a>
             </div>
-          </div>
-
-          <div className="bg-[var(--background-tertiary)] border border-[var(--border)] rounded-2xl p-6 sm:p-8">
-            <h2 className="text-2xl font-bold mb-6 text-[var(--foreground)]">Request a Quote</h2>
-
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label className="block text-[var(--foreground)] font-bold mb-2">Name *</label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded-lg border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none transition-colors"
-                  placeholder="Your full name"
-                  required
-                  disabled={isSubmitting}
-                />
-              </div>
-
-              <div>
-                <label className="block text-[var(--foreground)] font-bold mb-2">Email *</label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded-lg border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none transition-colors"
-                  placeholder="your.email@example.com"
-                  required
-                  disabled={isSubmitting}
-                />
-              </div>
-
-              <div>
-                <label className="block text-[var(--foreground)] font-bold mb-2">Phone</label>
-                <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded-lg border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none transition-colors"
-                  placeholder="(optional)"
-                  disabled={isSubmitting}
-                />
-              </div>
-
-              <div>
-                <label className="block text-[var(--foreground)] font-bold mb-3">Services Interested In</label>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {services.map((service) => (
-                    <label
-                      key={service.slug}
-                      className="flex items-center gap-2 cursor-pointer group"
-                    >
-                      <input
-                        type="checkbox"
-                        checked={selectedServices.includes(service.slug)}
-                        onChange={() => handleServiceToggle(service.slug)}
-                        className="w-4 h-4 rounded border-[var(--border)] text-[var(--primary)] focus:ring-[var(--primary)] bg-[var(--background-secondary)]"
-                        disabled={isSubmitting}
-                      />
-                      <span className="text-[var(--foreground-secondary)] text-sm group-hover:text-[var(--foreground)] transition-colors">
-                        {service.title}
-                      </span>
-                    </label>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-[var(--foreground)] font-bold mb-2">Message</label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows={4}
-                  className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded-lg border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none transition-colors"
-                  placeholder="Please describe your project..."
-                  disabled={isSubmitting}
-                />
-              </div>
-
-              {submitStatus === 'success' && (
-                <div className="p-3 bg-green-900/50 border border-green-600 text-green-400 rounded-lg">
-                  Thank you! Your message has been sent successfully. Redirecting...
-                </div>
-              )}
-
-              {submitStatus === 'error' && (
-                <div className="p-3 bg-red-900/50 border border-red-600 text-red-400 rounded-lg">
-                  Sorry, there was an error sending your message. Please try again.
-                </div>
-              )}
-
-              <button
-                type="submit"
-                className="w-full bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-black px-6 py-3 rounded-xl font-semibold transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? 'Sending...' : 'SEND REQUEST'}
-              </button>
-            </form>
           </div>
         </div>
 

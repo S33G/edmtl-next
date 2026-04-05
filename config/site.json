@@ -97,7 +97,7 @@
       { "name": "Commercial Window Cleaning", "slug": "commercial-window-cleaning" },
       { "name": "Downspout Repair", "slug": "downspout-repair" },
       { "name": "Dryer Vent Cleaning", "slug": "dryer-vent-cleaning" },
-      { "name": "General Exterior Maintenance", "slug": "exterior-maintenance" }
+      { "name": "Polymeric Sand Replacement", "slug": "polymeric-sand-replacement" }
     ],
     "fr": [
       { "name": "Nettoyage de Vitres Résidentiel", "slug": "window-cleaning" },
@@ -107,7 +107,7 @@
       { "name": "Nettoyage de Vitres Commercial", "slug": "commercial-window-cleaning" },
       { "name": "Réparation de Descentes Pluviales", "slug": "downspout-repair" },
       { "name": "Nettoyage de Conduits de Sécheuse", "slug": "dryer-vent-cleaning" },
-      { "name": "Entretien Extérieur Général", "slug": "exterior-maintenance" }
+      { "name": "Entretien Extérieur Général", "slug": "polymeric-sand-replacement" }
     ]
   },
   "copyright": "© COPYRIGHT ENTRETIEN DOMESTIQUE MONTREAL 2025"

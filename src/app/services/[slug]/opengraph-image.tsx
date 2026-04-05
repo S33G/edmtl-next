@@ -14,11 +14,11 @@ interface Service {
 
 const serviceHeroImages: Record<string, string> = {
   'window-cleaning': 'images/services/window-cleaning-header.png',
-  'gutter-cleaning': 'images/services/gutter-services-header.png',
+  'gutter-cleaning': 'images/services/guttercleaningbeforeafter1.png',
   'pressure-washing': 'images/services/pressure-washing.png',
   'deck-staining': 'images/services/deck-refinishing-header.png',
-  'commercial-window-cleaning': 'images/services/commercial-window-cleaning.png',
-  'exterior-maintenance': 'images/services/moss-removal.png',
+  'commercial-window-cleaning': 'images/services/commercialwindowcleaning1.png',
+  'polymeric-sand-replacement': 'images/services/polymericsand1.png',
 }
 
 function readImageAsBase64(relativePath: string): string | null {

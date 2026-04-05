@@ -37,37 +37,31 @@ function getService(slug: string): Service | undefined {
 // Hero image for each service page
 const serviceHeroImages: Record<string, string> = {
   'window-cleaning': '/images/services/window-cleaning-header.png',
-  'gutter-cleaning': '/images/services/gutter-services-header.png',
+  'gutter-cleaning': '/images/services/guttercleaningbeforeafter1.png',
   'pressure-washing': '/images/services/pressure-washing.png',
   'deck-staining': '/images/services/deck-refinishing-header.png',
-  'commercial-window-cleaning': '/images/services/commercial-window-cleaning.png',
-  'dryer-vent-cleaning': '/images/icons/dryer-vent.svg',
-  'downspout-repair': '/images/icons/downspout.svg',
-  'exterior-maintenance': '/images/services/moss-removal.png',
+  'commercial-window-cleaning': '/images/services/commercialwindowcleaning1.png',
+  'dryer-vent-cleaning': '/images/services/dryerventcleaning1.png',
+  'downspout-repair': '/images/services/downspoutrepair1.png',
+  'polymeric-sand-replacement': '/images/services/polymericsand1.png',
 };
 
 // Additional images mapped to section headings per service
 const serviceSectionImages: Record<string, Record<string, string>> = {
   'window-cleaning': {
-    'Interior & Exterior Window Cleaning': '/images/services/exterior-window-cleaning.png',
-    'Residential Window Cleaning': '/images/services/interior-window-cleaning.png',
+    'Interior & Exterior Window Cleaning': '/images/services/windowcleaningexternalframe1.png',
+    'Residential Window Cleaning': '/images/services/windowcleaninginteriortrack1.png',
   },
   'gutter-cleaning': {
-    'Gutter Guards': '/images/services/gutter-guard-installation.png',
-    'Downspout Repair': '/images/services/maintenance-&-repairs-(gutter).png',
-    'Caulking': '/images/services/gutter-cleaning.png',
+    'Gutter Guards': '/images/services/gutterguards1.png',
+    'Downspout Repair': '/images/services/downspoutrepair1.png',
   },
   'pressure-washing': {
-    'Surfaces We Clean': '/images/services/hard-surface-washing.png',
-    'Using the Right Pressure': '/images/services/soft-surface-cleaning.png',
-    'Before and After Difference': '/images/services/surface-cleaning-and-preparation.png',
+    'Using the Right Pressure': '/images/services/pressurewashingsiding1.png',
+    'Before and After Difference': '/images/services/pressurewashingcomposite1.png',
   },
   'deck-staining': {
-    'Staining': '/images/services/staining-&-sealing.png',
-  },
-  'exterior-maintenance': {
-    'Moss Removal & Soft Washing': '/images/services/moss-removal.png',
-    'Polymeric Sand Replacement': '/images/services/wash-&-brighten.png',
+    'Staining': '/images/services/deckstaining1.png',
   },
 };
 
