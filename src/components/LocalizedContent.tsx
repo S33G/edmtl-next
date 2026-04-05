@@ -86,10 +86,16 @@ export default function LocalizedContent() {
 
    // Measure carousel height to prevent jumps
    useEffect(() => {
-     if (carouselRef.current) {
-       const height = carouselRef.current.scrollHeight;
-       setCarouselHeight(height);
-     }
+     const measureCarousel = () => {
+       if (carouselRef.current) {
+         const height = carouselRef.current.scrollHeight;
+         setCarouselHeight(height);
+       }
+     };
+
+     measureCarousel();
+     window.addEventListener('resize', measureCarousel);
+     return () => window.removeEventListener('resize', measureCarousel);
    }, [reviewIndex]);
 
   const visibleReviews = reviews.slice(
