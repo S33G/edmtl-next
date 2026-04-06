@@ -132,6 +132,7 @@ export default function ContactForm({ translations: t }: ContactFormProps) {
             onChange={handleChange}
             className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none"
             placeholder={t.phonePlaceholder}
+            required
             disabled={isSubmitting}
           />
         </div>

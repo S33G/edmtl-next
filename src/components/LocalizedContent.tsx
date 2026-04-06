@@ -32,7 +32,7 @@ export default function LocalizedContent() {
   const [currentLocale, setCurrentLocale] = useState('en');
   const [reviewIndex, setReviewIndex] = useState(0);
   const [carouselHeight, setCarouselHeight] = useState<number | null>(null);
-  const { changeLocale } = useTranslation(currentLocale);
+  const { t, changeLocale } = useTranslation(currentLocale);
 
   const servicesRef = useInView();
   const trustRef = useInView();
@@ -80,7 +80,7 @@ export default function LocalizedContent() {
 
    // Auto-rotate reviews
    useEffect(() => {
-     const interval = setInterval(nextReviews, 6000);
+     const interval = setInterval(nextReviews, 30000);
      return () => clearInterval(interval);
    }, [nextReviews]);
 
@@ -236,14 +236,10 @@ export default function LocalizedContent() {
               style={{ animationDelay: '400ms' }}
             >
               <p className="font-bold">
-                {currentLocale === 'fr'
-                  ? 'Nettoyage de Vitres / Nettoyage de Gouttières / Lavage à Pression / Teinture de Terrasse'
-                  : 'Window Cleaning / Gutter Cleaning / Pressure Washing / Deck Staining'}
+                {t('hero.servicesList')}
               </p>
               <p className="font-bold">
-                {currentLocale === 'fr'
-                  ? 'Montréal / West Island / Laval / Rive-Sud'
-                  : 'Montreal / West Island / Laval / South Shore'}
+                {t('hero.locations')}
               </p>
             </div>
 
@@ -255,13 +251,13 @@ export default function LocalizedContent() {
                 href={`tel:${siteConfig.contact.phone}`}
                 className="btn-primary inline-flex items-center justify-center transition-all duration-200 hover:scale-105"
               >
-                {currentLocale === 'fr' ? 'Appelez maintenant' : 'Call Now'}
+                {t('hero.callNow')}
               </a>
               <button
                 onClick={goToContact}
                 className="btn-secondary inline-flex items-center justify-center transition-all duration-200 hover:scale-105"
               >
-                {currentLocale === 'fr' ? 'Devis gratuit' : 'Free Quote'}
+                {t('hero.freeQuote')}
               </button>
             </div>
           </div>
@@ -276,12 +272,10 @@ export default function LocalizedContent() {
               }`}
             >
               <h2 className="text-4xl font-semibold text-[var(--foreground)] mb-4 tracking-tight">
-                {currentLocale === 'fr' ? 'Nos Services' : 'Our Services'}
+                {t('services.title')}
               </h2>
               <p className="text-xl text-[var(--text-muted)] max-w-2xl mx-auto">
-                {currentLocale === 'fr'
-                  ? 'Avec attention aux détails, nos services gardent votre maison propre, protégée et bien entretenue'
-                  : 'With attention to detail, our services keep your home looking clean, protected and well-maintained'}
+                {t('services.subtitle')}
               </p>
             </div>
 
@@ -321,7 +315,7 @@ export default function LocalizedContent() {
                           {service.description}
                         </p>
                         <span className="mt-3 inline-block text-[var(--primary)] text-sm font-medium group-hover:translate-x-1 transition-transform duration-200">
-                          {currentLocale === 'fr' ? 'En savoir plus →' : 'Learn more →'}
+                          {t('services.learnMore')}
                         </span>
                       </div>
                     </Link>
@@ -340,7 +334,7 @@ export default function LocalizedContent() {
             >
               <div className="text-center mb-12">
                 <h2 className="text-4xl font-semibold text-[var(--foreground)] mb-3 tracking-tight">
-                  {currentLocale === 'fr' ? 'Avis Google' : 'Google Reviews'}
+                  {t('reviews.title')}
                 </h2>
                 <div className="flex items-center justify-center gap-3 mb-2">
                   <span className="text-3xl font-bold text-[var(--primary)]">5.0</span>
@@ -356,7 +350,7 @@ export default function LocalizedContent() {
                   rel="noopener noreferrer"
                   className="text-sm text-[var(--text-muted)] hover:text-[var(--primary)] transition-colors underline"
                 >
-                  ({currentLocale === 'fr' ? 'Voir sur Google' : 'View on Google'})
+                  ({t('reviews.viewOnGoogle')})
                 </a>
               </div>
 
@@ -531,7 +525,7 @@ export default function LocalizedContent() {
         </div>
       </main>
 
-      <ContactFormSection />
+      <ContactFormSection locale={currentLocale} />
 
       <Footer />
     </div>

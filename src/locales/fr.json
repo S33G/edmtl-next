@@ -2,6 +2,8 @@
   "hero": {
     "title": "ENTRETIEN DOMESTIQUE MONTRÉAL",
     "description": "Entretien Domestique Montréal est une entreprise de services d'entretien gérée par des professionnels avec des connaissances et compétences professionnelles. Avec plus de 10 ans d'expérience combinée, nous sommes fiers de pouvoir offrir une gamme de services exécutés selon des normes élevées.",
+    "servicesList": "Nettoyage de Vitres / Nettoyage de Gouttières / Lavage à Pression / Teinture de Terrasse",
+    "locations": "Montréal / West Island / Laval / Rive-Sud",
     "callNow": "Appeler maintenant",
     "freeQuote": "Devis gratuit",
     "scrollDown": "Faites défiler vers le bas pour explorer nos services"
@@ -12,11 +14,17 @@
     "gallery": "Galerie",
     "faq": "FAQ",
     "contact": "Contactez-nous",
-    "language": "Langue"
+    "language": "Langue",
+    "mobileLabels": {
+      "services": "Services",
+      "trust": "Avis",
+      "contact": "Contact",
+      "language": "Langue"
+    }
   },
   "services": {
     "title": "Nos Services",
-    "subtitle": "Services professionnels pour votre domicile",
+    "subtitle": "Avec attention aux détails, nos services gardent votre maison propre, protégée et bien entretenue",
     "learnMore": "En savoir plus →",
     "windowCleaning": {
       "title": "Nettoyage de vitres",
@@ -66,8 +74,9 @@
     "freeQuotesAvailable": "DEVIS GRATUITS DISPONIBLES",
     "callNow": "APPELER",
     "emailUs": "EMAIL",
-    "addToContacts": "AJOUTER AUX CONTACTS",
+    "addToContacts": "Ajouter aux contacts",
     "requestQuote": "Demander un devis",
+    "servicesInterestedIn": "Services qui vous intéressent",
     "mapTitle": "Notre zone de service",
     "mapDescription": "Nous desservons Montréal et les régions environnantes incluant Saint-Lazare, Laval, Rive-Nord/Sud, et Vaudreuil-Dorion",
     "form": {
@@ -75,13 +84,16 @@
       "namePlaceholder": "Votre nom complet",
       "email": "Email *",
       "emailPlaceholder": "votre.email@exemple.com",
-      "phone": "Téléphone",
-      "phonePlaceholder": "(optionnel)",
+      "phone": "Téléphone *",
+      "phonePlaceholder": "Votre numéro de téléphone",
       "service": "Service requis",
       "servicePlaceholder": "Sélectionner un service...",
       "message": "Message",
       "messagePlaceholder": "Veuillez décrire votre projet...",
-      "sendRequest": "ENVOYER LA DEMANDE"
+      "sendRequest": "ENVOYER LA DEMANDE",
+      "sending": "Envoi en cours...",
+      "successMessage": "Merci ! Votre message a été envoyé avec succès. Redirection...",
+      "errorMessage": "Désolé, une erreur s'est produite lors de l'envoi. Veuillez réessayer."
     }
   },
   "features": {
@@ -90,6 +102,10 @@
     "experienced": "Plus de 10 ans d'expérience",
     "fullyInsured": "Entièrement assuré",
     "freeQuotes": "Devis gratuits"
+  },
+  "reviews": {
+    "title": "Avis Google",
+    "viewOnGoogle": "Voir sur Google"
   },
   "footer": {
     "copyright": "© 2025 EDMTL - Entretien Domestique Montreal. Tous droits réservés."

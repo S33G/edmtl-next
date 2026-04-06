@@ -187,10 +187,7 @@ const PagePicker: React.FC<PagePickerProps> = ({ currentLocale, onLocaleChange, 
                 {/* Mobile title - only show when not in header and not for logo */}
                 {!isInHeader && !section.isLogo && (
                   <span className={`text-xs mt-1 font-medium leading-tight md:hidden ${isActive ? 'text-[var(--foreground)]' : 'text-[var(--text-muted)] dark:text-[var(--text-muted)]'}`}>
-                    {section.id === 'services' ? (currentLocale === 'fr' ? 'Services' : 'Services') :
-                     section.id === 'trust' ? (currentLocale === 'fr' ? 'Avis' : 'Reviews') :
-                     section.id === 'contact' ? (currentLocale === 'fr' ? 'Contact' : 'Contact') :
-                     section.id === 'language' ? (currentLocale === 'fr' ? 'Langue' : 'Language') : section.label}
+                    {section.id === 'faq' ? section.label : (t(`navigation.mobileLabels.${section.id}`) || section.label)}
                   </span>
                 )}
 

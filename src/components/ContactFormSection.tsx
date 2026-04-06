@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
 import siteConfig from '../../config/site.json';
 import servicesData from '../../config/services.json';
+import { useTranslation } from '../hooks/useTranslation';
 
 declare global {
   interface Window {
@@ -17,10 +18,15 @@ interface Service {
   title: string;
 }
 
-export default function ContactFormSection() {
+interface ContactFormSectionProps {
+  locale?: string;
+}
+
+export default function ContactFormSection({ locale = 'en' }: ContactFormSectionProps) {
   const phone = siteConfig.contact.phone;
   const email = siteConfig.contact.email;
   const services = servicesData.services as Service[];
+  const { t } = useTranslation(locale);
 
   const searchParams = useSearchParams();
   const preselectedService = searchParams.get('service');
@@ -113,52 +119,53 @@ export default function ContactFormSection() {
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           <div className="bg-[var(--background-tertiary)] border border-[var(--border)] rounded-2xl p-6 sm:p-8 lg:order-last">
-            <h2 className="text-2xl font-bold mb-6 text-[var(--foreground)]">Request a Quote</h2>
+            <h2 className="text-2xl font-bold mb-6 text-[var(--foreground)]">{t('contact.requestQuote')}</h2>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-[var(--foreground)] font-bold mb-2">Name *</label>
+                <label className="block text-[var(--foreground)] font-bold mb-2">{t('contact.form.name')}</label>
                 <input
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
                   className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded-lg border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none transition-colors"
-                  placeholder="Your full name"
+                  placeholder={t('contact.form.namePlaceholder')}
                   required
                   disabled={isSubmitting}
                 />
               </div>
 
               <div>
-                <label className="block text-[var(--foreground)] font-bold mb-2">Email *</label>
+                <label className="block text-[var(--foreground)] font-bold mb-2">{t('contact.form.email')}</label>
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
                   className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded-lg border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none transition-colors"
-                  placeholder="your.email@example.com"
+                  placeholder={t('contact.form.emailPlaceholder')}
                   required
                   disabled={isSubmitting}
                 />
               </div>
 
               <div>
-                <label className="block text-[var(--foreground)] font-bold mb-2">Phone</label>
+                <label className="block text-[var(--foreground)] font-bold mb-2">{t('contact.form.phone')}</label>
                 <input
                   type="tel"
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
                   className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded-lg border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none transition-colors"
-                  placeholder="(optional)"
+                  placeholder={t('contact.form.phonePlaceholder')}
+                  required
                   disabled={isSubmitting}
                 />
               </div>
 
               <div>
-                <label className="block text-[var(--foreground)] font-bold mb-3">Services Interested In</label>
+                <label className="block text-[var(--foreground)] font-bold mb-3">{t('contact.servicesInterestedIn')}</label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {services.map((service) => (
                     <label
@@ -181,27 +188,27 @@ export default function ContactFormSection() {
               </div>
 
               <div>
-                <label className="block text-[var(--foreground)] font-bold mb-2">Message</label>
+                <label className="block text-[var(--foreground)] font-bold mb-2">{t('contact.form.message')}</label>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
                   className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded-lg border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none transition-colors"
-                  placeholder="Please describe your project..."
+                  placeholder={t('contact.form.messagePlaceholder')}
                   disabled={isSubmitting}
                 />
               </div>
 
               {submitStatus === 'success' && (
                 <div className="p-3 bg-green-900/50 border border-green-600 text-green-400 rounded-lg">
-                  Thank you! Your message has been sent successfully. Redirecting...
+                  {t('contact.form.successMessage')}
                 </div>
               )}
 
               {submitStatus === 'error' && (
                 <div className="p-3 bg-red-900/50 border border-red-600 text-red-400 rounded-lg">
-                  Sorry, there was an error sending your message. Please try again.
+                  {t('contact.form.errorMessage')}
                 </div>
               )}
 
@@ -210,13 +217,13 @@ export default function ContactFormSection() {
                 className="w-full bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-black px-6 py-3 rounded-xl font-semibold transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? 'Sending...' : 'SEND REQUEST'}
+                {isSubmitting ? t('contact.form.sending') : t('contact.form.sendRequest')}
               </button>
             </form>
           </div>
 
           <div className="bg-[var(--background-tertiary)] border border-[var(--border)] rounded-2xl p-6 sm:p-8 lg:order-first">
-            <h2 className="text-2xl font-bold mb-6 text-[var(--foreground)]">Get in Touch</h2>
+            <h2 className="text-2xl font-bold mb-6 text-[var(--foreground)]">{t('contact.title')}</h2>
 
             <div className="space-y-6">
               <div className="flex items-center gap-4">
@@ -230,7 +237,7 @@ export default function ContactFormSection() {
                   </svg>
                 </div>
                 <div>
-                  <div className="text-[var(--primary)] font-bold">Phone</div>
+                  <div className="text-[var(--primary)] font-bold">{t('contact.phone')}</div>
                   <a
                     href={`tel:${phone.replace(/-/g, '')}`}
                     className="text-[var(--foreground)] text-xl hover:text-[var(--primary)] transition-colors"
@@ -248,7 +255,7 @@ export default function ContactFormSection() {
                   </svg>
                 </div>
                 <div>
-                  <div className="text-[var(--primary)] font-bold">Email</div>
+                  <div className="text-[var(--primary)] font-bold">{t('contact.email')}</div>
                   <a
                     href={`mailto:${email}`}
                     className="text-[var(--foreground)] hover:text-[var(--primary)] transition-colors"
@@ -269,29 +276,28 @@ export default function ContactFormSection() {
                   </svg>
                 </div>
                 <div>
-                  <div className="text-[var(--primary)] font-bold">Service Area</div>
+                  <div className="text-[var(--primary)] font-bold">{t('contact.serviceArea')}</div>
                   <div className="text-[var(--text-muted)]">
-                    Montreal and surrounding areas including Saint-Lazare, Laval, North/South Shore,
-                    Vaudreuil-Dorion
+                    {t('contact.serviceAreaDescription')}
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="mt-8 pt-6 border-t border-[var(--border)]">
-              <div className="text-[var(--primary)] font-bold mb-4">FREE QUOTES AVAILABLE</div>
+              <div className="text-[var(--primary)] font-bold mb-4">{t('contact.freeQuotesAvailable')}</div>
               <div className="flex gap-4 mb-4">
                 <a
                   href={`tel:${phone.replace(/-/g, '')}`}
                   className="flex-1 text-center bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-black px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
                 >
-                  CALL NOW
+                  {t('contact.callNow')}
                 </a>
                 <a
                   href={`mailto:${email}`}
                   className="flex-1 text-center bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-black px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
                 >
-                  EMAIL US
+                  {t('contact.emailUs')}
                 </a>
               </div>
               <a
@@ -314,7 +320,7 @@ export default function ContactFormSection() {
                   <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
                   <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                 </svg>
-                Add to Contacts
+                {t('contact.addToContacts')}
               </a>
             </div>
           </div>
