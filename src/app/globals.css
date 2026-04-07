@@ -37,6 +37,28 @@
   }
 }
 
+@keyframes swipeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes swipeRight {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .animate-modal-open {
   animation: modalOpen 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
@@ -47,6 +69,14 @@
 
 .animate-delayed-fade {
   animation: delayedFade 0.8s ease-out forwards;
+}
+
+.animate-swipe-left {
+  animation: swipeLeft 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-swipe-right {
+  animation: swipeRight 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 /* Light theme (now dark with yellow accents) */

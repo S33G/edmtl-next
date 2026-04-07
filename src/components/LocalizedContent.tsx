@@ -1,77 +1,119 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import Image from 'next/image';
-import Modal from './Modal';
-import ServiceContent from './ServiceContent';
+import Link from 'next/link';
 import PagePicker from './PagePicker';
-import { HiUserGroup, HiShieldCheck, HiCurrencyDollar } from 'react-icons/hi2';
+import ContactFormSection from './ContactFormSection';
+import Footer from './Footer';
+import {
+  HiStar,
+  HiChevronLeft,
+  HiChevronRight,
+} from 'react-icons/hi2';
 import siteConfig from '../../config/site.json';
+import servicesData from '../../config/services.json';
+import reviewsData from '../../config/reviews.json';
 import { useInView } from '../hooks/useInView';
 import { useTranslation } from '../hooks/useTranslation';
 
+const serviceIconSvgMap: Record<string, string> = {
+  'window-cleaning': '/images/icons/residential-window-cleaning.svg',
+  'pressure-washing': '/images/icons/pressure-washing.svg',
+  'gutter-cleaning': '/images/icons/gutter-cleaning.svg',
+  'downspout-repair': '/images/icons/downspout.svg',
+  'deck-staining': '/images/icons/deck-stain.svg',
+  'commercial-window-cleaning': '/images/icons/commercial-window-cleaning.svg',
+  'dryer-vent-cleaning': '/images/icons/dryer-vent.svg',
+  'polymeric-sand-replacement': '/images/icons/general-maintenance.svg',
+};
+
 export default function LocalizedContent() {
   const [currentLocale, setCurrentLocale] = useState('en');
-  const [selectedService, setSelectedService] = useState<string | null>(null);
+  const [reviewIndex, setReviewIndex] = useState(0);
+  const [carouselHeight, setCarouselHeight] = useState<number | null>(null);
   const { t, changeLocale } = useTranslation(currentLocale);
 
   const servicesRef = useInView();
-  const contactRef = useInView();
+  const trustRef = useInView();
+  const carouselRef = useRef<HTMLDivElement>(null);
 
-  const scrollToContact = () => {
-    const element = document.getElementById('contact');
-    if (element) {
-      // Apply reduced scroll padding on desktop (40px) and no padding on mobile
-      const isMobile = window.innerWidth < 768;
-      const headerHeight = isMobile ? 0 : 40; // No padding on mobile, reduced to 40px on desktop
-      const elementPosition = element.offsetTop - headerHeight;
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      });
+  // Touch/swipe state for carousel
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+   const reviews = reviewsData;
+   const reviewsPerPage = 3;
+   const totalPages = Math.ceil(reviews.length / reviewsPerPage);
+   const [swipeDirection, setSwipeDirection] = useState<'left' | 'right' | null>(null);
+
+   const nextReviews = useCallback(() => {
+     setSwipeDirection('left');
+     setReviewIndex((prev) => (prev + 1) % totalPages);
+     setTimeout(() => setSwipeDirection(null), 500);
+   }, [totalPages]);
+
+   const prevReviews = useCallback(() => {
+     setSwipeDirection('right');
+     setReviewIndex((prev) => (prev - 1 + totalPages) % totalPages);
+     setTimeout(() => setSwipeDirection(null), 500);
+   }, [totalPages]);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    const diff = touchStartX.current - touchEndX.current;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        nextReviews();
+      } else {
+        prevReviews();
+      }
     }
   };
 
-  const openServiceModal = (serviceKey: string) => {
-    setSelectedService(serviceKey);
-  };
+   // Auto-rotate reviews
+   useEffect(() => {
+     const interval = setInterval(nextReviews, 30000);
+     return () => clearInterval(interval);
+   }, [nextReviews]);
 
-  const closeServiceModal = () => {
-    setSelectedService(null);
-  };
+   // Measure carousel height to prevent jumps
+   useEffect(() => {
+     const measureCarousel = () => {
+       if (carouselRef.current) {
+         const height = carouselRef.current.scrollHeight;
+         setCarouselHeight(height);
+       }
+     };
 
-  const services = ['window-cleaning', 'gutter-services', 'pressure-washing', 'deck-refinishing'] as const;
+     measureCarousel();
+     window.addEventListener('resize', measureCarousel);
+     return () => window.removeEventListener('resize', measureCarousel);
+   }, [reviewIndex]);
 
-  const goToNextService = () => {
-    if (!selectedService) return;
-    const currentIndex = services.findIndex(s => s === selectedService);
-    const nextIndex = (currentIndex + 1) % services.length;
-    setSelectedService(services[nextIndex]);
-  };
+  const visibleReviews = reviews.slice(
+    reviewIndex * reviewsPerPage,
+    reviewIndex * reviewsPerPage + reviewsPerPage
+  );
+  // Pad with items from the start if we don't have enough
+  const paddedReviews =
+    visibleReviews.length < reviewsPerPage
+      ? [...visibleReviews, ...reviews.slice(0, reviewsPerPage - visibleReviews.length)]
+      : visibleReviews;
 
-  const goToPrevService = () => {
-    if (!selectedService) return;
-    const currentIndex = services.findIndex(s => s === selectedService);
-    const prevIndex = currentIndex === 0 ? services.length - 1 : currentIndex - 1;
-    setSelectedService(services[prevIndex]);
+  const goToContact = () => {
+    window.location.href = '/contact';
   };
 
   const heroData = siteConfig.hero[currentLocale as keyof typeof siteConfig.hero] || siteConfig.hero.en;
   const faqData = siteConfig.faq[currentLocale as keyof typeof siteConfig.faq] || siteConfig.faq.en;
-  const featuresData = [
-    {
-      title: currentLocale === 'fr' ? '5 étoiles sur Google' : '5 stars on Google',
-    },
-    {
-      title: currentLocale === 'fr' ? 'Équipe professionnelle' : 'Professional team',
-    },
-    {
-      title: currentLocale === 'fr' ? 'Service garanti' : 'Guaranteed service',
-    },
-    {
-      title: currentLocale === 'fr' ? 'Entièrement assuré' : 'Fully insured',
-    }
-  ];
 
   const handleLocaleChange = (locale: string) => {
     setCurrentLocale(locale);
@@ -80,10 +122,11 @@ export default function LocalizedContent() {
 
   return (
     <div className="min-h-screen hex-pattern bg-[var(--background)] text-[var(--foreground)] transition-colors duration-300">
-      <header className="hidden md:block sticky top-0 z-50 w-full border-b border-[var(--border)]/20 dark:border-[var(--border)]/20 bg-[var(--background-secondary)]/80 backdrop-blur-md">
-        <div className="max-w-6xl mx-auto px-6 py-3">
-          <div className="flex items-center justify-between md:justify-between">
-            <div className="flex items-center flex-shrink-0 md:flex-shrink-0 flex-1 md:flex-initial justify-center md:justify-start">
+      {/* ─── HEADER (desktop sticky) ─── */}
+      <header className="hidden md:block sticky top-0 z-50 w-full border-b border-[var(--border)]/20 bg-[var(--background-secondary)]/80 backdrop-blur-md">
+        <div className="max-w-6xl mx-auto px-6 py-1">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center flex-shrink-0">
               <button
                 onClick={() => {
                   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -96,13 +139,29 @@ export default function LocalizedContent() {
                   alt="EDMTL"
                   width={120}
                   height={120}
-                  className="h-16 w-auto md:h-20 object-contain"
+                  className="h-20 w-auto md:h-28 object-contain"
                   priority
                 />
               </button>
             </div>
 
-            <div className="hidden md:block absolute right-6">
+            <div className="flex items-center gap-3 text-sm font-semibold tracking-wide">
+              <a
+                href={`tel:${siteConfig.contact.phone}`}
+                className="text-[var(--primary)] hover:text-[var(--foreground)] transition-colors"
+              >
+                {siteConfig.contact.phone}
+              </a>
+              <span className="text-[var(--text-muted)]">-</span>
+              <a
+                href={`mailto:${siteConfig.contact.email}`}
+                className="text-[var(--primary)] hover:text-[var(--foreground)] transition-colors uppercase"
+              >
+                {siteConfig.contact.email}
+              </a>
+            </div>
+
+            <div className="flex-shrink-0">
               <PagePicker
                 currentLocale={currentLocale}
                 onLocaleChange={handleLocaleChange}
@@ -112,6 +171,22 @@ export default function LocalizedContent() {
           </div>
         </div>
       </header>
+
+      <div className="md:hidden bg-[var(--background-secondary)] border-b border-[var(--border)]/20 py-2 px-4 flex items-center justify-center gap-3 text-xs font-semibold tracking-wide">
+        <a
+          href={`tel:${siteConfig.contact.phone}`}
+          className="text-[var(--primary)] hover:text-[var(--foreground)] transition-colors"
+        >
+          {siteConfig.contact.phone}
+        </a>
+        <span className="text-[var(--text-muted)]">-</span>
+        <a
+          href={`mailto:${siteConfig.contact.email}`}
+          className="text-[var(--primary)] hover:text-[var(--foreground)] transition-colors uppercase"
+        >
+          {siteConfig.contact.email}
+        </a>
+      </div>
 
       {/* Mobile Navigation - Outside header for proper fixed positioning */}
       <div className="md:hidden">
@@ -123,8 +198,23 @@ export default function LocalizedContent() {
       </div>
 
       <main>
-        <section id="hero-section" className="hero-section text-center pt-20 pb-40 md:py-40 relative bg-gradient-to-b from-transparent via-transparent to-gray-50/30 dark:to-gray-900/30 w-full">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6">
+        {/* ─── HERO SECTION ─── */}
+        <section
+          id="hero-section"
+          className="hero-section text-center pt-20 pb-24 md:pt-28 md:pb-32 relative w-full"
+        >
+          <div
+            className="absolute inset-0 z-0"
+            style={{
+              backgroundImage: 'url(/images/frontpagesplash.png)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              opacity: 0.15,
+              filter: 'brightness(0.7) contrast(0.8)',
+            }}
+          />
+          <div className="absolute inset-0 z-0 bg-gradient-to-b from-[var(--background)]/60 via-transparent to-[var(--background)]/80" />
+          <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
             <div className="mb-8 animate-in fade-in slide-in-from-top-4 duration-700">
               <Image
                 src="/images/edm-box-logo.png"
@@ -134,224 +224,225 @@ export default function LocalizedContent() {
                 className="mx-auto w-48 h-48 md:w-56 md:h-56 object-contain logo-breathe"
               />
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold text-[var(--primary)] dark:text-[var(--primary)] mb-6 tracking-tight leading-tight animate-in fade-in slide-in-from-top-6 duration-700" style={{ animationDelay: '200ms' }}>
+            <h1
+              className="text-5xl md:text-7xl font-bold text-[var(--primary)] mb-6 tracking-tight leading-tight animate-in fade-in slide-in-from-top-6 duration-700"
+              style={{ animationDelay: '200ms' }}
+            >
               {heroData.title}
             </h1>
-            <p className="text-xl text-[var(--text-muted)] dark:text-[var(--text-muted)] mb-12 max-w-3xl mx-auto leading-relaxed font-normal animate-in fade-in slide-in-from-top-8 duration-700" style={{ animationDelay: '400ms' }}>
-              {heroData.description}
-            </p>
 
-            <div className="flex flex-col sm:flex-row justify-center gap-4 animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '600ms' }}>
+            <div
+              className="text-lg md:text-xl text-[var(--text-muted)] mb-12 max-w-3xl mx-auto leading-relaxed animate-in fade-in slide-in-from-top-8 duration-700 space-y-2"
+              style={{ animationDelay: '400ms' }}
+            >
+              <p className="font-bold">
+                {t('hero.servicesList')}
+              </p>
+              <p className="font-bold">
+                {t('hero.locations')}
+              </p>
+            </div>
+
+            <div
+              className="flex flex-col sm:flex-row justify-center gap-4 animate-in fade-in slide-in-from-bottom-4 duration-700"
+              style={{ animationDelay: '600ms' }}
+            >
               <a
                 href={`tel:${siteConfig.contact.phone}`}
                 className="btn-primary inline-flex items-center justify-center transition-all duration-200 hover:scale-105"
               >
-                {currentLocale === 'fr' ? 'Appelez maintenant' : 'Call Now'}
+                {t('hero.callNow')}
               </a>
               <button
-                onClick={scrollToContact}
+                onClick={goToContact}
                 className="btn-secondary inline-flex items-center justify-center transition-all duration-200 hover:scale-105"
               >
-                {currentLocale === 'fr' ? 'Devis gratuit' : 'Free Quote'}
-              </button>
-            </div>
-
-            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-in fade-in duration-1000" style={{ animationDelay: '1000ms' }}>
-              <button
-                onClick={() => {
-                  const servicesSection = document.getElementById('services');
-                  if (servicesSection) {
-                    // Apply reduced scroll padding on desktop (40px) and no padding on mobile
-                    const isMobile = window.innerWidth < 768;
-                    const headerHeight = isMobile ? 0 : 40;
-                    const elementPosition = servicesSection.offsetTop - headerHeight;
-                    window.scrollTo({
-                      top: elementPosition,
-                      behavior: 'smooth'
-                    });
-                  }
-                }}
-                className="scroll-arrow-btn group flex flex-col items-center text-[var(--text-muted)] hover:text-[var(--primary)] transition-colors duration-300"
-                aria-label="Scroll to services section"
-              >
-                <span className="text-sm mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  {currentLocale === 'fr' ? 'Découvrir' : 'Explore'}
-                </span>
-                <div className="scroll-arrow">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M7 10l5 5 5-5" />
-                  </svg>
-                </div>
+                {t('hero.freeQuote')}
               </button>
             </div>
           </div>
         </section>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-
-          <section id="services" className="py-20 md:py-32 lg:py-40" ref={servicesRef.ref}>
-            <div className={`text-center mb-16 transition-all duration-700 ${
-              servicesRef.isInView
-                ? 'opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-8'
-            }`}>
-              <h2 className="text-4xl font-semibold text-[var(--foreground)] dark:text-[var(--foreground)] mb-4 tracking-tight">
-                {currentLocale === 'fr' ? 'Nos Services' : 'Our Services'}
+          {/* ─── SERVICES SECTION (8 cards) ─── */}
+          <section id="services" className="py-5 lg:py-16" ref={servicesRef.ref}>
+            <div
+              className={`text-center mb-16 transition-all duration-700 ${
+                servicesRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+            >
+              <h2 className="text-4xl font-semibold text-[var(--foreground)] mb-4 tracking-tight">
+                {t('services.title')}
               </h2>
-              <p className="text-xl text-[var(--text-muted)] dark:text-[var(--text-muted)] max-w-2xl mx-auto">
-                {currentLocale === 'fr'
-                  ? 'Des services professionnels pour votre maison'
-                  : 'Professional services for your home'
-                }
+              <p className="text-xl text-[var(--text-muted)] max-w-2xl mx-auto">
+                {t('services.subtitle')}
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className={`transition-all duration-700 ${
-                servicesRef.isInView
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-8'
-              }`} style={{ transitionDelay: servicesRef.isInView ? '0ms' : '0ms' }}>
-                <button onClick={() => openServiceModal('window-cleaning')} className="card group hover:shadow-lg transition-all duration-300 text-left w-full cursor-pointer hover:scale-105 hover:-translate-y-2 h-full flex flex-col justify-between">
-                  <div className="flex-grow">
-                    <div className="text-[var(--primary)] mb-4">
-                      <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <h3 className="card-title">
-                      {currentLocale === 'fr' ? 'Nettoyage de vitres' : 'Window Cleaning'}
-                    </h3>
-                    <p className="card-description">
-                      {currentLocale === 'fr'
-                        ? 'Nettoyage professionnel de vitres intérieures et extérieures'
-                        : 'Professional interior and exterior window cleaning'
-                      }
-                    </p>
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
+              {servicesData.services.map((service, index) => {
+                const iconSrc = serviceIconSvgMap[service.slug];
+                return (
+                  <div
+                    key={service.slug}
+                    className={`transition-all duration-700 ${
+                      servicesRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                    }`}
+                    style={{ transitionDelay: servicesRef.isInView ? `${index * 75}ms` : '0ms' }}
+                  >
+                    <Link
+                      href={`/services/${service.slug}`}
+                      className="block bg-[var(--background-tertiary)] border border-[var(--border)] rounded-xl overflow-hidden group hover:shadow-lg hover:scale-[1.03] hover:-translate-y-1 transition-all duration-300 h-full"
+                    >
+                      <div className="flex flex-col items-center text-center p-4 sm:p-5 gap-3">
+                        {iconSrc && (
+                          <div className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0">
+                            <Image
+                              src={iconSrc}
+                              alt=""
+                              width={48}
+                              height={48}
+                              className="w-full h-full object-contain brightness-0 invert opacity-80 group-hover:opacity-100 transition-opacity"
+                            />
+                          </div>
+                        )}
+                        <h3 className="text-xs sm:text-sm font-bold uppercase text-[var(--primary)] leading-tight">
+                          {service.title}
+                        </h3>
+                      </div>
+                      <div className="hidden sm:block px-4 pb-4">
+                        <p className="text-sm text-[var(--text-muted)] leading-relaxed line-clamp-3">
+                          {service.description}
+                        </p>
+                        <span className="mt-3 inline-block text-[var(--primary)] text-sm font-medium group-hover:translate-x-1 transition-transform duration-200">
+                          {t('services.learnMore')}
+                        </span>
+                      </div>
+                    </Link>
                   </div>
-                  <div className="mt-4 text-[var(--primary)] group-hover:text-[var(--primary)] text-sm font-medium">
-                    {currentLocale === 'fr' ? 'En savoir plus →' : 'Learn more →'}
-                  </div>
-                </button>
-              </div>
-
-              <div className={`transition-all duration-700 ${
-                servicesRef.isInView
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-8'
-              }`} style={{ transitionDelay: servicesRef.isInView ? '100ms' : '0ms' }}>
-              <button onClick={() => openServiceModal('gutter-services')} className="card group hover:shadow-lg transition-all duration-300 text-left w-full cursor-pointer hover:scale-105 hover:-translate-y-2 h-full flex flex-col justify-between">
-                  <div className="flex-grow">
-                    <div className="text-[var(--primary)] mb-4">
-                      <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <h3 className="card-title">
-                      {currentLocale === 'fr' ? 'Nettoyage de gouttières' : 'Gutter Services'}
-                    </h3>
-                    <p className="card-description">
-                      {currentLocale === 'fr'
-                        ? 'Nettoyage et entretien complets des gouttières'
-                        : 'Complete gutter cleaning and maintenance'
-                      }
-                    </p>
-                  </div>
-                  <div className="mt-4 text-[var(--primary)] group-hover:text-[var(--primary)] text-sm font-medium">
-                    {currentLocale === 'fr' ? 'En savoir plus →' : 'Learn more →'}
-                  </div>
-                </button>
-              </div>
-
-              <div className={`transition-all duration-700 ${
-                servicesRef.isInView
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-8'
-              }`} style={{ transitionDelay: servicesRef.isInView ? '200ms' : '0ms' }}>
-              <button onClick={() => openServiceModal('pressure-washing')} className="card group hover:shadow-lg transition-all duration-300 text-left w-full cursor-pointer hover:scale-105 hover:-translate-y-2 h-full flex flex-col justify-between">
-                  <div className="flex-grow">
-                    <div className="text-[var(--primary)] mb-4">
-                      <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <h3 className="card-title">
-                      {currentLocale === 'fr' ? 'Lavage à pression' : 'Pressure Washing'}
-                    </h3>
-                    <p className="card-description">
-                      {currentLocale === 'fr'
-                        ? 'Nettoyage haute pression pour toutes surfaces'
-                        : 'High-pressure cleaning for all surfaces'
-                      }
-                    </p>
-                  </div>
-                  <div className="mt-4 text-[var(--primary)] group-hover:text-[var(--primary)] text-sm font-medium">
-                    {currentLocale === 'fr' ? 'En savoir plus →' : 'Learn more →'}
-                  </div>
-                </button>
-              </div>
-
-              <div className={`transition-all duration-700 ${
-                servicesRef.isInView
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-8'
-              }`} style={{ transitionDelay: servicesRef.isInView ? '300ms' : '0ms' }}>
-              <button onClick={() => openServiceModal('deck-refinishing')} className="card group hover:shadow-lg transition-all duration-300 text-left w-full cursor-pointer hover:scale-105 hover:-translate-y-2 h-full flex flex-col justify-between">
-                  <div className="flex-grow">
-                    <div className="text-[var(--primary)] mb-4">
-                      <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 11-2 0 1 1 0 012 0zm-.464 5.535a1 1 0 10-1.415-1.414 3 3 0 01-4.242 0 1 1 0 00-1.415 1.414 5 5 0 007.072 0z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <h3 className="card-title">
-                      {currentLocale === 'fr' ? 'Rénovation de terrasses' : 'Deck Refinishing'}
-                    </h3>
-                    <p className="card-description">
-                      {currentLocale === 'fr'
-                        ? 'Rénovation et restauration de terrasses en bois'
-                        : 'Wood deck renovation and restoration'
-                      }
-                    </p>
-                  </div>
-                  <div className="mt-4 text-[var(--primary)] group-hover:text-[var(--primary)] text-sm font-medium">
-                    {currentLocale === 'fr' ? 'En savoir plus →' : 'Learn more →'}
-                  </div>
-                </button>
-              </div>
+                );
+              })}
             </div>
           </section>
 
-          {/* <section id="reviews" className="py-40 bg-[var(--background-secondary)] dark:bg-[var(--background-secondary)] rounded-3xl mx-2 sm:mx-4" ref={reviewsRef.ref}>
-            <div className="max-w-6xl mx-auto px-4 sm:px-6">
-              <div className={`text-center mb-12 transition-all duration-700 ${
-                reviewsRef.isInView
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-8'
-              }`}>
-                <h2 className="text-4xl font-semibold text-[var(--foreground)] dark:text-[var(--text-muted)] mb-4 tracking-tight">
-                  {currentLocale === 'fr' ? 'Avis Clients' : 'Customer Reviews'}
+          {/* ─── TRUST SECTION (Reviews + Buzzwords) ─── */}
+          <section id="trust" className="py-5 lg:py-16" ref={trustRef.ref}>
+            <div
+              className={`transition-all duration-700 ${
+                trustRef.isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+            >
+              <div className="text-center mb-12">
+                <h2 className="text-4xl font-semibold text-[var(--foreground)] mb-3 tracking-tight">
+                  {t('reviews.title')}
                 </h2>
+                <div className="flex items-center justify-center gap-3 mb-2">
+                  <span className="text-3xl font-bold text-[var(--primary)]">5.0</span>
+                  <div className="flex">
+                    {[...Array(5)].map((_, i) => (
+                      <HiStar key={i} className="w-6 h-6 text-[var(--primary)]" />
+                    ))}
+                  </div>
+                </div>
+                <a
+                  href={siteConfig.contact.googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-[var(--text-muted)] hover:text-[var(--primary)] transition-colors underline"
+                >
+                  ({t('reviews.viewOnGoogle')})
+                </a>
               </div>
-              <div className={`grid lg:grid-cols-2 gap-12 transition-all duration-700 ${
-                reviewsRef.isInView
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-8'
-              }`} style={{ transitionDelay: reviewsRef.isInView ? '200ms' : '0ms' }}>
-                <GoogleReviews />
-              </div>
-            </div>
-          </section> */}
 
-          <section id="faq" className="py-20 md:py-32 lg:py-40">
+              <div className="relative">
+                <button
+                  onClick={prevReviews}
+                  className="absolute -left-2 md:-left-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-[var(--background-secondary)] border border-[var(--border)] rounded-full flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--primary)] hover:border-[var(--primary)] transition-colors"
+                  aria-label="Previous reviews"
+                >
+                  <HiChevronLeft className="w-5 h-5" />
+                </button>
+
+                <div
+                  ref={carouselRef}
+                  className={`grid grid-cols-1 md:grid-cols-3 md:auto-rows-fr gap-4 md:gap-6 px-8 md:px-12 transition-all duration-0 ${
+                    swipeDirection === 'left' ? 'animate-swipe-left' : swipeDirection === 'right' ? 'animate-swipe-right' : ''
+                  }`}
+                  style={{ minHeight: carouselHeight ? `${carouselHeight}px` : 'auto' }}
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove}
+                  onTouchEnd={handleTouchEnd}
+                >
+                  {paddedReviews.map((review, i) => (
+                    <div
+                      key={`${review.author}-${i}`}
+                      className="bg-[var(--background-tertiary)] border border-[var(--border)] rounded-xl p-6 flex flex-col items-center text-center"
+                    >
+                      <div className="w-14 h-14 rounded-full bg-[var(--text-muted)]/30 flex items-center justify-center mb-3">
+                        <span className="text-lg font-bold text-[var(--foreground)]">
+                          {review.author.charAt(0)}
+                        </span>
+                      </div>
+                      <h4 className="text-[var(--primary)] font-semibold mb-2">{review.author}</h4>
+                      <div className="flex mb-3">
+                        {[...Array(review.rating)].map((_, j) => (
+                          <HiStar key={j} className="w-4 h-4 text-[var(--primary)]" />
+                        ))}
+                      </div>
+                      <p className="text-sm text-[var(--foreground)]/80 leading-relaxed">
+                        &ldquo;{review.text}&rdquo;
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                <button
+                  onClick={nextReviews}
+                  className="absolute -right-2 md:-right-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-[var(--background-secondary)] border border-[var(--border)] rounded-full flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--primary)] hover:border-[var(--primary)] transition-colors"
+                  aria-label="Next reviews"
+                >
+                  <HiChevronRight className="w-5 h-5" />
+                </button>
+              </div>
+
+              <div className="flex justify-center gap-2 mt-6">
+                {[...Array(totalPages)].map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setReviewIndex(i)}
+                    className={`w-2.5 h-2.5 rounded-full transition-colors ${
+                      i === reviewIndex ? 'bg-[var(--primary)]' : 'bg-[var(--border)]'
+                    }`}
+                    aria-label={`Go to reviews page ${i + 1}`}
+                  />
+                ))}
+              </div>
+
+              {/* <div className="mt-16 flex flex-col items-center gap-3">
+                <h3 className="text-2xl font-bold text-[var(--foreground)] mb-4 tracking-tight">
+                  {currentLocale === 'fr' ? 'POURQUOI EDMTL?' : 'WHY EDMTL?'}
+                </h3>
+                {['INSURED', 'EXPERIENCED', 'SAFE & RELIABLE'].map((buzzword) => {
+                  const frMap: Record<string, string> = {
+                    INSURED: 'ASSURÉ',
+                    EXPERIENCED: 'EXPÉRIMENTÉ',
+                    'SAFE & RELIABLE': 'SÉCURITAIRE ET FIABLE',
+                  };
+                  return (
+                    <div
+                      key={buzzword}
+                      className="bg-[var(--primary)] text-black font-bold text-lg md:text-xl px-8 py-3 rounded-lg w-full max-w-sm text-center tracking-wide"
+                    >
+                      {currentLocale === 'fr' ? frMap[buzzword] : buzzword}
+                    </div>
+                  );
+                })}
+              </div> */}
+            </div>
+          </section>
+
+          {/* ─── FAQ SECTION (unchanged) ─── */}
+          <section id="faq" className="py-5">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
                 <h2 className="text-4xl font-semibold text-[var(--foreground)] mb-4 tracking-tight">
@@ -359,28 +450,28 @@ export default function LocalizedContent() {
                 </h2>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {faqData.items.map((item, index) => (
-                  <div key={index} className="card relative overflow-hidden group">
+                  <div key={index} className="card relative overflow-hidden group !min-h-0 !p-4 sm:!p-5">
                     <div className="absolute top-0 right-0 opacity-5 group-hover:opacity-20 pointer-events-none transition-all duration-300">
                       <svg
-                        width="120"
-                        height="120"
+                        width="80"
+                        height="80"
                         viewBox="0 0 120 120"
                         className="text-[var(--primary)] group-hover:text-[var(--primary)] transition-colors duration-300"
                         fill="currentColor"
                       >
-                        <path d="M60 0C26.863 0 0 26.863 0 60s26.863 60 60 60 60-26.863 60-60S93.137 0 60 0zm0 110c-27.614 0-50-22.386-50-50S32.386 10 60 10s50 22.386 50 50-22.386 50-50 50z"/>
-                        <path d="M60 25c-10.493 0-19 8.507-19 19 0 2.761 2.239 5 5 5s5-2.239 5-5c0-4.963 4.037-9 9-9s9 4.037 9 9c0 4.418-3.582 8-8 8-2.761 0-5 2.239-5 5v8c0 2.761 2.239 5 5 5s5-2.239 5-5v-4.576C72.46 59.696 77 54.301 77 48c0-9.374-7.626-17-17-17z"/>
-                        <circle cx="60" cy="82" r="6"/>
+                        <path d="M60 0C26.863 0 0 26.863 0 60s26.863 60 60 60 60-26.863 60-60S93.137 0 60 0zm0 110c-27.614 0-50-22.386-50-50S32.386 10 60 10s50 22.386 50 50-22.386 50-50 50z" />
+                        <path d="M60 25c-10.493 0-19 8.507-19 19 0 2.761 2.239 5 5 5s5-2.239 5-5c0-4.963 4.037-9 9-9s9 4.037 9 9c0 4.418-3.582 8-8 8-2.761 0-5 2.239-5 5v8c0 2.761 2.239 5 5 5s5-2.239 5-5v-4.576C72.46 59.696 77 54.301 77 48c0-9.374-7.626-17-17-17z" />
+                        <circle cx="60" cy="82" r="6" />
                       </svg>
                     </div>
 
                     <div className="relative z-10">
-                      <h3 className="text-xl font-semibold text-[var(--foreground)] dark:text-[var(--foreground)] mb-3">
+                      <h3 className="text-lg font-semibold text-[var(--foreground)] dark:text-[var(--foreground)] mb-2">
                         {item.question}
                       </h3>
-                      <p className="text-[var(--text-muted)] dark:text-[var(--text-muted)] leading-relaxed">
+                      <p className="text-sm text-[var(--text-muted)] dark:text-[var(--text-muted)] leading-relaxed">
                         {item.answer}
                       </p>
                     </div>
@@ -390,232 +481,53 @@ export default function LocalizedContent() {
             </div>
           </section>
 
-          <section id="contact" className="py-20 md:py-32 lg:py-40" ref={contactRef.ref}>
-            <div className={`max-w-6xl mx-auto px-4 sm:px-6 transition-all duration-700 ${
-              contactRef.isInView
-                ? 'opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-8'
-            }`}>
-              <div className="text-center mb-16">
-                <h2 className="text-4xl font-semibold text-[var(--foreground)] dark:text-[var(--foreground)] mb-4 tracking-tight">
-                  {t('contact.title')}
-                </h2>
-                <p className="text-[var(--text-muted)] dark:text-[var(--text-muted)] text-lg">
-                  {t('contact.subtitle')}
-                </p>
-              </div>
-
-              <div className="grid lg:grid-cols-2 gap-12">
-                <div className="card">
-                  <h3 className="text-2xl font-bold mb-6 text-[var(--foreground)] dark:text-[var(--foreground)]">
-                    {currentLocale === 'fr' ? 'Contactez-nous' : 'Get in Touch'}
-                  </h3>
-
-                  <div className="space-y-6">
-                    <div className="flex items-center gap-4">
-                      <div className="flex-shrink-0 w-12 h-12 bg-[var(--primary)] rounded-full flex items-center justify-center">
-                        <svg className="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1.5 1.5 0 011.465 1.175l.716 3.223a1.5 1.5 0 01-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 006.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 011.767-1.052l3.223.716A1.5 1.5 0 0118 15.352V16.5a1.5 1.5 0 01-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 012 8.5v-.5z" clipRule="evenodd" />
-                        </svg>
-                      </div>
-                      <div>
-                        <div className="text-[var(--primary)] font-bold">
-                          {currentLocale === 'fr' ? 'Téléphone' : 'Phone'}
-                        </div>
-                        <a href="tel:438-500-3099" className="text-[var(--foreground)] dark:text-[var(--foreground)] text-xl hover:text-[var(--primary)]">
-                          438-500-3099
-                        </a>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center gap-4">
-                      <div className="flex-shrink-0 w-12 h-12 bg-[var(--primary)] rounded-full flex items-center justify-center">
-                        <svg className="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M3 4a2 2 0 012-2h10a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V4zm12 0H5v12h10V4z"/>
-                          <path d="M5 6h10v2H5V6zm0 4h10v2H5v-2z"/>
-                        </svg>
-                      </div>
-                      <div>
-                        <div className="text-[var(--primary)] font-bold">Email</div>
-                        <a href="mailto:info@edmtl.com" className="text-[var(--foreground)] dark:text-[var(--foreground)] hover:text-[var(--primary)]">
-                          info@edmtl.com
-                        </a>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-12 h-12 bg-[var(--primary)] rounded-full flex items-center justify-center">
-                        <svg className="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                        </svg>
-                      </div>
-                      <div>
-                        <div className="text-[var(--primary)] font-bold">
-                          {currentLocale === 'fr' ? 'Zone de service' : 'Service Area'}
-                        </div>
-                        <div className="text-[var(--text-muted)] dark:text-[var(--text-muted)]">
-                          {currentLocale === 'fr'
-                            ? 'Montréal et environs incluant Saint-Lazare, Laval, Rive-Nord/Sud, Vaudreuil-Dorion'
-                            : 'Montreal and surrounding areas including Saint-Lazare, Laval, North/South Shore, Vaudreuil-Dorion'
-                          }
-                        </div>
-                      </div>
-                    </div>
+          {/* ─── WHY CHOOSE US / PROCESS STEPS (just above contact) ─── */}
+          {/* <section className="py-10 md:py-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
+              {[
+                {
+                  step: '1',
+                  titleEn: 'REQUEST A FREE QUOTE',
+                  titleFr: 'DEMANDEZ UN DEVIS GRATUIT',
+                  descEn: 'Submit our form, or contact us by phone or email',
+                  descFr: 'Soumettez notre formulaire, ou contactez-nous par téléphone ou courriel',
+                },
+                {
+                  step: '2',
+                  titleEn: 'CLEAR COMMUNICATION',
+                  titleFr: 'COMMUNICATION CLAIRE',
+                  descEn: 'We confirm details, pricing, and timing up front',
+                  descFr: 'Nous confirmons les détails, les prix et le calendrier à l\'avance',
+                },
+                {
+                  step: '3',
+                  titleEn: 'PROFESSIONAL SERVICE',
+                  titleFr: 'SERVICE PROFESSIONNEL',
+                  descEn: 'We show up on time and complete the job efficiently',
+                  descFr: 'Nous arrivons à l\'heure et complétons le travail efficacement',
+                },
+              ].map((item) => (
+                <div key={item.step} className="text-center">
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-[var(--primary)] text-black text-2xl font-bold mb-4">
+                    {item.step}
                   </div>
-
-                  <div className="mt-8 pt-6 border-t border-[var(--border)]">
-                    <div className="text-[var(--primary)] font-bold mb-4">
-                      {currentLocale === 'fr' ? 'DEVIS GRATUITS DISPONIBLES' : 'FREE QUOTES AVAILABLE'}
-                    </div>
-                    <div className="flex gap-4 mb-4">
-                      <a href="tel:438-500-3099" className="flex-1 text-center bg-[var(--primary)] hover:bg-[var(--primary)] text-black px-6 py-3 rounded-xl font-semibold transition-colors duration-200">
-                        {currentLocale === 'fr' ? 'APPELER' : 'CALL NOW'}
-                      </a>
-                      <a href="mailto:info@edmtl.com" className="flex-1 text-center bg-[var(--primary)] hover:bg-[var(--primary)] text-black px-6 py-3 rounded-xl font-semibold transition-colors duration-200">
-                        {currentLocale === 'fr' ? 'EMAIL' : 'EMAIL US'}
-                      </a>
-                    </div>
-                    <div className="mt-4">
-                      <a
-                        href={siteConfig.contact.vcard.filePath}
-                        download="EDMTL-Contact.vcf"
-                        className="flex items-center justify-center gap-2 text-center p-3 border border-[var(--primary)] rounded-lg text-[var(--primary)] hover:bg-[var(--primary)] hover:text-black transition-all duration-300 w-full"
-                      >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                          <circle cx="9" cy="7" r="4"></circle>
-                          <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg>
-                        {t('contact.addToContacts')}
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="card">
-                  <h3 className="text-2xl font-bold mb-6 text-[var(--foreground)] dark:text-[var(--foreground)]">
-                    {currentLocale === 'fr' ? 'Demander un devis' : 'Request a Quote'}
+                  <h3 className="text-lg font-bold text-[var(--foreground)] mb-2 tracking-wide">
+                    {currentLocale === 'fr' ? item.titleFr : item.titleEn}
                   </h3>
-
-                  <form
-                    className="space-y-4"
-                    name="quote-request"
-                    method="POST"
-                    action="/thank-you.html"
-                    data-netlify="true"
-                  >
-                    <input type="hidden" name="form-name" value="quote-request" />
-                    <div>
-                      <label className="block text-[var(--foreground)] dark:text-[var(--foreground)] font-bold mb-2">
-                        {currentLocale === 'fr' ? 'Nom *' : 'Name *'}
-                      </label>
-                      <input
-                        type="text"
-                        name="name"
-                        className="w-full p-3 bg-[var(--background-tertiary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none transition-colors"
-                        placeholder={currentLocale === 'fr' ? 'Votre nom complet' : 'Your full name'}
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-[var(--foreground)] dark:text-[var(--foreground)] font-bold mb-2">
-                        Email *
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        className="w-full p-3 bg-[var(--background-tertiary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none transition-colors"
-                        placeholder="your.email@example.com"
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-[var(--foreground)] dark:text-[var(--foreground)] font-bold mb-2">
-                        {currentLocale === 'fr' ? 'Téléphone' : 'Phone'}
-                      </label>
-                      <input
-                        type="tel"
-                        name="phone"
-                        className="w-full p-3 bg-[var(--background-tertiary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none transition-colors"
-                        placeholder={currentLocale === 'fr' ? '(optionnel)' : '(optional)'}
-                      />
-                    </div>
-
-
-
-                    <div>
-                      <label className="block text-[var(--foreground)] dark:text-[var(--foreground)] font-bold mb-2">
-                        {currentLocale === 'fr' ? 'Message' : 'Message'}
-                      </label>
-                      <textarea
-                        name="message"
-                        rows={4}
-                        className="w-full p-3 bg-[var(--background-tertiary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none transition-colors"
-                        placeholder={currentLocale === 'fr' ? 'Veuillez décrire votre projet...' : 'Please describe your project...'}
-                      />
-                    </div>
-
-                    <button type="submit" className="w-full bg-[var(--primary)] hover:bg-[var(--primary)] text-black px-6 py-3 rounded-xl font-semibold transition-colors duration-200">
-                      {currentLocale === 'fr' ? 'ENVOYER LA DEMANDE' : 'SEND REQUEST'}
-                    </button>
-                  </form>
+                  <p className="text-sm text-[var(--text-muted)] leading-relaxed">
+                    {currentLocale === 'fr' ? item.descFr : item.descEn}
+                  </p>
                 </div>
-              </div>
+              ))}
             </div>
-          </section>
+          </section> */}
+
         </div>
       </main>
 
-      <section className="py-20 md:py-32 lg:py-40 bg-[var(--background-secondary)]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-semibold text-[var(--foreground)] mb-4 tracking-tight">
-              {t('features.title')}
-            </h2>
-          </div>
+      <ContactFormSection locale={currentLocale} />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {featuresData.map((feature, index) => (
-              <div key={index} className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-[var(--primary)] rounded-2xl mb-6">
-                  {index === 0 && <span className="text-2xl font-bold text-black">5⭐</span>}
-                  {index === 1 && <HiUserGroup className="w-8 h-8 text-black" />}
-                  {index === 2 && <HiShieldCheck className="w-8 h-8 text-black" />}
-                  {index === 3 && <HiCurrencyDollar className="w-8 h-8 text-black" />}
-                </div>
-                <h3 className="text-xl font-semibold text-[var(--foreground)] mb-2">{feature.title}</h3>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <footer className="bg-[var(--background-secondary)] dark:bg-[var(--background-secondary)] border-t border-[var(--border)] dark:border-[var(--border)] py-4 sm:py-6 md:py-8" role="contentinfo">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center text-[var(--text-muted)] dark:text-[var(--text-muted)] text-sm">
-            {t('footer.copyright')}
-          </div>
-        </div>
-      </footer>
-
-      {selectedService && (
-        <Modal
-          isOpen={!!selectedService}
-          onClose={closeServiceModal}
-          onNext={goToNextService}
-          onPrev={goToPrevService}
-          hasNext={true}
-          hasPrev={true}
-        >
-          <ServiceContent
-            serviceKey={selectedService as 'window-cleaning' | 'gutter-services' | 'pressure-washing' | 'deck-refinishing'}
-            locale={currentLocale as 'en' | 'fr'}
-          />
-        </Modal>
-      )}
+      <Footer />
     </div>
   );
 }

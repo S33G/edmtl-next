@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import LocalizedContent from '../components/LocalizedContent';
 import { Metadata } from 'next';
 
@@ -61,7 +62,9 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <LocalizedContent />
+      <Suspense>
+        <LocalizedContent />
+      </Suspense>
     </>
   );
 }

@@ -2,6 +2,8 @@
   "hero": {
     "title": "ENTRETIEN DOMESTIQUE MONTREAL",
     "description": "Entretien Domestique Montreal is a maintenance service company owned and operated by individuals with professional knowledge and skills. With over 10 years of combined experience, we are proud to be able to offer a range of services executed to a high standard.",
+    "servicesList": "Window Cleaning / Gutter Cleaning / Pressure Washing / Deck Staining",
+    "locations": "Montreal / West Island / Laval / South Shore",
     "callNow": "Call Now",
     "freeQuote": "Free Quote",
     "scrollDown": "Scroll down to explore our services"
@@ -12,11 +14,17 @@
     "gallery": "Gallery",
     "faq": "FAQ",
     "contact": "Get in Touch",
-    "language": "Language"
+    "language": "Language",
+    "mobileLabels": {
+      "services": "Services",
+      "trust": "Reviews",
+      "contact": "Contact",
+      "language": "Language"
+    }
   },
   "services": {
     "title": "Our Services",
-    "subtitle": "Professional services for your home",
+    "subtitle": "With attention to detail, our services keep your home looking clean, protected and well-maintained",
     "learnMore": "Learn more →",
     "windowCleaning": {
       "title": "Window Cleaning",
@@ -66,8 +74,9 @@
     "freeQuotesAvailable": "FREE QUOTES AVAILABLE",
     "callNow": "CALL NOW",
     "emailUs": "EMAIL US",
-    "addToContacts": "ADD TO CONTACTS",
+    "addToContacts": "Add to Contacts",
     "requestQuote": "Request a Quote",
+    "servicesInterestedIn": "Services Interested In",
     "mapTitle": "Our Service Area",
     "mapDescription": "We serve Montreal and surrounding areas including Saint-Lazare, Laval, North/South Shore, and Vaudreuil-Dorion",
     "form": {
@@ -75,13 +84,16 @@
       "namePlaceholder": "Your full name",
       "email": "Email *",
       "emailPlaceholder": "your.email@example.com",
-      "phone": "Phone",
-      "phonePlaceholder": "(optional)",
+      "phone": "Phone *",
+      "phonePlaceholder": "Your phone number",
       "service": "Service Needed",
       "servicePlaceholder": "Select a service...",
       "message": "Message",
       "messagePlaceholder": "Please describe your project...",
-      "sendRequest": "SEND REQUEST"
+      "sendRequest": "SEND REQUEST",
+      "sending": "Sending...",
+      "successMessage": "Thank you! Your message has been sent successfully. Redirecting...",
+      "errorMessage": "Sorry, there was an error sending your message. Please try again."
     }
   },
   "features": {
@@ -90,6 +102,10 @@
     "experienced": "10+ years experience",
     "fullyInsured": "Fully insured",
     "freeQuotes": "Free quotes"
+  },
+  "reviews": {
+    "title": "Google Reviews",
+    "viewOnGoogle": "View on Google"
   },
   "footer": {
     "copyright": "© 2025 EDMTL - Entretien Domestique Montreal. All rights reserved."

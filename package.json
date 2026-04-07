@@ -14,7 +14,7 @@
     "@tailwindcss/typography": "^0.5.16",
     "@types/qrcode": "^1.5.5",
     "gray-matter": "^4.0.3",
-    "next": "15.4.6",
+    "next": "15.5.14",
     "next-mdx-remote": "^5.0.0",
     "qrcode": "^1.5.4",
     "react": "19.1.0",
@@ -29,8 +29,8 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.4.6",
+    "eslint-config-next": "15.5.14",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "5.9.3"
   }
 }

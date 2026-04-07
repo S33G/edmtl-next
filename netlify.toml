@@ -1,2 +1,5 @@
+[build]
+command = "npm run build && node scripts/discord-notify.js"
+
 [[plugins]]
 package = "@netlify/plugin-nextjs"

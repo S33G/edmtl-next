@@ -1,48 +1,25 @@
 import { MetadataRoute } from 'next'
+import servicesData from '../../config/services.json'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://edmtl.com'
 
-  // Main pages
-  const routes = [
-    '',
-    '/fr',
-    '/services',
-    '/services/window-cleaning',
-    '/services/gutter-services',
-    '/services/pressure-washing',
-    '/services/deck-refinishing',
-    '/contact',
-    '/gallery',
-    '/menu',
+  const staticRoutes = [
+    { path: '', priority: 1 },
+    { path: '/contact', priority: 0.9 },
   ]
 
-  // Locale variations
-  const sitemapEntries = routes.flatMap(route => {
-    if (route.startsWith('/fr')) {
-      return [{
-        url: `${baseUrl}${route}`,
-        lastModified: new Date(),
-        changeFrequency: 'weekly' as const,
-        priority: route === '/fr' ? 1 : 0.8,
-      }]
-    }
+  const serviceRoutes = servicesData.services.map((service) => ({
+    path: `/services/${service.slug}`,
+    priority: 0.8,
+  }))
 
-    return [
-      {
-        url: `${baseUrl}${route}`,
-        lastModified: new Date(),
-        changeFrequency: 'weekly' as const,
-        priority: route === '' ? 1 : 0.8,
-      },
-      {
-        url: `${baseUrl}/fr${route}`,
-        lastModified: new Date(),
-        changeFrequency: 'weekly' as const,
-        priority: route === '' ? 1 : 0.8,
-      },
-    ]
-  })
+  const allRoutes = [...staticRoutes, ...serviceRoutes]
 
-  return sitemapEntries
+  return allRoutes.map((route) => ({
+    url: `${baseUrl}${route.path}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: route.priority,
+  }))
 }
