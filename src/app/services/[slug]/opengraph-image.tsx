@@ -3,6 +3,7 @@ import { readFileSync, existsSync } from 'fs'
 import path from 'path'
 import servicesData from '../../../../config/services.json'
 
+export const dynamic = 'force-static'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -18,6 +19,8 @@ const serviceHeroImages: Record<string, string> = {
   'pressure-washing': 'images/services/pressure-washing.png',
   'deck-staining': 'images/services/deck-refinishing-header.png',
   'commercial-window-cleaning': 'images/services/commercialwindowcleaning1.png',
+  'dryer-vent-cleaning': 'images/services/dryerventcleaning1.png',
+  'downspout-repair': 'images/services/downspoutrepair1.png',
   'polymeric-sand-replacement': 'images/services/polymericsand1.png',
 }
 
@@ -32,6 +35,12 @@ function readImageAsBase64(relativePath: string): string | null {
   } catch {
     return null
   }
+}
+
+export function generateStaticParams() {
+  return (servicesData.services as Service[]).map((service) => ({
+    slug: service.slug,
+  }))
 }
 
 export default async function Image({ params }: { params: Promise<{ slug: string }> }) {

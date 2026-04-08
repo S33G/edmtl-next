@@ -2,6 +2,7 @@ import { ImageResponse } from 'next/og'
 import { readFileSync } from 'fs'
 import path from 'path'
 
+export const dynamic = 'force-static'
 export const alt = 'EDMTL - Entretien Domestique Montreal'
 export const size = {
   width: 1200,
