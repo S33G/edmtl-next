@@ -1,9 +1,16 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
+declare global {
+  interface Window {
+    gtag: (command: string, action: string, parameters: object) => void;
+  }
+}
 
 interface ContactFormProps {
-  translations: {
+  translations?: {
     phone: string;
     namePlaceholder: string;
     emailPlaceholder: string;
@@ -13,13 +20,8 @@ interface ContactFormProps {
   };
 }
 
-declare global {
-  interface Window {
-    gtag: (command: string, action: string, parameters: object) => void;
-  }
-}
-
-export default function ContactForm({ translations: t }: ContactFormProps) {
+export default function ContactForm({ translations }: ContactFormProps) {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -28,6 +30,15 @@ export default function ContactForm({ translations: t }: ContactFormProps) {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const label = {
+    phone: translations?.phone ?? t('contact.form.phone'),
+    namePlaceholder: translations?.namePlaceholder ?? t('contact.form.namePlaceholder'),
+    emailPlaceholder: translations?.emailPlaceholder ?? t('contact.form.emailPlaceholder'),
+    phonePlaceholder: translations?.phonePlaceholder ?? t('contact.form.phonePlaceholder'),
+    messagePlaceholder: translations?.messagePlaceholder ?? t('contact.form.messagePlaceholder'),
+    sendRequest: translations?.sendRequest ?? t('contact.form.sendRequest'),
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -43,7 +54,6 @@ export default function ContactForm({ translations: t }: ContactFormProps) {
     setSubmitStatus('idle');
 
     try {
-      // Submit to Netlify Forms
       const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -54,7 +64,6 @@ export default function ContactForm({ translations: t }: ContactFormProps) {
       });
 
       if (response.ok) {
-        // Fire Google Ads conversion event
         if (typeof window !== 'undefined' && window.gtag) {
           window.gtag('event', 'conversion', {
             'send_to': 'AW-17512520543/3zN_CNflsK4bEN-2z55B'
@@ -64,7 +73,6 @@ export default function ContactForm({ translations: t }: ContactFormProps) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', phone: '', message: '' });
 
-        // Redirect to thank you page after a short delay
         setTimeout(() => {
           window.location.href = '/thank-you.html';
         }, 1500);
@@ -81,7 +89,6 @@ export default function ContactForm({ translations: t }: ContactFormProps) {
 
   return (
     <>
-      {/* Hidden form for Netlify */}
       <form
         name="contact-form"
         data-netlify="true"
@@ -93,72 +100,71 @@ export default function ContactForm({ translations: t }: ContactFormProps) {
         <textarea name="message"></textarea>
       </form>
 
-      {/* Actual form */}
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block text-[var(--primary)] font-bold mb-2">Name *</label>
+          <label className="block text-[var(--primary)] font-bold mb-2">{t('contact.form.name')}</label>
           <input
             type="text"
             name="name"
             value={formData.name}
             onChange={handleChange}
             className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none"
-            placeholder={t.namePlaceholder}
+            placeholder={label.namePlaceholder}
             required
             disabled={isSubmitting}
           />
         </div>
 
         <div>
-          <label className="block text-[var(--primary)] font-bold mb-2">Email *</label>
+          <label className="block text-[var(--primary)] font-bold mb-2">{t('contact.form.email')}</label>
           <input
             type="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
             className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none"
-            placeholder={t.emailPlaceholder}
+            placeholder={label.emailPlaceholder}
             required
             disabled={isSubmitting}
           />
         </div>
 
         <div>
-          <label className="block text-[var(--primary)] font-bold mb-2">{t.phone}</label>
+          <label className="block text-[var(--primary)] font-bold mb-2">{label.phone}</label>
           <input
             type="tel"
             name="phone"
             value={formData.phone}
             onChange={handleChange}
             className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none"
-            placeholder={t.phonePlaceholder}
+            placeholder={label.phonePlaceholder}
             required
             disabled={isSubmitting}
           />
         </div>
 
         <div>
-          <label className="block text-[var(--primary)] font-bold mb-2">Message</label>
+          <label className="block text-[var(--primary)] font-bold mb-2">{t('contact.form.message')}</label>
           <textarea
             name="message"
             value={formData.message}
             onChange={handleChange}
             rows={4}
             className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none"
-            placeholder={t.messagePlaceholder}
+            placeholder={label.messagePlaceholder}
             disabled={isSubmitting}
           />
         </div>
 
         {submitStatus === 'success' && (
           <div className="p-3 bg-green-100 border border-green-400 text-green-700 rounded">
-            Thank you! Your message has been sent successfully. Redirecting...
+            {t('contact.form.successMessage')}
           </div>
         )}
 
         {submitStatus === 'error' && (
           <div className="p-3 bg-red-100 border border-red-400 text-red-700 rounded">
-            Sorry, there was an error sending your message. Please try again.
+            {t('contact.form.errorMessage')}
           </div>
         )}
 
@@ -167,7 +173,7 @@ export default function ContactForm({ translations: t }: ContactFormProps) {
           className="btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
           disabled={isSubmitting}
         >
-          {isSubmitting ? 'Sending...' : t.sendRequest}
+          {isSubmitting ? t('contact.form.sending') : label.sendRequest}
         </button>
       </form>
     </>

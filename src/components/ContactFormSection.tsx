@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
 import siteConfig from '../../config/site.json';
-import servicesData from '../../config/services.json';
-import { useTranslation } from '../hooks/useTranslation';
+import { useTranslation } from 'react-i18next';
+import { useLocalizedServices } from '../hooks/useLocalizedServices';
 
 declare global {
   interface Window {
@@ -13,20 +13,11 @@ declare global {
   }
 }
 
-interface Service {
-  slug: string;
-  title: string;
-}
-
-interface ContactFormSectionProps {
-  locale?: string;
-}
-
-export default function ContactFormSection({ locale = 'en' }: ContactFormSectionProps) {
+export default function ContactFormSection() {
   const phone = siteConfig.contact.phone;
   const email = siteConfig.contact.email;
-  const services = servicesData.services as Service[];
-  const { t } = useTranslation(locale);
+  const services = useLocalizedServices();
+  const { t } = useTranslation();
 
   const searchParams = useSearchParams();
   const preselectedService = searchParams.get('service');
