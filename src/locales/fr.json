@@ -1,12 +1,12 @@
 {
   "hero": {
-    "title": "ENTRETIEN DOMESTIQUE MONTRÉAL",
-    "description": "Entretien Domestique Montréal est une entreprise de services d'entretien gérée par des professionnels avec des connaissances et compétences professionnelles. Avec plus de 10 ans d'expérience combinée, nous sommes fiers de pouvoir offrir une gamme de services exécutés selon des normes élevées.",
-    "servicesList": "Nettoyage de Vitres / Nettoyage de Gouttières / Lavage à Pression / Teinture de Terrasse",
-    "locations": "Montréal / West Island / Laval / Rive-Sud",
+    "title": "ENTRETIEN DOMESTIQUE MONTR\u00c9AL",
+    "description": "Entretien Domestique Montr\u00e9al est une entreprise de services d'entretien g\u00e9r\u00e9e par des professionnels avec des connaissances et comp\u00e9tences professionnelles. Avec plus de 10 ans d'exp\u00e9rience combin\u00e9e, nous sommes fiers de pouvoir offrir une gamme de services ex\u00e9cut\u00e9s selon des normes \u00e9lev\u00e9es.",
+    "servicesList": "Nettoyage de Vitres / Nettoyage de Goutti\u00e8res / Lavage \u00e0 Pression / Teinture de Terrasse",
+    "locations": "Montr\u00e9al / West Island / Laval / Rive-Sud",
     "callNow": "Appeler maintenant",
     "freeQuote": "Devis gratuit",
-    "scrollDown": "Faites défiler vers le bas pour explorer nos services"
+    "scrollDown": "Faites d\u00e9filer vers le bas pour explorer nos services"
   },
   "navigation": {
     "home": "Accueil",
@@ -24,83 +24,97 @@
   },
   "services": {
     "title": "Nos Services",
-    "subtitle": "Avec attention aux détails, nos services gardent votre maison propre, protégée et bien entretenue",
-    "learnMore": "En savoir plus →",
+    "subtitle": "Avec attention aux d\u00e9tails, nos services gardent votre maison propre, prot\u00e9g\u00e9e et bien entretenue",
+    "learnMore": "En savoir plus \u2192",
     "windowCleaning": {
       "title": "Nettoyage de vitres",
-      "description": "Nettoyage professionnel de vitres intérieures et extérieures"
+      "description": "Nettoyage professionnel de vitres int\u00e9rieures et ext\u00e9rieures"
     },
     "gutterServices": {
-      "title": "Services de gouttières",
-      "description": "Nettoyage et entretien complet des gouttières"
+      "title": "Services de goutti\u00e8res",
+      "description": "Nettoyage et entretien complet des goutti\u00e8res"
     },
     "pressureWashing": {
-      "title": "Lavage à pression",
+      "title": "Lavage \u00e0 pression",
       "description": "Nettoyage haute pression pour toutes surfaces"
     },
     "deckRefinishing": {
-      "title": "Rénovation de terrasses",
+      "title": "R\u00e9novation de terrasses",
       "description": "Restauration et finition de terrasses en bois"
     }
   },
   "faq": {
-    "title": "Questions Fréquentes",
+    "title": "Questions Fr\u00e9quentes",
     "items": [
       {
         "question": "LES DEVIS SONT-ILS GRATUITS ?",
-        "answer": "Oui, 100% gratuits et sans obligation de réserver un service."
+        "answer": "Oui, 100% gratuits et sans obligation de r\u00e9server un service."
       },
       {
         "question": "OFFREZ-VOUS UNE COUVERTURE D'ASSURANCE ?",
-        "answer": "Oui, nous sommes entièrement assurés pour votre tranquillité d'esprit."
+        "answer": "Oui, nous sommes enti\u00e8rement assur\u00e9s pour votre tranquillit\u00e9 d'esprit."
       },
       {
         "question": "QUELLES ZONES DESSERVEZ-VOUS ?",
-        "answer": "Nous desservons Montréal et les régions environnantes incluant Saint-Lazare, Laval, Rive-Nord/Sud et Vaudreuil-Dorion."
+        "answer": "Nous desservons Montr\u00e9al et les r\u00e9gions environnantes incluant Saint-Lazare, Laval, Rive-Nord/Sud et Vaudreuil-Dorion."
       },
       {
-        "question": "COMMENT RÉSERVER UN SERVICE ?",
-        "answer": "Appelez-nous simplement ou remplissez notre formulaire de contact et nous vous répondrons rapidement."
+        "question": "COMMENT R\u00c9SERVER UN SERVICE ?",
+        "answer": "Appelez-nous simplement ou remplissez notre formulaire de contact et nous vous r\u00e9pondrons rapidement."
       }
     ]
   },
   "contact": {
     "title": "Contactez-nous",
     "subtitle": "Obtenez votre devis gratuit aujourd'hui - sans obligation !",
-    "phone": "Téléphone",
+    "phone": "T\u00e9l\u00e9phone",
     "email": "Email",
     "serviceArea": "Zone de service",
-    "serviceAreaDescription": "Montréal et environs incluant Saint-Lazare, Laval, Rive-Nord/Sud, Vaudreuil-Dorion",
+    "serviceAreaDescription": "Montr\u00e9al et environs incluant Saint-Lazare, Laval, Rive-Nord/Sud, Vaudreuil-Dorion",
     "freeQuotesAvailable": "DEVIS GRATUITS DISPONIBLES",
     "callNow": "APPELER",
     "emailUs": "EMAIL",
     "addToContacts": "Ajouter aux contacts",
     "requestQuote": "Demander un devis",
-    "servicesInterestedIn": "Services qui vous intéressent",
+    "servicesInterestedIn": "Services qui vous int\u00e9ressent",
     "mapTitle": "Notre zone de service",
-    "mapDescription": "Nous desservons Montréal et les régions environnantes incluant Saint-Lazare, Laval, Rive-Nord/Sud, et Vaudreuil-Dorion",
+    "mapDescription": "Nous desservons Montr\u00e9al et les r\u00e9gions environnantes incluant Saint-Lazare, Laval, Rive-Nord/Sud, et Vaudreuil-Dorion",
     "form": {
       "name": "Nom *",
       "namePlaceholder": "Votre nom complet",
       "email": "Email *",
       "emailPlaceholder": "votre.email@exemple.com",
-      "phone": "Téléphone *",
-      "phonePlaceholder": "Votre numéro de téléphone",
+      "phone": "T\u00e9l\u00e9phone *",
+      "phonePlaceholder": "Votre num\u00e9ro de t\u00e9l\u00e9phone",
       "service": "Service requis",
-      "servicePlaceholder": "Sélectionner un service...",
+      "servicePlaceholder": "S\u00e9lectionner un service...",
       "message": "Message",
-      "messagePlaceholder": "Veuillez décrire votre projet...",
+      "messagePlaceholder": "Veuillez d\u00e9crire votre projet...",
       "sendRequest": "ENVOYER LA DEMANDE",
       "sending": "Envoi en cours...",
-      "successMessage": "Merci ! Votre message a été envoyé avec succès. Redirection...",
-      "errorMessage": "Désolé, une erreur s'est produite lors de l'envoi. Veuillez réessayer."
+      "successMessage": "Merci ! Votre message a \u00e9t\u00e9 envoy\u00e9 avec succ\u00e8s. Redirection...",
+      "errorMessage": "D\u00e9sol\u00e9, une erreur s'est produite lors de l'envoi. Veuillez r\u00e9essayer."
     }
+  },
+  "contactPage": {
+    "heroTitle": "Obtenez votre devis gratuit",
+    "heroDescription": "Pr\u00eat \u00e0 transformer votre propri\u00e9t\u00e9 ? Contactez-nous d\u00e8s aujourd'hui pour un devis sans obligation sur l'un de nos services professionnels d'entretien r\u00e9sidentiel.",
+    "preferToTalk": "Vous pr\u00e9f\u00e9rez parler ?",
+    "preferToTalkDescription": "Appelez-nous \u2014 nous serons heureux de discuter de votre projet",
+    "callWithNumber": "Appeler 438-500-3099",
+    "emailUs": "Envoyer un email"
+  },
+  "servicePage": {
+    "callNow": "Appeler",
+    "freeQuote": "Devis gratuit",
+    "readyToStart": "Pr\u00eat \u00e0 commencer ?",
+    "contactForQuote": "Contactez-nous pour un devis gratuit"
   },
   "features": {
     "title": "Pourquoi choisir EDMTL",
-    "fiveStars": "Noté 5 étoiles",
-    "experienced": "Plus de 10 ans d'expérience",
-    "fullyInsured": "Entièrement assuré",
+    "fiveStars": "Not\u00e9 5 \u00e9toiles",
+    "experienced": "Plus de 10 ans d'exp\u00e9rience",
+    "fullyInsured": "Enti\u00e8rement assur\u00e9",
     "freeQuotes": "Devis gratuits"
   },
   "reviews": {
@@ -108,13 +122,26 @@
     "viewOnGoogle": "Voir sur Google"
   },
   "footer": {
-    "copyright": "© 2025 EDMTL - Entretien Domestique Montreal. Tous droits réservés."
+    "copyright": "\u00a9 2025 EDMTL - Entretien Domestique Montreal. Tous droits r\u00e9serv\u00e9s.",
+    "home": "ACCUEIL",
+    "services": "SERVICES",
+    "contact": "CONTACT",
+    "reviews": "AVIS",
+    "faq": "FAQ",
+    "freeQuote": "DEVIS GRATUIT",
+    "serviceAreas": "Montr\u00e9al et environs",
+    "serviceAreasDetail": "West Island \u00b7 Laval \u00b7 Rive-Sud",
+    "privacyPolicy": "Politique de confidentialit\u00e9"
+  },
+  "subpageHeader": {
+    "home": "Accueil",
+    "freeQuote": "Devis gratuit"
   },
   "common": {
     "loading": "Chargement...",
     "error": "Une erreur s'est produite",
     "close": "Fermer",
     "next": "Suivant",
-    "previous": "Précédent"
+    "previous": "Pr\u00e9c\u00e9dent"
   }
 }

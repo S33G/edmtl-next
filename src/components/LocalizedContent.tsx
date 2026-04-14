@@ -12,10 +12,10 @@ import {
   HiChevronRight,
 } from 'react-icons/hi2';
 import siteConfig from '../../config/site.json';
-import servicesData from '../../config/services.json';
 import reviewsData from '../../config/reviews.json';
 import { useInView } from '../hooks/useInView';
-import { useTranslation } from '../hooks/useTranslation';
+import { useTranslation } from 'react-i18next';
+import { useLocalizedServices } from '../hooks/useLocalizedServices';
 
 const serviceIconSvgMap: Record<string, string> = {
   'window-cleaning': '/images/icons/residential-window-cleaning.svg',
@@ -29,10 +29,11 @@ const serviceIconSvgMap: Record<string, string> = {
 };
 
 export default function LocalizedContent() {
-  const [currentLocale, setCurrentLocale] = useState('en');
+  const { t, i18n } = useTranslation();
+  const currentLocale = i18n.language;
+  const services = useLocalizedServices();
   const [reviewIndex, setReviewIndex] = useState(0);
   const [carouselHeight, setCarouselHeight] = useState<number | null>(null);
-  const { t, changeLocale } = useTranslation(currentLocale);
 
   const servicesRef = useInView();
   const trustRef = useInView();
@@ -112,12 +113,11 @@ export default function LocalizedContent() {
     window.location.href = '/contact';
   };
 
-  const heroData = siteConfig.hero[currentLocale as keyof typeof siteConfig.hero] || siteConfig.hero.en;
-  const faqData = siteConfig.faq[currentLocale as keyof typeof siteConfig.faq] || siteConfig.faq.en;
+  const faqItems = t('faq.items', { returnObjects: true }) as Array<{ question: string; answer: string }>;
+  const faqTitle = t('faq.title');
 
   const handleLocaleChange = (locale: string) => {
-    setCurrentLocale(locale);
-    changeLocale(locale);
+    i18n.changeLanguage(locale);
   };
 
   return (
@@ -228,7 +228,7 @@ export default function LocalizedContent() {
               className="text-5xl md:text-7xl font-bold text-[var(--primary)] mb-6 tracking-tight leading-tight animate-in fade-in slide-in-from-top-6 duration-700"
               style={{ animationDelay: '200ms' }}
             >
-              {heroData.title}
+              {t('hero.title')}
             </h1>
 
             <div
@@ -280,7 +280,7 @@ export default function LocalizedContent() {
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
-              {servicesData.services.map((service, index) => {
+              {services.map((service, index) => {
                 const iconSrc = serviceIconSvgMap[service.slug];
                 return (
                   <div
@@ -446,12 +446,12 @@ export default function LocalizedContent() {
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
                 <h2 className="text-4xl font-semibold text-[var(--foreground)] mb-4 tracking-tight">
-                  {faqData.title}
+                  {faqTitle}
                 </h2>
               </div>
 
               <div className="space-y-3">
-                {faqData.items.map((item, index) => (
+                {faqItems.map((item: { question: string; answer: string }, index: number) => (
                   <div key={index} className="card relative overflow-hidden group !min-h-0 !p-4 sm:!p-5">
                     <div className="absolute top-0 right-0 opacity-5 group-hover:opacity-20 pointer-events-none transition-all duration-300">
                       <svg
@@ -525,7 +525,7 @@ export default function LocalizedContent() {
         </div>
       </main>
 
-      <ContactFormSection locale={currentLocale} />
+      <ContactFormSection />
 
       <Footer />
     </div>

@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { HiWrenchScrewdriver, HiPhone, HiLanguage, HiQuestionMarkCircle } from 'react-icons/hi2';
 import ReactCountryFlag from 'react-country-flag';
 import siteConfig from '../../config/site.json';
-import { useTranslation } from '../hooks/useTranslation';
+import { useTranslation } from 'react-i18next';
 
 // Custom EDM Logo component
 const EDMLogo: React.FC<{ className?: string }> = ({ className }) => (
@@ -27,7 +27,7 @@ interface PagePickerProps {
 const PagePicker: React.FC<PagePickerProps> = ({ currentLocale, onLocaleChange, isInHeader = false }) => {
   const [activeSection, setActiveSection] = useState<string>('hero');
   const [showLanguagePopup, setShowLanguagePopup] = useState<boolean>(false);
-  const { t } = useTranslation(currentLocale);
+  const { t } = useTranslation();
 
   const allSections = [
     {

@@ -1,10 +1,14 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import siteConfig from '../../config/site.json';
+import { useTranslation } from 'react-i18next';
 
 export default function SubpageHeader() {
   const phone = siteConfig.contact.phone;
   const email = siteConfig.contact.email;
+  const { t } = useTranslation();
 
   return (
     <>
@@ -66,13 +70,13 @@ export default function SubpageHeader() {
                   <path d="M19 12H5" />
                   <path d="m12 19-7-7 7-7" />
                 </svg>
-                Home
+                {t('subpageHeader.home')}
               </Link>
               <Link
                 href="/contact"
                 className="bg-[var(--primary)] text-black font-semibold px-5 py-2 rounded-lg hover:bg-[var(--primary-dark)] transition-colors text-sm"
               >
-                Free Quote
+                {t('subpageHeader.freeQuote')}
               </Link>
             </div>
           </div>
@@ -128,13 +132,13 @@ export default function SubpageHeader() {
                 <path d="M19 12H5" />
                 <path d="m12 19-7-7 7-7" />
               </svg>
-              Home
+              {t('subpageHeader.home')}
             </Link>
             <Link
               href="/contact"
               className="bg-[var(--primary)] text-black font-semibold px-4 py-1.5 rounded-lg hover:bg-[var(--primary-dark)] transition-colors text-xs"
             >
-              Free Quote
+              {t('subpageHeader.freeQuote')}
             </Link>
           </div>
         </div>

@@ -12,10 +12,12 @@ import {
   HiPhone
 } from 'react-icons/hi2';
 import siteConfig from '../../config/site.json';
+import { useTranslation } from 'react-i18next';
 
 export default function HamburgerMenu({ currentLocale = 'en' }: { currentLocale?: string }) {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
+  const { t } = useTranslation();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -85,7 +87,7 @@ export default function HamburgerMenu({ currentLocale = 'en' }: { currentLocale?
                 style={{ animationDelay: '100ms' }}
               >
                 <HiHome className="w-5 h-5 transition-transform duration-200" />
-                <span>{currentLocale === 'en' ? 'Home' : 'Accueil'}</span>
+                <span>{t('navigation.home')}</span>
               </button>
 
               <button
@@ -94,7 +96,7 @@ export default function HamburgerMenu({ currentLocale = 'en' }: { currentLocale?
                 style={{ animationDelay: '200ms' }}
               >
                 <HiWrenchScrewdriver className="w-5 h-5 transition-transform duration-200" />
-                <span>{currentLocale === 'en' ? 'Services' : 'Services'}</span>
+                <span>{t('navigation.services')}</span>
               </button>
 
               <button
@@ -103,7 +105,7 @@ export default function HamburgerMenu({ currentLocale = 'en' }: { currentLocale?
                 style={{ animationDelay: '300ms' }}
               >
                 <HiPhoto className="w-5 h-5 transition-transform duration-200" />
-                <span>{currentLocale === 'en' ? 'Gallery' : 'Galerie'}</span>
+                <span>{t('navigation.gallery')}</span>
               </button>
 
               <button
@@ -112,13 +114,13 @@ export default function HamburgerMenu({ currentLocale = 'en' }: { currentLocale?
                 style={{ animationDelay: '400ms' }}
               >
                 <HiPhone className="w-5 h-5 transition-transform duration-200" />
-                <span>{currentLocale === 'en' ? 'Contact' : 'Contact'}</span>
+                <span>{t('navigation.contact')}</span>
               </button>
             </nav>
 
             <div className="mt-8 pt-6 border-t border-[var(--border)] text-center animate-in slide-in-from-bottom-4 fade-in duration-300" style={{ animationDelay: '500ms' }}>
               <div className="text-[var(--primary)] font-bold text-lg mb-2">
-                {currentLocale === 'en' ? 'Call Us Now!' : 'Appelez-nous!'}
+                {t('hero.callNow')}!
               </div>
               <a
                 href={`tel:${siteConfig.contact.phone}`}
@@ -141,7 +143,7 @@ export default function HamburgerMenu({ currentLocale = 'en' }: { currentLocale?
                 onClick={() => navigateTo(currentLocale === 'en' ? '/contact' : `/${currentLocale}/contact`)}
                 className="w-full btn-primary text-center"
               >
-                {currentLocale === 'en' ? 'GET FREE QUOTE' : 'DEVIS GRATUIT'}
+                {t('footer.freeQuote')}
               </button>
             </div>
           </div>

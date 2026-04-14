@@ -7,10 +7,15 @@ export const dynamic = 'force-static'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
+interface LocalizedString {
+  en: string
+  fr: string
+}
+
 interface Service {
   slug: string
-  pageTitle: string
-  subtitle: string
+  pageTitle: LocalizedString
+  subtitle: LocalizedString
 }
 
 const serviceHeroImages: Record<string, string> = {
@@ -38,7 +43,7 @@ function readImageAsBase64(relativePath: string): string | null {
 }
 
 export function generateStaticParams() {
-  return (servicesData.services as Service[]).map((service) => ({
+  return servicesData.services.map((service) => ({
     slug: service.slug,
   }))
 }
@@ -89,7 +94,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
                   letterSpacing: '-0.01em',
                 }}
               >
-                {service.pageTitle}
+                {service.pageTitle.en}
               </p>
               <p
                 style={{
@@ -99,7 +104,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
                   textAlign: 'center',
                 }}
               >
-                {service.subtitle}
+                {service.subtitle.en}
               </p>
             </>
           )}
@@ -202,7 +207,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
                   letterSpacing: '-0.01em',
                 }}
               >
-                {service.pageTitle}
+                {service.pageTitle.en}
               </p>
               <p
                 style={{
@@ -212,7 +217,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
                   fontWeight: 500,
                 }}
               >
-                {service.subtitle}
+                {service.subtitle.en}
               </p>
             </>
           )}

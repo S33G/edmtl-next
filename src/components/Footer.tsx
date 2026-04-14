@@ -3,16 +3,19 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import siteConfig from '../../config/site.json';
-
-const navLinks = [
-  { label: 'HOME', href: '/' },
-  { label: 'SERVICES', href: '/#services' },
-  { label: 'CONTACT', href: '/contact' },
-  { label: 'REVIEWS', href: '/#reviews' },
-  { label: 'FAQ', href: '/#faq' },
-];
+import { useTranslation } from 'react-i18next';
 
 export default function Footer() {
+  const { t } = useTranslation();
+
+  const navLinks = [
+    { label: t('footer.home'), href: '/' },
+    { label: t('footer.services'), href: '/#services' },
+    { label: t('footer.contact'), href: '/contact' },
+    { label: t('footer.reviews'), href: '/#reviews' },
+    { label: t('footer.faq'), href: '/#faq' },
+  ];
+
   return (
     <footer className="border-t border-[var(--primary)]/20 bg-gradient-to-b from-[var(--background-secondary)] to-[#111]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-16">
@@ -57,27 +60,27 @@ export default function Footer() {
 
           <div className="text-center md:text-right">
             <div className="text-[var(--text-muted)] text-sm leading-relaxed">
-              <p>Montreal &amp; Surrounding Areas</p>
-              <p>West Island · Laval · South Shore</p>
+              <p>{t('footer.serviceAreas')}</p>
+              <p>{t('footer.serviceAreasDetail')}</p>
             </div>
             <Link
               href="/contact"
               className="mt-4 inline-block bg-[var(--primary)] text-black font-semibold px-6 py-2.5 rounded-lg hover:bg-[var(--primary-dark)] transition-colors text-sm"
             >
-              FREE QUOTE
+              {t('footer.freeQuote')}
             </Link>
           </div>
         </div>
 
         <div className="mt-10 pt-6 border-t border-[var(--border)] flex flex-col items-center gap-2">
           <p className="text-[var(--text-muted)] text-sm text-center">
-            &copy; 2025 EDMTL - Entretien Domestique Montreal. All rights reserved.
+            {t('footer.copyright')}
           </p>
           <Link
             href="/privacy-policy"
             className="text-[var(--text-muted)] text-xs hover:text-[var(--primary)] transition-colors"
           >
-            Privacy Policy
+            {t('footer.privacyPolicy')}
           </Link>
         </div>
       </div>
