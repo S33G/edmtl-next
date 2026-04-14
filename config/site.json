@@ -1,7 +1,7 @@
 {
   "siteTitle": "EDMTL - Entretien Domestique Montreal",
   "defaultLocale": "en",
-  "supportedLocales": ["en"],
+  "supportedLocales": ["en", "fr"],
   "contact": {
     "email": "info@edmtl.com",
     "phone": "438-500-3099",
@@ -25,90 +25,6 @@
     "placeId": "PLACEHOLDER_FOR_PLACE_ID",
     "reviewsEnabled": true,
     "maxReviews": 5
-  },
-  "hero": {
-    "en": {
-      "title": "ENTRETIEN DOMESTIQUE MONTREAL",
-      "description": "Entretien Domestique Montreal is a maintenance service company owned and operated by individuals with professional knowledge and skills. With over 10 years of combined experience, we are proud to be able to offer a range of services executed to a high standard."
-    },
-    "fr": {
-      "title": "ENTRETIEN DOMESTIQUE MONTRÉAL",
-      "description": "Entretien Domestique Montréal est une entreprise de services d'entretien gérée par des professionnels avec des connaissances et compétences professionnelles. Avec plus de 10 ans d'expérience combinée, nous sommes fiers de pouvoir offrir une gamme de services exécutés selon des normes élevées."
-    }
-  },
-  "faq": {
-    "en": {
-      "title": "Frequent Questions",
-      "items": [
-        {
-          "question": "Are quotes free?",
-          "answer": "Yes, 100% free and they come with no obligation to book a service."
-        },
-        {
-          "question": "Are there any other services EDM provides?",
-          "answer": "We very regularly perform miscellaneous tasks and attend to hard to reach spaces. Elevated light bulb replacement, crawl spaces, roof debris clearance, overhanging branches for example. Please by all means just ask."
-        },
-        {
-          "question": "What areas do you cover?",
-          "answer": "Montreal and a radius including Saint Lazare, Laval, North/South Shore, Vaudreuil-Dorion. We are prepared to travel further at a quoted rate."
-        },
-        {
-          "question": "What payment methods do you accept?",
-          "answer": "We are able to process payments by major credit card and e-transfer."
-        },
-        {
-          "question": "Do you have insurance?",
-          "answer": "Both your home and all of our staff are insured during our time on your property. All EDM associated personnel are professionally trained."
-        }
-      ]
-    },
-    "fr": {
-      "title": "Questions Fréquentes",
-      "items": [
-        {
-          "question": "Les devis sont-ils gratuits?",
-          "answer": "Oui, 100% gratuits et sans obligation de réserver un service."
-        },
-        {
-          "question": "Y a-t-il d'autres services offerts par EDM?",
-          "answer": "Nous effectuons régulièrement des tâches diverses et intervenons dans des espaces difficiles d'accès. Remplacement d'ampoules en hauteur, espaces confinés, nettoyage de débris sur le toit, branches en surplomb par exemple. N'hésitez pas à demander."
-        },
-        {
-          "question": "Quelles zones couvrez-vous?",
-          "answer": "Montréal et un rayon incluant Saint-Lazare, Laval, Rive-Nord/Sud, Vaudreuil-Dorion. Nous sommes préparés à voyager plus loin selon un tarif établi."
-        },
-        {
-          "question": "Quels modes de paiement acceptez-vous?",
-          "answer": "Nous pouvons traiter les paiements par carte de crédit majeure et virement Interac."
-        },
-        {
-          "question": "Avez-vous une assurance?",
-          "answer": "Votre domicile et tout notre personnel sont assurés pendant notre temps sur votre propriété. Tout le personnel associé à EDM est formé professionnellement."
-        }
-      ]
-    }
-  },
-  "services": {
-    "en": [
-      { "name": "Residential Window Cleaning", "slug": "window-cleaning" },
-      { "name": "Gutter Cleaning", "slug": "gutter-cleaning" },
-      { "name": "Pressure Washing", "slug": "pressure-washing" },
-      { "name": "Deck Staining", "slug": "deck-staining" },
-      { "name": "Commercial Window Cleaning", "slug": "commercial-window-cleaning" },
-      { "name": "Downspout Repair", "slug": "downspout-repair" },
-      { "name": "Dryer Vent Cleaning", "slug": "dryer-vent-cleaning" },
-      { "name": "Polymeric Sand Replacement", "slug": "polymeric-sand-replacement" }
-    ],
-    "fr": [
-      { "name": "Nettoyage de Vitres Résidentiel", "slug": "window-cleaning" },
-      { "name": "Nettoyage de Gouttières", "slug": "gutter-cleaning" },
-      { "name": "Lavage à Pression", "slug": "pressure-washing" },
-      { "name": "Teinture de Terrasse", "slug": "deck-staining" },
-      { "name": "Nettoyage de Vitres Commercial", "slug": "commercial-window-cleaning" },
-      { "name": "Réparation de Descentes Pluviales", "slug": "downspout-repair" },
-      { "name": "Nettoyage de Conduits de Sécheuse", "slug": "dryer-vent-cleaning" },
-      { "name": "Entretien Extérieur Général", "slug": "polymeric-sand-replacement" }
-    ]
   },
   "copyright": "© COPYRIGHT ENTRETIEN DOMESTIQUE MONTREAL 2025"
 }
