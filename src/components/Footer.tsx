@@ -20,7 +20,7 @@ export default function Footer() {
           <div className="flex flex-col items-center md:items-start gap-4">
             <Link href="/" aria-label="EDMTL Home">
               <Image
-                src="/images/edm-main-logo.png"
+                src="/images/edm-main-logo.webp"
                 alt="EDM - Entretien Domestique Montreal"
                 width={200}
                 height={200}
@@ -69,10 +69,16 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-[var(--border)]">
+        <div className="mt-10 pt-6 border-t border-[var(--border)] flex flex-col items-center gap-2">
           <p className="text-[var(--text-muted)] text-sm text-center">
             &copy; 2025 EDMTL - Entretien Domestique Montreal. All rights reserved.
           </p>
+          <Link
+            href="/privacy-policy"
+            className="text-[var(--text-muted)] text-xs hover:text-[var(--primary)] transition-colors"
+          >
+            Privacy Policy
+          </Link>
         </div>
       </div>
     </footer>
