@@ -1,26 +1,22 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import ReactCountryFlag from 'react-country-flag';
 import siteConfig from '../../config/site.json';
+import { useTranslation } from 'react-i18next';
 
 interface LanguageSwitcherProps {
   currentLocale?: string;
   onLocaleChange?: (locale: string) => void;
 }
 
-export default function LanguageSwitcher({ currentLocale = 'en', onLocaleChange }: LanguageSwitcherProps) {
-  const router = useRouter();
+export default function LanguageSwitcher({ onLocaleChange }: LanguageSwitcherProps) {
+  const { i18n } = useTranslation();
+  const currentLocale = i18n.language;
 
   const handleLanguageChange = (locale: string) => {
+    i18n.changeLanguage(locale);
     if (onLocaleChange) {
       onLocaleChange(locale);
-    } else {
-      if (locale === 'en') {
-        router.push('/');
-      } else {
-        router.push(`/${locale}`);
-      }
     }
   };
 
@@ -46,8 +42,6 @@ export default function LanguageSwitcher({ currentLocale = 'en', onLocaleChange 
     }
   };
 
-  // Hide the language switcher if there's only one supported locale
-  // Keep all logic intact for future multi-language support
   if (siteConfig.supportedLocales.length <= 1) {
     return null;
   }
