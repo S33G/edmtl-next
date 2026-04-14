@@ -25,7 +25,7 @@
   "services": {
     "title": "Our Services",
     "subtitle": "With attention to detail, our services keep your home looking clean, protected and well-maintained",
-    "learnMore": "Learn more →",
+    "learnMore": "Learn more \u2192",
     "windowCleaning": {
       "title": "Window Cleaning",
       "description": "Professional interior and exterior window cleaning"
@@ -96,6 +96,20 @@
       "errorMessage": "Sorry, there was an error sending your message. Please try again."
     }
   },
+  "contactPage": {
+    "heroTitle": "Get Your Free Quote",
+    "heroDescription": "Ready to transform your property? Contact us today for a no-obligation quote on any of our professional home maintenance services.",
+    "preferToTalk": "Prefer to talk?",
+    "preferToTalkDescription": "Give us a call \u2014 we\u2019re happy to discuss your project",
+    "callWithNumber": "Call 438-500-3099",
+    "emailUs": "Email Us"
+  },
+  "servicePage": {
+    "callNow": "Call Now",
+    "freeQuote": "Free Quote",
+    "readyToStart": "Ready to get started?",
+    "contactForQuote": "Contact us for a free quote"
+  },
   "features": {
     "title": "Why Choose EDMTL",
     "fiveStars": "5-star rated",
@@ -108,7 +122,20 @@
     "viewOnGoogle": "View on Google"
   },
   "footer": {
-    "copyright": "© 2025 EDMTL - Entretien Domestique Montreal. All rights reserved."
+    "copyright": "\u00a9 2025 EDMTL - Entretien Domestique Montreal. All rights reserved.",
+    "home": "HOME",
+    "services": "SERVICES",
+    "contact": "CONTACT",
+    "reviews": "REVIEWS",
+    "faq": "FAQ",
+    "freeQuote": "FREE QUOTE",
+    "serviceAreas": "Montreal & Surrounding Areas",
+    "serviceAreasDetail": "West Island \u00b7 Laval \u00b7 South Shore",
+    "privacyPolicy": "Privacy Policy"
+  },
+  "subpageHeader": {
+    "home": "Home",
+    "freeQuote": "Free Quote"
   },
   "common": {
     "loading": "Loading...",
