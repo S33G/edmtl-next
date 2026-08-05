@@ -54,20 +54,7 @@
         "Having a properly functioning gutter and downspout system gives you the peace of mind that your house is well protected from the intense rain events we get in Montreal. We don't just clean your gutters, we check if there are any issues that could become a problem.",
         "By removing all debris, flushing the gutters with water, observing how fast the system evacuates the water and where it ends up."
       ],
-      "sections": [
-        {
-          "heading": "Gutter Guards",
-          "content": "In certain situations, covering your gutters with gutter guards can be a great decision. It is important to understand that installing gutter guards does not mean you can forget about cleaning the gutters. Debris can still settle on top of the guards, eventually preventing water from entering the gutter. Over time the debris will break down and make its way beneath the guards.\n\nGutter guards are best installed on houses surrounded by tall trees. They are meant to prevent clogs and reduce the frequency of requiring a cleaning service like us. If your gutters get clogged multiple times per year you should seriously consider installing gutter guards.\n\nUltimately, keeping a well-maintained gutter system is the best way to keep your house safe from heavy rain damaging your foundation."
-        },
-        {
-          "heading": "Downspout Repair",
-          "content": "The purpose of a downspout is to direct the water that flows through the gutters down to the ground and away from the foundation. We often see issues with these on a property such as clogs, leaks, and not bringing the water far enough away from the foundation.\n\nOn all of our gutter cleaning jobs, we check their performance and assess if there are any issues. We inform you on any flaws and offer an effective solution, sometimes as simple as a minor adjustment or replacing broken pieces."
-        },
-        {
-          "heading": "Caulking",
-          "content": "At every corner of your roof, your gutters have a seam that becomes water-tight with a sealant. Being exposed to the elements, this sealant will deteriorate over time. Old sealant is by far the most common cause of leaking gutters (aside from the gutters being clogged with debris of course).\n\nFrom choosing the correct sealant to properly applying it, rest assured that your gutters are fully functioning and are not leaking."
-        }
-      ]
+      "sections": []
     },
     {
       "slug": "pressure-washing",
@@ -104,39 +91,6 @@
       ]
     },
     {
-      "slug": "deck-staining",
-      "title": "Deck Staining",
-      "pageTitle": "Deck Staining Montreal",
-      "subtitle": "Refresh and protect your deck with complete preparation and staining to restore the look and provide longevity to the wood",
-      "description": "Refresh and protect your deck with complete preparation and staining to restore the look and provide longevity to the wood.",
-      "intro": [
-        "Wood decks are constantly exposed to sun, rain, and temperature changes. Without proper maintenance, the wood begins to fade, dry out, and weaken over time.",
-        "Deck staining not only improves the appearance of your deck but also protects it from long-term damage. We provide a complete process that focuses on preparation, proper application, and long-lasting results."
-      ],
-      "sections": [
-        {
-          "heading": "Preparation",
-          "content": "For any staining project, the preparation is the most important part. Before applying stain, we clean the deck thoroughly to remove dirt and mildew. With older decks, the surface should be thoroughly sanded with power sanders to restore a smooth texture. Newer decks still need to be lightly sanded to allow proper absorption of the stain."
-        },
-        {
-          "heading": "Staining",
-          "content": "Once the surface is properly prepared, we apply the stain carefully and evenly across the deck.",
-          "list": {
-            "title": "Wood stain helps to:",
-            "items": [
-              "Reduce the damage from UV exposure",
-              "Protect from moisture penetration and delays rotting",
-              "Enhance the natural look of the wood"
-            ]
-          }
-        },
-        {
-          "heading": "New or Old",
-          "content": "Whether your deck was built last year or last decade, we can protect it from the elements or restore it to its original look. New decks should be stained in the first couple years to ensure its longevity and protect from rot. Old decks can be restored to an almost brand new look as long as the wood is still intact."
-        }
-      ]
-    },
-    {
       "slug": "commercial-window-cleaning",
       "title": "Commercial Window Cleaning",
       "pageTitle": "Commercial Window Cleaning Montreal",
@@ -158,31 +112,6 @@
         {
           "heading": "Flexible Scheduling",
           "content": "We understand that commercial properties have different needs than residential ones. We offer flexible scheduling options including early morning, evening, and weekend appointments to work around your business hours."
-        }
-      ]
-    },
-    {
-      "slug": "downspout-repair",
-      "title": "Downspout Repair",
-      "pageTitle": "Downspout Repair Montreal",
-      "subtitle": "Ensuring your downspouts are not leaking and properly evacuating water away from your foundation",
-      "description": "Downspout issues are common. We make sure they are not leaking and properly evacuating water away from your foundation.",
-      "intro": [
-        "The purpose of a downspout is to direct the water that flows through the gutters down to the ground and away from the foundation. We often see issues with these on a property such as clogs, leaks, and not bringing the water far enough away from the foundation.",
-        "On all of our gutter cleaning jobs, we check their performance and assess if there are any issues. We inform you on any flaws and offer an effective solution, sometimes as simple as a minor adjustment or replacing broken pieces."
-      ],
-      "sections": [
-        {
-          "heading": "Common Downspout Issues",
-          "content": "Downspout problems are extremely common and often go unnoticed until water damage has already occurred. Clogs from debris, disconnected sections, and improper water direction are the issues we see most frequently."
-        },
-        {
-          "heading": "Our Approach",
-          "content": "We inspect every downspout during our gutter cleaning services. If we find issues, we provide clear options for repair including clearing clogs, reconnecting sections, adding extensions, and replacing damaged components."
-        },
-        {
-          "heading": "Foundation Protection",
-          "content": "Properly functioning downspouts are critical for protecting your foundation from water damage. Water pooling near your foundation can lead to cracks, leaks, and structural issues over time. We ensure water is directed far enough away from the foundation to prevent these problems."
         }
       ]
     },

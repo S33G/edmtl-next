@@ -39,10 +39,8 @@ const serviceHeroImages: Record<string, string> = {
   'window-cleaning': '/images/services/window-cleaning-header.png',
   'gutter-cleaning': '/images/services/guttercleaningbeforeafter1.png',
   'pressure-washing': '/images/services/pressure-washing.png',
-  'deck-staining': '/images/services/deck-refinishing-header.png',
   'commercial-window-cleaning': '/images/services/commercialwindowcleaning1.png',
   'dryer-vent-cleaning': '/images/services/dryerventcleaning1.png',
-  'downspout-repair': '/images/services/downspoutrepair1.png',
   'polymeric-sand-replacement': '/images/services/polymericsand1.png',
 };
 
@@ -52,16 +50,9 @@ const serviceSectionImages: Record<string, Record<string, string>> = {
     'Interior & Exterior Window Cleaning': '/images/services/windowcleaningexternalframe1.png',
     'Residential Window Cleaning': '/images/services/windowcleaninginteriortrack1.png',
   },
-  'gutter-cleaning': {
-    'Gutter Guards': '/images/services/gutterguards1.png',
-    'Downspout Repair': '/images/services/downspoutrepair1.png',
-  },
   'pressure-washing': {
     'Using the Right Pressure': '/images/services/pressurewashingsiding1.png',
     'Before and After Difference': '/images/services/pressurewashingcomposite1.png',
-  },
-  'deck-staining': {
-    'Staining': '/images/services/deckstaining1.png',
   },
 };
 

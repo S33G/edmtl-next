@@ -21,8 +21,6 @@ const serviceIconSvgMap: Record<string, string> = {
   'window-cleaning': '/images/icons/residential-window-cleaning.svg',
   'pressure-washing': '/images/icons/pressure-washing.svg',
   'gutter-cleaning': '/images/icons/gutter-cleaning.svg',
-  'downspout-repair': '/images/icons/downspout.svg',
-  'deck-staining': '/images/icons/deck-stain.svg',
   'commercial-window-cleaning': '/images/icons/commercial-window-cleaning.svg',
   'dryer-vent-cleaning': '/images/icons/dryer-vent.svg',
   'polymeric-sand-replacement': '/images/icons/general-maintenance.svg',
@@ -279,7 +277,7 @@ export default function LocalizedContent() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
               {servicesData.services.map((service, index) => {
                 const iconSrc = serviceIconSvgMap[service.slug];
                 return (

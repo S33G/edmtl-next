@@ -93,9 +93,7 @@
       { "name": "Residential Window Cleaning", "slug": "window-cleaning" },
       { "name": "Gutter Cleaning", "slug": "gutter-cleaning" },
       { "name": "Pressure Washing", "slug": "pressure-washing" },
-      { "name": "Deck Staining", "slug": "deck-staining" },
       { "name": "Commercial Window Cleaning", "slug": "commercial-window-cleaning" },
-      { "name": "Downspout Repair", "slug": "downspout-repair" },
       { "name": "Dryer Vent Cleaning", "slug": "dryer-vent-cleaning" },
       { "name": "Polymeric Sand Replacement", "slug": "polymeric-sand-replacement" }
     ],
@@ -103,9 +101,7 @@
       { "name": "Nettoyage de Vitres Résidentiel", "slug": "window-cleaning" },
       { "name": "Nettoyage de Gouttières", "slug": "gutter-cleaning" },
       { "name": "Lavage à Pression", "slug": "pressure-washing" },
-      { "name": "Teinture de Terrasse", "slug": "deck-staining" },
       { "name": "Nettoyage de Vitres Commercial", "slug": "commercial-window-cleaning" },
-      { "name": "Réparation de Descentes Pluviales", "slug": "downspout-repair" },
       { "name": "Nettoyage de Conduits de Sécheuse", "slug": "dryer-vent-cleaning" },
       { "name": "Entretien Extérieur Général", "slug": "polymeric-sand-replacement" }
     ]

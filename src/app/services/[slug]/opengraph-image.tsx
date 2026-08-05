@@ -17,10 +17,8 @@ const serviceHeroImages: Record<string, string> = {
   'window-cleaning': 'images/services/window-cleaning-header.png',
   'gutter-cleaning': 'images/services/guttercleaningbeforeafter1.png',
   'pressure-washing': 'images/services/pressure-washing.png',
-  'deck-staining': 'images/services/deck-refinishing-header.png',
   'commercial-window-cleaning': 'images/services/commercialwindowcleaning1.png',
   'dryer-vent-cleaning': 'images/services/dryerventcleaning1.png',
-  'downspout-repair': 'images/services/downspoutrepair1.png',
   'polymeric-sand-replacement': 'images/services/polymericsand1.png',
 }
 
