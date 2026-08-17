@@ -122,6 +122,7 @@ export default function HamburgerMenu({ currentLocale = 'en' }: { currentLocale?
               </div>
               <a
                 href={`tel:${siteConfig.contact.phone}`}
+                data-track-placement="mobile_menu"
                 className="text-[var(--foreground)] text-xl font-bold hover:text-[var(--primary)] transition-colors"
               >
                 {siteConfig.contact.phone}
@@ -129,6 +130,7 @@ export default function HamburgerMenu({ currentLocale = 'en' }: { currentLocale?
               <div className="mt-2">
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
+                  data-track-placement="mobile_menu"
                   className="text-[var(--text-muted)] hover:text-[var(--primary)] transition-colors text-sm"
                 >
                   {siteConfig.contact.email}
@@ -139,6 +141,8 @@ export default function HamburgerMenu({ currentLocale = 'en' }: { currentLocale?
             <div className="mt-6">
               <button
                 onClick={() => navigateTo(currentLocale === 'en' ? '/contact' : `/${currentLocale}/contact`)}
+                data-track-event="quote_cta_click"
+                data-track-placement="mobile_menu"
                 className="w-full btn-primary text-center"
               >
                 {currentLocale === 'en' ? 'GET FREE QUOTE' : 'DEVIS GRATUIT'}

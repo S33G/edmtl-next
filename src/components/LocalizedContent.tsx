@@ -146,6 +146,7 @@ export default function LocalizedContent() {
             <div className="flex items-center gap-3 text-sm font-semibold tracking-wide">
               <a
                 href={`tel:${siteConfig.contact.phone}`}
+                data-track-placement="home_header"
                 className="text-[var(--primary)] hover:text-[var(--foreground)] transition-colors"
               >
                 {siteConfig.contact.phone}
@@ -153,6 +154,7 @@ export default function LocalizedContent() {
               <span className="text-[var(--text-muted)]">-</span>
               <a
                 href={`mailto:${siteConfig.contact.email}`}
+                data-track-placement="home_header"
                 className="text-[var(--primary)] hover:text-[var(--foreground)] transition-colors uppercase"
               >
                 {siteConfig.contact.email}
@@ -173,6 +175,7 @@ export default function LocalizedContent() {
       <div className="md:hidden bg-[var(--background-secondary)] border-b border-[var(--border)]/20 py-2 px-4 flex items-center justify-center gap-3 text-xs font-semibold tracking-wide">
         <a
           href={`tel:${siteConfig.contact.phone}`}
+          data-track-placement="home_mobile_header"
           className="text-[var(--primary)] hover:text-[var(--foreground)] transition-colors"
         >
           {siteConfig.contact.phone}
@@ -180,6 +183,7 @@ export default function LocalizedContent() {
         <span className="text-[var(--text-muted)]">-</span>
         <a
           href={`mailto:${siteConfig.contact.email}`}
+          data-track-placement="home_mobile_header"
           className="text-[var(--primary)] hover:text-[var(--foreground)] transition-colors uppercase"
         >
           {siteConfig.contact.email}
@@ -247,12 +251,15 @@ export default function LocalizedContent() {
             >
               <a
                 href={`tel:${siteConfig.contact.phone}`}
+                data-track-placement="home_hero"
                 className="btn-primary inline-flex items-center justify-center transition-all duration-200 hover:scale-105"
               >
                 {t('hero.callNow')}
               </a>
               <button
                 onClick={goToContact}
+                data-track-event="quote_cta_click"
+                data-track-placement="home_hero"
                 className="btn-secondary inline-flex items-center justify-center transition-all duration-200 hover:scale-105"
               >
                 {t('hero.freeQuote')}
@@ -290,6 +297,9 @@ export default function LocalizedContent() {
                   >
                     <Link
                       href={`/services/${service.slug}`}
+                      data-track-event="select_item"
+                      data-track-placement="home_services"
+                      data-track-service={service.slug}
                       className="block bg-[var(--background-tertiary)] border border-[var(--border)] rounded-xl overflow-hidden group hover:shadow-lg hover:scale-[1.03] hover:-translate-y-1 transition-all duration-300 h-full"
                     >
                       <div className="flex flex-col items-center text-center p-4 sm:p-5 gap-3">
@@ -344,6 +354,8 @@ export default function LocalizedContent() {
                 </div>
                 <a
                   href={siteConfig.contact.googleMapsUrl}
+                  data-track-event="view_google_reviews"
+                  data-track-placement="home_reviews"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-[var(--text-muted)] hover:text-[var(--primary)] transition-colors underline"

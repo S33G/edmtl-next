@@ -33,6 +33,7 @@ export default function SubpageHeader() {
             <div className="flex items-center gap-3 text-sm font-semibold tracking-wide">
               <a
                 href={`tel:${phone}`}
+                data-track-placement="subpage_header"
                 className="text-[var(--primary)] hover:text-[var(--foreground)] transition-colors"
               >
                 {phone}
@@ -40,6 +41,7 @@ export default function SubpageHeader() {
               <span className="text-[var(--text-muted)]">-</span>
               <a
                 href={`mailto:${email}`}
+                data-track-placement="subpage_header"
                 className="text-[var(--primary)] hover:text-[var(--foreground)] transition-colors uppercase"
               >
                 {email}
@@ -70,6 +72,8 @@ export default function SubpageHeader() {
               </Link>
               <Link
                 href="/contact"
+                data-track-event="quote_cta_click"
+                data-track-placement="subpage_header"
                 className="bg-[var(--primary)] text-black font-semibold px-5 py-2 rounded-lg hover:bg-[var(--primary-dark)] transition-colors text-sm"
               >
                 Free Quote
@@ -83,6 +87,7 @@ export default function SubpageHeader() {
       <div className="md:hidden bg-[var(--background-secondary)] border-b border-[var(--border)]/20 py-2 px-4 flex items-center justify-center gap-3 text-xs font-semibold tracking-wide">
         <a
           href={`tel:${phone}`}
+          data-track-placement="subpage_mobile_header"
           className="text-[var(--primary)] hover:text-[var(--foreground)] transition-colors"
         >
           {phone}
@@ -90,6 +95,7 @@ export default function SubpageHeader() {
         <span className="text-[var(--text-muted)]">-</span>
         <a
           href={`mailto:${email}`}
+          data-track-placement="subpage_mobile_header"
           className="text-[var(--primary)] hover:text-[var(--foreground)] transition-colors uppercase"
         >
           {email}
@@ -132,6 +138,8 @@ export default function SubpageHeader() {
             </Link>
             <Link
               href="/contact"
+              data-track-event="quote_cta_click"
+              data-track-placement="subpage_mobile_header"
               className="bg-[var(--primary)] text-black font-semibold px-4 py-1.5 rounded-lg hover:bg-[var(--primary-dark)] transition-colors text-xs"
             >
               Free Quote

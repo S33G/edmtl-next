@@ -30,12 +30,14 @@ export default function Footer() {
             <div className="flex flex-col items-center md:items-start gap-2">
               <a
                 href={`tel:${siteConfig.contact.phone}`}
+                data-track-placement="footer"
                 className="text-[var(--primary)] font-semibold text-lg hover:brightness-110 transition-all"
               >
                 {siteConfig.contact.phone}
               </a>
               <a
                 href={`mailto:${siteConfig.contact.email}`}
+                data-track-placement="footer"
                 className="text-[var(--primary)] font-semibold hover:brightness-110 transition-all uppercase"
               >
                 {siteConfig.contact.email}
@@ -62,6 +64,8 @@ export default function Footer() {
             </div>
             <Link
               href="/contact"
+              data-track-event="quote_cta_click"
+              data-track-placement="footer"
               className="mt-4 inline-block bg-[var(--primary)] text-black font-semibold px-6 py-2.5 rounded-lg hover:bg-[var(--primary-dark)] transition-colors text-sm"
             >
               FREE QUOTE

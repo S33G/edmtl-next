@@ -157,6 +157,7 @@ export default async function ServicePage({ params }: PageProps) {
           <div className="mt-8 flex flex-wrap gap-4">
             <a
               href={`tel:${phone.replace(/-/g, '')}`}
+              data-track-placement="service_hero"
               className="btn-primary inline-flex items-center gap-2"
             >
               <svg
@@ -176,6 +177,9 @@ export default async function ServicePage({ params }: PageProps) {
             </a>
             <Link
               href={`/contact?service=${slug}`}
+              data-track-event="quote_cta_click"
+              data-track-placement="service_hero"
+              data-track-service={slug}
               className="btn-secondary inline-flex items-center gap-2"
             >
               <svg
@@ -275,6 +279,7 @@ export default async function ServicePage({ params }: PageProps) {
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a
               href={`tel:${phone.replace(/-/g, '')}`}
+              data-track-placement="service_bottom"
               className="btn-primary inline-flex items-center gap-2"
             >
               <svg
@@ -294,6 +299,9 @@ export default async function ServicePage({ params }: PageProps) {
             </a>
             <Link
               href={`/contact?service=${slug}`}
+              data-track-event="quote_cta_click"
+              data-track-placement="service_bottom"
+              data-track-service={slug}
               className="btn-secondary inline-flex items-center gap-2"
             >
               <svg
