@@ -90,6 +90,7 @@ export default function ContactPage() {
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a
               href={`tel:${phone.replace(/-/g, '')}`}
+              data-track-placement="contact_bottom"
               className="btn-primary inline-flex items-center gap-2"
             >
               <svg
@@ -109,6 +110,7 @@ export default function ContactPage() {
             </a>
             <a
               href={`mailto:${email}`}
+              data-track-placement="contact_bottom"
               className="btn-secondary inline-flex items-center gap-2"
             >
               <svg

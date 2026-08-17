@@ -6,12 +6,7 @@ import { useSearchParams } from 'next/navigation';
 import siteConfig from '../../config/site.json';
 import servicesData from '../../config/services.json';
 import { useTranslation } from '../hooks/useTranslation';
-
-declare global {
-  interface Window {
-    gtag: (command: string, action: string, parameters: object) => void;
-  }
-}
+import { trackAdsConversion, trackEvent } from '../lib/analytics';
 
 interface Service {
   slug: string;
@@ -40,6 +35,7 @@ export default function ContactFormSection({ locale = 'en' }: ContactFormSection
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [hasStartedForm, setHasStartedForm] = useState(false);
 
   // Pre-select service from URL param on mount
   useEffect(() => {
@@ -81,25 +77,49 @@ export default function ContactFormSection({ locale = 'en' }: ContactFormSection
       });
 
       if (response.ok) {
-        if (typeof window !== 'undefined' && window.gtag) {
-          window.gtag('event', 'conversion', {
-            send_to: 'AW-17512520543/3zN_CNflsK4bEN-2z55B',
-          });
-        }
+        trackEvent('generate_lead', {
+          form_id: 'contact-form',
+          locale,
+          service_count: selectedServices.length,
+          service_slug: selectedServices.join(',') || undefined,
+        });
         setSubmitStatus('success');
         setFormData({ name: '', email: '', phone: '', message: '' });
         setSelectedServices([]);
-        setTimeout(() => {
-          window.location.href = '/thank-you.html';
-        }, 1500);
+
+        let redirected = false;
+        const redirectToThankYou = () => {
+          if (redirected) return;
+          redirected = true;
+          window.location.href = '/thank-you';
+        };
+
+        trackAdsConversion(redirectToThankYou);
+        window.setTimeout(redirectToThankYou, 1500);
       } else {
+        trackEvent('form_error', {
+          form_id: 'contact-form',
+          locale,
+          error_type: 'submission_failed',
+        });
         setSubmitStatus('error');
       }
     } catch {
+      trackEvent('form_error', {
+        form_id: 'contact-form',
+        locale,
+        error_type: 'network_error',
+      });
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const handleFormStart = () => {
+    if (hasStartedForm) return;
+    setHasStartedForm(true);
+    trackEvent('form_start', { form_id: 'contact-form', locale });
   };
 
   return (
@@ -121,7 +141,13 @@ export default function ContactFormSection({ locale = 'en' }: ContactFormSection
           <div className="bg-[var(--background-tertiary)] border border-[var(--border)] rounded-2xl p-6 sm:p-8 lg:order-last">
             <h2 className="text-2xl font-bold mb-6 text-[var(--foreground)]">{t('contact.requestQuote')}</h2>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form
+              id="contact-form"
+              name="contact-form"
+              onSubmit={handleSubmit}
+              onFocus={handleFormStart}
+              className="space-y-4"
+            >
               <div>
                 <label className="block text-[var(--foreground)] font-bold mb-2">{t('contact.form.name')}</label>
                 <input
@@ -240,6 +266,7 @@ export default function ContactFormSection({ locale = 'en' }: ContactFormSection
                   <div className="text-[var(--primary)] font-bold">{t('contact.phone')}</div>
                   <a
                     href={`tel:${phone.replace(/-/g, '')}`}
+                    data-track-placement="contact_form"
                     className="text-[var(--foreground)] text-xl hover:text-[var(--primary)] transition-colors"
                   >
                     {phone}
@@ -258,6 +285,7 @@ export default function ContactFormSection({ locale = 'en' }: ContactFormSection
                   <div className="text-[var(--primary)] font-bold">{t('contact.email')}</div>
                   <a
                     href={`mailto:${email}`}
+                    data-track-placement="contact_form"
                     className="text-[var(--foreground)] hover:text-[var(--primary)] transition-colors"
                   >
                     {email}
@@ -289,12 +317,14 @@ export default function ContactFormSection({ locale = 'en' }: ContactFormSection
               <div className="flex gap-4 mb-4">
                 <a
                   href={`tel:${phone.replace(/-/g, '')}`}
+                  data-track-placement="contact_form"
                   className="flex-1 text-center bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-black px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
                 >
                   {t('contact.callNow')}
                 </a>
                 <a
                   href={`mailto:${email}`}
+                  data-track-placement="contact_form"
                   className="flex-1 text-center bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-black px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
                 >
                   {t('contact.emailUs')}

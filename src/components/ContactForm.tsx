@@ -13,12 +13,6 @@ interface ContactFormProps {
   };
 }
 
-declare global {
-  interface Window {
-    gtag: (command: string, action: string, parameters: object) => void;
-  }
-}
-
 export default function ContactForm({ translations: t }: ContactFormProps) {
   const [formData, setFormData] = useState({
     name: '',

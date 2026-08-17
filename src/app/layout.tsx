@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
+import AnalyticsTracker from "../components/AnalyticsTracker";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -88,7 +90,7 @@ export default function RootLayout({
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'AW-17512520543');
-              gtag('config', 'G-LBDWKP9YD1');
+              gtag('config', 'G-LBDWKP9YD1', { send_page_view: false });
             `,
           }}
         />
@@ -96,6 +98,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Suspense fallback={null}>
+          <AnalyticsTracker />
+        </Suspense>
         {children}
       </body>
     </html>
