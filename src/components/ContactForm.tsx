@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { trackEvent } from '../lib/analytics';
 
 interface ContactFormProps {
   translations: {
@@ -48,12 +49,7 @@ export default function ContactForm({ translations: t }: ContactFormProps) {
       });
 
       if (response.ok) {
-        // Fire Google Ads conversion event
-        if (typeof window !== 'undefined' && window.gtag) {
-          window.gtag('event', 'conversion', {
-            'send_to': 'AW-17512520543/3zN_CNflsK4bEN-2z55B'
-          });
-        }
+        trackEvent('generate_lead', { form_id: 'contact-form' });
 
         setSubmitStatus('success');
         setFormData({ name: '', email: '', phone: '', message: '' });
