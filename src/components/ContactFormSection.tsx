@@ -6,7 +6,7 @@ import { useSearchParams } from 'next/navigation';
 import siteConfig from '../../config/site.json';
 import servicesData from '../../config/services.json';
 import { useTranslation } from '../hooks/useTranslation';
-import { trackAdsConversion, trackEvent } from '../lib/analytics';
+import { trackEvent } from '../lib/analytics';
 
 interface Service {
   slug: string;
@@ -87,15 +87,9 @@ export default function ContactFormSection({ locale = 'en' }: ContactFormSection
         setFormData({ name: '', email: '', phone: '', message: '' });
         setSelectedServices([]);
 
-        let redirected = false;
-        const redirectToThankYou = () => {
-          if (redirected) return;
-          redirected = true;
+        window.setTimeout(() => {
           window.location.href = '/thank-you';
-        };
-
-        trackAdsConversion(redirectToThankYou);
-        window.setTimeout(redirectToThankYou, 1500);
+        }, 1500);
       } else {
         trackEvent('form_error', {
           form_id: 'contact-form',
