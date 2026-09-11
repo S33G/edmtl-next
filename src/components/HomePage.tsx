@@ -16,7 +16,7 @@ const translatedReviews = [
   'Après avoir été très satisfaite du lavage de vitres l’an dernier, j’ai fait laver à pression ma terrasse, mon patio et mon cabanon cette année. Je ne pourrais pas être plus heureuse. Chris et Blair sont professionnels et très minutieux. Je les recommande vivement. Notre terrasse de six ans est comme neuve.',
   'Nous avons fait appel à Chris et Blair pour le lavage de vitres et sommes très satisfaits du résultat. Ils sont sympathiques, professionnels et ont fait un excellent travail. Nous ferons encore appel à eux.',
 ];
-const cardPhotos: Record<string, string> = { 'gutter-cleaning': '/images/gutter-cleaning-after-1.jpg', 'window-cleaning': '/images/services/window-cleaning-header.png', 'pressure-washing': '/images/services/polymericsand1.png', 'deck-staining': '/images/services/deckstaining1.png' };
+const cardPhotos: Record<string, string> = { 'gutter-cleaning': '/images/services/gutter-cleaning.png', 'window-cleaning': '/images/services/window-cleaning-header.png', 'pressure-washing': '/images/services/pressure-washing.png', 'deck-staining': '/images/services/deckstaining1.png' };
 
 export default function HomePage({ locale }: { locale: Locale }) {
   const c = copy[locale];

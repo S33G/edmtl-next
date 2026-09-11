@@ -157,6 +157,38 @@
       }
     ]
   },
+  "/images/services/exterior-window-cleaning.png": {
+    "width": 1000,
+    "height": 600,
+    "variants": [
+      {
+        "src": "/images/optimized/services-exterior-window-cleaning-480.webp",
+        "width": 480,
+        "height": 288
+      },
+      {
+        "src": "/images/optimized/services-exterior-window-cleaning-800.webp",
+        "width": 800,
+        "height": 480
+      }
+    ]
+  },
+  "/images/services/gutter-cleaning.png": {
+    "width": 1000,
+    "height": 600,
+    "variants": [
+      {
+        "src": "/images/optimized/services-gutter-cleaning-480.webp",
+        "width": 480,
+        "height": 288
+      },
+      {
+        "src": "/images/optimized/services-gutter-cleaning-800.webp",
+        "width": 800,
+        "height": 480
+      }
+    ]
+  },
   "/images/services/guttercleaningbeforeafter1.png": {
     "width": 828,
     "height": 496,
@@ -186,6 +218,27 @@
         "src": "/images/optimized/services-polymericsand1-800.webp",
         "width": 800,
         "height": 479
+      }
+    ]
+  },
+  "/images/services/pressure-washing.png": {
+    "width": 1400,
+    "height": 600,
+    "variants": [
+      {
+        "src": "/images/optimized/services-pressure-washing-480.webp",
+        "width": 480,
+        "height": 206
+      },
+      {
+        "src": "/images/optimized/services-pressure-washing-800.webp",
+        "width": 800,
+        "height": 343
+      },
+      {
+        "src": "/images/optimized/services-pressure-washing-1200.webp",
+        "width": 1200,
+        "height": 514
       }
     ]
   },
