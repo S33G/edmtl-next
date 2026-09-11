@@ -1,137 +1,74 @@
-# EDMTL - Entretien Domestique Montreal
+# EDMTL — Entretien Domestique Montréal
 
-A modern, multi-language website for EDMTL home maintenance services, built with Next.js and powered by markdown files for easy content management.
+A bilingual, statically exported Next.js website for EDMTL. English routes remain at the site root; equivalent French pages live under `/fr`. Separate locale layouts set the correct HTML language before JavaScript runs.
 
-## 🚀 Getting Started
+## Run locally
 
-### Development
-```bash
+```sh
+npm install
 npm run dev
 ```
-Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-### Build for Production
-```bash
+For the production export and local preview:
+
+```sh
 npm run build
-npm start
+npm run preview
 ```
 
-## 📝 Content Management
+Open http://localhost:3000. The preview serves `out/` and mirrors the configured legacy redirects. It does not send quote requests; browser tests intercept submissions with mock responses.
 
-### Easy Content Updates
-All website content is stored in markdown files in the `content/` directory:
+## Content and design
 
-- `content/index.en.md` - English content
-- `content/index.fr.md` - French content
+- `src/data/services.en.json` and `services.fr.json`: the six service pages. Four are primary homepage cards. Keep slugs, section IDs and photograph assignments aligned between languages.
+- `src/components/HomePage.tsx`: homepage copy, real customer reviews and labelled French translations. Original reviews remain in `config/reviews.json`.
+- `src/components/SupportingPages.tsx`: FAQ, gallery introduction, privacy, terms and confirmation copy.
+- `config/site.json`: existing business contact details and bilingual FAQ answers.
+- `src/lib/i18n.ts`: locale types, navigation translations and URL helpers.
+- `src/app/globals.css`: cream, beige, white and gold theme, responsive layouts and accessible controls.
+- `src/data/gallery.ts`: verified before/after comparisons and separately labelled project photographs.
+- `public/images/`: existing source photographs. Run `npm run images` to regenerate responsive WebP copies, the image manifest and app icons. Original photographs remain available at their existing URLs.
 
-To update content:
-1. Edit the markdown files directly in GitHub
-2. The changes will be automatically deployed (if using Vercel/Netlify)
+Older markdown and configuration files are retained as source references; they no longer drive the refreshed page layouts.
 
-### Site Configuration
-The `config/site.json` file contains:
-- Contact information
-- Services list
-- Features/testimonials
-- Supported languages
+## Pages and search visibility
 
-### Adding New Content
-1. Create new markdown files in the `content/` directory
-2. Use the naming convention: `filename.en.md`, `filename.fr.md`
-3. Update the routing in the app if needed
+The homepage links to gutter cleaning, window cleaning, polymeric sand & pressure washing, and deck sanding & staining. Commercial window cleaning and dryer-vent cleaning remain available through supporting links and the footer. Every public page has an English and French route, including the game and confirmation page.
 
-## 🌐 Multi-Language Support
+Metadata includes localized titles/descriptions, self-canonical URLs, reciprocal language alternatives and localized social previews. Service pages include Service and Breadcrumb structured data. `src/app/sitemap.ts` and `robots.ts` are the only sitemap/robots sources.
 
-The site supports English (`en`) and French (`fr`):
-- Default: `/` (English)
-- French: `/fr`
+Permanent Netlify redirects preserve the merged polymeric-sand URL and older deck-refinishing/gutter-services aliases. Internal links, canonical URLs and the sitemap point directly to current destinations, following [Google’s URL-migration guidance](https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes).
 
-Language switching is handled automatically via the header language switcher.
+Thank-you pages, the game, the form-discovery utility and unapproved Terms pages are excluded from indexing.
 
-## 📁 Project Structure
+## Quote forms and analytics
 
-```
-edmtl/
-├── content/           # Markdown content files
-│   ├── index.en.md    # English homepage content
-│   └── index.fr.md    # French homepage content
-├── config/            # Site configuration
-│   └── site.json      # Global site settings
-├── src/
-│   ├── app/           # Next.js App Router pages
-│   ├── components/    # React components
-│   └── lib/           # Utilities (markdown parser)
-└── public/           # Static assets
-```
+The same form appears on `/contact` and every service page. Name, phone and at least one service are required; email and postal code are optional. Legacy service query values resolve to the current service names.
 
-## 🛠 Key Features
+Netlify discovers `contact-form` through `public/__forms.html`. Fields include name, phone, email, postal-code, services, locale and the existing hidden message field. Successful submissions redirect to the matching locale’s thank-you page. There is no visible message field.
 
-- ✅ **Markdown-driven content** - Easy to edit and maintain
-- ✅ **Multi-language support** - English and French
-- ✅ **Mobile responsive** - Works on all devices
-- ✅ **SEO optimized** - Built with Next.js best practices
-- ✅ **Fast loading** - Optimized for performance
-- ✅ **Easy deployment** - Works with Vercel, Netlify, etc.
+The latest Google Tag Manager container and event tracking are retained. A lead event fires once after a successful server response. Form values are never included in the form’s analytics events. Failed submissions keep entries; language switching transfers a draft through tab-scoped session storage, consumes it on arrival and rejects expired drafts after ten minutes.
 
-## 🚀 Deployment
+## Terms approval
 
-### Vercel (Recommended)
-1. Push code to GitHub
-2. Connect repository to Vercel
-3. Deploy automatically on every push
+Read the standalone [English draft](docs/terms-draft.en.md), [French draft](docs/terms-draft.fr.md), and separate [English review notes](docs/terms-review.en.md) / [French review notes](docs/terms-review.fr.md).
 
-### Netlify
-1. Connect GitHub repository
-2. Build command: `npm run build`
-3. Publish directory: `.next/`
+Local and deploy previews show the draft page text. Netlify production builds (`CONTEXT=production`) show a contact placeholder unless `EDMTL_TERMS_APPROVED=true` is explicitly set after client approval. Approval and search indexing are separate steps: the Terms pages remain noindex and outside the sitemap until those settings are deliberately updated.
 
-### Manual Deployment
-```bash
+No deployment is required to review this branch. Netlify’s existing deployment command also invokes a Discord notification script; use `npm run build` alone for local validation.
+
+## Verification
+
+```sh
 npm run build
-npm start
+npx tsc --noEmit
+npm run lint
+npm test
+npm run preview
+# In another terminal:
+npm run test:browser
 ```
 
-## 📞 Contact Information
+The browser suite requires Playwright and Chrome. Set `PLAYWRIGHT_MODULE_PATH` to an available Playwright module when it is outside local dependencies. Set `PLAYWRIGHT_CHANNEL` to choose a browser channel, or `bundled` for Playwright’s installed Chromium. `EDMTL_TEST_URL` defaults to http://localhost:3000.
 
-To update contact details, edit `config/site.json`:
-```json
-{
-  "contact": {
-    "email": "info@edmtl.com",
-    "phone": "438-500-3099"
-  }
-}
-```
-
-## 🎨 Styling
-
-The site uses Tailwind CSS for styling. Custom styles are in `src/app/globals.css`.
-
-## 📋 Maintenance Checklist
-
-### Regular Updates
-- [ ] Update content in markdown files
-- [ ] Check contact information in `config/site.json`
-- [ ] Verify all links work
-- [ ] Test language switching
-- [ ] Check mobile responsiveness
-
-### Dependencies
-- [ ] Run `npm audit` for security updates
-- [ ] Update Next.js and other dependencies regularly
-
-## 🆘 Troubleshooting
-
-### Common Issues
-1. **Site not loading**: Check if development server is running (`npm run dev`)
-2. **Content not updating**: Clear browser cache or hard refresh
-3. **Build errors**: Check markdown syntax in content files
-
-### Getting Help
-- Check the [Next.js documentation](https://nextjs.org/docs)
-- Review markdown syntax guides
-- Contact the developer if needed
-
----
-
-Made with ❤️ for EDMTL - Professional Home Maintenance Services in Montreal
+The suite blocks external requests and mocks all submissions. It covers required/optional fields, multiple and secondary services, preselection, failures and retries, both language redirects, duplicate prevention, draft preservation, analytics without personal values, keyboard controls, and 320/375/768/1440px layouts. The export suite checks all 28 pages and their SEO, forms, image references, route inventory and redirects.

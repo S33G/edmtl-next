@@ -1,365 +1,296 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import { useSearchParams } from 'next/navigation';
-import siteConfig from '../../config/site.json';
-import servicesData from '../../config/services.json';
-import { useTranslation } from '../hooks/useTranslation';
+import { useEffect, useId, useRef, useState } from 'react';
+import Link from 'next/link';
 import { trackEvent } from '../lib/analytics';
-
-interface Service {
-  slug: string;
-  title: string;
-}
+import { type Locale, localizedPath } from '../lib/i18n';
+import { canonicalServiceSlug, getPrimaryServices, getServices } from '../lib/services';
+import {
+  clearQuoteLanguageDraft,
+  consumeQuoteLanguageDraft,
+  registerQuoteDraftProvider,
+} from '../lib/quote-draft';
 
 interface ContactFormSectionProps {
-  locale?: string;
+  locale?: Locale;
+  serviceSlug?: string;
+  variant?: 'embedded' | 'dedicated';
 }
 
-export default function ContactFormSection({ locale = 'en' }: ContactFormSectionProps) {
-  const phone = siteConfig.contact.phone;
-  const email = siteConfig.contact.email;
-  const services = servicesData.services as Service[];
-  const { t } = useTranslation(locale);
+const copy = {
+  en: {
+    eyebrow: 'LET’S TALK ABOUT YOUR PROJECT',
+    title: 'Get a free quote',
+    intro: 'Tell us what you need. We’ll get in touch to discuss your property.',
+    required: 'Name, phone and at least one service are required.',
+    name: 'Name', phone: 'Phone', email: 'Email', postalCode: 'Postal code',
+    optional: 'optional', services: 'What can we help with?',
+    more: 'Other services', less: 'Hide other services',
+    submit: 'Request my free quote', sending: 'Sending your request…', sent: 'Request sent',
+    success: 'Thank you! Your request has been sent. Taking you to your confirmation…',
+    error: 'Your request could not be sent. Your details are still here — please try again.',
+    validation: 'Please check the highlighted fields.',
+    nameError: 'Please enter your name.', phoneError: 'Please enter your phone number.',
+    emailError: 'Please enter a valid email address, or leave this field empty.',
+    serviceError: 'Please select at least one service.',
+    privacy: 'We use your details to respond to your request.', privacyLink: 'Privacy policy',
+    assurance: 'Free quote. No obligation.',
+  },
+  fr: {
+    eyebrow: 'PARLONS DE VOTRE PROJET',
+    title: 'Obtenez un devis gratuit',
+    intro: 'Dites-nous ce dont vous avez besoin. Nous vous contacterons pour en discuter.',
+    required: 'Le nom, le téléphone et au moins un service sont obligatoires.',
+    name: 'Nom', phone: 'Téléphone', email: 'Courriel', postalCode: 'Code postal',
+    optional: 'facultatif', services: 'Comment pouvons-nous vous aider?',
+    more: 'Autres services', less: 'Masquer les autres services',
+    submit: 'Demander mon devis gratuit', sending: 'Envoi de votre demande…', sent: 'Demande envoyée',
+    success: 'Merci! Votre demande a été envoyée. Vous allez être redirigé vers votre confirmation…',
+    error: 'Votre demande n’a pas pu être envoyée. Vos renseignements sont conservés — veuillez réessayer.',
+    validation: 'Veuillez vérifier les champs indiqués.',
+    nameError: 'Veuillez saisir votre nom.', phoneError: 'Veuillez saisir votre numéro de téléphone.',
+    emailError: 'Veuillez saisir une adresse courriel valide ou laisser ce champ vide.',
+    serviceError: 'Veuillez sélectionner au moins un service.',
+    privacy: 'Nous utilisons vos renseignements pour répondre à votre demande.', privacyLink: 'Politique de confidentialité',
+    assurance: 'Devis gratuit. Sans engagement.',
+  },
+} satisfies Record<Locale, Record<string, string>>;
 
-  const searchParams = useSearchParams();
-  const preselectedService = searchParams.get('service');
+type FieldName = 'name' | 'phone' | 'email' | 'postalCode';
+type FormErrors = Partial<Record<FieldName | 'services', string>>;
 
-  const [selectedServices, setSelectedServices] = useState<string[]>([]);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [hasStartedForm, setHasStartedForm] = useState(false);
+export default function ContactFormSection({ locale = 'en', serviceSlug, variant = 'embedded' }: ContactFormSectionProps) {
+  const t = copy[locale];
+  const services = getServices(locale);
+  const primaryServices = getPrimaryServices(locale);
+  const secondaryServices = services.filter((service) => !service.primary);
+  const initialSlug = serviceSlug ? canonicalServiceSlug(serviceSlug) : undefined;
+  const initialSelection = initialSlug && services.some((service) => service.slug === initialSlug) ? [initialSlug] : [];
+  const [selectedServices, setSelectedServices] = useState<string[]>(initialSelection);
+  const [formData, setFormData] = useState({ name: '', phone: '', email: '', postalCode: '' });
+  const [showSecondary, setShowSecondary] = useState(secondaryServices.some((service) => initialSelection.includes(service.slug)));
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const formRef = useRef<HTMLFormElement>(null);
+  const lockedRef = useRef(false);
+  const startedRef = useRef(false);
+  const initializedRef = useRef<string | null>(null);
+  const redirectRef = useRef<number | undefined>(undefined);
+  const snapshotRef = useRef({ ...formData, selectedServices });
+  const id = `quote-${useId()}`;
+  const locked = status === 'submitting' || status === 'success';
 
-  // Pre-select service from URL param on mount
   useEffect(() => {
-    if (preselectedService) {
-      const service = services.find((s) => s.slug === preselectedService);
-      if (service) {
-        setSelectedServices([service.slug]);
+    snapshotRef.current = { ...formData, selectedServices };
+  }, [formData, selectedServices]);
+
+  useEffect(() => registerQuoteDraftProvider(() => ({
+    draft: snapshotRef.current,
+    isSubmitting: lockedRef.current,
+  })), []);
+
+  useEffect(() => {
+    const context = `${locale}:${serviceSlug ?? ''}`;
+    if (initializedRef.current === context) return;
+    initializedRef.current = context;
+    const draft = consumeQuoteLanguageDraft();
+    const available = getServices(locale);
+    const normalize = (slugs: string[]) => [...new Set(slugs.map(canonicalServiceSlug).filter((slug): slug is string => Boolean(slug && available.some((service) => service.slug === slug))))];
+    if (draft) {
+      const selection = normalize(draft.selectedServices);
+      setFormData({ name: draft.name, phone: draft.phone, email: draft.email, postalCode: draft.postalCode });
+      setSelectedServices(selection);
+      setShowSecondary(available.some((service) => !service.primary && selection.includes(service.slug)));
+      return;
+    }
+
+    if (serviceSlug) {
+      const selection = normalize([serviceSlug]);
+      setSelectedServices(selection);
+      setShowSecondary(available.some((service) => !service.primary && selection.includes(service.slug)));
+    } else {
+      const query = new URLSearchParams(window.location.search).get('service');
+      if (query) {
+        const selection = normalize(query.split(','));
+        setSelectedServices(selection);
+        setShowSecondary(available.some((service) => !service.primary && selection.includes(service.slug)));
       }
     }
-  }, [preselectedService, services]);
+  }, [locale, serviceSlug]);
+
+  useEffect(() => () => {
+    if (redirectRef.current !== undefined) window.clearTimeout(redirectRef.current);
+  }, []);
+
+  const handleFormStart = () => {
+    if (startedRef.current || lockedRef.current) return;
+    startedRef.current = true;
+    trackEvent('form_start', { form_id: 'contact-form', locale });
+  };
+
+  const handleChange = (field: FieldName, value: string) => {
+    if (lockedRef.current) return;
+    handleFormStart();
+    setFormData((previous) => ({ ...previous, [field]: value }));
+    setErrors((previous) => ({ ...previous, [field]: undefined }));
+    if (status === 'error') setStatus('idle');
+  };
 
   const handleServiceToggle = (slug: string) => {
-    setSelectedServices((prev) =>
-      prev.includes(slug)
-        ? prev.filter((s) => s !== slug)
-        : [...prev, slug]
-    );
+    if (lockedRef.current) return;
+    handleFormStart();
+    const selected = !selectedServices.includes(slug);
+    setSelectedServices((previous) => selected ? [...previous, slug] : previous.filter((value) => value !== slug));
+    setErrors((previous) => ({ ...previous, services: undefined }));
+    trackEvent('service_select', { form_id: 'contact-form', locale, service_slug: slug, selected });
+    if (status === 'error') setStatus('idle');
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (lockedRef.current) return;
+    handleFormStart();
+    const nextErrors: FormErrors = {};
+    if (!formData.name.trim()) nextErrors.name = t.nameError;
+    if (!formData.phone.trim()) nextErrors.phone = t.phoneError;
+    const emailInput = event.currentTarget.elements.namedItem('email') as HTMLInputElement | null;
+    if (formData.email.trim() && emailInput?.validity.typeMismatch) nextErrors.email = t.emailError;
+    if (!selectedServices.length) nextErrors.services = t.serviceError;
+    setErrors(nextErrors);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
+    if (Object.keys(nextErrors).length) {
+      setStatus('idle');
+      trackEvent('form_error', { form_id: 'contact-form', locale, error_type: 'validation_error' });
+      const firstField = Object.keys(nextErrors)[0];
+      window.requestAnimationFrame(() => {
+        const input = firstField === 'services'
+          ? formRef.current?.querySelector<HTMLInputElement>('input[type="checkbox"]')
+          : formRef.current?.elements.namedItem(firstField === 'postalCode' ? 'postal-code' : firstField) as HTMLInputElement | null;
+        input?.focus();
+      });
+      return;
+    }
 
+    lockedRef.current = true;
+    setStatus('submitting');
     try {
       const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams({
           'form-name': 'contact-form',
-          ...formData,
+          name: formData.name.trim(),
+          phone: formData.phone.trim(),
+          email: formData.email.trim(),
+          'postal-code': formData.postalCode.trim(),
           services: selectedServices.join(', '),
+          locale,
+          message: '',
         }).toString(),
       });
 
-      if (response.ok) {
-        trackEvent('generate_lead', {
-          form_id: 'contact-form',
-          locale,
-          service_count: selectedServices.length,
-          service_slug: selectedServices.join(',') || undefined,
-        });
-        setSubmitStatus('success');
-        setFormData({ name: '', email: '', phone: '', message: '' });
-        setSelectedServices([]);
-
-        window.setTimeout(() => {
-          window.location.href = '/thank-you';
-        }, 1500);
-      } else {
-        trackEvent('form_error', {
-          form_id: 'contact-form',
-          locale,
-          error_type: 'submission_failed',
-        });
-        setSubmitStatus('error');
+      if (!response.ok) {
+        trackEvent('form_error', { form_id: 'contact-form', locale, error_type: 'submission_failed' });
+        lockedRef.current = false;
+        setStatus('error');
+        return;
       }
-    } catch {
-      trackEvent('form_error', {
-        form_id: 'contact-form',
-        locale,
-        error_type: 'network_error',
+
+      trackEvent('generate_lead', {
+        form_id: 'contact-form', locale,
+        service_count: selectedServices.length,
+        service_slug: selectedServices.join(','),
       });
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
+      clearQuoteLanguageDraft();
+      setStatus('success');
+      redirectRef.current = window.setTimeout(() => {
+        window.location.assign(localizedPath(locale, '/thank-you'));
+      }, 1500);
+    } catch {
+      trackEvent('form_error', { form_id: 'contact-form', locale, error_type: 'network_error' });
+      lockedRef.current = false;
+      setStatus('error');
     }
   };
 
-  const handleFormStart = () => {
-    if (hasStartedForm) return;
-    setHasStartedForm(true);
-    trackEvent('form_start', { form_id: 'contact-form', locale });
-  };
+  const renderService = (service: (typeof services)[number]) => (
+    <label key={service.slug} className={`service-option${selectedServices.includes(service.slug) ? ' service-option-selected' : ''}`}>
+      <input
+        type="checkbox" name="services" value={service.slug}
+        checked={selectedServices.includes(service.slug)}
+        onChange={() => handleServiceToggle(service.slug)} disabled={locked}
+      />
+      <span>{service.title}</span>
+    </label>
+  );
 
   return (
-    <section className="py-12 md:py-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <form
-          name="contact-form"
-          data-netlify="true"
-          style={{ display: 'none' }}
-        >
-          <input type="text" name="name" />
-          <input type="email" name="email" />
-          <input type="tel" name="phone" />
-          <textarea name="message"></textarea>
-          <input type="text" name="services" />
-        </form>
-
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-          <div className="bg-[var(--background-tertiary)] border border-[var(--border)] rounded-2xl p-6 sm:p-8 lg:order-last">
-            <h2 className="text-2xl font-bold mb-6 text-[var(--foreground)]">{t('contact.requestQuote')}</h2>
-
-            <form
-              id="contact-form"
-              name="contact-form"
-              onSubmit={handleSubmit}
-              onFocus={handleFormStart}
-              className="space-y-4"
-            >
-              <div>
-                <label className="block text-[var(--foreground)] font-bold mb-2">{t('contact.form.name')}</label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded-lg border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none transition-colors"
-                  placeholder={t('contact.form.namePlaceholder')}
-                  required
-                  disabled={isSubmitting}
-                />
-              </div>
-
-              <div>
-                <label className="block text-[var(--foreground)] font-bold mb-2">{t('contact.form.email')}</label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded-lg border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none transition-colors"
-                  placeholder={t('contact.form.emailPlaceholder')}
-                  required
-                  disabled={isSubmitting}
-                />
-              </div>
-
-              <div>
-                <label className="block text-[var(--foreground)] font-bold mb-2">{t('contact.form.phone')}</label>
-                <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded-lg border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none transition-colors"
-                  placeholder={t('contact.form.phonePlaceholder')}
-                  required
-                  disabled={isSubmitting}
-                />
-              </div>
-
-              <div>
-                <label className="block text-[var(--foreground)] font-bold mb-3">{t('contact.servicesInterestedIn')}</label>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {services.map((service) => (
-                    <label
-                      key={service.slug}
-                      className="flex items-center gap-2 cursor-pointer group"
-                    >
-                      <input
-                        type="checkbox"
-                        checked={selectedServices.includes(service.slug)}
-                        onChange={() => handleServiceToggle(service.slug)}
-                        className="w-4 h-4 rounded border-[var(--border)] text-[var(--primary)] focus:ring-[var(--primary)] bg-[var(--background-secondary)]"
-                        disabled={isSubmitting}
-                      />
-                      <span className="text-[var(--foreground-secondary)] text-sm group-hover:text-[var(--foreground)] transition-colors">
-                        {service.title}
-                      </span>
-                    </label>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-[var(--foreground)] font-bold mb-2">{t('contact.form.message')}</label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows={4}
-                  className="w-full p-3 bg-[var(--background-secondary)] text-[var(--foreground)] rounded-lg border border-[var(--border)] focus:border-[var(--primary)] focus:outline-none transition-colors"
-                  placeholder={t('contact.form.messagePlaceholder')}
-                  disabled={isSubmitting}
-                />
-              </div>
-
-              {submitStatus === 'success' && (
-                <div className="p-3 bg-green-900/50 border border-green-600 text-green-400 rounded-lg">
-                  {t('contact.form.successMessage')}
-                </div>
-              )}
-
-              {submitStatus === 'error' && (
-                <div className="p-3 bg-red-900/50 border border-red-600 text-red-400 rounded-lg">
-                  {t('contact.form.errorMessage')}
-                </div>
-              )}
-
-              <button
-                type="submit"
-                className="w-full bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-black px-6 py-3 rounded-xl font-semibold transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? t('contact.form.sending') : t('contact.form.sendRequest')}
-              </button>
-            </form>
-          </div>
-
-          <div className="bg-[var(--background-tertiary)] border border-[var(--border)] rounded-2xl p-6 sm:p-8 lg:order-first">
-            <h2 className="text-2xl font-bold mb-6 text-[var(--foreground)]">{t('contact.title')}</h2>
-
-            <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-[var(--primary)] rounded-full flex items-center justify-center">
-                  <svg className="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      fillRule="evenodd"
-                      d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1.5 1.5 0 011.465 1.175l.716 3.223a1.5 1.5 0 01-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 006.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 011.767-1.052l3.223.716A1.5 1.5 0 0118 15.352V16.5a1.5 1.5 0 01-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 012 8.5v-.5z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-[var(--primary)] font-bold">{t('contact.phone')}</div>
-                  <a
-                    href={`tel:${phone.replace(/-/g, '')}`}
-                    data-track-placement="contact_form"
-                    className="text-[var(--foreground)] text-xl hover:text-[var(--primary)] transition-colors"
-                  >
-                    {phone}
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-[var(--primary)] rounded-full flex items-center justify-center">
-                  <svg className="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 20 20">
-                    <rect width="16" height="12" x="2" y="4" rx="2" />
-                    <path d="M2 6l8 5 8-5" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-[var(--primary)] font-bold">{t('contact.email')}</div>
-                  <a
-                    href={`mailto:${email}`}
-                    data-track-placement="contact_form"
-                    className="text-[var(--foreground)] hover:text-[var(--primary)] transition-colors"
-                  >
-                    {email}
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-[var(--primary)] rounded-full flex items-center justify-center">
-                  <svg className="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      fillRule="evenodd"
-                      d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-[var(--primary)] font-bold">{t('contact.serviceArea')}</div>
-                  <div className="text-[var(--text-muted)]">
-                    {t('contact.serviceAreaDescription')}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-8 pt-6 border-t border-[var(--border)]">
-              <div className="text-[var(--primary)] font-bold mb-4">{t('contact.freeQuotesAvailable')}</div>
-              <div className="flex gap-4 mb-4">
-                <a
-                  href={`tel:${phone.replace(/-/g, '')}`}
-                  data-track-placement="contact_form"
-                  className="flex-1 text-center bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-black px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
-                >
-                  {t('contact.callNow')}
-                </a>
-                <a
-                  href={`mailto:${email}`}
-                  data-track-placement="contact_form"
-                  className="flex-1 text-center bg-[var(--primary)] hover:bg-[var(--primary-dark)] text-black px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
-                >
-                  {t('contact.emailUs')}
-                </a>
-              </div>
-              <a
-                href={siteConfig.contact.vcard.filePath}
-                download="EDMTL-Contact.vcf"
-                className="flex items-center justify-center gap-2 text-center p-3 border border-[var(--primary)] rounded-lg text-[var(--primary)] hover:bg-[var(--primary)] hover:text-black transition-all duration-300 w-full"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-5 h-5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                  <circle cx="9" cy="7" r="4" />
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                </svg>
-                {t('contact.addToContacts')}
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-12 flex justify-center">
-          <Image
-            src="/images/edm-box-logo.png"
-            alt="EDMTL"
-            width={80}
-            height={80}
-            className="opacity-30"
-          />
-        </div>
+    <section id="quote" className={`quote-card quote-card-${variant}`} aria-labelledby={`${id}-heading`}>
+      <div className={variant === 'dedicated' ? 'sr-only' : 'quote-card-header'}>
+        <p className="eyebrow">{t.eyebrow}</p>
+        <h2 id={`${id}-heading`}>{t.title}</h2>
+        <p>{t.intro}</p>
       </div>
+      <form
+        ref={formRef} id="contact-form" name="contact-form" method="POST"
+        action={localizedPath(locale, '/thank-you')} data-netlify="true"
+        className="quote-form" onSubmit={handleSubmit} onFocus={handleFormStart}
+        noValidate aria-busy={status === 'submitting'}
+      >
+        <input type="hidden" name="form-name" value="contact-form" />
+        <input type="hidden" name="locale" value={locale} />
+        <input type="hidden" name="message" value="" />
+        <p className="form-required-note">{t.required}</p>
+        <div className="form-fields">
+          {(['name', 'phone', 'email', 'postalCode'] as const).map((field) => {
+            const required = field === 'name' || field === 'phone';
+            return (
+              <div className="field" key={field}>
+                <label className="field-label" htmlFor={`${id}-${field}`}>
+                  {t[field]} {required ? <span aria-hidden="true">*</span> : <span>({t.optional})</span>}
+                </label>
+                <input
+                  id={`${id}-${field}`} name={field === 'postalCode' ? 'postal-code' : field}
+                  type={field === 'phone' ? 'tel' : field === 'email' ? 'email' : 'text'}
+                  autoComplete={field === 'phone' ? 'tel' : field === 'postalCode' ? 'postal-code' : field}
+                  inputMode={field === 'phone' ? 'tel' : field === 'email' ? 'email' : 'text'}
+                  autoCapitalize={field === 'email' ? 'none' : field === 'postalCode' ? 'characters' : 'words'}
+                  maxLength={field === 'name' ? 120 : field === 'phone' ? 40 : field === 'email' ? 254 : 16}
+                  value={formData[field]} onChange={(event) => handleChange(field, event.target.value)}
+                  required={required} disabled={locked}
+                  aria-invalid={Boolean(errors[field])}
+                  aria-describedby={errors[field] ? `${id}-${field}-error` : undefined}
+                />
+                {errors[field] && <p className="field-error" id={`${id}-${field}-error`}>{errors[field]}</p>}
+              </div>
+            );
+          })}
+        </div>
+        <fieldset aria-invalid={Boolean(errors.services)} aria-describedby={errors.services ? `${id}-services-error` : undefined}>
+          <legend className="field-label">{t.services} <span aria-hidden="true">*</span></legend>
+          <div className="service-options">{primaryServices.map(renderService)}</div>
+          {secondaryServices.length > 0 && (
+            <div className="secondary-services">
+              <button type="button" className="secondary-services-toggle" aria-expanded={showSecondary}
+                aria-controls={`${id}-other-services`} onClick={() => setShowSecondary(!showSecondary)} disabled={locked}>
+                {showSecondary ? t.less : t.more} <span aria-hidden="true">{showSecondary ? '−' : '+'}</span>
+              </button>
+              <div id={`${id}-other-services`} className="service-options" hidden={!showSecondary}>
+                {secondaryServices.map(renderService)}
+              </div>
+            </div>
+          )}
+          {errors.services && <p className="field-error" id={`${id}-services-error`}>{errors.services}</p>}
+        </fieldset>
+        {Object.values(errors).some(Boolean) && <p className="form-status form-status-error" role="alert">{t.validation}</p>}
+        {status === 'error' && <p className="form-status form-status-error" role="alert">{t.error}</p>}
+        {status === 'success' && <p className="form-status form-status-success" role="status">{t.success}</p>}
+        <button type="submit" className="button button-primary" disabled={locked}>
+          {status === 'submitting' ? t.sending : status === 'success' ? t.sent : t.submit}
+        </button>
+        <p className="form-footnote">{t.assurance}</p>
+        <p className="form-footnote">{t.privacy} <Link href={localizedPath(locale, '/privacy-policy')}>{t.privacyLink}</Link></p>
+      </form>
     </section>
   );
 }

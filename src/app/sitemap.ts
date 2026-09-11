@@ -1,27 +1,9 @@
-import { MetadataRoute } from 'next'
-import servicesData from '../../config/services.json'
-
-export const dynamic = "force-static"
+import { MetadataRoute } from 'next';
+import { getServices } from '@/lib/services';
+import { locales, localizedPath } from '@/lib/i18n';
+export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://edmtl.com'
-
-  const staticRoutes = [
-    { path: '', priority: 1 },
-    { path: '/contact', priority: 0.9 },
-  ]
-
-  const serviceRoutes = servicesData.services.map((service) => ({
-    path: `/services/${service.slug}`,
-    priority: 0.8,
-  }))
-
-  const allRoutes = [...staticRoutes, ...serviceRoutes]
-
-  return allRoutes.map((route) => ({
-    url: `${baseUrl}${route.path}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: route.priority,
-  }))
+  const routes = ['/', '/contact', '/faq', '/gallery', '/privacy-policy', ...getServices('en').map(service => `/services/${service.slug}`)];
+  return locales.flatMap(locale => routes.map(route => ({ url: `https://edmtl.com${localizedPath(locale, route)}`, changeFrequency: 'monthly' as const, priority: route === '/' ? 1 : route.startsWith('/services/') ? 0.8 : 0.6, alternates: { languages: { 'en-CA': `https://edmtl.com${localizedPath('en', route)}`, 'fr-CA': `https://edmtl.com${localizedPath('fr', route)}`, 'x-default': `https://edmtl.com${localizedPath('en', route)}` } } })));
 }
