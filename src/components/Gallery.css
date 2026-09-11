@@ -9,8 +9,6 @@
 .gallery-image-button picture, .gallery-image-button img { display: block; width: 100%; height: 100%; }
 .gallery-image-button img { object-fit: cover; transition: transform 180ms ease; }
 .gallery-image-button:hover img { transform: scale(1.025); }
-.gallery-comparison img { object-fit: contain; }
-.gallery-comparison:hover img { transform: none; }
 .gallery-enlarge { position: absolute; right: .7rem; bottom: .7rem; display: grid; place-items: center; width: 2.15rem; height: 2.15rem; border-radius: 50%; background: var(--background, #f9f6f0); color: var(--foreground, #1c1814); font-size: 1.2rem; box-shadow: 0 2px 8px #0002; }
 .gallery-card figcaption { padding: 1rem 1.15rem; color: var(--foreground); font-size: .95rem; line-height: 1.55; }
 .gallery-dialog { width: min(1100px, 95vw); max-height: 94dvh; margin: auto; padding: 0; border: 0; border-radius: 1rem; color: var(--foreground); background: var(--background, #f9f6f0); overflow: auto; }
