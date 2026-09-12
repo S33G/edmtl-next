@@ -1,0 +1,303 @@
+[
+  {
+    "slug": "gutter-cleaning",
+    "title": "Nettoyage de gouttières",
+    "pageTitle": "Nettoyage de gouttières à Montréal",
+    "subtitle": "Des gouttières dégagées. Des descentes qui s'écoulent bien. Une maison prête pour la prochaine pluie.",
+    "description": "Nettoyage de gouttières à Montréal : retrait des débris, rinçage et vérification de l'écoulement des descentes. Demandez une soumission gratuite.",
+    "intro": [
+      "Un système de gouttières et de descentes dégagé aide à éloigner l'eau de pluie de votre maison. Les feuilles, les aiguilles et les autres débris peuvent nuire à cet écoulement, surtout avec les fortes pluies et les changements de saison à Montréal.",
+      "Nous retirons les débris, rinçons le système à l'eau et vérifions son écoulement. Si nous remarquons un problème, nous vous expliquons ce que nous avons observé pour vous aider à prendre une décision éclairée."
+    ],
+    "sections": [
+      {
+        "id": "complete-cleaning",
+        "heading": "Un nettoyage complet, jusqu'aux descentes",
+        "content": "Nous retirons les débris accumulés, puis rinçons le système à l'eau. Cette étape nous permet de vérifier que l'eau circule dans les gouttières et les descentes, au-delà de la propreté des surfaces visibles.",
+        "list": {
+          "title": "Notre nettoyage comprend :",
+          "items": [
+            "Le retrait des feuilles, des aiguilles et des débris accumulés",
+            "Le rinçage à l'eau des gouttières et des descentes",
+            "La vérification de l'écoulement et du point d'évacuation de l'eau",
+            "Le signalement des problèmes visibles qui pourraient nécessiter une intervention"
+          ]
+        }
+      },
+      {
+        "id": "seasonal-maintenance",
+        "heading": "Un entretien adapté à votre propriété",
+        "content": "Les arbres, la forme du toit et la quantité de débris autour de votre maison influencent la vitesse à laquelle les gouttières se remplissent. Décrivez-nous votre propriété lors de votre demande de soumission pour nous aider à évaluer le nettoyage nécessaire."
+      }
+    ],
+    "hero": "/images/services/gutter-cleaning.png",
+    "images": [
+      {
+        "src": "/images/services/guttercleaningbeforeafter1.png",
+        "alt": "La même gouttière avant le retrait des débris à gauche et après le nettoyage à droite.",
+        "comparison": true
+      }
+    ],
+    "primary": true
+  },
+  {
+    "slug": "window-cleaning",
+    "title": "Nettoyage de vitres",
+    "pageTitle": "Nettoyage de vitres à Montréal",
+    "subtitle": "Des vitres, des cadres, des rails et des moustiquaires propres, à l'intérieur comme à l'extérieur.",
+    "description": "Nettoyage résidentiel de vitres à Montréal, incluant cadres, rails et moustiquaires. Service intérieur et extérieur. Soumission gratuite.",
+    "intro": [
+      "Des vitres propres laissent entrer davantage de lumière naturelle et donnent une apparence soignée à votre maison. Le nettoyage ne se limite pas au verre : les cadres, les rails et les moustiquaires peuvent aussi accumuler de la saleté.",
+      "Nous travaillons avec soin à l'intérieur et à l'extérieur, en respectant votre espace, votre aménagement paysager et votre horaire. Du condo à la maison unifamiliale, nous prenons le temps de bien faire les détails."
+    ],
+    "sections": [
+      {
+        "id": "interior-exterior",
+        "heading": "Nettoyage intérieur et extérieur",
+        "content": "Un service complet comprend les deux côtés du verre ainsi que les éléments qui l'entourent. Les rails des fenêtres ouvrantes peuvent cacher de la saleté, des insectes et d'autres débris : nous leur accordons aussi de l'attention.",
+        "list": {
+          "title": "Un nettoyage complet comprend :",
+          "items": [
+            "Le verre intérieur et extérieur",
+            "Les cadres et les rebords",
+            "Les rails et les parties accessibles des fenêtres ouvrantes",
+            "Les moustiquaires"
+          ]
+        }
+      },
+      {
+        "id": "residential",
+        "heading": "Du soin pour votre maison",
+        "content": "À l'intérieur, nous travaillons avec soin pour éviter les gouttes sur vos planchers. À l'extérieur, nous plaçons nos échelles en tenant compte de vos plantes. Notre objectif : des fenêtres impeccables en perturbant le moins possible votre journée.",
+        "list": {
+          "title": "Nous travaillons notamment sur :",
+          "items": [
+            "Les unités de condo",
+            "Les maisons en rangée",
+            "Les maisons unifamiliales",
+            "Les immeubles à logements multiples"
+          ]
+        }
+      },
+      {
+        "id": "commercial",
+        "heading": "Des vitres propres pour les entreprises et les immeubles",
+        "content": "Nous nettoyons aussi les vitres des bureaux, des immeubles en copropriété et d'autres propriétés commerciales. Une communication claire, un travail bien organisé et un horaire adapté à vos activités contribuent au bon déroulement du service."
+      }
+    ],
+    "hero": "/images/services/window-cleaning-header.png",
+    "images": [
+      {
+        "src": "/images/services/windowcleaningexternalframe1.png",
+        "alt": "Un cadre de fenêtre extérieur avant le nettoyage à gauche et après le nettoyage à droite.",
+        "comparison": true
+      },
+      {
+        "src": "/images/services/windowcleaninginteriortrack1.png",
+        "alt": "Un rail de fenêtre intérieur avant le nettoyage à gauche et après le nettoyage à droite.",
+        "comparison": true
+      }
+    ],
+    "primary": true
+  },
+  {
+    "slug": "pressure-washing",
+    "title": "Sable polymère et lavage à pression",
+    "pageTitle": "Sable polymère et lavage à pression à Montréal",
+    "subtitle": "Rafraîchissez vos surfaces pavées, renouvelez les joints de sable et éliminez la saleté accumulée.",
+    "description": "Remplacement de sable polymère et lavage à pression à Montréal : entrées, allées, terrasses et revêtements. Demandez une soumission gratuite.",
+    "intro": [
+      "Les entrées, les allées et les terrasses accumulent de la saleté, des algues et d'autres dépôts au fil du temps. Le sable entre les pavés peut aussi se dégrader, laissant place aux mauvaises herbes, à la mousse et aux mouvements des pavés.",
+      "Nous offrons le lavage à pression et le remplacement de sable polymère selon les besoins de vos surfaces. Indiquez-nous si vous souhaitez un nettoyage, le renouvellement des joints ou les deux : nous vous aiderons à déterminer les travaux nécessaires."
+    ],
+    "sections": [
+      {
+        "id": "polymeric-sand",
+        "heading": "Remplacement de sable polymère",
+        "content": "Nous retirons le sable usé, nettoyons soigneusement la surface pavée et installons du sable polymère dans les joints. Une fois bien durci, il aide à maintenir les pavés en place et à limiter la croissance des mauvaises herbes entre eux. La préparation dépend de l'état de la surface et des joints.",
+        "list": {
+          "title": "Les surfaces concernées comprennent :",
+          "items": [
+            "Les entrées en pavé uni",
+            "Les allées et les accès",
+            "Les terrasses et les autres espaces extérieurs pavés"
+          ]
+        }
+      },
+      {
+        "id": "surfaces",
+        "heading": "Lavage à pression des surfaces extérieures",
+        "content": "Nous inspectons la surface avant de choisir la méthode de nettoyage et le niveau de pression. Un nettoyage contrôlé aide à retirer la saleté accumulée et à rafraîchir l'apparence des espaces extérieurs.",
+        "list": {
+          "title": "Nous nettoyons régulièrement :",
+          "items": [
+            "Les entrées et les garages de stationnement",
+            "Les allées et les accès",
+            "Les terrasses et les structures extérieures",
+            "Les types de revêtements extérieurs qui s'y prêtent"
+          ]
+        }
+      },
+      {
+        "id": "right-pressure",
+        "heading": "La bonne méthode pour chaque matériau",
+        "content": "Les matériaux ne nécessitent pas tous les mêmes soins. Nous adaptons la pression pour réduire les risques de marques ou de dommages. Lorsque la surface l'exige, nous utilisons un lavage à basse pression ou un nettoyage manuel à l'eau et au savon."
+      },
+      {
+        "id": "results",
+        "heading": "Voyez la différence après le nettoyage",
+        "content": "Le retrait de la saleté et des algues peut transformer l'apparence d'une surface et réduire les dépôts glissants. Les photos ci-dessous montrent un revêtement extérieur et une terrasse en composite avant et après le nettoyage."
+      }
+    ],
+    "hero": "/images/services/pressure-washing.png",
+    "images": [
+      {
+        "src": "/images/services/polymericsand1.png",
+        "alt": "Une entrée pavée avec des joints de sable renouvelés, présentée comme photo de réalisation."
+      },
+      {
+        "src": "/images/services/pressurewashingsiding1.png",
+        "alt": "Un revêtement extérieur avant le lavage à gauche et après le lavage à droite.",
+        "comparison": true
+      },
+      {
+        "src": "/images/services/pressurewashingcomposite1.png",
+        "alt": "Une terrasse en composite avant le nettoyage à gauche et après le nettoyage à droite.",
+        "comparison": true
+      }
+    ],
+    "primary": true
+  },
+  {
+    "slug": "deck-staining",
+    "title": "Sablage et teinture de terrasses",
+    "pageTitle": "Sablage et teinture de terrasses à Montréal",
+    "subtitle": "Une préparation soignée et une finition uniforme pour rafraîchir et protéger votre terrasse en bois.",
+    "description": "Sablage et teinture de terrasses à Montréal. Nettoyage, préparation et application de teinture sur le bois neuf ou ancien. Soumission gratuite.",
+    "intro": [
+      "Les terrasses en bois sont exposées au soleil, à la pluie et aux variations de température toute l'année. Un entretien régulier aide à préserver leur apparence et à protéger le bois.",
+      "Nos travaux commencent par la préparation. Nous nettoyons et sablons la surface selon ses besoins avant d'appliquer la teinture avec soin et de façon uniforme. La méthode dépend de l'âge et de l'état de votre terrasse."
+    ],
+    "sections": [
+      {
+        "id": "preparation",
+        "heading": "Nettoyage et sablage",
+        "content": "La préparation est une étape importante d'un projet de teinture. Nous nettoyons le bois pour retirer la saleté et les moisissures, puis évaluons le sablage nécessaire. Le bois plus ancien peut exiger un sablage approfondi pour retrouver une surface lisse, tandis que le bois plus récent peut nécessiter une préparation plus légère pour favoriser l'absorption de la teinture."
+      },
+      {
+        "id": "staining",
+        "heading": "Une teinture appliquée avec soin",
+        "content": "Une fois la surface préparée, nous appliquons la teinture uniformément sur la terrasse. Nous portons attention à la finition et aux détails pour obtenir un résultat harmonieux.",
+        "list": {
+          "title": "La teinture pour bois aide à :",
+          "items": [
+            "Limiter les dommages causés par le soleil",
+            "Protéger le bois contre l'humidité",
+            "Mettre en valeur l'apparence naturelle du bois"
+          ]
+        }
+      },
+      {
+        "id": "new-or-old",
+        "heading": "Pour les terrasses neuves ou plus anciennes",
+        "content": "Une terrasse récente et une terrasse plus ancienne peuvent nécessiter des travaux différents. Nous évaluons l'état du bois et expliquons la préparation requise. Lorsque le bois est encore sain, le nettoyage, le sablage et la teinture peuvent lui redonner une belle apparence."
+      }
+    ],
+    "hero": "/images/services/deckstaining1.png",
+    "images": [
+      {
+        "src": "/images/services/deckstaining1.png",
+        "alt": "Une terrasse en bois près d'une maison, présentée comme photo d'un projet d'entretien."
+      },
+      {
+        "src": "/images/services/surface-cleaning-and-preparation.png",
+        "alt": "Une surface de terrasse en bois illustrant l'étape de préparation."
+      },
+      {
+        "src": "/images/services/staining-&-sealing.png",
+        "alt": "Un gros plan de la rampe et du plancher d'une terrasse en bois."
+      }
+    ],
+    "primary": true
+  },
+  {
+    "slug": "commercial-window-cleaning",
+    "title": "Nettoyage de vitres commerciales",
+    "pageTitle": "Nettoyage de vitres commerciales à Montréal",
+    "subtitle": "Des vitres propres pour les bureaux, les immeubles en copropriété et les propriétés commerciales.",
+    "description": "Nettoyage de vitres commerciales à Montréal pour bureaux, condos et entrepôts. Service organisé et horaire flexible. Soumission gratuite.",
+    "intro": [
+      "Des vitres propres contribuent à un environnement accueillant pour vos employés, vos clients et vos locataires. Nous offrons le nettoyage de vitres pour différents types de propriétés commerciales à Montréal.",
+      "Nous misons sur une communication claire, un travail bien organisé et un service efficace qui s'adapte à vos activités quotidiennes."
+    ],
+    "sections": [
+      {
+        "id": "offices",
+        "heading": "Immeubles de bureaux",
+        "content": "Un nettoyage régulier des vitres contribue à l'apparence professionnelle et accueillante de vos locaux. Nous planifions les travaux selon votre horaire pour limiter les perturbations."
+      },
+      {
+        "id": "condos",
+        "heading": "Immeubles en copropriété",
+        "content": "Du condo individuel au nettoyage extérieur d'un immeuble, nous discutons de la propriété et des conditions d'accès pour bien planifier les travaux."
+      },
+      {
+        "id": "scheduling",
+        "heading": "Un horaire flexible",
+        "content": "Les propriétés commerciales ont des besoins différents de ceux des résidences. Il est possible de discuter de rendez-vous tôt le matin, en soirée ou la fin de semaine lors de la planification du service."
+      }
+    ],
+    "hero": "/images/services/commercialwindowcleaning1.png",
+    "images": [
+      {
+        "src": "/images/services/commercialwindowcleaning1.png",
+        "alt": "Des fenêtres donnant sur la rue et une entrée vitrée dans une propriété commerciale."
+      }
+    ],
+    "primary": false
+  },
+  {
+    "slug": "dryer-vent-cleaning",
+    "title": "Nettoyage de conduits de sécheuse",
+    "pageTitle": "Nettoyage de conduits de sécheuse à Montréal",
+    "subtitle": "Retirez la charpie accumulée et favorisez la circulation de l'air dans le conduit de votre sécheuse.",
+    "description": "Nettoyage de conduits de sécheuse à Montréal : retrait de charpie, inspection par caméra et mesure du débit d'air. Soumission gratuite.",
+    "intro": [
+      "La charpie peut s'accumuler dans les conduits de sécheuse et réduire la circulation de l'air. Le séchage peut alors prendre plus de temps, et la charpie accumulée peut présenter un risque d'incendie.",
+      "Notre nettoyage vise à dégager le conduit et à vérifier son état ainsi que la circulation de l'air."
+    ],
+    "sections": [
+      {
+        "id": "service",
+        "heading": "Un nettoyage complet du conduit",
+        "content": "Nous retirons la charpie du conduit et inspectons les parties accessibles du système.",
+        "list": {
+          "title": "Notre service comprend :",
+          "items": [
+            "Le retrait de la charpie du conduit et du filtre",
+            "L'inspection du conduit à l'aide d'une caméra d'inspection",
+            "La mesure du débit d'air avec un anémomètre"
+          ]
+        }
+      },
+      {
+        "id": "buildup",
+        "heading": "Éliminer la charpie accumulée",
+        "content": "Un conduit obstrué peut faire travailler la sécheuse davantage et entraîner une surchauffe. Le retrait de la charpie accumulée aide à rétablir la circulation de l'air et fait partie d'un entretien régulier."
+      },
+      {
+        "id": "airflow",
+        "heading": "Vérifier la circulation de l'air",
+        "content": "Nous mesurons le débit d'air dans le cadre du service. Si le séchage demeure peu efficace, d'autres éléments de l'appareil ou de son installation pourraient aussi nécessiter une vérification."
+      }
+    ],
+    "hero": "/images/services/dryerventcleaning1.png",
+    "images": [
+      {
+        "src": "/images/services/dryerventcleaning1.png",
+        "alt": "Équipement de nettoyage de conduit de sécheuse et charpie retirée."
+      }
+    ],
+    "primary": false
+  }
+]

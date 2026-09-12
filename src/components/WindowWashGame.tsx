@@ -3,6 +3,7 @@
 import { useRef, useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { localizedPath, type Locale } from "../lib/i18n";
 
 interface Droplet {
   x: number;
@@ -38,13 +39,14 @@ function seededRandom(seed: number): () => number {
   };
 }
 
-function getRating(seconds: number): { label: string; emoji: string } {
-  if (seconds < 8) return { label: "Lightning Fast!", emoji: "\u26A1" };
-  if (seconds < 15) return { label: "Speed Demon!", emoji: "\uD83C\uDFCE\uFE0F" };
-  if (seconds < 25) return { label: "Pretty Quick!", emoji: "\uD83D\uDC4D" };
-  if (seconds < 40) return { label: "Steady Hands", emoji: "\uD83E\uDDE4" };
-  if (seconds < 60) return { label: "Thorough Cleaner", emoji: "\uD83E\uDDFD" };
-  return { label: "Taking Your Time", emoji: "\uD83D\uDC22" };
+function getRating(seconds: number, locale: Locale): { label: string; emoji: string } {
+  const fr = locale === "fr";
+  if (seconds < 8) return { label: fr ? "Rapide comme l’éclair!" : "Lightning Fast!", emoji: "\u26A1" };
+  if (seconds < 15) return { label: fr ? "À toute vitesse!" : "Speed Demon!", emoji: "\uD83C\uDFCE\uFE0F" };
+  if (seconds < 25) return { label: fr ? "Vite et bien fait!" : "Pretty Quick!", emoji: "\uD83D\uDC4D" };
+  if (seconds < 40) return { label: fr ? "Un geste assuré" : "Steady Hands", emoji: "\uD83E\uDDE4" };
+  if (seconds < 60) return { label: fr ? "Un nettoyage soigné" : "Thorough Cleaner", emoji: "\uD83E\uDDFD" };
+  return { label: fr ? "À votre rythme" : "Taking Your Time", emoji: "\uD83D\uDC22" };
 }
 
 function generateDirtyWindow(
@@ -164,7 +166,8 @@ function generateCleanWindow(
   ctx.fillRect(0, 0, w, h);
 }
 
-export default function WindowWashGame() {
+export default function WindowWashGame({ locale = "en" }: { locale?: Locale }) {
+  const fr = locale === "fr";
   const cleanCanvasRef = useRef<HTMLCanvasElement>(null);
   const dirtyCanvasRef = useRef<HTMLCanvasElement>(null);
   const overlayCanvasRef = useRef<HTMLCanvasElement>(null);
@@ -497,30 +500,34 @@ export default function WindowWashGame() {
   const formatTime = (t: number) => {
     const s = Math.floor(t);
     const ms = Math.floor((t % 1) * 10);
-    return `${s}.${ms}s`;
+    return `${s}${fr ? "," : "."}${ms} s`;
   };
 
-  const rating = getRating(finalTime);
+  const rating = getRating(finalTime, locale);
 
   return (
     <div
       className="relative w-screen h-screen overflow-hidden select-none"
       style={{ cursor: gameState === "playing" ? "none" : "default" }}
     >
+      <h1 className="sr-only">{fr ? "Le jeu du laveur de vitres" : "Window Washer game"}</h1>
       <canvas
         ref={cleanCanvasRef}
+        aria-hidden="true"
         className="absolute inset-0"
         style={{ zIndex: 0 }}
       />
 
       <canvas
         ref={dirtyCanvasRef}
+        aria-label={fr ? "Vitre à nettoyer. Faites glisser votre doigt ou la souris pour passer la raclette." : "Window to clean. Drag your finger or mouse to move the squeegee."}
         className="absolute inset-0"
         style={{ zIndex: 1 }}
       />
 
       <canvas
         ref={overlayCanvasRef}
+        aria-hidden="true"
         className="absolute inset-0 pointer-events-none"
         style={{ zIndex: 2 }}
       />
@@ -531,11 +538,12 @@ export default function WindowWashGame() {
       >
         <div className="pointer-events-auto absolute top-4 left-4 flex items-center gap-3">
           <Link
-            href="/"
+            href={localizedPath(locale, "/")}
+            aria-label={fr ? "Quitter le jeu et revenir à l’accueil" : "Leave the game and return home"}
             className="px-3 py-1.5 rounded-lg bg-black/40 backdrop-blur-sm text-white text-sm font-medium hover:bg-black/60 transition-colors"
             style={{ fontFamily: "var(--font-geist-sans)" }}
           >
-            &larr; Back
+            &larr; {fr ? "Retour" : "Back"}
           </Link>
           <Image
             src="/images/edm-main-logo.png"
@@ -549,16 +557,16 @@ export default function WindowWashGame() {
 
         {gameState === "playing" && (
           <>
-            <div className="absolute top-4 left-1/2 -translate-x-1/2 flex items-center gap-3 px-4 py-2 rounded-full bg-black/40 backdrop-blur-sm">
+            <div className="absolute top-20 sm:top-4 left-1/2 -translate-x-1/2 flex items-center gap-3 px-4 py-2 rounded-full bg-black/40 backdrop-blur-sm">
               <span
                 className="text-white/70 text-xs font-medium uppercase tracking-wider"
                 style={{ fontFamily: "var(--font-geist-sans)" }}
               >
-                Cleaned
+                {fr ? "Nettoyé" : "Cleaned"}
               </span>
-              <div className="w-32 h-2 rounded-full bg-white/20 overflow-hidden">
+              <div className="w-24 sm:w-32 h-2 rounded-full bg-white/20 overflow-hidden" role="progressbar" aria-label={fr ? "Surface nettoyée" : "Area cleaned"} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.floor(progress * 100)}>
                 <div
-                  className="h-full rounded-full bg-emerald-400 transition-all duration-300"
+                  className="h-full rounded-full bg-[var(--primary)] transition-all duration-300"
                   style={{ width: `${Math.min(100, progress * 100)}%` }}
                 />
               </div>
@@ -594,19 +602,19 @@ export default function WindowWashGame() {
                 className="text-2xl font-bold text-white mb-2"
                 style={{ fontFamily: "var(--font-geist-sans)" }}
               >
-                Window Washer
+                {fr ? "Laveur de vitres" : "Window Washer"}
               </h2>
               <p
                 className="text-white/70 text-base"
                 style={{ fontFamily: "var(--font-geist-sans)" }}
               >
-                Drag to squeegee the window clean!
+                {fr ? "Faites glisser votre doigt ou la souris pour nettoyer la vitre!" : "Drag your finger or mouse to squeegee the window clean!"}
               </p>
               <p
                 className="text-white/40 text-sm mt-3"
                 style={{ fontFamily: "var(--font-geist-sans)" }}
               >
-                Timer starts when you begin
+                {fr ? "Le chrono démarre dès votre premier geste" : "Timer starts when you begin"}
               </p>
             </div>
           </div>
@@ -620,10 +628,10 @@ export default function WindowWashGame() {
                 className="text-2xl font-bold text-white mb-1"
                 style={{ fontFamily: "var(--font-geist-sans)" }}
               >
-                Sparkling Clean!
+                {fr ? "Une vitre étincelante!" : "Sparkling Clean!"}
               </h2>
               <p
-                className="text-emerald-400 font-semibold text-lg mb-4"
+                className="text-white font-semibold text-lg mb-4"
                 style={{ fontFamily: "var(--font-geist-sans)" }}
               >
                 {rating.label}
@@ -634,7 +642,7 @@ export default function WindowWashGame() {
                   className="text-white/60 text-xs uppercase tracking-wider mb-1"
                   style={{ fontFamily: "var(--font-geist-sans)" }}
                 >
-                  Your Time
+                  {fr ? "Votre temps" : "Your Time"}
                 </p>
                 <p
                   className="text-white text-4xl font-bold"
@@ -646,10 +654,10 @@ export default function WindowWashGame() {
 
               <button
                 onClick={handleRestart}
-                className="w-full px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-white font-semibold text-base transition-colors active:scale-95 transform"
+                className="w-full px-6 py-3 rounded-xl bg-[var(--primary)] hover:bg-[var(--primary-light)] text-[#1C1814] font-semibold text-base transition-colors active:scale-95 transform"
                 style={{ fontFamily: "var(--font-geist-sans)" }}
               >
-                Play Again
+                {fr ? "Rejouer" : "Play Again"}
               </button>
 
               <div className="mt-4 flex items-center justify-center gap-2 opacity-50">

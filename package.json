@@ -5,8 +5,12 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "node scripts/serve-preview.cjs",
+    "lint": "eslint src scripts --max-warnings=0",
+    "test": "node scripts/test-quote.cjs && node scripts/test-terms.cjs && node scripts/test-export.cjs",
+    "test:browser": "node scripts/test-browser.cjs",
+    "images": "node scripts/optimize-images.cjs",
+    "preview": "node scripts/serve-preview.cjs"
   },
   "dependencies": {
     "@netlify/plugin-nextjs": "^5.12.0",

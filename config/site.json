@@ -1,7 +1,7 @@
 {
   "siteTitle": "EDMTL - Entretien Domestique Montreal",
   "defaultLocale": "en",
-  "supportedLocales": ["en"],
+  "supportedLocales": ["en", "fr"],
   "contact": {
     "email": "info@edmtl.com",
     "phone": "438-500-3099",
