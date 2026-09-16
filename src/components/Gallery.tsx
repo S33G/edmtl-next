@@ -65,7 +65,7 @@ export default function Gallery({ locale, photos, filters }: GalleryProps) {
               <ProjectImage src={photo.src} alt={photo.alt} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
               <span className="gallery-enlarge" aria-hidden="true">↗</span>
             </button>
-            <figcaption>{photo.caption}</figcaption>
+            <figcaption className="sr-only">{photo.caption}</figcaption>
           </figure>
         ))}
       </div>
@@ -89,7 +89,7 @@ export default function Gallery({ locale, photos, filters }: GalleryProps) {
             <div className="gallery-dialog-image">
               <ProjectImage src={activePhoto.src} alt={activePhoto.alt} sizes="95vw" />
             </div>
-            <p id="gallery-photo-caption">{activePhoto.caption}</p>
+            <p id="gallery-photo-caption" className="sr-only">{activePhoto.caption}</p>
           </div>
         )}
       </dialog>

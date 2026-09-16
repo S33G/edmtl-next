@@ -100,9 +100,9 @@ async function main() {
       await scenario(`${locale}: dedicated form and legacy query preselection`, async () => {
         const f = await fixture(`${prefix(locale)}/contact?service=polymeric-sand-replacement`);
         try {
-          await f.page.waitForFunction(() => document.querySelector('input[value="pressure-washing"]')?.checked);
+          await f.page.waitForFunction(() => document.querySelector('input[value="polymeric-sand-replacement"]')?.checked);
           assert.equal(await quoteForm(f.page).count(), 1);
-          assert.deepEqual(await selected(f.page), ['pressure-washing']);
+          assert.deepEqual(await selected(f.page), ['polymeric-sand-replacement']);
           assert.equal(await quoteForm(f.page).locator('textarea:visible').count(), 0);
           assert.equal(await f.page.locator('html').getAttribute('lang'), locale);
           assert.equal(await quoteForm(f.page).getAttribute('action'), `${prefix(locale)}/thank-you`);
@@ -129,32 +129,51 @@ async function main() {
       });
     }
 
+    await scenario('Older service links and commercial enquiries retain usable choices', async () => {
+      const f = await fixture('/contact?service=gutter-services,deck-refinishing');
+      try {
+        await f.page.waitForFunction(() => document.querySelector('input[value="deck-staining"]')?.checked);
+        assert.deepEqual(await selected(f.page), ['deck-staining', 'gutter-cleaning']);
+        await f.page.goto(`${base}/contact?service=commercial-window-cleaning`, { waitUntil: 'networkidle' });
+        const choice = quoteForm(f.page).getByRole('checkbox', { name: 'Window Cleaning', exact: true });
+        assert.equal(await quoteForm(f.page).getByRole('checkbox').count(), 6);
+        assert.equal(await choice.isChecked(), true);
+        await choice.uncheck();
+        assert.equal(await choice.isVisible(), true);
+        await choice.check();
+        await f.page.locator('.site-header').getByRole('link', { name: 'Français', exact: true }).click();
+        await f.page.waitForURL(`${base}/fr/contact?service=commercial-window-cleaning`);
+        await f.page.waitForFunction(() => document.querySelector('input[value="window-cleaning"]')?.checked);
+        assert.deepEqual(await selected(f.page), ['window-cleaning']);
+      } finally { await f.close(); }
+    });
+
     await scenario('French validation is accessible and blocks incomplete requests', async () => {
       const f = await fixture('/fr/contact');
       try {
-        await quoteForm(f.page).getByRole('button', { name: 'Demander mon devis gratuit', exact: true }).click();
-        await f.page.getByText('Veuillez saisir votre nom.', { exact: true }).waitFor();
-        assert.equal(await f.page.getByText('Veuillez saisir votre numéro de téléphone.', { exact: true }).isVisible(), true);
-        assert.equal(await f.page.getByText('Veuillez sélectionner au moins un service.', { exact: true }).isVisible(), true);
+        await quoteForm(f.page).getByRole('button', { name: 'Demander ma soumission gratuite', exact: true }).click();
+        await f.page.getByText('Entrez votre nom.', { exact: true }).waitFor();
+        assert.equal(await f.page.getByText('Entrez votre numéro de téléphone.', { exact: true }).isVisible(), true);
+        assert.equal(await f.page.getByText('Choisissez au moins un service.', { exact: true }).isVisible(), true);
         assert.equal(await f.page.locator(':focus').getAttribute('name'), 'name');
         assert.equal(f.posts.length, 0);
         await fillContact(f.page, 'fr', false);
-        await quoteForm(f.page).getByRole('checkbox', { name: 'Nettoyage de vitres', exact: true }).check();
+        await quoteForm(f.page).getByRole('checkbox', { name: 'Lavage de vitres', exact: true }).check();
         await quoteForm(f.page).getByLabel('Courriel', { exact: false }).fill('invalid-email');
-        await quoteForm(f.page).getByRole('button', { name: 'Demander mon devis gratuit', exact: true }).click();
-        await f.page.getByText('Veuillez saisir une adresse courriel valide ou laisser ce champ vide.', { exact: true }).waitFor();
+        await quoteForm(f.page).getByRole('button', { name: 'Demander ma soumission gratuite', exact: true }).click();
+        await f.page.getByText('Entrez une adresse courriel valide ou laissez ce champ vide.', { exact: true }).waitFor();
         assert.equal(f.posts.length, 0);
         assert.equal(f.events.filter((event) => event.event === 'generate_lead').length, 0);
       } finally { await f.close(); }
     });
 
-    await scenario('Service multi-select, secondary disclosure and failed retry preserve fields', async () => {
+    await scenario('Six visible service choices, multi-select and failed retry preserve fields', async () => {
       const f = await fixture('/contact');
       try {
         const form = quoteForm(f.page);
         const secondary = form.getByRole('checkbox', { name: 'Dryer Vent Cleaning', exact: true });
-        assert.equal(await secondary.isVisible(), false);
-        await form.getByRole('button', { name: /^Other services/ }).click();
+        assert.equal(await secondary.isVisible(), true);
+        assert.equal(await form.getByRole('checkbox').count(), 6);
         await secondary.check();
         await form.getByRole('checkbox', { name: 'Window Cleaning', exact: true }).check();
         await form.getByRole('checkbox', { name: 'Gutter Cleaning', exact: true }).check();
@@ -191,7 +210,7 @@ async function main() {
         f.state.response = 'pending';
         await fillContact(f.page, locale, false);
         const form = quoteForm(f.page);
-        await form.getByRole('button', { name: locale === 'fr' ? 'Demander mon devis gratuit' : 'Request my free quote', exact: true }).click();
+        await form.getByRole('button', { name: locale === 'fr' ? 'Demander ma soumission gratuite' : 'Request my free quote', exact: true }).click();
         await waitFor(() => f.pending.length === 1, 'Submission was not intercepted');
         assert.equal(f.events.filter((event) => event.event === 'generate_lead').length, 0, 'Lead cannot fire before server success');
         await form.evaluate((element) => element.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true })));
@@ -221,7 +240,6 @@ async function main() {
         await f.page.waitForFunction(() => document.querySelector('input[value="deck-staining"]')?.checked);
         await fillContact(f.page, 'en');
         await quoteForm(f.page).getByRole('checkbox', { name: 'Window Cleaning', exact: true }).check();
-        await quoteForm(f.page).getByRole('button', { name: /^Other services/ }).click();
         await quoteForm(f.page).getByRole('checkbox', { name: 'Dryer Vent Cleaning', exact: true }).check();
         await f.page.locator('.site-header').getByRole('link', { name: 'Français', exact: true }).click();
         await f.page.waitForURL(`${base}/fr${sourcePath}`);
@@ -244,7 +262,7 @@ async function main() {
       await scenario(`${width}px: mobile overflow, touch targets and menu focus`, async () => {
         const f = await fixture('/fr/services/pressure-washing', width);
         try {
-          for (const routePath of ['/fr/services/pressure-washing', '/fr/contact', '/fr/gallery', '/']) {
+          for (const routePath of ['/fr/services/pressure-washing', '/fr/services/polymeric-sand-replacement', '/fr/contact', '/fr/gallery', '/fr', '/']) {
             await f.page.goto(`${base}${routePath}`, { waitUntil: 'networkidle', timeout: 60000 });
             const dimensions = await f.page.evaluate(() => ({ viewport: innerWidth, scroll: document.documentElement.scrollWidth }));
             assert.ok(dimensions.scroll <= dimensions.viewport + 1, `${routePath} overflows: ${JSON.stringify(dimensions)}`);
@@ -282,9 +300,17 @@ async function main() {
           assert.equal(await f.page.locator('.desktop-nav').isVisible(), true);
           assert.equal(await f.page.locator('.menu-toggle').isVisible(), false);
           if (routePath.includes('/services/')) {
+            assert.equal(await f.page.locator('.service-detail-card, .service-projects figcaption').count(), 0, 'Service pages go straight to uncaptioned photos');
             const story = await f.page.locator('.service-story').boundingBox();
             const quote = await f.page.locator('.service-quote').boundingBox();
             assert.ok(quote.x >= story.x + story.width, 'Desktop quote form is alongside the service story');
+          }
+          if (routePath === '/' || routePath === '/fr') {
+            const cards = await f.page.locator('.primary-services .service-card').evaluateAll(elements => elements.map(element => ({ x: element.offsetLeft, y: element.offsetTop })));
+            assert.equal(cards.length, 6);
+            assert.equal(new Set(cards.map(card => card.x)).size, 3, 'Three desktop service columns');
+            assert.equal(new Set(cards.map(card => card.y)).size, 2, 'Two desktop service rows');
+            assert.equal(await f.page.locator('.card-number').count(), 0);
           }
           if (routePath === '/') await f.page.screenshot({ path: path.join(screenshotDirectory, 'home-desktop.png'), fullPage: true });
         }
@@ -296,10 +322,10 @@ async function main() {
       const f = await fixture('/fr/gallery', 375);
       try {
         const allCount = await f.page.locator('.gallery-card').count();
-        await f.page.getByRole('button', { name: 'Nettoyage de vitres', exact: true }).click();
+        await f.page.getByRole('button', { name: 'Lavage de vitres', exact: true }).click();
         const filteredCount = await f.page.locator('.gallery-card').count();
         assert.ok(filteredCount > 0 && filteredCount < allCount);
-        assert.equal(await f.page.getByRole('button', { name: 'Nettoyage de vitres', exact: true }).getAttribute('aria-pressed'), 'true');
+        assert.equal(await f.page.getByRole('button', { name: 'Lavage de vitres', exact: true }).getAttribute('aria-pressed'), 'true');
         const opener = f.page.locator('.gallery-image-button').first();
         await opener.click();
         const dialog = f.page.locator('.gallery-dialog');

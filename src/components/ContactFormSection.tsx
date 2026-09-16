@@ -25,7 +25,6 @@ const copy = {
     required: 'Name, phone and at least one service are required.',
     name: 'Name', phone: 'Phone', email: 'Email', postalCode: 'Postal code',
     optional: 'optional', services: 'What can we help with?',
-    more: 'Other services', less: 'Hide other services',
     submit: 'Request my free quote', sending: 'Sending your request…', sent: 'Request sent',
     success: 'Thank you! Your request has been sent. Taking you to your confirmation…',
     error: 'Your request could not be sent. Your details are still here — please try again.',
@@ -34,25 +33,22 @@ const copy = {
     emailError: 'Please enter a valid email address, or leave this field empty.',
     serviceError: 'Please select at least one service.',
     privacy: 'We use your details to respond to your request.', privacyLink: 'Privacy policy',
-    assurance: 'Free quote. No obligation.',
   },
   fr: {
     eyebrow: 'PARLONS DE VOTRE PROJET',
-    title: 'Obtenez un devis gratuit',
-    intro: 'Dites-nous ce dont vous avez besoin. Nous vous contacterons pour en discuter.',
+    title: 'Obtenez une soumission gratuite',
+    intro: 'Dites-nous ce qu’il vous faut. On vous recontacte pour en discuter.',
     required: 'Le nom, le téléphone et au moins un service sont obligatoires.',
     name: 'Nom', phone: 'Téléphone', email: 'Courriel', postalCode: 'Code postal',
-    optional: 'facultatif', services: 'Comment pouvons-nous vous aider?',
-    more: 'Autres services', less: 'Masquer les autres services',
-    submit: 'Demander mon devis gratuit', sending: 'Envoi de votre demande…', sent: 'Demande envoyée',
-    success: 'Merci! Votre demande a été envoyée. Vous allez être redirigé vers votre confirmation…',
-    error: 'Votre demande n’a pas pu être envoyée. Vos renseignements sont conservés — veuillez réessayer.',
-    validation: 'Veuillez vérifier les champs indiqués.',
-    nameError: 'Veuillez saisir votre nom.', phoneError: 'Veuillez saisir votre numéro de téléphone.',
-    emailError: 'Veuillez saisir une adresse courriel valide ou laisser ce champ vide.',
-    serviceError: 'Veuillez sélectionner au moins un service.',
-    privacy: 'Nous utilisons vos renseignements pour répondre à votre demande.', privacyLink: 'Politique de confidentialité',
-    assurance: 'Devis gratuit. Sans engagement.',
+    optional: 'facultatif', services: 'Quels services vous intéressent?',
+    submit: 'Demander ma soumission gratuite', sending: 'Envoi de votre demande…', sent: 'Demande envoyée',
+    success: 'Merci! On a bien reçu votre demande. Votre confirmation s’affiche dans un instant…',
+    error: 'L’envoi n’a pas fonctionné. Vos renseignements sont encore là : vous pouvez réessayer.',
+    validation: 'Vérifiez les champs indiqués.',
+    nameError: 'Entrez votre nom.', phoneError: 'Entrez votre numéro de téléphone.',
+    emailError: 'Entrez une adresse courriel valide ou laissez ce champ vide.',
+    serviceError: 'Choisissez au moins un service.',
+    privacy: 'On utilise vos renseignements pour répondre à votre demande.', privacyLink: 'Politique de confidentialité',
   },
 } satisfies Record<Locale, Record<string, string>>;
 
@@ -63,12 +59,10 @@ export default function ContactFormSection({ locale = 'en', serviceSlug, variant
   const t = copy[locale];
   const services = getServices(locale);
   const primaryServices = getPrimaryServices(locale);
-  const secondaryServices = services.filter((service) => !service.primary);
   const initialSlug = serviceSlug ? canonicalServiceSlug(serviceSlug) : undefined;
   const initialSelection = initialSlug && services.some((service) => service.slug === initialSlug) ? [initialSlug] : [];
   const [selectedServices, setSelectedServices] = useState<string[]>(initialSelection);
   const [formData, setFormData] = useState({ name: '', phone: '', email: '', postalCode: '' });
-  const [showSecondary, setShowSecondary] = useState(secondaryServices.some((service) => initialSelection.includes(service.slug)));
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const formRef = useRef<HTMLFormElement>(null);
@@ -100,20 +94,20 @@ export default function ContactFormSection({ locale = 'en', serviceSlug, variant
       const selection = normalize(draft.selectedServices);
       setFormData({ name: draft.name, phone: draft.phone, email: draft.email, postalCode: draft.postalCode });
       setSelectedServices(selection);
-      setShowSecondary(available.some((service) => !service.primary && selection.includes(service.slug)));
+
       return;
     }
 
     if (serviceSlug) {
       const selection = normalize([serviceSlug]);
       setSelectedServices(selection);
-      setShowSecondary(available.some((service) => !service.primary && selection.includes(service.slug)));
+
     } else {
       const query = new URLSearchParams(window.location.search).get('service');
       if (query) {
         const selection = normalize(query.split(','));
         setSelectedServices(selection);
-        setShowSecondary(available.some((service) => !service.primary && selection.includes(service.slug)));
+
       }
     }
   }, [locale, serviceSlug]);
@@ -268,18 +262,10 @@ export default function ContactFormSection({ locale = 'en', serviceSlug, variant
         </div>
         <fieldset aria-invalid={Boolean(errors.services)} aria-describedby={errors.services ? `${id}-services-error` : undefined}>
           <legend className="field-label">{t.services} <span aria-hidden="true">*</span></legend>
-          <div className="service-options">{primaryServices.map(renderService)}</div>
-          {secondaryServices.length > 0 && (
-            <div className="secondary-services">
-              <button type="button" className="secondary-services-toggle" aria-expanded={showSecondary}
-                aria-controls={`${id}-other-services`} onClick={() => setShowSecondary(!showSecondary)} disabled={locked}>
-                {showSecondary ? t.less : t.more} <span aria-hidden="true">{showSecondary ? '−' : '+'}</span>
-              </button>
-              <div id={`${id}-other-services`} className="service-options" hidden={!showSecondary}>
-                {secondaryServices.map(renderService)}
-              </div>
-            </div>
-          )}
+          <div className="service-options">
+            {primaryServices.map(renderService)}
+
+          </div>
           {errors.services && <p className="field-error" id={`${id}-services-error`}>{errors.services}</p>}
         </fieldset>
         {Object.values(errors).some(Boolean) && <p className="form-status form-status-error" role="alert">{t.validation}</p>}
@@ -288,7 +274,6 @@ export default function ContactFormSection({ locale = 'en', serviceSlug, variant
         <button type="submit" className="button button-primary" disabled={locked}>
           {status === 'submitting' ? t.sending : status === 'success' ? t.sent : t.submit}
         </button>
-        <p className="form-footnote">{t.assurance}</p>
         <p className="form-footnote">{t.privacy} <Link href={localizedPath(locale, '/privacy-policy')}>{t.privacyLink}</Link></p>
       </form>
     </section>

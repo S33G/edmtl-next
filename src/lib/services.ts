@@ -18,11 +18,12 @@ export interface Service {
   hero: string;
   images: Array<{ src: string; alt: string; comparison?: boolean }>;
   primary: boolean;
+  commercial?: { heading: string; paragraphs: string[] };
 }
 
 const translations: Record<Locale, Service[]> = { en: english, fr: french };
 const legacySlugs: Record<string, string> = {
-  'polymeric-sand-replacement': 'pressure-washing',
+  'commercial-window-cleaning': 'window-cleaning',
   'deck-refinishing': 'deck-staining',
   'gutter-services': 'gutter-cleaning',
 };

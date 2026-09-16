@@ -10,7 +10,6 @@
 .gallery-image-button img { object-fit: cover; transition: transform 180ms ease; }
 .gallery-image-button:hover img { transform: scale(1.025); }
 .gallery-enlarge { position: absolute; right: .7rem; bottom: .7rem; display: grid; place-items: center; width: 2.15rem; height: 2.15rem; border-radius: 50%; background: var(--background, #f9f6f0); color: var(--foreground, #1c1814); font-size: 1.2rem; box-shadow: 0 2px 8px #0002; }
-.gallery-card figcaption { padding: 1rem 1.15rem; color: var(--foreground); font-size: .95rem; line-height: 1.55; }
 .gallery-dialog { width: min(1100px, 95vw); max-height: 94dvh; margin: auto; padding: 0; border: 0; border-radius: 1rem; color: var(--foreground); background: var(--background, #f9f6f0); overflow: auto; }
 .gallery-dialog::backdrop { background: rgb(28 24 20 / 85%); }
 .gallery-dialog-content { padding: 1rem; }
@@ -19,7 +18,6 @@
 .gallery-dialog-image { display: flex; justify-content: center; height: min(70dvh, 800px); background: var(--background-secondary, #ede8dc); border-radius: .5rem; overflow: hidden; }
 .gallery-dialog-image picture { display: block; width: 100%; height: 100%; }
 .gallery-dialog-image img { display: block; width: 100%; height: 100%; object-fit: contain; }
-.gallery-dialog-content > p { margin: 1rem .25rem .25rem; line-height: 1.5; }
 @media (max-width: 1024px) { .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 640px) { .gallery-grid { grid-template-columns: minmax(0, 1fr); } .gallery-filters { gap: .5rem; } .gallery-filter { font-size: .85rem; padding: .6rem .85rem; } .gallery-dialog-content { padding: .75rem; } .gallery-dialog-image { height: 62dvh; } }
 @media (prefers-reduced-motion: reduce) { .gallery-image-button img { transition: none; } }

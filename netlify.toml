@@ -3,14 +3,14 @@ command = "npm run build && node scripts/discord-notify.js"
 publish = "out"
 
 [[redirects]]
-from = "/services/polymeric-sand-replacement"
-to = "/services/pressure-washing"
+from = "/services/commercial-window-cleaning"
+to = "/services/window-cleaning#commercial"
 status = 301
 force = true
 
 [[redirects]]
-from = "/fr/services/polymeric-sand-replacement"
-to = "/fr/services/pressure-washing"
+from = "/fr/services/commercial-window-cleaning"
+to = "/fr/services/window-cleaning#commercial"
 status = 301
 force = true
 

@@ -9,7 +9,7 @@ const origin = 'https://edmtl.com';
 const english = require('../src/data/services.en.json');
 const french = require('../src/data/services.fr.json');
 const serviceSlugs = english.map((service) => service.slug);
-const primarySlugs = ['gutter-cleaning', 'window-cleaning', 'pressure-washing', 'deck-staining'];
+const primarySlugs = ['gutter-cleaning', 'window-cleaning', 'pressure-washing', 'dryer-vent-cleaning', 'deck-staining', 'polymeric-sand-replacement'];
 const indexablePaths = ['/', '/contact', '/faq', '/gallery', '/privacy-policy', ...serviceSlugs.map((slug) => `/services/${slug}`)];
 const noindexPaths = ['/terms', '/thank-you', '/game'];
 const localized = (locale, route) => locale === 'fr' ? `/fr${route === '/' ? '' : route}` : route;
@@ -80,7 +80,7 @@ if (!fs.existsSync(output)) {
   process.exit(1);
 }
 
-check('English and French service inventories match; four primary services are retained', () => {
+check('English and French service inventories match; six primary services are retained', () => {
   assert.deepEqual(french.map((service) => service.slug), serviceSlugs);
   assert.deepEqual(english.filter((service) => service.primary).map((service) => service.slug), primarySlugs);
   assert.deepEqual(french.filter((service) => service.primary).map((service) => service.slug), primarySlugs);
@@ -164,11 +164,11 @@ for (const route of routes) {
 }
 
 for (const locale of ['en', 'fr']) {
-  check(`${localized(locale, '/')}: exactly four primary home service cards`, () => {
+  check(`${localized(locale, '/')}: exactly six primary home service cards`, () => {
     const document = pages.get(localized(locale, '/'));
     assert.ok(document, 'Home page missing');
     const cards = document.select('a').filter((link) => (link.class || '').split(/\s+/).includes('service-card'));
-    assert.equal(cards.length, 4);
+    assert.equal(cards.length, 6);
     assert.deepEqual(cards.map((card) => card.href), primarySlugs.map((slug) => localized(locale, `/services/${slug}`)));
   });
 }
@@ -215,7 +215,7 @@ check('Netlify redirects preserve legacy URLs without loops; form discovery is e
   const blocks = [...config.matchAll(/\[\[redirects\]\]([\s\S]*?)(?=\[\[|$)/g)].map((match) => match[1]);
   const redirects = blocks.map((block) => ({ from: block.match(/^from\s*=\s*"([^"]+)"/m)?.[1], to: block.match(/^to\s*=\s*"([^"]+)"/m)?.[1], status: Number(block.match(/^status\s*=\s*(\d+)/m)?.[1]), force: /^force\s*=\s*true/m.test(block) }));
   const expected = ['en', 'fr'].flatMap((locale) => [
-    ['polymeric-sand-replacement', 'pressure-washing'], ['deck-refinishing', 'deck-staining'], ['gutter-services', 'gutter-cleaning'],
+    ['commercial-window-cleaning', 'window-cleaning#commercial'], ['deck-refinishing', 'deck-staining'], ['gutter-services', 'gutter-cleaning'],
   ].map(([from, to]) => [localized(locale, `/services/${from}`), localized(locale, `/services/${to}`)]));
   expected.push(['/en/contact', '/contact'], ['/thank-you.html', '/thank-you']);
   for (const [from, to] of expected) {
@@ -227,6 +227,9 @@ check('Netlify redirects preserve legacy URLs without loops; form discovery is e
     assert.notEqual(from, to, `Self-redirect: ${from}`);
   }
   const destinationMap = new Map(redirects.map(({ from, to }) => [from, to]));
+  for (const locale of ['en', 'fr']) {
+    assert.ok(!destinationMap.has(localized(locale, '/services/polymeric-sand-replacement')), 'Restored polymeric-sand page must not redirect away');
+  }
   for (const { from } of redirects) {
     const seen = new Set();
     let destination = from;

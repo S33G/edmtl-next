@@ -7,6 +7,9 @@ if (!output) throw new Error('Set VISUAL_OUTPUT_DIR to the screenshot directory.
 const base = process.env.PREVIEW_URL || 'http://localhost:3000';
 const scenarios = [
   { name: 'home-desktop', route: '/', width: 1440, height: 1050 },
+  { name: 'home-french-desktop', route: '/fr', width: 1440, height: 1050 },
+  { name: 'gallery-desktop', route: '/gallery', width: 1440, height: 1050 },
+  { name: 'polymeric-french-tablet', route: '/fr/services/polymeric-sand-replacement', width: 768, height: 1024 },
   { name: 'home-mobile', route: '/', width: 375, height: 812 },
   { name: 'home-french-mobile', route: '/fr', width: 375, height: 812 },
   { name: 'home-french-small', route: '/fr', width: 320, height: 812 },

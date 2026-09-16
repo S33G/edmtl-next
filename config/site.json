@@ -66,24 +66,24 @@
       "title": "Questions Fréquentes",
       "items": [
         {
-          "question": "Les devis sont-ils gratuits?",
-          "answer": "Oui, 100% gratuits et sans obligation de réserver un service."
+          "question": "Les soumissions sont-elles gratuites?",
+          "answer": "Oui, elles sont 100 % gratuites, sans obligation de réserver un service."
         },
         {
-          "question": "Y a-t-il d'autres services offerts par EDM?",
-          "answer": "Nous effectuons régulièrement des tâches diverses et intervenons dans des espaces difficiles d'accès. Remplacement d'ampoules en hauteur, espaces confinés, nettoyage de débris sur le toit, branches en surplomb par exemple. N'hésitez pas à demander."
+          "question": "Est-ce que vous offrez d’autres services?",
+          "answer": "Oui! On fait régulièrement des petits travaux dans des endroits difficiles d’accès : changer des ampoules en hauteur, travailler dans les vides sanitaires, enlever les débris sur le toit ou s’occuper de branches en surplomb, par exemple. Demandez-nous!"
         },
         {
-          "question": "Quelles zones couvrez-vous?",
-          "answer": "Montréal et un rayon incluant Saint-Lazare, Laval, Rive-Nord/Sud, Vaudreuil-Dorion. Nous sommes préparés à voyager plus loin selon un tarif établi."
+          "question": "Dans quels secteurs travaillez-vous?",
+          "answer": "On se déplace à Montréal, à Saint-Lazare, à Laval, sur la Rive-Nord et la Rive-Sud, ainsi qu’à Vaudreuil-Dorion. Pour les déplacements plus loin, on vous donne un prix à l’avance."
         },
         {
           "question": "Quels modes de paiement acceptez-vous?",
-          "answer": "Nous pouvons traiter les paiements par carte de crédit majeure et virement Interac."
+          "answer": "On accepte les principales cartes de crédit et les virements Interac."
         },
         {
           "question": "Avez-vous une assurance?",
-          "answer": "Votre domicile et tout notre personnel sont assurés pendant notre temps sur votre propriété. Tout le personnel associé à EDM est formé professionnellement."
+          "answer": "Oui. Votre maison et toute notre équipe sont assurées pendant les travaux sur votre propriété. Tous les membres de l’équipe EDM ont reçu une formation professionnelle."
         }
       ]
     }

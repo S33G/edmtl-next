@@ -67,7 +67,7 @@ const ContactFormSection = require('../src/components/ContactFormSection.tsx').d
 const { getServices, getPrimaryServices } = require('../src/lib/services.ts');
 
 for (const locale of ['en', 'fr']) {
-  assert.equal(getPrimaryServices(locale).length, 4);
+  assert.equal(getPrimaryServices(locale).length, 6);
   for (const service of getServices(locale)) {
     const html = renderToStaticMarkup(React.createElement(ContactFormSection, { locale, serviceSlug: service.slug }));
     const inputs = html.match(/<input\b[^>]*>/g);
@@ -91,12 +91,12 @@ for (const locale of ['en', 'fr']) {
       assert.ok(html.includes(`for="${id}"`), `Label is connected to ${field}`);
       assert.match(input, /autoComplete="/);
     }
-    assert.ok(html.includes(locale === 'fr' ? 'Obtenez un devis gratuit' : 'Get a free quote'));
+    assert.ok(html.includes(locale === 'fr' ? 'Obtenez une soumission gratuite' : 'Get a free quote'));
     assert.ok(html.includes(`action="${locale === 'fr' ? '/fr' : ''}/thank-you"`));
-    if (!service.primary) assert.match(html, /aria-expanded="true"/, 'Preselected secondary service is visible');
+    assert.doesNotMatch(html, /secondary-services-toggle|hidden=""/, 'All rendered service choices are directly available');
   }
 }
 
 const legacy = renderToStaticMarkup(React.createElement(ContactFormSection, { serviceSlug: 'polymeric-sand-replacement' }));
-assert.match(legacy, /checked=""[^>]*value="pressure-washing"|value="pressure-washing"[^>]*checked=""/);
+assert.match(legacy, /checked=""[^>]*value="polymeric-sand-replacement"|value="polymeric-sand-replacement"[^>]*checked=""/);
 console.log('Quote form: bilingual SSR, required fields, service preselection and private language handoff checks passed.');

@@ -3,11 +3,11 @@
     "slug": "gutter-cleaning",
     "title": "Nettoyage de gouttières",
     "pageTitle": "Nettoyage de gouttières à Montréal",
-    "subtitle": "Des gouttières dégagées. Des descentes qui s'écoulent bien. Une maison prête pour la prochaine pluie.",
-    "description": "Nettoyage de gouttières à Montréal : retrait des débris, rinçage et vérification de l'écoulement des descentes. Demandez une soumission gratuite.",
+    "subtitle": "Des gouttières dégagées et des descentes qui coulent bien. Votre maison est prête pour la prochaine pluie.",
+    "description": "Nettoyage complet de gouttières à Montréal. On enlève les débris, on rince les gouttières et les descentes, puis on vérifie s’il y a des fuites ou des dommages.",
     "intro": [
-      "Un système de gouttières et de descentes dégagé aide à éloigner l'eau de pluie de votre maison. Les feuilles, les aiguilles et les autres débris peuvent nuire à cet écoulement, surtout avec les fortes pluies et les changements de saison à Montréal.",
-      "Nous retirons les débris, rinçons le système à l'eau et vérifions son écoulement. Si nous remarquons un problème, nous vous expliquons ce que nous avons observé pour vous aider à prendre une décision éclairée."
+      "Des gouttières et des descentes dégagées permettent d’éloigner l’eau de pluie de votre maison. Les feuilles, les aiguilles et les autres débris peuvent bloquer le passage, surtout avec les fortes pluies et les changements de saison à Montréal.",
+      "On enlève les débris, on rince le tout à l’eau et on vérifie que l’eau s’écoule bien. Si on remarque un problème, on vous explique ce qu’on a trouvé pour vous aider à décider de la suite."
     ],
     "sections": [
       {
@@ -33,22 +33,37 @@
     "hero": "/images/services/gutter-cleaning.png",
     "images": [
       {
-        "src": "/images/services/guttercleaningbeforeafter1.png",
-        "alt": "La même gouttière avant le retrait des débris à gauche et après le nettoyage à droite.",
+        "src": "/images/projects/sept-2026/gutters1.webp",
+        "alt": "Une gouttière avant le retrait des débris à gauche et après le nettoyage à droite.",
         "comparison": true
+      },
+      {
+        "src": "/images/projects/sept-2026/gutters3.webp",
+        "alt": "Une gouttière au bord du toit avant le nettoyage à gauche et après à droite.",
+        "comparison": true
+      },
+      {
+        "src": "/images/projects/sept-2026/gutters4.webp",
+        "alt": "Des plantes et des débris dans une gouttière à gauche, puis la gouttière dégagée à droite.",
+        "comparison": true
+      },
+      {
+        "src": "/images/projects/sept-2026/gutter-team.webp",
+        "alt": "Un membre de l’équipe EDMTL au travail sur une échelle, au bord du toit d’une maison.",
+        "comparison": false
       }
     ],
     "primary": true
   },
   {
     "slug": "window-cleaning",
-    "title": "Nettoyage de vitres",
-    "pageTitle": "Nettoyage de vitres à Montréal",
+    "title": "Lavage de vitres",
+    "pageTitle": "Lavage de vitres à Montréal",
     "subtitle": "Des vitres, des cadres, des rails et des moustiquaires propres, à l'intérieur comme à l'extérieur.",
-    "description": "Nettoyage résidentiel de vitres à Montréal, incluant cadres, rails et moustiquaires. Service intérieur et extérieur. Soumission gratuite.",
+    "description": "Lavage de vitres minutieux à Montréal. Méthode traditionnelle pour un nettoyage complet à l’intérieur comme à l’extérieur. À l’extérieur, on utilise aussi une perche à eau purifiée pour atteindre jusqu’à 50 pieds de hauteur.",
     "intro": [
-      "Des vitres propres laissent entrer davantage de lumière naturelle et donnent une apparence soignée à votre maison. Le nettoyage ne se limite pas au verre : les cadres, les rails et les moustiquaires peuvent aussi accumuler de la saleté.",
-      "Nous travaillons avec soin à l'intérieur et à l'extérieur, en respectant votre espace, votre aménagement paysager et votre horaire. Du condo à la maison unifamiliale, nous prenons le temps de bien faire les détails."
+      "Des vitres propres laissent entrer plus de lumière et donnent un bel aspect à votre maison. Ça ne s’arrête pas au verre : la saleté s’accumule aussi dans les cadres, les rails et les moustiquaires.",
+      "On travaille avec soin, à l’intérieur comme à l’extérieur, en respectant votre espace, vos plates-bandes et votre horaire. Du condo à la maison unifamiliale, on prend le temps de bien faire les choses."
     ],
     "sections": [
       {
@@ -93,37 +108,41 @@
         "comparison": true
       },
       {
-        "src": "/images/services/windowcleaninginteriortrack1.png",
-        "alt": "Un rail de fenêtre intérieur avant le nettoyage à gauche et après le nettoyage à droite.",
+        "src": "/images/projects/sept-2026/windows1.webp",
+        "alt": "Un rail et un cadre de fenêtre avant le nettoyage à gauche et après à droite.",
+        "comparison": true
+      },
+      {
+        "src": "/images/projects/sept-2026/windows2.webp",
+        "alt": "Le cadre d’une fenêtre ouverte avant le nettoyage à gauche et après à droite.",
+        "comparison": true
+      },
+      {
+        "src": "/images/projects/sept-2026/windows3.webp",
+        "alt": "Un rail de fenêtre intérieur avant le nettoyage à gauche et après à droite.",
         "comparison": true
       }
     ],
-    "primary": true
+    "primary": true,
+    "commercial": {
+      "heading": "Lavage de vitres commercial",
+      "paragraphs": [
+        "On lave aussi les vitres des bureaux, des syndicats de copropriété et d’autres propriétés commerciales à Montréal. Des vitres propres rendent les lieux plus accueillants pour les employés, les clients et les résidents.",
+        "On organise le travail selon les accès à votre immeuble et vos activités de tous les jours, avec une communication claire et un horaire bien planifié. Contactez-nous pour discuter de votre propriété et de vos besoins."
+      ]
+    }
   },
   {
     "slug": "pressure-washing",
-    "title": "Sable polymère et lavage à pression",
-    "pageTitle": "Sable polymère et lavage à pression à Montréal",
-    "subtitle": "Rafraîchissez vos surfaces pavées, renouvelez les joints de sable et éliminez la saleté accumulée.",
-    "description": "Remplacement de sable polymère et lavage à pression à Montréal : entrées, allées, terrasses et revêtements. Demandez une soumission gratuite.",
+    "title": "Lavage à pression",
+    "pageTitle": "Lavage à pression à Montréal",
+    "subtitle": "Enlevez la saleté, les algues et les dépôts accumulés au fil des saisons, avec la bonne pression pour chaque surface.",
+    "description": "Lavage à pression à Montréal. Nettoyage spécialisé de patios, de revêtements extérieurs, d’allées, d’entrées et plus encore.",
     "intro": [
-      "Les entrées, les allées et les terrasses accumulent de la saleté, des algues et d'autres dépôts au fil du temps. Le sable entre les pavés peut aussi se dégrader, laissant place aux mauvaises herbes, à la mousse et aux mouvements des pavés.",
-      "Nous offrons le lavage à pression et le remplacement de sable polymère selon les besoins de vos surfaces. Indiquez-nous si vous souhaitez un nettoyage, le renouvellement des joints ou les deux : nous vous aiderons à déterminer les travaux nécessaires."
+      "La météo de Montréal en fait voir de toutes les couleurs aux surfaces extérieures. Au fil des saisons, les entrées, les allées, les patios et les revêtements accumulent de la saleté, des algues, de la mousse et d’autres dépôts. En plus de ternir les surfaces, tout ça peut les rendre glissantes.",
+      "Le lavage à pression enlève ces accumulations pour retrouver la surface en dessous. Chaque matériau est différent : on commence par évaluer ce qu’on doit nettoyer, puis on choisit la pression, la méthode et les produits qui permettent de bien nettoyer sans abîmer la surface."
     ],
     "sections": [
-      {
-        "id": "polymeric-sand",
-        "heading": "Remplacement de sable polymère",
-        "content": "Nous retirons le sable usé, nettoyons soigneusement la surface pavée et installons du sable polymère dans les joints. Une fois bien durci, il aide à maintenir les pavés en place et à limiter la croissance des mauvaises herbes entre eux. La préparation dépend de l'état de la surface et des joints.",
-        "list": {
-          "title": "Les surfaces concernées comprennent :",
-          "items": [
-            "Les entrées en pavé uni",
-            "Les allées et les accès",
-            "Les terrasses et les autres espaces extérieurs pavés"
-          ]
-        }
-      },
       {
         "id": "surfaces",
         "heading": "Lavage à pression des surfaces extérieures",
@@ -152,10 +171,6 @@
     "hero": "/images/services/pressure-washing.png",
     "images": [
       {
-        "src": "/images/services/polymericsand1.png",
-        "alt": "Une entrée pavée avec des joints de sable renouvelés, présentée comme photo de réalisation."
-      },
-      {
         "src": "/images/services/pressurewashingsiding1.png",
         "alt": "Un revêtement extérieur avant le lavage à gauche et après le lavage à droite.",
         "comparison": true
@@ -164,6 +179,65 @@
         "src": "/images/services/pressurewashingcomposite1.png",
         "alt": "Une terrasse en composite avant le nettoyage à gauche et après le nettoyage à droite.",
         "comparison": true
+      },
+      {
+        "src": "/images/projects/sept-2026/patio1.webp",
+        "alt": "Des marches extérieures et la façade d’une maison avant le lavage à gauche et après à droite.",
+        "comparison": true
+      },
+      {
+        "src": "/images/projects/sept-2026/pressure-deck.webp",
+        "alt": "Gros plan d’une surface de terrasse pendant le lavage à pression.",
+        "comparison": false
+      },
+      {
+        "src": "/images/projects/sept-2026/pressure-siding-team.webp",
+        "alt": "Un membre de l’équipe EDMTL qui nettoie le revêtement d’une maison à partir d’une échelle.",
+        "comparison": false
+      }
+    ],
+    "primary": true
+  },
+  {
+    "slug": "dryer-vent-cleaning",
+    "title": "Nettoyage de conduits de sécheuse",
+    "pageTitle": "Nettoyage de conduits de sécheuse à Montréal",
+    "subtitle": "Un conduit dégagé aide votre sécheuse à mieux fonctionner et réduit les risques d’incendie.",
+    "description": "Nettoyage de conduits de sécheuse à Montréal. On retire la charpie, on inspecte le conduit avec une caméra et on mesure la vitesse de l’air pour que votre sécheuse fonctionne efficacement et de façon sécuritaire.",
+    "intro": [
+      "À chaque brassée, de la charpie passe dans le conduit d’évacuation de votre sécheuse. Le filtre en retient la plus grande partie, mais le reste s’accumule dans le conduit et réduit peu à peu la circulation de l’air. La sécheuse doit alors travailler plus fort et plus longtemps, ce qui coûte plus cher. C’est aussi un risque d’incendie : la charpie est très inflammable, et un conduit bouché peut causer un feu de maison.",
+      "En nettoyant tout le conduit, du raccord de la sécheuse jusqu’à la sortie extérieure, on enlève ces accumulations et on rétablit la circulation de l’air. Votre sécheuse peut ainsi faire son travail comme prévu."
+    ],
+    "sections": [
+      {
+        "id": "service",
+        "heading": "Un nettoyage complet du conduit",
+        "content": "Nous retirons la charpie du conduit et inspectons les parties accessibles du système.",
+        "list": {
+          "title": "Notre service comprend :",
+          "items": [
+            "Le retrait de la charpie du conduit et du filtre",
+            "L'inspection du conduit à l'aide d'une caméra d'inspection",
+            "La mesure du débit d'air avec un anémomètre"
+          ]
+        }
+      },
+      {
+        "id": "buildup",
+        "heading": "Éliminer la charpie accumulée",
+        "content": "Un conduit obstrué peut faire travailler la sécheuse davantage et entraîner une surchauffe. Le retrait de la charpie accumulée aide à rétablir la circulation de l'air et fait partie d'un entretien régulier."
+      },
+      {
+        "id": "airflow",
+        "heading": "Vérifier la circulation de l'air",
+        "content": "Nous mesurons le débit d'air dans le cadre du service. Si le séchage demeure peu efficace, d'autres éléments de l'appareil ou de son installation pourraient aussi nécessiter une vérification."
+      }
+    ],
+    "hero": "/images/projects/sept-2026/dryer-inspection.webp",
+    "images": [
+      {
+        "src": "/images/services/dryerventcleaning1.png",
+        "alt": "Équipement de nettoyage de conduit de sécheuse et charpie retirée."
       }
     ],
     "primary": true
@@ -173,10 +247,10 @@
     "title": "Sablage et teinture de terrasses",
     "pageTitle": "Sablage et teinture de terrasses à Montréal",
     "subtitle": "Une préparation soignée et une finition uniforme pour rafraîchir et protéger votre terrasse en bois.",
-    "description": "Sablage et teinture de terrasses à Montréal. Nettoyage, préparation et application de teinture sur le bois neuf ou ancien. Soumission gratuite.",
+    "description": "Sablage et teinture de terrasses à Montréal. Nettoyage, préparation et application de teinture sur le bois neuf ou ancien.",
     "intro": [
-      "Les terrasses en bois sont exposées au soleil, à la pluie et aux variations de température toute l'année. Un entretien régulier aide à préserver leur apparence et à protéger le bois.",
-      "Nos travaux commencent par la préparation. Nous nettoyons et sablons la surface selon ses besoins avant d'appliquer la teinture avec soin et de façon uniforme. La méthode dépend de l'âge et de l'état de votre terrasse."
+      "Les terrasses en bois passent à travers le soleil, la pluie et les changements de température toute l’année. Un entretien régulier aide à garder le bois beau et à le protéger.",
+      "On commence par la préparation : on nettoie et on sable la surface au besoin, puis on applique la teinture avec soin pour un fini uniforme. La méthode dépend de l’âge et de l’état de votre terrasse."
     ],
     "sections": [
       {
@@ -216,88 +290,57 @@
       {
         "src": "/images/services/staining-&-sealing.png",
         "alt": "Un gros plan de la rampe et du plancher d'une terrasse en bois."
+      },
+      {
+        "src": "/images/projects/sept-2026/decks1.webp",
+        "alt": "Une terrasse en bois avant la préparation à gauche et après les travaux à droite.",
+        "comparison": true
+      },
+      {
+        "src": "/images/projects/sept-2026/deck-finished.webp",
+        "alt": "Une terrasse en bois terminée, avec le soleil sur les planches.",
+        "comparison": false
       }
     ],
     "primary": true
   },
   {
-    "slug": "commercial-window-cleaning",
-    "title": "Nettoyage de vitres commerciales",
-    "pageTitle": "Nettoyage de vitres commerciales à Montréal",
-    "subtitle": "Des vitres propres pour les bureaux, les immeubles en copropriété et les propriétés commerciales.",
-    "description": "Nettoyage de vitres commerciales à Montréal pour bureaux, condos et entrepôts. Service organisé et horaire flexible. Soumission gratuite.",
+    "slug": "polymeric-sand-replacement",
+    "title": "Remplacement de sable polymère",
+    "pageTitle": "Remplacement de sable polymère à Montréal",
+    "subtitle": "Refaites les joints de votre pavé uni pour garder les pavés bien en place.",
+    "description": "Remplacement de sable polymère à Montréal. Redonnez une belle apparence à votre pavé uni grâce au lavage à pression et à l’installation de nouveau sable.",
     "intro": [
-      "Des vitres propres contribuent à un environnement accueillant pour vos employés, vos clients et vos locataires. Nous offrons le nettoyage de vitres pour différents types de propriétés commerciales à Montréal.",
-      "Nous misons sur une communication claire, un travail bien organisé et un service efficace qui s'adapte à vos activités quotidiennes."
+      "Le sable entre les pavés ne sert pas seulement à remplir les espaces. Il garde les pavés bien en place, les empêche de bouger et limite l’installation des mauvaises herbes, de la mousse et des fourmis dans les joints.",
+      "Quand les joints se dégradent, les problèmes commencent : les mauvaises herbes poussent, les pavés se délogent et bougent, et l’eau s’infiltre en dessous, où elle peut affaiblir la base. Remplacer le sable usé par du sable polymère bien installé redonne de la stabilité à la surface et un aspect propre aux joints."
     ],
     "sections": [
       {
-        "id": "offices",
-        "heading": "Immeubles de bureaux",
-        "content": "Un nettoyage régulier des vitres contribue à l'apparence professionnelle et accueillante de vos locaux. Nous planifions les travaux selon votre horaire pour limiter les perturbations."
-      },
-      {
-        "id": "condos",
-        "heading": "Immeubles en copropriété",
-        "content": "Du condo individuel au nettoyage extérieur d'un immeuble, nous discutons de la propriété et des conditions d'accès pour bien planifier les travaux."
-      },
-      {
-        "id": "scheduling",
-        "heading": "Un horaire flexible",
-        "content": "Les propriétés commerciales ont des besoins différents de ceux des résidences. Il est possible de discuter de rendez-vous tôt le matin, en soirée ou la fin de semaine lors de la planification du service."
-      }
-    ],
-    "hero": "/images/services/commercialwindowcleaning1.png",
-    "images": [
-      {
-        "src": "/images/services/commercialwindowcleaning1.png",
-        "alt": "Des fenêtres donnant sur la rue et une entrée vitrée dans une propriété commerciale."
-      }
-    ],
-    "primary": false
-  },
-  {
-    "slug": "dryer-vent-cleaning",
-    "title": "Nettoyage de conduits de sécheuse",
-    "pageTitle": "Nettoyage de conduits de sécheuse à Montréal",
-    "subtitle": "Retirez la charpie accumulée et favorisez la circulation de l'air dans le conduit de votre sécheuse.",
-    "description": "Nettoyage de conduits de sécheuse à Montréal : retrait de charpie, inspection par caméra et mesure du débit d'air. Soumission gratuite.",
-    "intro": [
-      "La charpie peut s'accumuler dans les conduits de sécheuse et réduire la circulation de l'air. Le séchage peut alors prendre plus de temps, et la charpie accumulée peut présenter un risque d'incendie.",
-      "Notre nettoyage vise à dégager le conduit et à vérifier son état ainsi que la circulation de l'air."
-    ],
-    "sections": [
-      {
-        "id": "service",
-        "heading": "Un nettoyage complet du conduit",
-        "content": "Nous retirons la charpie du conduit et inspectons les parties accessibles du système.",
+        "id": "polymeric-sand",
+        "heading": "Remplacement de sable polymère",
+        "content": "Nous retirons le sable usé, nettoyons soigneusement la surface pavée et installons du sable polymère dans les joints. Une fois bien durci, il aide à maintenir les pavés en place et à limiter la croissance des mauvaises herbes entre eux. La préparation dépend de l'état de la surface et des joints.",
         "list": {
-          "title": "Notre service comprend :",
+          "title": "Les surfaces concernées comprennent :",
           "items": [
-            "Le retrait de la charpie du conduit et du filtre",
-            "L'inspection du conduit à l'aide d'une caméra d'inspection",
-            "La mesure du débit d'air avec un anémomètre"
+            "Les entrées en pavé uni",
+            "Les allées et les accès",
+            "Les terrasses et les autres espaces extérieurs pavés"
           ]
         }
-      },
-      {
-        "id": "buildup",
-        "heading": "Éliminer la charpie accumulée",
-        "content": "Un conduit obstrué peut faire travailler la sécheuse davantage et entraîner une surchauffe. Le retrait de la charpie accumulée aide à rétablir la circulation de l'air et fait partie d'un entretien régulier."
-      },
-      {
-        "id": "airflow",
-        "heading": "Vérifier la circulation de l'air",
-        "content": "Nous mesurons le débit d'air dans le cadre du service. Si le séchage demeure peu efficace, d'autres éléments de l'appareil ou de son installation pourraient aussi nécessiter une vérification."
       }
     ],
-    "hero": "/images/services/dryerventcleaning1.png",
+    "hero": "/images/projects/sept-2026/polymeric-driveway.webp",
     "images": [
       {
-        "src": "/images/services/dryerventcleaning1.png",
-        "alt": "Équipement de nettoyage de conduit de sécheuse et charpie retirée."
+        "src": "/images/services/polymericsand1.png",
+        "alt": "Une entrée pavée avec des joints de sable renouvelés, présentée comme photo de réalisation."
+      },
+      {
+        "src": "/images/projects/sept-2026/patio2.webp",
+        "alt": "Les joints d’un pavé uni avant la remise en état à gauche et après à droite.",
+        "comparison": true
       }
     ],
-    "primary": false
+    "primary": true
   }
 ]

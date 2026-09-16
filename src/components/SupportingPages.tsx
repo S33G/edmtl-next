@@ -9,7 +9,7 @@ import Gallery from './Gallery';
 type PageProps = { locale: Locale };
 
 function QuoteLink({ locale }: PageProps) {
-  return <Link className="button button-primary" href={localizedPath(locale, '/contact')} data-track-event="quote_cta_click" data-track-placement="supporting_page">{locale === 'fr' ? 'Obtenir un devis gratuit' : 'Get a free quote'} <span aria-hidden="true">↗</span></Link>;
+  return <Link className="button button-primary" href={localizedPath(locale, '/contact')} data-track-event="quote_cta_click" data-track-placement="supporting_page">{locale === 'fr' ? 'Obtenir une soumission gratuite' : 'Get a free quote'} <span aria-hidden="true">↗</span></Link>;
 }
 
 export function FaqPage({ locale }: PageProps) {
@@ -20,7 +20,7 @@ export function FaqPage({ locale }: PageProps) {
       <section className="page-intro container">
         <p className="eyebrow">{fr ? 'Des réponses simples' : 'Good to know'}</p>
         <h1 className="page-heading">{fr ? 'Questions fréquentes' : 'Frequently asked questions'}</h1>
-        <p className="lead">{fr ? 'Les réponses à vos questions sur nos services, nos devis et les secteurs que nous desservons.' : 'Answers about our services, free quotes and the areas we cover.'}</p>
+        <p className="lead">{fr ? 'Tout ce qu’il faut savoir sur nos services, nos soumissions et les secteurs où on travaille.' : 'Answers about our services, free quotes and the areas we cover.'}</p>
       </section>
       <section className="section container" aria-label={fr ? 'Questions et réponses' : 'Questions and answers'}>
         <div style={{ maxWidth: '54rem', margin: '0 auto' }}>
@@ -30,7 +30,7 @@ export function FaqPage({ locale }: PageProps) {
           </details>)}
           <div className="card" style={{ marginTop: '2.5rem', padding: '2rem' }}>
             <h2>{fr ? 'Parlons de votre projet.' : 'Let’s talk about your project.'}</h2>
-            <p style={{ margin: '1rem 0 1.5rem' }}>{fr ? 'Votre demande de devis est gratuite et ne vous engage à rien.' : 'Your quote is free, with no obligation to book.'}</p>
+            <p style={{ margin: '1rem 0 1.5rem' }}>{fr ? 'Votre soumission est gratuite, sans obligation.' : 'Your quote is free, with no obligation to book.'}</p>
             <QuoteLink locale={locale} />
           </div>
         </div>
@@ -72,18 +72,18 @@ export function TermsPage({ locale }: PageProps) {
       <section className="page-intro container">
         <p className="eyebrow">{fr ? 'Travailler ensemble' : 'Working together'}</p>
         <h1 className="page-heading">{fr ? 'Conditions de service' : 'Terms of service'}</h1>
-        <p className="lead">{fr ? 'Les renseignements utiles pour demander un devis et discuter de votre projet avec EDMTL.' : 'Helpful information for requesting a quote and discussing your project with EDMTL.'}</p>
+        <p className="lead">{fr ? 'Les renseignements utiles pour demander une soumission et discuter de votre projet avec EDMTL.' : 'Helpful information for requesting a quote and discussing your project with EDMTL.'}</p>
       </section>
       <section className="section container">
         <article className="prose" style={{ maxWidth: '50rem', margin: '0 auto' }}>
           <h2>{fr ? 'À propos de nos services' : 'About our services'}</h2>
           <p>{fr ? 'Entretien Domestique Montréal (EDMTL) offre des services de nettoyage et d’entretien de propriétés à Montréal et dans les environs. Communiquez avec nous pour discuter du travail souhaité et de votre propriété.' : 'Entretien Domestique Montreal (EDMTL) provides property cleaning and maintenance services in Montreal and the surrounding area. Contact us to discuss the work you need and your property.'}</p>
-          <h2>{fr ? 'Devis gratuits et sans engagement' : 'Free, no-obligation quotes'}</h2>
-          <p>{fr ? 'Nos devis sont gratuits. Une demande de devis ne vous oblige pas à réserver un service. Le formulaire sert à nous transmettre votre demande; il ne constitue pas une confirmation de rendez-vous.' : 'Our quotes are free. Requesting a quote does not oblige you to book a service. The form sends us your inquiry; it does not confirm an appointment.'}</p>
+          <h2>{fr ? 'Soumissions gratuites et sans obligation' : 'Free, no-obligation quotes'}</h2>
+          <p>{fr ? 'Nos soumissions sont gratuites. Une demande de soumission ne vous oblige pas à réserver un service. Le formulaire sert à nous transmettre votre demande; il ne constitue pas une confirmation de rendez-vous.' : 'Our quotes are free. Requesting a quote does not oblige you to book a service. The form sends us your inquiry; it does not confirm an appointment.'}</p>
           <h2>{fr ? 'Votre demande de service' : 'Your service request'}</h2>
           <p>{fr ? 'Indiquez les services qui vous intéressent, votre code postal et vos coordonnées afin que nous puissions communiquer avec vous au sujet de votre projet. Les détails du travail et le prix sont à confirmer avec EDMTL.' : 'Tell us which services you are interested in, your postal code and how to reach you so we can discuss your project. The work details and price are to be confirmed with EDMTL.'}</p>
           <h2>{fr ? 'Secteurs desservis' : 'Service area'}</h2>
-          <p>{fr ? 'Nous desservons Montréal ainsi que les secteurs de Saint-Lazare, Laval, la Rive-Nord, la Rive-Sud et Vaudreuil-Dorion. Les déplacements plus loin peuvent faire l’objet d’un tarif établi dans le devis.' : 'We serve Montreal and areas including Saint-Lazare, Laval, the North Shore, the South Shore and Vaudreuil-Dorion. Travel farther afield may be available at a quoted rate.'}</p>
+          <p>{fr ? 'Nous desservons Montréal ainsi que les secteurs de Saint-Lazare, Laval, la Rive-Nord, la Rive-Sud et Vaudreuil-Dorion. Les déplacements plus loin peuvent faire l’objet d’un tarif établi dans la soumission.' : 'We serve Montreal and areas including Saint-Lazare, Laval, the North Shore, the South Shore and Vaudreuil-Dorion. Travel farther afield may be available at a quoted rate.'}</p>
           <h2>{fr ? 'Modes de paiement' : 'Payment methods'}</h2>
           <p>{fr ? 'Nous acceptons les principales cartes de crédit et les virements Interac. Les modalités applicables à votre projet sont à confirmer lors de la réservation.' : 'We accept major credit cards and e-transfer. The payment arrangements for your project are to be confirmed when booking.'}</p>
           <h2>{fr ? 'Vos renseignements personnels' : 'Your personal information'}</h2>
@@ -136,7 +136,7 @@ export function PrivacyPage({ locale }: PageProps) {
     'Approximate geographic location (city/region level)', 'Form submission conversion events (the form does not send your entered contact details to Google)',
   ];
   const uses = fr ? [
-    'Répondre à vos demandes de devis et à vos questions', 'Planifier et coordonner nos services d’entretien',
+    'Répondre à vos demandes de soumission et à vos questions', 'Planifier et coordonner nos services d’entretien',
     'Comprendre l’utilisation du site afin d’améliorer l’expérience des visiteurs', 'Mesurer la performance de nos campagnes publicitaires', 'Maintenir la sécurité et la performance de notre site',
   ] : [
     'Respond to your quote requests and inquiries', 'Schedule and coordinate our maintenance services',
@@ -165,7 +165,7 @@ export function PrivacyPage({ locale }: PageProps) {
 
           <h2>{fr ? '1. Renseignements recueillis' : '1. Information we collect'}</h2>
           <h3>{fr ? 'a) Renseignements que vous fournissez' : 'a) Information you provide'}</h3>
-          <p>{fr ? 'Lorsque vous remplissez notre formulaire pour demander un devis, nous recueillons les renseignements suivants :' : 'When you submit our form to request a quote, we collect the following information:'}</p>
+          <p>{fr ? 'Lorsque vous remplissez notre formulaire pour demander une soumission, nous recueillons les renseignements suivants :' : 'When you submit our form to request a quote, we collect the following information:'}</p>
           {list(suppliedFields)}
           <h3>{fr ? 'b) Renseignements recueillis automatiquement' : 'b) Information collected automatically'}</h3>
           <p>{fr ? 'Lorsque vous consultez notre site, certains renseignements sont recueillis automatiquement par des services tiers.' : 'When you visit our website, certain information is collected automatically through third-party services.'}</p>
@@ -244,8 +244,8 @@ export function ThankYouPage({ locale }: PageProps) {
   return <section className="section container">
     <div className="card" style={{ maxWidth: '42rem', padding: 'clamp(1.5rem, 5vw, 4rem)', margin: '2rem auto', textAlign: 'center' }}>
       <p className="eyebrow">{fr ? 'Merci de nous avoir contactés' : 'Thanks for getting in touch'}</p>
-      <h1 className="page-heading">{fr ? 'Votre demande a été reçue.' : 'Your quote request is in.'}</h1>
-      <p className="lead">{fr ? 'Nous avons bien reçu votre demande. L’équipe EDMTL communiquera avec vous pour discuter de votre projet.' : 'We’ve received your request. The EDMTL team will get in touch to discuss your project.'}</p>
+      <h1 className="page-heading">{fr ? 'On a reçu votre demande.' : 'Your quote request is in.'}</h1>
+      <p className="lead">{fr ? 'Merci! On vous recontacte pour discuter de votre projet.' : 'We’ve received your request. The EDMTL team will get in touch to discuss your project.'}</p>
       <p style={{ margin: '1.5rem 0' }}>{fr ? 'Vous préférez nous parler directement? ' : 'Prefer to speak with us directly? '}<a href={`tel:${siteConfig.contact.phone.replace(/-/g, '')}`} data-track-placement="thank_you">{siteConfig.contact.phone}</a></p>
       <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
         <Link href={localizedPath(locale, '/')} className="button button-primary">{fr ? 'Retour à l’accueil' : 'Back to home'}</Link>
