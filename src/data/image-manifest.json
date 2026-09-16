@@ -562,38 +562,6 @@
       }
     ]
   },
-  "/images/services/staining-&-sealing.png": {
-    "width": 1000,
-    "height": 600,
-    "variants": [
-      {
-        "src": "/images/optimized/services-staining---sealing-480.webp",
-        "width": 480,
-        "height": 288
-      },
-      {
-        "src": "/images/optimized/services-staining---sealing-800.webp",
-        "width": 800,
-        "height": 480
-      }
-    ]
-  },
-  "/images/services/surface-cleaning-and-preparation.png": {
-    "width": 1000,
-    "height": 600,
-    "variants": [
-      {
-        "src": "/images/optimized/services-surface-cleaning-and-preparation-480.webp",
-        "width": 480,
-        "height": 288
-      },
-      {
-        "src": "/images/optimized/services-surface-cleaning-and-preparation-800.webp",
-        "width": 800,
-        "height": 480
-      }
-    ]
-  },
   "/images/services/window-cleaning-header.png": {
     "width": 1400,
     "height": 600,

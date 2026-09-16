@@ -92,12 +92,6 @@ const photos: LocalizedPhoto[] = [
     en: { alt: 'A wood deck beside a house with a garden beyond the railing.', caption: 'Wood deck care — project photo' },
     fr: { alt: 'Une terrasse en bois près d’une maison et un jardin au-delà de la rampe.', caption: 'Entretien de terrasse en bois — photo de réalisation' },
   },
-  {
-    id: 'deck-preparation', service: 'deck-staining',
-    src: '/images/services/surface-cleaning-and-preparation.png', comparison: false,
-    en: { alt: 'A wood deck surface illustrating preparation for deck care.', caption: 'Deck surface preparation — project photo' },
-    fr: { alt: 'Une surface de terrasse en bois illustrant la préparation avant l’entretien.', caption: 'Préparation de terrasse — photo de réalisation' },
-  },
 ];
 
 export function getGallery(locale: Locale): GalleryPhoto[] {
