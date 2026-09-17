@@ -1,3 +1,61 @@
 [build]
 command = "npm run build && node scripts/discord-notify.js"
 publish = "out"
+
+[[redirects]]
+from = "/services/commercial-window-cleaning"
+to = "/services/window-cleaning#commercial"
+status = 301
+force = true
+
+[[redirects]]
+from = "/fr/services/commercial-window-cleaning"
+to = "/fr/services/window-cleaning#commercial"
+status = 301
+force = true
+
+[[redirects]]
+from = "/services/deck-refinishing"
+to = "/services/deck-staining"
+status = 301
+
+[[redirects]]
+from = "/fr/services/deck-refinishing"
+to = "/fr/services/deck-staining"
+status = 301
+
+[[redirects]]
+from = "/services/gutter-services"
+to = "/services/gutter-cleaning"
+status = 301
+
+[[redirects]]
+from = "/fr/services/gutter-services"
+to = "/fr/services/gutter-cleaning"
+status = 301
+
+[[redirects]]
+from = "/en/contact"
+to = "/contact"
+status = 301
+
+[[redirects]]
+from = "/thank-you.html"
+to = "/thank-you"
+status = 301
+force = true
+
+[[headers]]
+for = "/__forms.html"
+[headers.values]
+X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+for = "/terms"
+[headers.values]
+X-Robots-Tag = "noindex, follow"
+
+[[headers]]
+for = "/fr/terms"
+[headers.values]
+X-Robots-Tag = "noindex, follow"

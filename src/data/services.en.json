@@ -1,0 +1,338 @@
+[
+  {
+    "slug": "gutter-cleaning",
+    "title": "Gutter Cleaning",
+    "pageTitle": "Gutter Cleaning in Montreal",
+    "subtitle": "Clear gutters. Free-flowing downspouts. A home ready for the next rainfall.",
+    "description": "Thorough gutter cleaning in Montreal. We remove debris, flush the gutters as well as the downspouts, and inspect for leaking or damage.",
+    "intro": [
+      "A clear gutter and downspout system helps direct rainwater away from your home. Leaves, needles and other debris can interrupt that flow, especially after the heavy rain and seasonal changes we see in Montreal.",
+      "We remove the debris, flush the system with water and check how the water drains. If we notice an issue, we explain what we found so you can make an informed decision."
+    ],
+    "sections": [
+      {
+        "id": "complete-cleaning",
+        "heading": "A thorough clean from gutter to downspout",
+        "content": "We clear accumulated debris and follow with a water flush. This lets us check that water moves through the gutters and downspouts rather than simply making the visible surface look clean.",
+        "list": {
+          "title": "Our cleaning includes:",
+          "items": [
+            "Removing leaves, needles and accumulated debris",
+            "Flushing the gutters and downspouts with water",
+            "Checking drainage and observing where the water ends up",
+            "Pointing out visible issues that may need attention"
+          ]
+        }
+      },
+      {
+        "id": "seasonal-maintenance",
+        "heading": "Care that suits your property",
+        "content": "Trees, roof shape and the amount of debris around your home all affect how quickly gutters fill up. Tell us about your property when requesting a quote so we can understand what needs to be cleaned."
+      }
+    ],
+    "hero": "/images/services/gutter-cleaning.png",
+    "images": [
+      {
+        "src": "/images/projects/sept-2026/gutters1.webp",
+        "alt": "A gutter before debris removal on the left and after cleaning on the right.",
+        "comparison": true
+      },
+      {
+        "src": "/images/projects/sept-2026/gutters3.webp",
+        "alt": "A roof-edge gutter before cleaning on the left and after cleaning on the right.",
+        "comparison": true
+      },
+      {
+        "src": "/images/projects/sept-2026/gutters4.webp",
+        "alt": "Plants and debris in a gutter on the left, with the cleared gutter on the right.",
+        "comparison": true
+      },
+      {
+        "src": "/images/projects/sept-2026/gutter-team.webp",
+        "alt": "An EDMTL team member working from a ladder at the roofline of a home.",
+        "comparison": false
+      }
+    ],
+    "primary": true
+  },
+  {
+    "slug": "window-cleaning",
+    "title": "Window Cleaning",
+    "pageTitle": "Window Cleaning in Montreal",
+    "subtitle": "Clean glass, frames, tracks and screens — inside and out.",
+    "description": "Meticulous window cleaning in Montreal. Traditional methods for complete interior and exterior detailing. Purified waterfed pole method for exterior cleaning up to 50 feet high.",
+    "intro": [
+      "Clean windows let more natural light into your home and help your property look cared for. The difference goes beyond the glass: frames, tracks and screens can hold dirt that is easy to overlook.",
+      "We clean carefully inside and outside, respecting your space, landscaping and schedule. From a condo to a family home, we take the time to do the details properly."
+    ],
+    "sections": [
+      {
+        "id": "interior-exterior",
+        "heading": "Interior & exterior window cleaning",
+        "content": "A complete service includes both sides of the glass and the parts around it. Opening window tracks can hide dirt, insects and other buildup, so we give those areas attention too.",
+        "list": {
+          "title": "A full window cleaning includes:",
+          "items": [
+            "Interior and exterior glass",
+            "Frames and sills",
+            "Tracks and the accessible parts of opening windows",
+            "Screens"
+          ]
+        }
+      },
+      {
+        "id": "residential",
+        "heading": "Care for your home",
+        "content": "We work carefully indoors to avoid drips on your floors and position ladders with your outdoor plants in mind. Our goal is spotless windows with as little disruption to your day as possible.",
+        "list": {
+          "title": "Properties we work on:",
+          "items": [
+            "Individual condo units",
+            "Townhomes",
+            "Single-family homes",
+            "Multi-unit buildings"
+          ]
+        }
+      },
+      {
+        "id": "commercial",
+        "heading": "Windows for businesses and shared buildings",
+        "content": "We also clean windows for offices, condo buildings and other commercial properties. Clear communication, an organized plan and scheduling around your activities help the work run smoothly."
+      }
+    ],
+    "hero": "/images/services/window-cleaning-header.png",
+    "images": [
+      {
+        "src": "/images/services/windowcleaningexternalframe1.png",
+        "alt": "Exterior window frame before cleaning on the left and after cleaning on the right.",
+        "comparison": true
+      },
+      {
+        "src": "/images/projects/sept-2026/windows1.webp",
+        "alt": "Window track and frame before cleaning on the left and after cleaning on the right.",
+        "comparison": true
+      },
+      {
+        "src": "/images/projects/sept-2026/windows2.webp",
+        "alt": "An open window frame before cleaning on the left and after cleaning on the right.",
+        "comparison": true
+      },
+      {
+        "src": "/images/projects/sept-2026/windows3.webp",
+        "alt": "An interior window track before cleaning on the left and after cleaning on the right.",
+        "comparison": true
+      }
+    ],
+    "primary": true,
+    "commercial": {
+      "heading": "Commercial window cleaning",
+      "paragraphs": [
+        "We also clean windows for offices, condo syndicates and other commercial properties across Montreal. Clean windows help create a welcoming space for employees, clients and residents.",
+        "We plan the work around your building’s access needs and daily activities, with clear communication and an organized schedule. Contact us to discuss your property and the service you need."
+      ]
+    }
+  },
+  {
+    "slug": "pressure-washing",
+    "title": "Pressure Washing",
+    "pageTitle": "Pressure Washing in Montreal",
+    "subtitle": "Wash away seasons of dirt, algae and grime safely, with the right pressure for each surface.",
+    "description": "Pressure washing in Montreal. Specialized cleaning for patios, siding, walkways, driveways and more.",
+    "intro": [
+      "Montreal weather is hard on outdoor surfaces. Over the seasons, driveways, walkways, patios and siding collect dirt, algae, moss and general buildup that dulls their appearance and can make them slippery underfoot.",
+      "Pressure washing removes that accumulation and restores the surface underneath. Every material is different, so we start by assessing what we're cleaning and then choose the pressure, technique and products that clean thoroughly without causing damage."
+    ],
+    "sections": [
+      {
+        "id": "surfaces",
+        "heading": "Pressure washing for exterior surfaces",
+        "content": "We inspect the surface before choosing a cleaning method and pressure level. Controlled cleaning helps remove accumulated grime and restore the appearance of outdoor areas.",
+        "list": {
+          "title": "Surfaces we regularly clean:",
+          "items": [
+            "Driveways and parking garages",
+            "Walkways and entrances",
+            "Patios and outdoor structures",
+            "Suitable types of exterior siding"
+          ]
+        }
+      },
+      {
+        "id": "right-pressure",
+        "heading": "The right method for each material",
+        "content": "Different materials need different care. We adjust the pressure to the surface to reduce the risk of etching or damage. Where appropriate, we use soft washing or clean by hand with soap and water."
+      },
+      {
+        "id": "results",
+        "heading": "See the cleaning difference",
+        "content": "Removing accumulated dirt and algae can make a visible difference and reduce slippery buildup. The project photos below show siding and composite decking before and after cleaning."
+      }
+    ],
+    "hero": "/images/services/pressure-washing.png",
+    "images": [
+      {
+        "src": "/images/services/pressurewashingsiding1.png",
+        "alt": "House siding before washing on the left and after washing on the right.",
+        "comparison": true
+      },
+      {
+        "src": "/images/services/pressurewashingcomposite1.png",
+        "alt": "Composite decking before cleaning on the left and after cleaning on the right.",
+        "comparison": true
+      },
+      {
+        "src": "/images/projects/sept-2026/patio1.webp",
+        "alt": "Exterior steps and the front of a home before washing on the left and after washing on the right.",
+        "comparison": true
+      },
+      {
+        "src": "/images/projects/sept-2026/pressure-deck.webp",
+        "alt": "Close-up of an outdoor deck surface during pressure washing.",
+        "comparison": false
+      },
+      {
+        "src": "/images/projects/sept-2026/pressure-siding-team.webp",
+        "alt": "An EDMTL team member cleaning the siding of a home from a ladder.",
+        "comparison": false
+      }
+    ],
+    "primary": true
+  },
+  {
+    "slug": "dryer-vent-cleaning",
+    "title": "Dryer Vent Cleaning",
+    "pageTitle": "Dryer Vent Cleaning in Montreal",
+    "subtitle": "A clear vent maximizes dryer efficiency and reduces a fire-hazard.",
+    "description": "Dryer vent cleaning in Montreal. Clearing the lint, inspecting with a camera and testing the air speed to ensure your dryer runs efficiently and safely.",
+    "intro": [
+      "Every load of laundry sends lint into your dryer's exhaust duct. The lint trap catches most of it but the rest builds up inside the vent, slowly choking the airflow. A restricted vent makes your dryer work harder, run longer and cost more to operate. It's also a genuine fire hazard: lint is highly flammable, and a clogged dryer vent is a serious cause of household fires.",
+      "Cleaning the full vent run from the dryer connection to the exterior hood removes that buildup, restores proper airflow and lets your dryer do its job the way it was designed to."
+    ],
+    "sections": [
+      {
+        "id": "service",
+        "heading": "A thorough vent cleaning",
+        "content": "We clear lint from the vent line and inspect the accessible system.",
+        "list": {
+          "title": "Our service includes:",
+          "items": [
+            "Removing lint from the vent line and lint trap",
+            "Inspecting the vent with a borescope camera",
+            "Testing airflow with an anemometer"
+          ]
+        }
+      },
+      {
+        "id": "buildup",
+        "heading": "Addressing lint buildup",
+        "content": "A restricted vent can cause a dryer to work harder and overheat. Removing accumulated lint helps address that restriction and supports regular dryer maintenance."
+      },
+      {
+        "id": "airflow",
+        "heading": "Checking airflow",
+        "content": "We test airflow as part of the service. If drying performance remains poor, other parts of the appliance or installation may also need attention."
+      }
+    ],
+    "hero": "/images/projects/sept-2026/dryer-inspection.webp",
+    "images": [
+      {
+        "src": "/images/services/dryerventcleaning1.png",
+        "alt": "Dryer vent cleaning equipment and extracted lint."
+      }
+    ],
+    "primary": true
+  },
+  {
+    "slug": "deck-staining",
+    "title": "Deck Sanding & Staining",
+    "pageTitle": "Deck Sanding & Staining in Montreal",
+    "subtitle": "Careful preparation and an even finish to refresh and protect your wood deck.",
+    "description": "Deck sanding and staining in Montreal. Thorough cleaning, surface preparation and stain application for new and older wood decks.",
+    "intro": [
+      "Wood decks face sun, rain and changing temperatures throughout the year. Regular care helps preserve their appearance and protects the wood from everyday exposure.",
+      "Our deck work starts with preparation. We clean and sand the surface as needed before applying stain carefully and evenly. The right approach depends on the age and condition of your deck."
+    ],
+    "sections": [
+      {
+        "id": "preparation",
+        "heading": "Cleaning & sanding",
+        "content": "Preparation is an important part of a staining project. We clean the wood to remove dirt and mildew, then assess how much sanding it needs. Older wood may need more thorough sanding to restore a smooth surface, while newer wood may need a lighter preparation for stain absorption."
+      },
+      {
+        "id": "staining",
+        "heading": "A carefully applied stain",
+        "content": "Once the surface is prepared, we apply the stain evenly across the deck. We pay attention to the finish and the details that help the work look consistent.",
+        "list": {
+          "title": "Wood stain helps:",
+          "items": [
+            "Limit damage from sun exposure",
+            "Protect the wood against moisture",
+            "Enhance the natural appearance of the wood"
+          ]
+        }
+      },
+      {
+        "id": "new-or-old",
+        "heading": "Care for new and older decks",
+        "content": "A newer deck and an older deck can need different levels of work. We assess the condition of the wood and explain the preparation required. Where the wood is still sound, cleaning, sanding and staining can refresh its appearance."
+      }
+    ],
+    "hero": "/images/services/deckstaining1.png",
+    "images": [
+      {
+        "src": "/images/services/deckstaining1.png",
+        "alt": "A wood deck beside a home, shown as a deck care project photograph."
+      },
+      {
+        "src": "/images/projects/sept-2026/decks1.webp",
+        "alt": "A wood deck before preparation on the left and after deck care on the right.",
+        "comparison": true
+      },
+      {
+        "src": "/images/projects/sept-2026/deck-finished.webp",
+        "alt": "A finished wood deck with sunlight falling across the boards.",
+        "comparison": false
+      }
+    ],
+    "primary": true
+  },
+  {
+    "slug": "polymeric-sand-replacement",
+    "title": "Polymeric Sand Replacement",
+    "pageTitle": "Polymeric Sand Replacement in Montreal",
+    "subtitle": "Renew the joints between your pavers and lock them in place.",
+    "description": "Polymeric sand replacement in Montreal. Restore the look of your pavers or interlock by pressure washing and installing new sand.",
+    "intro": [
+      "The sand between interlocking pavers does more than fill a gap. It locks the pavers together, keeps them from shifting, and blocks weeds, moss and ants from taking over the joints.",
+      "When the joints fail, the problems begin: weeds sprout, pavers loosen and shift, and water gets underneath where it can undermine the base. Replacing the worn sand with properly installed polymeric sand restores the strength of the surface and the clean look of the joints."
+    ],
+    "sections": [
+      {
+        "id": "polymeric-sand",
+        "heading": "Polymeric sand replacement",
+        "content": "We remove worn sand, thoroughly clean the paved surface and install polymeric sand in the joints. Once properly set, it helps keep the pavers in place and limits weed growth between them. The condition of the surface and joints guides the preparation needed.",
+        "list": {
+          "title": "Suitable paved areas include:",
+          "items": [
+            "Interlocking driveways",
+            "Walkways and entrances",
+            "Patios and other paved outdoor spaces"
+          ]
+        }
+      }
+    ],
+    "hero": "/images/projects/sept-2026/polymeric-driveway.webp",
+    "images": [
+      {
+        "src": "/images/services/polymericsand1.png",
+        "alt": "A paved driveway with renewed sand joints, shown as a project photograph."
+      },
+      {
+        "src": "/images/projects/sept-2026/patio2.webp",
+        "alt": "Paver joints before restoration on the left and after restoration on the right.",
+        "comparison": true
+      }
+    ],
+    "primary": true
+  }
+]

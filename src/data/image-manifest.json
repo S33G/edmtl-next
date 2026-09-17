@@ -1,0 +1,602 @@
+{
+  "/images/edm-box-logo.png": {
+    "width": 820,
+    "height": 1015,
+    "variants": [
+      {
+        "src": "/images/optimized/edm-box-logo-480.webp",
+        "width": 480,
+        "height": 594
+      },
+      {
+        "src": "/images/optimized/edm-box-logo-800.webp",
+        "width": 800,
+        "height": 990
+      }
+    ]
+  },
+  "/images/edm-main-logo.png": {
+    "width": 960,
+    "height": 960,
+    "variants": [
+      {
+        "src": "/images/optimized/edm-main-logo-480.webp",
+        "width": 480,
+        "height": 480
+      },
+      {
+        "src": "/images/optimized/edm-main-logo-800.webp",
+        "width": 800,
+        "height": 800
+      }
+    ]
+  },
+  "/images/edmtl-logo.png": {
+    "width": 1920,
+    "height": 1015,
+    "variants": [
+      {
+        "src": "/images/optimized/edmtl-logo-480.webp",
+        "width": 480,
+        "height": 254
+      },
+      {
+        "src": "/images/optimized/edmtl-logo-800.webp",
+        "width": 800,
+        "height": 423
+      },
+      {
+        "src": "/images/optimized/edmtl-logo-1200.webp",
+        "width": 1200,
+        "height": 634
+      },
+      {
+        "src": "/images/optimized/edmtl-logo-1600.webp",
+        "width": 1600,
+        "height": 846
+      }
+    ]
+  },
+  "/images/frontpagesplash.png": {
+    "width": 1920,
+    "height": 1080,
+    "variants": [
+      {
+        "src": "/images/optimized/frontpagesplash-480.webp",
+        "width": 480,
+        "height": 270
+      },
+      {
+        "src": "/images/optimized/frontpagesplash-800.webp",
+        "width": 800,
+        "height": 450
+      },
+      {
+        "src": "/images/optimized/frontpagesplash-1200.webp",
+        "width": 1200,
+        "height": 675
+      },
+      {
+        "src": "/images/optimized/frontpagesplash-1600.webp",
+        "width": 1600,
+        "height": 900
+      }
+    ]
+  },
+  "/images/gutter-cleaning-after-1.jpg": {
+    "width": 2560,
+    "height": 2356,
+    "variants": [
+      {
+        "src": "/images/optimized/gutter-cleaning-after-1-480.webp",
+        "width": 480,
+        "height": 442
+      },
+      {
+        "src": "/images/optimized/gutter-cleaning-after-1-800.webp",
+        "width": 800,
+        "height": 736
+      },
+      {
+        "src": "/images/optimized/gutter-cleaning-after-1-1200.webp",
+        "width": 1200,
+        "height": 1104
+      },
+      {
+        "src": "/images/optimized/gutter-cleaning-after-1-1600.webp",
+        "width": 1600,
+        "height": 1473
+      }
+    ]
+  },
+  "/images/projects/sept-2026/deck-finished.webp": {
+    "width": 1536,
+    "height": 2048,
+    "variants": [
+      {
+        "src": "/images/optimized/projects-sept-2026-deck-finished-480.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/images/optimized/projects-sept-2026-deck-finished-800.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/images/optimized/projects-sept-2026-deck-finished-1200.webp",
+        "width": 1200,
+        "height": 1600
+      }
+    ]
+  },
+  "/images/projects/sept-2026/decks1.webp": {
+    "width": 1500,
+    "height": 1000,
+    "variants": [
+      {
+        "src": "/images/optimized/projects-sept-2026-decks1-480.webp",
+        "width": 480,
+        "height": 320
+      },
+      {
+        "src": "/images/optimized/projects-sept-2026-decks1-800.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/optimized/projects-sept-2026-decks1-1200.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
+  },
+  "/images/projects/sept-2026/dryer-inspection.webp": {
+    "width": 946,
+    "height": 767,
+    "variants": [
+      {
+        "src": "/images/optimized/projects-sept-2026-dryer-inspection-480.webp",
+        "width": 480,
+        "height": 389
+      },
+      {
+        "src": "/images/optimized/projects-sept-2026-dryer-inspection-800.webp",
+        "width": 800,
+        "height": 649
+      }
+    ]
+  },
+  "/images/projects/sept-2026/gutter-team.webp": {
+    "width": 1536,
+    "height": 2048,
+    "variants": [
+      {
+        "src": "/images/optimized/projects-sept-2026-gutter-team-480.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/images/optimized/projects-sept-2026-gutter-team-800.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/images/optimized/projects-sept-2026-gutter-team-1200.webp",
+        "width": 1200,
+        "height": 1600
+      }
+    ]
+  },
+  "/images/projects/sept-2026/gutters1.webp": {
+    "width": 1500,
+    "height": 1000,
+    "variants": [
+      {
+        "src": "/images/optimized/projects-sept-2026-gutters1-480.webp",
+        "width": 480,
+        "height": 320
+      },
+      {
+        "src": "/images/optimized/projects-sept-2026-gutters1-800.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/optimized/projects-sept-2026-gutters1-1200.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
+  },
+  "/images/projects/sept-2026/gutters3.webp": {
+    "width": 1500,
+    "height": 1000,
+    "variants": [
+      {
+        "src": "/images/optimized/projects-sept-2026-gutters3-480.webp",
+        "width": 480,
+        "height": 320
+      },
+      {
+        "src": "/images/optimized/projects-sept-2026-gutters3-800.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/optimized/projects-sept-2026-gutters3-1200.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
+  },
+  "/images/projects/sept-2026/gutters4.webp": {
+    "width": 1500,
+    "height": 1000,
+    "variants": [
+      {
+        "src": "/images/optimized/projects-sept-2026-gutters4-480.webp",
+        "width": 480,
+        "height": 320
+      },
+      {
+        "src": "/images/optimized/projects-sept-2026-gutters4-800.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/optimized/projects-sept-2026-gutters4-1200.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
+  },
+  "/images/projects/sept-2026/patio1.webp": {
+    "width": 1500,
+    "height": 1000,
+    "variants": [
+      {
+        "src": "/images/optimized/projects-sept-2026-patio1-480.webp",
+        "width": 480,
+        "height": 320
+      },
+      {
+        "src": "/images/optimized/projects-sept-2026-patio1-800.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/optimized/projects-sept-2026-patio1-1200.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
+  },
+  "/images/projects/sept-2026/patio2.webp": {
+    "width": 1500,
+    "height": 1000,
+    "variants": [
+      {
+        "src": "/images/optimized/projects-sept-2026-patio2-480.webp",
+        "width": 480,
+        "height": 320
+      },
+      {
+        "src": "/images/optimized/projects-sept-2026-patio2-800.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/optimized/projects-sept-2026-patio2-1200.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
+  },
+  "/images/projects/sept-2026/polymeric-driveway.webp": {
+    "width": 2048,
+    "height": 1536,
+    "variants": [
+      {
+        "src": "/images/optimized/projects-sept-2026-polymeric-driveway-480.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "/images/optimized/projects-sept-2026-polymeric-driveway-800.webp",
+        "width": 800,
+        "height": 600
+      },
+      {
+        "src": "/images/optimized/projects-sept-2026-polymeric-driveway-1200.webp",
+        "width": 1200,
+        "height": 900
+      },
+      {
+        "src": "/images/optimized/projects-sept-2026-polymeric-driveway-1600.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    ]
+  },
+  "/images/projects/sept-2026/pressure-deck.webp": {
+    "width": 2048,
+    "height": 1536,
+    "variants": [
+      {
+        "src": "/images/optimized/projects-sept-2026-pressure-deck-480.webp",
+        "width": 480,
+        "height": 360
+      },
+      {
+        "src": "/images/optimized/projects-sept-2026-pressure-deck-800.webp",
+        "width": 800,
+        "height": 600
+      },
+      {
+        "src": "/images/optimized/projects-sept-2026-pressure-deck-1200.webp",
+        "width": 1200,
+        "height": 900
+      },
+      {
+        "src": "/images/optimized/projects-sept-2026-pressure-deck-1600.webp",
+        "width": 1600,
+        "height": 1200
+      }
+    ]
+  },
+  "/images/projects/sept-2026/pressure-siding-team.webp": {
+    "width": 1536,
+    "height": 2048,
+    "variants": [
+      {
+        "src": "/images/optimized/projects-sept-2026-pressure-siding-team-480.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/images/optimized/projects-sept-2026-pressure-siding-team-800.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/images/optimized/projects-sept-2026-pressure-siding-team-1200.webp",
+        "width": 1200,
+        "height": 1600
+      }
+    ]
+  },
+  "/images/projects/sept-2026/windows1.webp": {
+    "width": 1500,
+    "height": 1000,
+    "variants": [
+      {
+        "src": "/images/optimized/projects-sept-2026-windows1-480.webp",
+        "width": 480,
+        "height": 320
+      },
+      {
+        "src": "/images/optimized/projects-sept-2026-windows1-800.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/optimized/projects-sept-2026-windows1-1200.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
+  },
+  "/images/projects/sept-2026/windows2.webp": {
+    "width": 1500,
+    "height": 1000,
+    "variants": [
+      {
+        "src": "/images/optimized/projects-sept-2026-windows2-480.webp",
+        "width": 480,
+        "height": 320
+      },
+      {
+        "src": "/images/optimized/projects-sept-2026-windows2-800.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/optimized/projects-sept-2026-windows2-1200.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
+  },
+  "/images/projects/sept-2026/windows3.webp": {
+    "width": 1500,
+    "height": 1000,
+    "variants": [
+      {
+        "src": "/images/optimized/projects-sept-2026-windows3-480.webp",
+        "width": 480,
+        "height": 320
+      },
+      {
+        "src": "/images/optimized/projects-sept-2026-windows3-800.webp",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "src": "/images/optimized/projects-sept-2026-windows3-1200.webp",
+        "width": 1200,
+        "height": 800
+      }
+    ]
+  },
+  "/images/services/deckstaining1.png": {
+    "width": 828,
+    "height": 496,
+    "variants": [
+      {
+        "src": "/images/optimized/services-deckstaining1-480.webp",
+        "width": 480,
+        "height": 288
+      },
+      {
+        "src": "/images/optimized/services-deckstaining1-800.webp",
+        "width": 800,
+        "height": 479
+      }
+    ]
+  },
+  "/images/services/dryerventcleaning1.png": {
+    "width": 828,
+    "height": 496,
+    "variants": [
+      {
+        "src": "/images/optimized/services-dryerventcleaning1-480.webp",
+        "width": 480,
+        "height": 288
+      },
+      {
+        "src": "/images/optimized/services-dryerventcleaning1-800.webp",
+        "width": 800,
+        "height": 479
+      }
+    ]
+  },
+  "/images/services/exterior-window-cleaning.png": {
+    "width": 1000,
+    "height": 600,
+    "variants": [
+      {
+        "src": "/images/optimized/services-exterior-window-cleaning-480.webp",
+        "width": 480,
+        "height": 288
+      },
+      {
+        "src": "/images/optimized/services-exterior-window-cleaning-800.webp",
+        "width": 800,
+        "height": 480
+      }
+    ]
+  },
+  "/images/services/gutter-cleaning.png": {
+    "width": 1000,
+    "height": 600,
+    "variants": [
+      {
+        "src": "/images/optimized/services-gutter-cleaning-480.webp",
+        "width": 480,
+        "height": 288
+      },
+      {
+        "src": "/images/optimized/services-gutter-cleaning-800.webp",
+        "width": 800,
+        "height": 480
+      }
+    ]
+  },
+  "/images/services/polymericsand1.png": {
+    "width": 828,
+    "height": 496,
+    "variants": [
+      {
+        "src": "/images/optimized/services-polymericsand1-480.webp",
+        "width": 480,
+        "height": 288
+      },
+      {
+        "src": "/images/optimized/services-polymericsand1-800.webp",
+        "width": 800,
+        "height": 479
+      }
+    ]
+  },
+  "/images/services/pressure-washing.png": {
+    "width": 1400,
+    "height": 600,
+    "variants": [
+      {
+        "src": "/images/optimized/services-pressure-washing-480.webp",
+        "width": 480,
+        "height": 206
+      },
+      {
+        "src": "/images/optimized/services-pressure-washing-800.webp",
+        "width": 800,
+        "height": 343
+      },
+      {
+        "src": "/images/optimized/services-pressure-washing-1200.webp",
+        "width": 1200,
+        "height": 514
+      }
+    ]
+  },
+  "/images/services/pressurewashingcomposite1.png": {
+    "width": 828,
+    "height": 496,
+    "variants": [
+      {
+        "src": "/images/optimized/services-pressurewashingcomposite1-480.webp",
+        "width": 480,
+        "height": 288
+      },
+      {
+        "src": "/images/optimized/services-pressurewashingcomposite1-800.webp",
+        "width": 800,
+        "height": 479
+      }
+    ]
+  },
+  "/images/services/pressurewashingsiding1.png": {
+    "width": 828,
+    "height": 496,
+    "variants": [
+      {
+        "src": "/images/optimized/services-pressurewashingsiding1-480.webp",
+        "width": 480,
+        "height": 288
+      },
+      {
+        "src": "/images/optimized/services-pressurewashingsiding1-800.webp",
+        "width": 800,
+        "height": 479
+      }
+    ]
+  },
+  "/images/services/window-cleaning-header.png": {
+    "width": 1400,
+    "height": 600,
+    "variants": [
+      {
+        "src": "/images/optimized/services-window-cleaning-header-480.webp",
+        "width": 480,
+        "height": 206
+      },
+      {
+        "src": "/images/optimized/services-window-cleaning-header-800.webp",
+        "width": 800,
+        "height": 343
+      },
+      {
+        "src": "/images/optimized/services-window-cleaning-header-1200.webp",
+        "width": 1200,
+        "height": 514
+      }
+    ]
+  },
+  "/images/services/windowcleaningexternalframe1.png": {
+    "width": 828,
+    "height": 496,
+    "variants": [
+      {
+        "src": "/images/optimized/services-windowcleaningexternalframe1-480.webp",
+        "width": 480,
+        "height": 288
+      },
+      {
+        "src": "/images/optimized/services-windowcleaningexternalframe1-800.webp",
+        "width": 800,
+        "height": 479
+      }
+    ]
+  }
+}
